@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<title>About</title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<link href="site_libs/font-awesome-5.0.13/css/fa-svg-with-js.css" rel="stylesheet" />
+<script src="site_libs/font-awesome-5.0.13/js/fontawesome-all.min.js"></script>
+<script src="site_libs/font-awesome-5.0.13/js/fa-v4-shims.min.js"></script>
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+
+</head>
+
+<body>
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 51px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+
+.section h2 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h3 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h4 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h5 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h6 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+
+<div class="container-fluid main-container">
+
+<!-- tabsets -->
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+</script>
+
+<!-- code folding -->
+
+
+
+
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+  padding-left: 25px;
+  text-indent: 0;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row-fluid">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">workplans</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Home</a>
+</li>
+<li>
+  <a href="about.html">About</a>
+</li>
+<li>
+  <a href="license.html">License</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+  <a href="https://github.com/jdblischak/workflowr">
+    <span class="fa fa-github"></span>
+     
+  </a>
+</li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<!-- Add a small amount of space between sections. -->
+<style type="text/css">
+div.section {
+  padding-top: 12px;
+}
+</style>
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">About</h1>
+
+</div>
+
+
+<p><strong>Last updated:</strong> 2018-07-23</p>
+<strong>workflowr checks:</strong> <small>(Click a bullet for more information)</small>
+<ul>
+<li>
+<p><details> <summary> <strong style="color:red;">✖</strong> <strong>R Markdown file:</strong> uncommitted changes </summary> The R Markdown is untracked by Git. To know which version of the R Markdown file created these results, you’ll want to first commit it to the Git repo. If you’re still working on the analysis, you can ignore this warning. When you’re finished, you can run <code>wflow_publish</code> to commit the R Markdown file and build the HTML.</p>
+</details>
+</li>
+<li>
+<p><details> <summary> <strong style="color:blue;">✔</strong> <strong>Repository version:</strong> cdec195 </summary></p>
+Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility. The version displayed above was the version of the Git repository at the time these results were generated. <br><br> Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
+<pre><code>
+Untracked files:
+    Untracked:  analysis/week1.Rmd
+
+Staged changes:
+    New:        docs/drug_drug/bnf_v70.pdf
+    New:        docs/drug_drug/drug_drug_v70.pdf
+    New:        docs/drug_drug/drug_drug_v70.txt
+
+</code></pre>
+Note that any generated files, e.g. HTML, png, CSS, etc., are not included in this status report because it is ok for generated content to have uncommitted changes. </details>
+</li>
+</ul>
+<hr />
+<div id="placement-task-overview" class="section level1">
+<h1>Placement Task overview</h1>
+<div id="coding" class="section level2">
+<h2>Coding</h2>
+<ol style="list-style-type: decimal">
+<li>Data Flow pipelines in R</li>
+<li>Basic data discovery webpage creation (shiny)</li>
+</ol>
+</div>
+<div id="data-cleaning" class="section level2">
+<h2>Data cleaning</h2>
+<ol style="list-style-type: decimal">
+<li>Dataset cleaning and categorisation</li>
+<li>DDD discovery, updating and validation</li>
+<li>dataset discovery from internet</li>
+</ol>
+</div>
+<div id="documentation" class="section level2">
+<h2>Documentation</h2>
+<ol style="list-style-type: decimal">
+<li>Wiki maintenance</li>
+<li>Dataset maintenance</li>
+<li>Workflow maintenance</li>
+<li>Data packaging and validation</li>
+</ol>
+</div>
+</div>
+<div id="week-1-jobs" class="section level1">
+<h1>Week 1 jobs</h1>
+<ul>
+<li>setup rw access to PBS database.
+<ul>
+<li>Tell me desired usernames and passwords</li>
+<li>server: thealfred.duckdns.org</li>
+<li>database: him5ihc_pbs<br />
+</li>
+</ul></li>
+<li>Get ssh accounts on PBS server</li>
+<li>Setup personal github account</li>
+<li>Explore the PBS database</li>
+<li>Explore and update database wiki (add questions / comments to [actual wiki page]<a href="https://en.wikiversity.org/wiki/Health_Datasets/Australian_Medical_Benefits_Scheme_(MBS)_and_Pharmaceutical_Benefits_Scheme_(PBS)" class="uri">https://en.wikiversity.org/wiki/Health_Datasets/Australian_Medical_Benefits_Scheme_(MBS)_and_Pharmaceutical_Benefits_Scheme_(PBS)</a></li>
+<li>Note problems / inconsistencies with database setup / documentation, prepare SQL to repair problems. For example, inconsistent naming.</li>
+<li>Familarize yourself with the <a href="sample.R">sample R code</a>; document things that are difficult to understand</li>
+<li>Send a slack update 3 times / day, to familarize yourself with Slack. Tell us something you are having fun with and/or something that is tricky and/or an outstanding question</li>
+<li>Setup a workflowr workflow process for your project. Make an ‘hello world’ page, publish it on github</li>
+<li>practice R coding from the <a href="http://r4ds.had.co.nz">R for Data Science book</a></li>
+</ul>
+</div>
+<div id="projects" class="section level1">
+<h1>Projects</h1>
+<div id="project-1-exploring-polypharmacy-and-drug-drug-interactions" class="section level2">
+<h2>Project 1 – exploring polypharmacy and drug-drug interactions</h2>
+<ol style="list-style-type: decimal">
+<li>read the article on <a href="https://bmcmedicine.biomedcentral.com/articles/10.1186/s12916-015-0322-7">drug drug interactions</a></li>
+<li>figure out how to match the drugs in the drug drug interaction lists in the [ British Natinonal Forumulary ] [<a href="https://static-content.springer.com/esm/art%3A10.1186%2Fs12916-015-0322-7/MediaObjects/12916_2015_322_MOESM1_ESM.doc">https://static-content.springer.com/esm/art%3A10.1186%2Fs12916-015-0322-7/MediaObjects/12916_2015_322_MOESM1_ESM.doc</a>] with our database, try one of the following things</li>
+</ol>
+<ul>
+<li>Define drug classes; measure how closely our ‘chronic_disease_id’ category matches their drug categories Use the database ATC codes to try and match their categories.</li>
+<li>Develop a technique to manually match the PBS dataset to the drug drug interactions section of the British national formulary, found [ here ] (<a href="https://ebookcentral-proquest-com.ez.library.latrobe.edu.au/lib/latrobe/reader.action?docID=867003&amp;ppg=861" class="uri">https://ebookcentral-proquest-com.ez.library.latrobe.edu.au/lib/latrobe/reader.action?docID=867003&amp;ppg=861</a> ) . Develop process for doing this.<br />
+</li>
+<li><p>alternatively, develop techniques to automatically verify, parse and match the drugs in the <a href="drug_drug/drug_drug_v70.txt">text file</a>, <a href="drug_drug/drug_drug_v70.pdf">pdf chapter here</a> extracted from <a href="drug_drug/bnf_v70.pdf">this book</a>, see example format below:</p>
+<p>Abacavir ▶ Analgesics: abacavir possibly reduces plasma concentration of METHADONE ▶ Antibacterials: plasma concentration of abacavir possibly reduced by RIFAMPICIN</p></li>
+<li><p>Alternatively, find an australian drug-drug interaction database</p></li>
+</ul>
+<p>Then, find concordances, as per paper above: * write code to find people with 2 different types of drugs, prescribed at the same time</p>
+</div>
+<div id="project-2-jobs-as-requested" class="section level2">
+<h2>Project 2 – Jobs as requested</h2>
+<div id="data-cleaning-1" class="section level3">
+<h3>Data cleaning</h3>
+<ol style="list-style-type: decimal">
+<li>Update DDD’s for benzidiazepine (from DDD table in database, and from WHO site)</li>
+<li>Help project 1</li>
+</ol>
+</div>
+<div id="development" class="section level3">
+<h3>Development</h3>
+</div>
+</div>
+</div>
+
+<!-- Adjust MathJax settings so that all math formulae are shown using
+TeX fonts only; see
+http://docs.mathjax.org/en/latest/configuration.html.  This will make
+the presentation more consistent at the cost of the webpage sometimes
+taking slightly longer to load. Note that this only works because the
+footer is added to webpages before the MathJax javascript. -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    "HTML-CSS": { availableFonts: ["TeX"] }
+  });
+</script>
+
+<hr>
+<p>
+  This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a>
+  analysis was created with
+  <a href="https://github.com/jdblischak/workflowr">workflowr</a> 1.1.1
+</p>
+<hr>
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

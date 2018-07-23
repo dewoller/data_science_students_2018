@@ -1,0 +1,65 @@
+---
+title: "About"
+output:
+  workflowr::wflow_html:
+    toc: true
+---
+# Placement Task overview
+##Coding
+  1. Data Flow pipelines in R
+  1. Basic data discovery webpage creation (shiny)
+     
+## Data cleaning
+  1. Dataset cleaning and categorisation
+  1. DDD discovery, updating and validation
+  1. dataset discovery from internet
+
+## Documentation  
+  1. Wiki maintenance
+  1. Dataset maintenance
+  1. Workflow maintenance
+  1. Data packaging and validation
+
+
+#Week 1 jobs
+  * setup rw access to PBS database.  
+    - Tell me desired usernames and passwords
+    - server: thealfred.duckdns.org
+    - database: him5ihc_pbs  
+  * Get ssh accounts on PBS server 
+  * Setup personal github account
+  * Explore the PBS database
+  * Explore and update database wiki (add questions / comments to [actual wiki page]<https://en.wikiversity.org/wiki/Health_Datasets/Australian_Medical_Benefits_Scheme_(MBS)_and_Pharmaceutical_Benefits_Scheme_(PBS)> 
+  * Note problems / inconsistencies with database setup / documentation, prepare SQL to repair problems.  For example, inconsistent naming.
+  * Familarize yourself with the [ sample R code ](sample.R);  document things that are difficult to understand
+  * Send a slack update 3 times / day, to familarize yourself with Slack.  Tell us something you are having fun with and/or something that is tricky and/or an outstanding question
+  * Setup a workflowr workflow process for your project.  Make an ‘hello world’ page, publish it on github
+  * practice R coding from the [ R for Data Science book ](http://r4ds.had.co.nz)
+
+#Projects
+##Project 1 – exploring polypharmacy and drug-drug interactions
+1) read the article on [ drug drug interactions ](https://bmcmedicine.biomedcentral.com/articles/10.1186/s12916-015-0322-7)
+2) figure out how to match the drugs in the drug drug interaction lists in the  [ British Natinonal Forumulary ] [https://static-content.springer.com/esm/art%3A10.1186%2Fs12916-015-0322-7/MediaObjects/12916_2015_322_MOESM1_ESM.doc] with our database, try one of the following things
+  - Define drug classes;  measure how closely our ‘chronic_disease_id’ category matches their drug categories   Use the database ATC codes to try and match their categories.
+  - Develop a technique to manually match the PBS dataset to the drug drug interactions  section of the British national formulary, found [ here ] (https://ebookcentral-proquest-com.ez.library.latrobe.edu.au/lib/latrobe/reader.action?docID=867003&ppg=861 ) .  Develop process for doing this.   
+  - alternatively, develop techniques to automatically verify, parse and match the drugs in the [ text file ](drug_drug/drug_drug_v70.txt), [ pdf chapter here ](drug_drug/drug_drug_v70.pdf)  extracted from [ this book ](drug_drug/bnf_v70.pdf), see example format below:
+
+    Abacavir
+    ▶ Analgesics: abacavir possibly reduces plasma concentration of METHADONE
+    ▶ Antibacterials: plasma concentration of abacavir possibly reduced by RIFAMPICIN
+
+  - Alternatively, find an australian drug-drug interaction database
+
+
+Then, find concordances, as per paper above: 
+    * write code to find people with 2 different types of drugs, prescribed at the same time
+
+##Project 2 – Jobs as requested
+###Data cleaning
+1)	Update DDD’s for benzidiazepine (from DDD table in database, and from WHO site)
+2)	Help project 1
+
+###Development
+
+
+
