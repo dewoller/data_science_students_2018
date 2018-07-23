@@ -225,15 +225,17 @@ div.section {
 <strong>workflowr checks:</strong> <small>(Click a bullet for more information)</small>
 <ul>
 <li>
-<p><details> <summary> <strong style="color:blue;">✔</strong> <strong>R Markdown file:</strong> up-to-date </summary></p>
-<p>Great! Since the R Markdown file has been committed to the Git repository, you know the exact version of the code that produced these results.</p>
+<p><details> <summary> <strong style="color:red;">✖</strong> <strong>R Markdown file:</strong> uncommitted changes </summary> The R Markdown file has unstaged changes. To know which version of the R Markdown file created these results, you’ll want to first commit it to the Git repo. If you’re still working on the analysis, you can ignore this warning. When you’re finished, you can run <code>wflow_publish</code> to commit the R Markdown file and build the HTML.</p>
 </details>
 </li>
 <li>
-<p><details> <summary> <strong style="color:blue;">✔</strong> <strong>Repository version:</strong> cdec195 </summary></p>
+<p><details> <summary> <strong style="color:blue;">✔</strong> <strong>Repository version:</strong> <a href="https://github.com/dewoller/data_science_students_2018/tree/cced5bcb7ecef6ce0c68704a08b36762cf9cbdce" target="_blank">cced5bc</a> </summary></p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility. The version displayed above was the version of the Git repository at the time these results were generated. <br><br> Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
 <pre><code>
-working directory clean
+Unstaged changes:
+    Modified:   analysis/index.Rmd
+    Modified:   analysis/week1.Rmd
+
 </code></pre>
 Note that any generated files, e.g. HTML, png, CSS, etc., are not included in this status report because it is ok for generated content to have uncommitted changes. </details>
 </li>
@@ -263,10 +265,27 @@ Message
 <tbody>
 <tr>
 <td style="text-align:left;">
+html
+</td>
+<td style="text-align:left;">
+<a href="https://cdn.rawgit.com/dewoller/data_science_students_2018/cced5bcb7ecef6ce0c68704a08b36762cf9cbdce/docs/index.html" target="_blank">cced5bc</a>
+</td>
+<td style="text-align:left;">
+Dennis Wollersheim
+</td>
+<td style="text-align:left;">
+2018-07-23
+</td>
+<td style="text-align:left;">
+Week 1 plan
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
 Rmd
 </td>
 <td style="text-align:left;">
-cdec195
+<a href="https://github.com/dewoller/data_science_students_2018/blob/cdec1950e544b9e5b1a2b349cafb2fbca66b25ed/analysis/index.Rmd" target="_blank">cdec195</a>
 </td>
 <td style="text-align:left;">
 Dennis Wollersheim
@@ -283,7 +302,14 @@ Start workflowr project.
 </ul>
 <p></details></p>
 <hr />
-<p>Welcome to my research website.</p>
+<p>Welcome to Data Science Student Placement 2018</p>
+<ul>
+<li><a href="week1.html">Week 1 plan</a></li>
+<li><a href="week2.html">Week 2 plan</a></li>
+<li><a href="week3.html">Week 3 plan</a></li>
+<li><a href="week4.html">Week 4 plan</a></li>
+<li><a href="week5.html">Week 5 plan</a></li>
+</ul>
 
 <!-- Adjust MathJax settings so that all math formulae are shown using
 TeX fonts only; see
