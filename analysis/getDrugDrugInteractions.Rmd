@@ -56,6 +56,7 @@ You need to match up the drugs_to_match with final_drugs.
   * Make a table for the many-many matching process
   * use the ( fuzzy_join package )[https://github.com/dgrtwo/fuzzyjoin] to try and match as much as you can.  
   * Please continue to do the work in this document
+  * As compelling as it seems, please do not edit the drugdrug input file.  I want the work to be data driven as much as possible.
 
 ## groups 
   * possibly ending with S
