@@ -9,6 +9,7 @@ Abatacept	 ETANERCEPT
 Abatacept	 VACCINES 
 Abiraterone	 RIFABUTIN 
 Abiraterone	 RIFAMPICIN 
+Abiraterone	 ST JOHN’S WORT 
 Abiraterone	 CARBAMAZEPINE 
 Abiraterone	 FOSPHENYTOIN 
 Abiraterone	 PHENOBARBITAL 
@@ -107,6 +108,7 @@ Aminophylline	 NORFLOXACIN
 Aminophylline	 RIFAMPICIN  
 Aminophylline	 QUINOLONES 
 Aminophylline	 FLUVOXAMINE  
+Aminophylline	 ST JOHN’S WORT 
 Amiodarone	 ANTI-ARRHYTHMICS 
 Amiodarone	 DISOPYRAMIDE  
 Amiodarone	 DRONEDARONE 
@@ -224,6 +226,7 @@ Antidepressants, SSRI	 MAOIS
 Antidepressants, SSRI	 MOCLOBEMIDE 
 Antidepressants, SSRI	 MOCLOBEMIDE  
 Antidepressants, SSRI	 MOCLOBEMIDE  
+Antidepressants, SSRI	 ST JOHN’S WORT 
 Antidepressants, SSRI	 AGOMELATINE  
 Antidepressants, SSRI	 MIRTAZAPINE 
 Antidepressants, SSRI	 TRICYCLICS 
@@ -310,6 +313,7 @@ Antidepressants, Tricyclic	 DULOXETINE
 Antidepressants, Tricyclic	 MAOIS 
 Antidepressants, Tricyclic	 MOCLOBEMIDE  
 Antidepressants, Tricyclic	 SSRIS 
+Antidepressants, Tricyclic	 ST JOHN’S WORT 
 Antidepressants, Tricyclic	 ANTIEPILEPTICS  
 Antidepressants, Tricyclic	 CARBAMAZEPINE  
 Antidepressants, Tricyclic	 FOSPHENYTOIN  
@@ -498,6 +502,7 @@ Antifungals, Triazole	 RIVAROXABAN
 Antifungals, Triazole	 REBOXETINE 
 Antifungals, Triazole	 AMITRIPTYLINE  
 Antifungals, Triazole	 NORTRIPTYLINE 
+Antifungals, Triazole	 ST JOHN’S WORT 
 Antifungals, Triazole	 GLIPIZIDE 
 Antifungals, Triazole	 NATEGLINIDE 
 Antifungals, Triazole	 REPAGLINIDE 
@@ -710,6 +715,8 @@ Antipsychotics	 PAROXETINE
 Antipsychotics	 VENLAFAXINE 
 Antipsychotics	 MAOIS 
 Antipsychotics	 SSRIS  
+Antipsychotics	 ST JOHN’S WORT 
+Antipsychotics	 ST JOHN’S WORT  
 Antipsychotics	 TRICYCLICS  
 Antipsychotics	 TRICYCLICS 
 Antipsychotics	 TRICYCLICS 
@@ -884,7 +891,9 @@ Apixaban	 RIFAMPICIN
 Apixaban	 ANTICOAGULANTS  
 Apixaban	 DABIGATRAN  
 Apixaban	 RIVAROXABAN  
+Apixaban	 ST JOHN’S WORT 
 Apomorphine	 ONDANSETRON 
+Aprepitant	 ST JOHN’S WORT 
 Aprepitant	 PIMOZIDE 
 Aprepitant	 AVANAFIL 
 Aprepitant	 BOSUTINIB 
@@ -984,6 +993,7 @@ Atazanavir	 CLARITHROMYCIN
 Atazanavir	 RIFABUTIN  
 Atazanavir	 RIFAMPICIN 
 Atazanavir	 TELITHROMYCIN 
+Atazanavir	 ST JOHN’S WORT 
 Atazanavir	 POSACONAZOLE 
 Atazanavir	 VORICONAZOLE  
 Atazanavir	 ARTEMETHER WITH LUMEFANTRINE 
@@ -1145,6 +1155,7 @@ Bosutinib	 TELITHROMYCIN
 Bosutinib	 MOXIFLOXACIN 
 Bosutinib	 RIFABUTIN 
 Bosutinib	 RIFAMPICIN 
+Bosutinib	 ST JOHN’S WORT 
 Bosutinib	 CARBAMAZEPINE 
 Bosutinib	 FOSPHENYTOIN 
 Bosutinib	 PHENOBARBITAL 
@@ -1174,6 +1185,7 @@ Cabazitaxel	 CLARITHROMYCIN
 Cabazitaxel	 TELITHROMYCIN 
 Cabazitaxel	 RIFABUTIN 
 Cabazitaxel	 RIFAMPICIN 
+Cabazitaxel	 ST JOHN’S WORT 
 Cabazitaxel	 CARBAMAZEPINE 
 Cabazitaxel	 FOSPHENYTOIN 
 Cabazitaxel	 PHENOBARBITAL 
@@ -1217,6 +1229,9 @@ Calcium-channel Blockers	 DABIGATRAN
 Calcium-channel Blockers	 FLUOXETINE  
 Calcium-channel Blockers	 IMIPRAMINE 
 Calcium-channel Blockers	 MAOIS 
+Calcium-channel Blockers	 ST JOHN’S WORT 
+Calcium-channel Blockers	 ST JOHN’S WORT 
+Calcium-channel Blockers	 ST JOHN’S WORT 
 Calcium-channel Blockers	 TRICYCLICS 
 Calcium-channel Blockers	 CARBAMAZEPINE 
 Calcium-channel Blockers	 CARBAMAZEPINE 
@@ -1279,6 +1294,7 @@ Calcium-channel Blockers	 LENALIDOMIDE
 Canakinumab	 CLOZAPINE  
 Canakinumab	 VACCINES 
 Cannabis Extract	 RIFAMPICIN 
+Cannabis Extract	 ST JOHN’S WORT 
 Cannabis Extract	 TRICYCLICS 
 Cannabis Extract	 CARBAMAZEPINE 
 Cannabis Extract	 FOSPHENYTOIN 
@@ -1377,6 +1393,7 @@ Carbamazepine	 PROGESTOGENS
 Cardiac Glycosides	 AMIODARONE 
 Cardiac Glycosides	 DRONEDARONE  
 Cardiac Glycosides	 PROPAFENONE  
+Cardiac Glycosides	 ST JOHN’S WORT 
 Cardiac Glycosides	 AMPHOTERICIN 
 Cardiac Glycosides	 ITRACONAZOLE 
 Cardiac Glycosides	 CHLOROQUINE  
@@ -1440,6 +1457,7 @@ Ciclosporin	 FIDAXOMICIN
 Ciclosporin	 MACROLIDES  
 Ciclosporin	 TRIMETHOPRIM 
 Ciclosporin	 DABIGATRAN 
+Ciclosporin	 ST JOHN’S WORT 
 Ciclosporin	 CARBAMAZEPINE 
 Ciclosporin	 FOSPHENYTOIN 
 Ciclosporin	 PHENOBARBITAL 
@@ -1522,6 +1540,7 @@ Cobicistat	 RIFABUTIN
 Cobicistat	 RIFAMPICIN 
 Cobicistat	 APIXABAN 
 Cobicistat	 RIVAROXABAN 
+Cobicistat	 ST JOHN’S WORT 
 Cobicistat	 CARBAMAZEPINE 
 Cobicistat	 FOSPHENYTOIN 
 Cobicistat	 PHENOBARBITAL 
@@ -1636,6 +1655,7 @@ Dabigatran	 APIXABAN
 Dabigatran	 RIVAROXABAN  
 Dabigatran	 SSRI-RELATED ANTIDEPRESSANTS  
 Dabigatran	 SSRIS 
+Dabigatran	 ST JOHN’S WORT 
 Dabigatran	 KETOCONAZOLE 
 Dabigatran	 ITRACONAZOLE 
 Dabigatran	 VERAPAMIL  
@@ -1689,6 +1709,7 @@ Dapoxetine	 CLARITHROMYCIN
 Dapoxetine	 ERYTHROMYCIN  
 Dapoxetine	 TELITHROMYCIN  
 Dapoxetine	 SSRIS 
+Dapoxetine	 ST JOHN’S WORT 
 Dapoxetine	 DULOXETINE 
 Dapoxetine	 TRICYCLICS  
 Dapoxetine	 VENLAFAXINE  
@@ -1710,6 +1731,7 @@ Darunavir	 RIFABUTIN
 Darunavir	 RIFAMPICIN 
 Darunavir	 PAROXETINE  
 Darunavir	 SERTRALINE 
+Darunavir	 ST JOHN’S WORT 
 Darunavir	 ARTEMETHER WITH LUMEFANTRINE 
 Darunavir	 QUININE  
 Darunavir	 ARIPIPRAZOLE  
@@ -1813,6 +1835,7 @@ Disulfiram	 FOSPHENYTOIN
 Disulfiram	 PHENYTOIN  
 Disulfiram	 PARALDEHYDE 
 Diuretics	 MAOIS 
+Diuretics	 ST JOHN’S WORT 
 Diuretics	 TRICYCLICS 
 Diuretics	 CARBAMAZEPINE 
 Diuretics	 FOSPHENYTOIN 
@@ -1906,11 +1929,13 @@ Dronedarone	 DABIGATRAN
 Dronedarone	 RIVAROXABAN 
 Dronedarone	 CITALOPRAM  
 Dronedarone	 ESCITALOPRAM  
+Dronedarone	 ST JOHN’S WORT 
 Dronedarone	 TRICYCLICS  
 Duloxetine	 CIPROFLOXACIN 
 Duloxetine	 DABIGATRAN 
 Duloxetine	 FLUVOXAMINE 
 Duloxetine	 SSRIS 
+Duloxetine	 ST JOHN’S WORT 
 Duloxetine	 AMITRIPTYLINE 
 Duloxetine	 CLOMIPRAMINE 
 Duloxetine	 MOCLOBEMIDE  
@@ -1920,6 +1945,7 @@ Duloxetine	 MOCLOBEMIDE
 Duloxetine	 ARTEMETHER WITH LUMEFANTRINE  
 Duloxetine	 ARTENIMOL WITH PIPERAQUINE 
 Efavirenz	 COUMARINS 
+Efavirenz	 ST JOHN’S WORT 
 Efavirenz	 ITRACONAZOLE 
 Efavirenz	 KETOCONAZOLE  
 Efavirenz	 POSACONAZOLE 
@@ -1954,6 +1980,7 @@ Efavirenz	 TACROLIMUS
 Eltrombopag	 ROSUVASTATIN 
 Elvitegravir	 RIFABUTIN  
 Elvitegravir	 RIFAMPICIN 
+Elvitegravir	 ST JOHN’S WORT 
 Elvitegravir	 CARBAMAZEPINE 
 Elvitegravir	 FOSPHENYTOIN 
 Elvitegravir	 PHENOBARBITAL 
@@ -2137,6 +2164,7 @@ Fosamprenavir	 LIDOCAINE
 Fosamprenavir	 RIFABUTIN  
 Fosamprenavir	 RIFAMPICIN 
 Fosamprenavir	 TELITHROMYCIN 
+Fosamprenavir	 ST JOHN’S WORT 
 Fosamprenavir	 ARTEMETHER WITH LUMEFANTRINE 
 Fosamprenavir	 QUININE  
 Fosamprenavir	 ARIPIPRAZOLE  
@@ -2164,6 +2192,7 @@ Fosamprenavir	 LOMITAPIDE
 Fosamprenavir	 ORLISTAT 
 Fosamprenavir	 RANOLAZINE 
 Fosamprenavir	 TACROLIMUS 
+Fosaprepitant	 ST JOHN’S WORT 
 Fosaprepitant	 PIMOZIDE 
 Fosaprepitant	 BOSUTINIB 
 Fosaprepitant	 IBRUTINIB 
@@ -2208,6 +2237,7 @@ Fosphenytoin	 MAOIS
 Fosphenytoin	 TRICYCLIC- RELATED ANTIDEPRESSANTS  
 Fosphenytoin	 SSRIS  
 Fosphenytoin	 TRICYCLICS  
+Fosphenytoin	 ST JOHN’S WORT 
 Fosphenytoin	 TRICYCLICS 
 Fosphenytoin	 CARBAMAZEPINE 
 Fosphenytoin	 ESLICARBAZEPINE 
@@ -2379,6 +2409,7 @@ Histamine H2-antagonists	 THEOPHYLLINE
 5HT1-receptor Agonists	 MOCLOBEMIDE  
 5HT1-receptor Agonists	 MOCLOBEMIDE  
 5HT1-receptor Agonists	 SSRIS 
+5HT1-receptor Agonists	 ST JOHN’S WORT 
 5HT1-receptor Agonists	 ITRACONAZOLE  
 5HT1-receptor Agonists	 KETOCONAZOLE  
 5HT1-receptor Agonists	 KETOCONAZOLE  
@@ -2407,6 +2438,7 @@ Ibrutinib	 CLARITHROMYCIN
 Ibrutinib	 ERYTHROMYCIN  
 Ibrutinib	 TELITHROMYCIN 
 Ibrutinib	 RIFAMPICIN 
+Ibrutinib	 ST JOHN’S WORT 
 Ibrutinib	 CARBAMAZEPINE 
 Ibrutinib	 FOSPHENYTOIN  
 Ibrutinib	 PHENYTOIN 
@@ -2430,6 +2462,7 @@ Ibrutinib	 IMATINIB
 Idarubicin	 CLOZAPINE  
 Idarubicin	 CICLOSPORIN 
 Idelalisib	 RIFAMPICIN 
+Idelalisib	 ST JOHN’S WORT 
 Idelalisib	 CARBAMAZEPINE 
 Idelalisib	 FOSPHENYTOIN  
 Idelalisib	 PHENYTOIN 
@@ -2438,6 +2471,7 @@ Idelalisib	 PIMOZIDE
 Idelalisib	 QUETIAPINE 
 Ifosfamide	 COUMARINS 
 Imatinib	 RIFAMPICIN 
+Imatinib	 ST JOHN’S WORT 
 Imatinib	 CARBAMAZEPINE 
 Imatinib	 FOSPHENYTOIN 
 Imatinib	 OXCARBAZEPINE  
@@ -2465,6 +2499,7 @@ Indinavir	 FLECAINIDE
 Indinavir	 RIFABUTIN 
 Indinavir	 RIFAMPICIN  
 Indinavir	 TELITHROMYCIN 
+Indinavir	 ST JOHN’S WORT 
 Indinavir	 CARBAMAZEPINE 
 Indinavir	 FOSPHENYTOIN  
 Indinavir	 PHENYTOIN 
@@ -2522,6 +2557,7 @@ Interferons	 TELBIVUDINE
 Interferons	 THEOPHYLLINE  
 Ipilimumab	 CLOZAPINE  
 Ipilimumab	 VACCINES 
+Irinotecan	 ST JOHN’S WORT  
 Irinotecan	 KETOCONAZOLE  
 Irinotecan	 ITRACONAZOLE 
 Irinotecan	 CLOZAPINE  
@@ -2555,6 +2591,7 @@ Ivacaftor	 ERYTHROMYCIN
 Ivacaftor	 TELITHROMYCIN  
 Ivacaftor	 RIFABUTIN 
 Ivacaftor	 RIFAMPICIN 
+Ivacaftor	 ST JOHN’S WORT 
 Ivacaftor	 CARBAMAZEPINE 
 Ivacaftor	 FOSPHENYTOIN 
 Ivacaftor	 PHENOBARBITAL 
@@ -2680,6 +2717,7 @@ Lopinavir	 LIDOCAINE
 Lopinavir	 RIFAMPICIN 
 Lopinavir	 DELAMANID 
 Lopinavir	 TELITHROMYCIN 
+Lopinavir	 ST JOHN’S WORT 
 Lopinavir	 CARBAMAZEPINE 
 Lopinavir	 FOSPHENYTOIN 
 Lopinavir	 PHENOBARBITAL 
@@ -2894,6 +2932,7 @@ MAOIs	 TETRABENAZINE
 Maraviroc	 CLARITHROMYCIN  
 Maraviroc	 TELITHROMYCIN  
 Maraviroc	 RIFAMPICIN 
+Maraviroc	 ST JOHN’S WORT 
 Maraviroc	 KETOCONAZOLE  
 Maraviroc	 ATAZANAVIR 
 Maraviroc	 BOCEPREVIR 
@@ -3050,6 +3089,7 @@ Nevirapine	 CLARITHROMYCIN
 Nevirapine	 RIFABUTIN 
 Nevirapine	 RIFAMPICIN 
 Nevirapine	 WARFARIN 
+Nevirapine	 ST JOHN’S WORT 
 Nevirapine	 KETOCONAZOLE 
 Nevirapine	 FLUCONAZOLE 
 Nevirapine	 CASPOFUNGIN  
@@ -3119,6 +3159,7 @@ Oestrogens	 ERYTHROMYCIN
 Oestrogens	 RIFAMYCINS  
 Oestrogens	 COUMARINS 
 Oestrogens	 PHENINDIONE 
+Oestrogens	 ST JOHN’S WORT  
 Oestrogens	 TRICYCLICS  
 Oestrogens	 CARBAMAZEPINE 
 Oestrogens	 ESLICARBAZEPINE 
@@ -3164,6 +3205,7 @@ Opioid Analgesics	 MOCLOBEMIDE
 Opioid Analgesics	 MOCLOBEMIDE 
 Opioid Analgesics	 SSRIS  
 Opioid Analgesics	 TRICYCLICS 
+Opioid Analgesics	 ST JOHN’S WORT 
 Opioid Analgesics	 TRICYCLICS 
 Opioid Analgesics	 CARBAMAZEPINE 
 Opioid Analgesics	 CARBAMAZEPINE 
@@ -3382,6 +3424,7 @@ Phenobarbital	 MAOIS
 Phenobarbital	 TRICYCLIC-RELATED ANTIDEPRESSANTS 
 Phenobarbital	 SSRIS  
 Phenobarbital	 TRICYCLICS  
+Phenobarbital	 ST JOHN’S WORT 
 Phenobarbital	 TRICYCLICS  
 Phenobarbital	 CARBAMAZEPINE 
 Phenobarbital	 ETHOSUXIMIDE 
@@ -3493,6 +3536,7 @@ Phenytoin	 MAOIS
 Phenytoin	 TRICYCLIC- RELATED ANTIDEPRESSANTS  
 Phenytoin	 SSRIS  
 Phenytoin	 TRICYCLICS  
+Phenytoin	 ST JOHN’S WORT 
 Phenytoin	 TRICYCLICS 
 Phenytoin	 CARBAMAZEPINE 
 Phenytoin	 ESLICARBAZEPINE 
@@ -3655,6 +3699,7 @@ Primidone	 MAOIS
 Primidone	 TRICYCLIC-RELATED ANTIDEPRESSANTS 
 Primidone	 SSRIS  
 Primidone	 TRICYCLICS  
+Primidone	 ST JOHN’S WORT 
 Primidone	 TRICYCLICS  
 Primidone	 CARBAMAZEPINE 
 Primidone	 ETHOSUXIMIDE 
@@ -3705,6 +3750,7 @@ Progestogens	 ERYTHROMYCIN
 Progestogens	 RIFAMYCINS  
 Progestogens	 COUMARINS 
 Progestogens	 PHENINDIONE 
+Progestogens	 ST JOHN’S WORT  
 Progestogens	 CARBAMAZEPINE 
 Progestogens	 ESLICARBAZEPINE 
 Progestogens	 FOSPHENYTOIN 
@@ -4006,6 +4052,7 @@ Rilpivirine	 CLARITHROMYCIN
 Rilpivirine	 ERYTHROMYCIN  
 Rilpivirine	 RIFABUTIN  
 Rilpivirine	 RIFAMPICIN 
+Rilpivirine	 ST JOHN’S WORT  
 Rilpivirine	 CARBAMAZEPINE 
 Rilpivirine	 FOSPHENYTOIN 
 Rilpivirine	 OXCARBAZEPINE 
@@ -4055,6 +4102,7 @@ Ritonavir	 PAROXETINE
 Ritonavir	 TRAZODONE  
 Ritonavir	 SSRIS  
 Ritonavir	 TRICYCLICS 
+Ritonavir	 ST JOHN’S WORT 
 Ritonavir	 CARBAMAZEPINE 
 Ritonavir	 FOSPHENYTOIN  
 Ritonavir	 PHENYTOIN 
@@ -4107,6 +4155,7 @@ Rivaroxaban	 RIFAMPICIN
 Rivaroxaban	 ANTICOAGULANTS  
 Rivaroxaban	 APIXABAN  
 Rivaroxaban	 DABIGATRAN  
+Rivaroxaban	 ST JOHN’S WORT 
 Rivaroxaban	 CARBAMAZEPINE 
 Rivaroxaban	 FOSPHENYTOIN 
 Rivaroxaban	 PHENOBARBITAL 
@@ -4150,6 +4199,84 @@ Ruxolitinib	 LOPINAVIR
 Ruxolitinib	 RITONAVIR 
 Ruxolitinib	 SAQUINAVIR  
 Ruxolitinib	 TELAPREVIR 
+St John’s Wort	 DRONEDARONE 
+St John’s Wort	 BEDAQUILINE 
+St John’s Wort	 TELITHROMYCIN  
+St John’s Wort	 APIXABAN 
+St John’s Wort	 COUMARINS  
+St John’s Wort	 DABIGATRAN 
+St John’s Wort	 RIVAROXABAN 
+St John’s Wort	 DULOXETINE  
+St John’s Wort	 VENLAFAXINE 
+St John’s Wort	 AMITRIPTYLINE 
+St John’s Wort	 SSRIS 
+St John’s Wort	 CARBAMAZEPINE 
+St John’s Wort	 FOSPHENYTOIN 
+St John’s Wort	 PHENOBARBITAL 
+St John’s Wort	 PHENYTOIN  
+St John’s Wort	 PRIMIDONE 
+St John’s Wort	 VORICONAZOLE 
+St John’s Wort	 ARTEMETHER WITH LUMEFANTRINE  
+St John’s Wort	 ARTENIMOL WITH PIPERAQUINE 
+St John’s Wort	 ARIPIPRAZOLE  
+St John’s Wort	 LURASIDONE 
+St John’s Wort	 ATAZANAVIR 
+St John’s Wort	 DARUNAVIR 
+St John’s Wort	 EFAVIRENZ 
+St John’s Wort	 FOSAMPRENAVIR 
+St John’s Wort	 INDINAVIR 
+St John’s Wort	 LOPINAVIR 
+St John’s Wort	 NEVIRAPINE 
+St John’s Wort	 RITONAVIR  
+St John’s Wort	 SAQUINAVIR 
+St John’s Wort	 DACLATASVIR  
+St John’s Wort	 SIMEPREVIR 
+St John’s Wort	 DOLUTEGRAVIR 
+St John’s Wort	 ELVITEGRAVIR 
+St John’s Wort	 ETRAVIRINE 
+St John’s Wort	 SOFOSBUVIR  
+St John’s Wort	 TELAPREVIR 
+St John’s Wort	 MARAVIROC  
+St John’s Wort	 TIPRANAVIR 
+St John’s Wort	 RILPIVIRINE  
+St John’s Wort	 APREPITANT 
+St John’s Wort	 AMLODIPINE  
+St John’s Wort	 FELODIPINE 
+St John’s Wort	 NIFEDIPINE 
+St John’s Wort	 VERAPAMIL 
+St John’s Wort	 CANNABIS EXTRACT 
+St John’s Wort	 DIGOXIN 
+St John’s Wort	 CICLOSPORIN 
+St John’s Wort	 COBICISTAT 
+St John’s Wort	 AXITINIB 
+St John’s Wort	 BORTEZOMIB 
+St John’s Wort	 BOSUTINIB 
+St John’s Wort	 CABOZANTINIB 
+St John’s Wort	 CRIZOTINIB 
+St John’s Wort	 EVEROLIMUS 
+St John’s Wort	 IBRUTINIB 
+St John’s Wort	 IDELALISIB 
+St John’s Wort	 PONATINIB 
+St John’s Wort	 VINFLUNINE 
+St John’s Wort	 CABAZITAXEL 
+St John’s Wort	 DABRAFENIB 
+St John’s Wort	 GEFITINIB 
+St John’s Wort	 LAPATINIB  
+St John’s Wort	 VEMURAFENIB 
+St John’s Wort	 IMATINIB 
+St John’s Wort	 VANDETANIB  
+St John’s Wort	 VISMODEGIB  
+St John’s Wort	 ERIBULIN 
+St John’s Wort	 IRINOTECAN  
+St John’s Wort	 DAPOXETINE  
+St John’s Wort	 EPLERENONE 
+St John’s Wort	 FOSAPREPITANT 
+St John’s Wort	 ABIRATERONE 
+St John’s Wort	 5HT1 AGONISTS 
+St John’s Wort	 IVACAFTOR 
+St John’s Wort	 OESTROGENS  
+St John’s Wort	 PROGESTOGENS  
+St John’s Wort	 TACROLIMUS 
 Saquinavir	 ALFENTANIL 
 Saquinavir	 FENTANYL  
 Saquinavir	 METHADONE 
@@ -4170,6 +4297,7 @@ Saquinavir	 FUSIDIC ACID
 Saquinavir	 TELITHROMYCIN  
 Saquinavir	 TRAZODONE  
 Saquinavir	 TRICYCLICS 
+Saquinavir	 ST JOHN’S WORT 
 Saquinavir	 CARBAMAZEPINE 
 Saquinavir	 FOSPHENYTOIN 
 Saquinavir	 PHENOBARBITAL 
@@ -4268,6 +4396,7 @@ Simeprevir	 TELITHROMYCIN
 Simeprevir	 ERYTHROMYCIN 
 Simeprevir	 RIFABUTIN 
 Simeprevir	 RIFAMPICIN 
+Simeprevir	 ST JOHN’S WORT 
 Simeprevir	 CARBAMAZEPINE 
 Simeprevir	 FOSPHENYTOIN 
 Simeprevir	 OXCARBAZEPINE 
@@ -4521,6 +4650,7 @@ Tacrolimus	 CHLORAMPHENICOL
 Tacrolimus	 TELITHROMYCIN 
 Tacrolimus	 VANCOMYCIN 
 Tacrolimus	 DABIGATRAN 
+Tacrolimus	 ST JOHN’S WORT 
 Tacrolimus	 FOSPHENYTOIN  
 Tacrolimus	 PHENYTOIN 
 Tacrolimus	 PHENOBARBITAL  
@@ -4596,6 +4726,7 @@ Telaprevir	 WARFARIN
 Telaprevir	 APIXABAN 
 Telaprevir	 DABIGATRAN 
 Telaprevir	 TRAZODONE 
+Telaprevir	 ST JOHN’S WORT 
 Telbivudine	 INTERFERON ALFA  
 Telbivudine	 PEGINTERFERON ALFA 
 Telithromycin	 METHADONE 
@@ -4607,6 +4738,7 @@ Telithromycin	 MOXIFLOXACIN
 Telithromycin	 RIFAMPICIN  
 Telithromycin	 CITALOPRAM  
 Telithromycin	 TRICYCLICS 
+Telithromycin	 ST JOHN’S WORT  
 Telithromycin	 CARBAMAZEPINE 
 Telithromycin	 FOSPHENYTOIN 
 Telithromycin	 PHENOBARBITAL 
@@ -4688,6 +4820,7 @@ Theophylline	 NORFLOXACIN
 Theophylline	 RIFAMPICIN  
 Theophylline	 QUINOLONES 
 Theophylline	 FLUVOXAMINE  
+Theophylline	 ST JOHN’S WORT 
 Theophylline	 CARBAMAZEPINE 
 Theophylline	 PHENOBARBITAL  
 Theophylline	 PRIMIDONE  
@@ -4731,6 +4864,7 @@ Tipranavir	 CLARITHROMYCIN
 Tipranavir	 RIFABUTIN  
 Tipranavir	 RIFAMPICIN 
 Tipranavir	 TELITHROMYCIN 
+Tipranavir	 ST JOHN’S WORT 
 Tipranavir	 ARTEMETHER WITH LUMEFANTRINE 
 Tipranavir	 QUININE  
 Tipranavir	 ARIPIPRAZOLE  
@@ -4792,6 +4926,7 @@ Ulipristal	 CLARITHROMYCIN
 Ulipristal	 TELITHROMYCIN 
 Ulipristal	 ERYTHROMYCIN 
 Ulipristal	 RIFAMPICIN  
+Ulipristal	 ST JOHN’S WORT  
 Ulipristal	 CARBAMAZEPINE 
 Ulipristal	 FOSPHENYTOIN 
 Ulipristal	 PHENOBARBITAL 
@@ -4901,6 +5036,7 @@ Vindesine	 ITRACONAZOLE
 Vindesine	 CLOZAPINE  
 Vinflunine	 RIFAMPICIN 
 Vinflunine	 DELAMANID 
+Vinflunine	 ST JOHN’S WORT 
 Vinflunine	 KETOCONAZOLE 
 Vinflunine	 ITRACONAZOLE 
 Vinflunine	 ARTENIMOL WITH PIPERAQUINE 
@@ -4912,6 +5048,7 @@ Vinorelbine	 ITRACONAZOLE
 Vinorelbine	 ARTENIMOL WITH PIPERAQUINE 
 Vinorelbine	 CLOZAPINE  
 Vismodegib	 RIFAMPICIN  
+Vismodegib	 ST JOHN’S WORT  
 Vismodegib	 CARBAMAZEPINE 
 Vismodegib	 FOSPHENYTOIN  
 Vismodegib	 PHENYTOIN  
@@ -4925,4 +5062,3 @@ Zonisamide	 TRICYCLICS
 Zonisamide	 MEFLOQUINE 
 Zonisamide	 ANTIPSYCHOTICS  
 Zonisamide	 ORLISTAT 
-Binary file (standard input) matches
