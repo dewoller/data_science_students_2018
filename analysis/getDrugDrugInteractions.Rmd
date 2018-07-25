@@ -9,11 +9,40 @@ output:
 ```{r}
 library(tidyverse)
 
-read.table( 'data/drug_interactions.txt', sep='\t') %>%
-  as.tibble() %>%
+source('lib/function.R')
+
+read.table( 'data/drug_interactions.txt', sep='\t',header = FALSE) %>%
+  as.tibble() %>% 
+  rename(drug1=V1,drug2=V2) %>%
+  mutate(drug1=str_trim(str_to_upper(drug1))) %>%
+  mutate(drug2=str_trim(str_to_upper(drug2))) %>%
 { . } -> drug_drug
 
+my_db_get_query('Select * from pbs_item JOIN pbs_atc USING (atc_code)')%>%
+  as.tibble()%>%
+  mutate(drug_name = str_trim(drug_name)) %>%
+  { .} ->main_table
 
+drug_drug %>% 
+  distinct(drug1) %>%
+  inner_join(main_table,by=c("drug1"="drug_name")) %>% 
+    distinct(drug1)
+
+drug_drug %>% 
+  distinct(drug1) %>%
+  bind_rows(drug_drug %>% distinct(drug2)) %>%
+  distinct(drug2) %>%
+  {.} -> final_drugs
+
+final_drugs %>% 
+  anti_join(main_table,by=c("drug2"="drug_name")) 
+
+%>%
+  distinct(drug2)
+
+drug_drug %>% 
+  distinct(drug1) %>%
+  count(drug1)
 ```
 
 
