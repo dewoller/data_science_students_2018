@@ -9,8 +9,7 @@ output:
 Welcome to Data Science Student Placement 2018
 
   * [ Week 1 plan ](week1.html)
-  * [ Week 2 plan ](week2.html)
-  * [ Week 3 plan ](week3.html)
-  * [ Week 4 plan ](week4.html)
-  * [ Week 5 plan ](week5.html)
+
+  * [Parse Drug Drug interactions](getDrugDrugInteractions.html)
+
 
