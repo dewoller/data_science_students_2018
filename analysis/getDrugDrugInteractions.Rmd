@@ -6,9 +6,11 @@ output:
     toc: false
 ---
 
-```{r}
-library(tidyverse)
 
+#  match drugs from BNF drug drug interaction with PBS
+
+
+```{r prepare_data}
 source('lib/function.R')
 
 read.table( 'data/drug_interactions.txt', sep='\t',header = FALSE) %>%
@@ -16,34 +18,57 @@ read.table( 'data/drug_interactions.txt', sep='\t',header = FALSE) %>%
   rename(drug1=V1,drug2=V2) %>%
   mutate(drug1=str_trim(str_to_upper(drug1))) %>%
   mutate(drug2=str_trim(str_to_upper(drug2))) %>%
-{ . } -> drug_drug
+{ . } -> drug_drug_concordance
 
 my_db_get_query('Select * from pbs_item JOIN pbs_atc USING (atc_code)')%>%
   as.tibble()%>%
   mutate(drug_name = str_trim(drug_name)) %>%
   { .} ->main_table
 
-drug_drug %>% 
-  distinct(drug1) %>%
-  inner_join(main_table,by=c("drug1"="drug_name")) %>% 
-    distinct(drug1)
-
-drug_drug %>% 
-  distinct(drug1) %>%
-  bind_rows(drug_drug %>% distinct(drug2)) %>%
+drug_drug_concordance %>% 
+  select(drug1) %>%
+  bind_rows(drug_drug_concordance %>% select(drug2)) %>%
   distinct(drug2) %>%
   {.} -> final_drugs
 
+cat("how many drugs do not have as direct match")
 final_drugs %>% 
-  anti_join(main_table,by=c("drug2"="drug_name")) 
+  anti_join(main_table,by=c("drug2"="drug_name")) %>%
+  count()
 
-%>%
-  distinct(drug2)
+cat("how many drugs have a direct match")
+final_drugs %>% 
+  inner_join(main_table,by=c("drug2"="drug_name")) %>%
+  distinct( drug2)%>%
+  count()
 
-drug_drug %>% 
-  distinct(drug1) %>%
-  count(drug1)
+final_drugs %>% 
+  anti_join(main_table,by=c("drug2"="drug_name")) %>%
+  rename( drug_name = drug2) %>%
+  {.} -> drugs_to_match
+
+
 ```
+# TO Do
+
+You need to match up the drugs_to_match with final_drugs.
+
+  * Make a table for the many-many matching process
+  * use the ( fuzzy_join package )[https://github.com/dgrtwo/fuzzyjoin] to try and match as much as you can.  
+  * Please continue to do the work in this document
+
+## groups 
+  * possibly ending with S
+  * you will need to do some research to find the groups
+
+```{r possible groups}
+
+drugs_to_match %>%
+  filter( endsWith(drug_name, 'S')) %>%
+  kable()
+
+```
+
 
 
 
