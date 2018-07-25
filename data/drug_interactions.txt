@@ -1,0 +1,2275 @@
+drug1	drug2
+Abacavir	 TIPRANAVIR 
+Abacavir	 ORLISTAT 
+Abatacept	 ADALIMUMAB 
+Abatacept	 INFLIXIMAB 
+Abatacept	 ETANERCEPT 
+Abatacept	 VACCINES 
+Abiraterone	 RIFAMPICIN 
+Abiraterone	 FOSPHENYTOIN 
+Abiraterone	 PRIMIDONE 
+ACE Inhibitors	 ALISKIREN 
+ACE Inhibitors	 ANGIOTENSIN-II RECEPTOR ANTAGONISTS 
+Adalimumab	 ANAKINRA 
+Adalimumab	 CLOZAPINE  
+Adalimumab	 VACCINES 
+Adenosine	 ANTI-ARRHYTHMICS 
+Adenosine	 ANTIPSYCHOTICS  
+Adenosine	 BETA-BLOCKERS 
+Adenosine	 DIPYRIDAMOLE  
+Adrenergic Neurone Blockers	 GENERAL ANAESTHETICS 
+Adrenergic Neurone Blockers	 ADRENALINE (EPINEPHRINE) 
+Adrenergic Neurone Blockers	 METHYLPHENIDATE 
+Adrenergic Neurone Blockers	 OXYMETAZOLINE 
+Adrenergic Neurone Blockers	 XYLOMETAZOLINE 
+Afatinib	 CLOZAPINE  
+Agomelatine	 CIPROFLOXACIN 
+Agomelatine	 FLUVOXAMINE  
+Agomelatine	 ARTENIMOL WITH PIPERAQUINE 
+Albendazole	 PHENOBARBITAL 
+Albendazole	 PRIMIDONE 
+Albendazole	 RITONAVIR 
+Alcohol	 CYCLOSERINE 
+Alcohol	 COUMARINS  
+Alcohol	 PHENINDIONE 
+Alcohol	 TRICYCLICS 
+Alemtuzumab	 CLOZAPINE  
+Alemtuzumab	 VACCINES 
+Aliskiren	 ACE INHIBITORS 
+Aliskiren	 IRBESARTAN 
+Aliskiren	 ITRACONAZOLE 
+Aliskiren	 CICLOSPORIN 
+Aliskiren	 GRAPEFRUIT JUICE 
+Alpha-blockers	 GENERAL ANAESTHETICS 
+Alpha-blockers	 MAOIS 
+Alpha-blockers	 KETOCONAZOLE 
+Alpha-blockers	 BOCEPREVIR 
+Alpha-blockers	 TELAPREVIR 
+Alpha-blockers	 AVANAFIL 
+Alpha-blockers	 BETA-BLOCKERS 
+Alpha-blockers	 VERAPAMIL 
+Amantadine	 MEMANTINE 
+Aminoglycosides	 CAPREOMYCIN  
+Aminoglycosides	 CEPHALOSPORINS 
+Aminoglycosides	 PHENINDIONE 
+Aminoglycosides	 CICLOSPORIN 
+Aminoglycosides	 PLATINUM COMPOUNDS 
+Aminoglycosides	 LOOP DIURETICS 
+Aminoglycosides	 NON- 
+Aminoglycosides	 SUXAMETHONIUM 
+Aminoglycosides	 PYRIDOSTIGMINE 
+Aminoglycosides	 TACROLIMUS 
+Aminophylline	 QUINOLONES 
+Amiodarone	 DRONEDARONE 
+Amiodarone	 FLECAINIDE 
+Amiodarone	 LEVOFLOXACIN  
+Amiodarone	 TELITHROMYCIN 
+Amiodarone	 PHENINDIONE  
+Amiodarone	 DABIGATRAN  
+Amiodarone	 TRICYCLICS 
+Amiodarone	 PHENYTOIN  
+Amiodarone	 MIZOLASTINE 
+Amiodarone	 CHLOROQUINE 
+Amiodarone	 QUININE 
+Amiodarone	 TOLTERODINE 
+Amiodarone	 ANTIPSYCHOTICS  
+Amiodarone	 PIMOZIDE  
+Amiodarone	 ZUCLOPENTHIXOL 
+Amiodarone	 SULPIRIDE 
+Amiodarone	 SIMEPREVIR  
+Amiodarone	 RITONAVIR  
+Amiodarone	 TELAPREVIR  
+Amiodarone	 ATOMOXETINE 
+Amiodarone	 BETA- BLOCKERS 
+Amiodarone	 BETA-BLOCKERS 
+Amiodarone	 SOTALOL 
+Amiodarone	 VERAPAMIL 
+Amiodarone	 DIGOXIN  
+Amiodarone	 COBICISTAT 
+Amiodarone	 COLCHICINE 
+Amiodarone	 ARSENIC TRIOXIDE 
+Amiodarone	 FINGOLIMOD 
+Amiodarone	 IVABRADINE 
+Amiodarone	 SIMVASTATIN  
+Amiodarone	 LOMITAPIDE 
+Amiodarone	 LITHIUM  
+Amiodarone	 PENTAMIDINE ISETIONATE 
+Amphotericin	 CARDIAC GLYCOSIDES 
+Anabolic Steroids	 PHENINDIONE 
+Anaesthetics, General	 ADRENERGIC NEURONE BLOCKERS 
+Anaesthetics, General	 ALPHA-BLOCKERS 
+Anaesthetics, General	 DROPERIDOL 
+Anaesthetics, General	 VERAPAMIL  
+Anaesthetics, General	 METHOTREXATE 
+Anaesthetics, General	 LEVODOPA 
+Anagrelide	 CILOSTAZOL 
+Anagrelide	 ENOXIMONE  
+Anagrelide	 MILRINONE 
+Anakinra	 GOLIMUMAB  
+Anakinra	 INFLIXIMAB 
+Anakinra	 ETANERCEPT 
+Anakinra	 VACCINES 
+Angiotensin-II Receptor Antagonists	 ACE INHIBITORS 
+Angiotensin-II Receptor Antagonists	 ALISKIREN 
+Antidepressants, SSRI	 AMINOPHYLLINE  
+Antidepressants, SSRI	 TRAMADOL 
+Antidepressants, SSRI	 PROPAFENONE 
+Antidepressants, SSRI	 TELITHROMYCIN 
+Antidepressants, SSRI	 DABIGATRAN 
+Antidepressants, SSRI	 MAOIS 
+Antidepressants, SSRI	 MOCLOBEMIDE  
+Antidepressants, SSRI	 TRICYCLICS  
+Antidepressants, SSRI	 ANTIEPILEPTICS  
+Antidepressants, SSRI	 PHENYTOIN 
+Antidepressants, SSRI	 CYPROHEPTADINE 
+Antidepressants, SSRI	 ARTEMETHER WITH LUMEFANTRINE  
+Antidepressants, SSRI	 QUININE 
+Antidepressants, SSRI	 DROPERIDOL  
+Antidepressants, SSRI	 CLOZAPINE 
+Antidepressants, SSRI	 PERPHENAZINE  
+Antidepressants, SSRI	 PIMOZIDE  
+Antidepressants, SSRI	 RISPERIDONE  
+Antidepressants, SSRI	 RITONAVIR 
+Antidepressants, SSRI	 ZOLPIDEM 
+Antidepressants, SSRI	 PROPRANOLOL 
+Antidepressants, SSRI	 SOTALOL  
+Antidepressants, SSRI	 CLOPIDOGREL 
+Antidepressants, SSRI	 DAPOXETINE  
+Antidepressants, SSRI	 SELEGILINE  
+Antidepressants, SSRI	 TAMOXIFEN  
+Antidepressants, SSRI	 FROVATRIPTAN 
+Antidepressants, SSRI	 ZOLMITRIPTAN  
+Antidepressants, Tricyclic	 ALCOHOL 
+Antidepressants, Tricyclic	 OPIOID ANALGESICS 
+Antidepressants, Tricyclic	 PROPAFENONE 
+Antidepressants, Tricyclic	 MOXIFLOXACIN 
+Antidepressants, Tricyclic	 TELITHROMYCIN 
+Antidepressants, Tricyclic	 COUMARINS 
+Antidepressants, Tricyclic	 ESCITALOPRAM  
+Antidepressants, Tricyclic	 MAOIS 
+Antidepressants, Tricyclic	 FOSPHENYTOIN  
+Antidepressants, Tricyclic	 PRIMIDONE  
+Antidepressants, Tricyclic	 ARTENIMOL WITH PIPERAQUINE 
+Antidepressants, Tricyclic	 FLUPHENAZINE 
+Antidepressants, Tricyclic	 ZUCLOPENTHIXOL  
+Antidepressants, Tricyclic	 RISPERIDONE 
+Antidepressants, Tricyclic	 SAQUINAVIR 
+Antidepressants, Tricyclic	 ATOMOXETINE 
+Antidepressants, Tricyclic	 SOTALOL 
+Antidepressants, Tricyclic	 CLONIDINE 
+Antidepressants, Tricyclic	 ARSENIC TRIOXIDE 
+Antidepressants, Tricyclic	 DAPOXETINE  
+Antidepressants, Tricyclic	 ENTACAPONE 
+Antidepressants, Tricyclic	 SELEGILINE 
+Antidepressants, Tricyclic	 METHYLTHIONINIUM 
+Antidepressants, Tricyclic	 PENTAMIDINE ISETIONATE 
+Antidepressants, Tricyclic	 PHENYLEPHRINE 
+Antidepressants, Tricyclic (related)	 ALCOHOL 
+Antidepressants, Tricyclic (related)	 MOCLOBEMIDE  
+Antidepressants, Tricyclic (related)	 CARBAMAZEPINE 
+Antidepressants, Tricyclic (related)	 PRIMIDONE  
+Antidepressants, Tricyclic (related)	 ARTEMETHER WITH LUMEFANTRINE  
+Antidepressants, Tricyclic (related)	 ARTENIMOL WITH PIPERAQUINE 
+Antidiabetics	 NSAIDS 
+Antidiabetics	 PARACETAMOL  
+Antidiabetics	 RIFAMYCINS  
+Antidiabetics	 TRIMETHOPRIM 
+Antidiabetics	 COUMARINS 
+Antidiabetics	 KETOCONAZOLE 
+Antidiabetics	 VORICONAZOLE 
+Antidiabetics	 BOSENTAN 
+Antidiabetics	 VANDETANIB  
+Antidiabetics	 LOMITAPIDE 
+Antifungals, Imidazole	 TAMSULOSIN 
+Antifungals, Imidazole	 AMINOPHYLLINE 
+Antifungals, Imidazole	 PARACETAMOL 
+Antifungals, Imidazole	 DRONEDARONE 
+Antifungals, Imidazole	 TELITHROMYCIN 
+Antifungals, Imidazole	 RIVAROXABAN 
+Antifungals, Imidazole	 MIRTAZAPINE 
+Antifungals, Imidazole	 GLIPIZIDE 
+Antifungals, Imidazole	 TOLBUTAMIDE 
+Antifungals, Imidazole	 SULFONYLUREAS 
+Antifungals, Imidazole	 CARBAMAZEPINE 
+Antifungals, Imidazole	 PERAMPANEL 
+Antifungals, Imidazole	 MIZOLASTINE  
+Antifungals, Imidazole	 MEFLOQUINE 
+Antifungals, Imidazole	 SOLIFENACIN 
+Antifungals, Imidazole	 TOLTERODINE 
+Antifungals, Imidazole	 QUETIAPINE 
+Antifungals, Imidazole	 DACLATASVIR 
+Antifungals, Imidazole	 DARUNAVIR 
+Antifungals, Imidazole	 TELAPREVIR  
+Antifungals, Imidazole	 ZOLPIDEM 
+Antifungals, Imidazole	 AVANAFIL 
+Antifungals, Triazole	 ALISKIREN 
+Antifungals, Triazole	 AMINOPHYLLINE 
+Antifungals, Triazole	 IBUPROFEN  
+Antifungals, Triazole	 METHADONE  
+Antifungals, Triazole	 OXYCODONE 
+Antifungals, Triazole	 DRONEDARONE 
+Antifungals, Triazole	 RIFABUTIN  
+Antifungals, Triazole	 BEDAQUILINE 
+Antifungals, Triazole	 APIXABAN 
+Antifungals, Triazole	 RIVAROXABAN 
+Antifungals, Triazole	 GLIPIZIDE 
+Antifungals, Triazole	 SULFONYLUREAS 
+Antifungals, Triazole	 CARBAMAZEPINE 
+Antifungals, Triazole	 PHENYTOIN 
+Antifungals, Triazole	 PHENOBARBITAL 
+Antifungals, Triazole	 PRIMIDONE 
+Antifungals, Triazole	 MIZOLASTINE 
+Antifungals, Triazole	 ARTENIMOL WITH PIPERAQUINE  
+Antifungals, Triazole	 SOLIFENACIN 
+Antifungals, Triazole	 LURASIDONE  
+Antifungals, Triazole	 PIMOZIDE 
+Antifungals, Triazole	 RISPERIDONE 
+Antifungals, Triazole	 ATAZANAVIR  
+Antifungals, Triazole	 TIPRANAVIR 
+Antifungals, Triazole	 RITONAVIR 
+Antifungals, Triazole	 SAQUINAVIR 
+Antifungals, Triazole	 ZIDOVUDINE  
+Antifungals, Triazole	 DIAZEPAM  
+Antifungals, Triazole	 BUSPIRONE  
+Antifungals, Triazole	 AVANAFIL 
+Antifungals, Triazole	 BOSENTAN 
+Antifungals, Triazole	 CALCIUM-CHANNEL 
+Antifungals, Triazole	 DIHYDROPYRIDINES  
+Antifungals, Triazole	 DIGOXIN 
+Antifungals, Triazole	 CICLOSPORIN  
+Antifungals, Triazole	 CILOSTAZOL  
+Antifungals, Triazole	 CLOPIDOGREL 
+Antifungals, Triazole	 COLCHICINE  
+Antifungals, Triazole	 METHYLPREDNISOLONE 
+Antifungals, Triazole	 FLUTICASONE 
+Antifungals, Triazole	 BUSULFAN 
+Antifungals, Triazole	 CABOZANTINIB 
+Antifungals, Triazole	 PONATINIB 
+Antifungals, Triazole	 RUXOLITINIB 
+Antifungals, Triazole	 VINBLASTINE 
+Antifungals, Triazole	 VINCRISTINE  
+Antifungals, Triazole	 DAPOXETINE  
+Antifungals, Triazole	 HYDROCHLOROTHIAZIDE 
+Antifungals, Triazole	 DOMPERIDONE 
+Antifungals, Triazole	 ERGOTAMINE 
+Antifungals, Triazole	 ELETRIPTAN  
+Antimuscarinics	 DISOPYRAMIDE 
+Antimuscarinics	 ITRACONAZOLE 
+Antimuscarinics	 ITRACONAZOLE 
+Antimuscarinics	 TIPRANAVIR 
+Antimuscarinics	 RITONAVIR  
+Antimuscarinics	 RITONAVIR 
+Antimuscarinics	 SOTALOL 
+Antipsychotics	 GENERAL ANAESTHETICS 
+Antipsychotics	 OPIOID ANALGESICS 
+Antipsychotics	 AMIODARONE 
+Antipsychotics	 DISOPYRAMIDE 
+Antipsychotics	 DISOPYRAMIDE 
+Antipsychotics	 FLECAINIDE 
+Antipsychotics	 TELITHROMYCIN 
+Antipsychotics	 CLARITHROMYCIN 
+Antipsychotics	 ERYTHROMYCIN  
+Antipsychotics	 ERYTHROMYCIN 
+Antipsychotics	 CIPROFLOXACIN 
+Antipsychotics	 MOXIFLOXACIN 
+Antipsychotics	 CHLORAMPHENICOL  
+Antipsychotics	 MACROLIDES  
+Antipsychotics	 TELITHROMYCIN 
+Antipsychotics	 FLUOXETINE  
+Antipsychotics	 PAROXETINE  
+Antipsychotics	 FLUVOXAMINE 
+Antipsychotics	 SERTRALINE 
+Antipsychotics	 TRICYCLICS 
+Antipsychotics	 CARBAMAZEPINE  
+Antipsychotics	 CARBAMAZEPINE 
+Antipsychotics	 PHENOBARBITAL 
+Antipsychotics	 FOSPHENYTOIN 
+Antipsychotics	 PRIMIDONE  
+Antipsychotics	 VALPROIC ACID 
+Antipsychotics	 FLUCONAZOLE  
+Antipsychotics	 VORICONAZOLE 
+Antipsychotics	 TRIAZOLES 
+Antipsychotics	 ARTENIMOL WITH PIPERAQUINE  
+Antipsychotics	 QUININE 
+Antipsychotics	 MEFLOQUINE  
+Antipsychotics	 MEFLOQUINE 
+Antipsychotics	 QUININE 
+Antipsychotics	 HALOPERIDOL 
+Antipsychotics	 ZUCLOPENTHIXOL  
+Antipsychotics	 PIMOZIDE  
+Antipsychotics	 SULPIRIDE 
+Antipsychotics	 FOSAMPRENAVIR 
+Antipsychotics	 SAQUINAVIR  
+Antipsychotics	 LOPINAVIR 
+Antipsychotics	 TIPRANAVIR 
+Antipsychotics	 TELAPREVIR 
+Antipsychotics	 SAQUINAVIR  
+Antipsychotics	 EFAVIRENZ  
+Antipsychotics	 RITONAVIR  
+Antipsychotics	 RITONAVIR 
+Antipsychotics	 SAQUINAVIR 
+Antipsychotics	 MIDAZOLAM 
+Antipsychotics	 BENZODIAZEPINES  
+Antipsychotics	 BUSPIRONE 
+Antipsychotics	 APREPITANT 
+Antipsychotics	 ATOMOXETINE 
+Antipsychotics	 SOTALOL 
+Antipsychotics	 SOTALOL 
+Antipsychotics	 VERAPAMIL  
+Antipsychotics	 COBICISTAT 
+Antipsychotics	 COBICISTAT 
+Antipsychotics	 VANDETANIB 
+Antipsychotics	 ARSENIC TRIOXIDE 
+Antipsychotics	 DIURETICS 
+Anxiolytics and Hypnotics	 ITRACONAZOLE  
+Anxiolytics and Hypnotics	 VORICONAZOLE  
+Anxiolytics and Hypnotics	 OLANZAPINE 
+Anxiolytics and Hypnotics	 ATAZANAVIR 
+Anxiolytics and Hypnotics	 INDINAVIR 
+Anxiolytics and Hypnotics	 TELAPREVIR  
+Anxiolytics and Hypnotics	 SIMEPREVIR 
+Anxiolytics and Hypnotics	 COBICISTAT 
+Anxiolytics and Hypnotics	 IDELALISIB 
+Apixaban	 DICLOFENAC  
+Apixaban	 KETOROLAC  
+Apixaban	 TELITHROMYCIN 
+Apixaban	 RIFAMPICIN 
+Apixaban	 ANTICOAGULANTS  
+Apixaban	 RIVAROXABAN  
+Apomorphine	 ONDANSETRON 
+Aprepitant	 PIMOZIDE 
+Aprepitant	 AVANAFIL 
+Aprepitant	 IBRUTINIB 
+Argatroban	 DICLOFENAC  
+Argatroban	 KETOROLAC  
+Argatroban	 RIVAROXABAN  
+Arsenic Trioxide	 AMIODARONE  
+Arsenic Trioxide	 DISOPYRAMIDE 
+Arsenic Trioxide	 ERYTHROMYCIN 
+Arsenic Trioxide	 MOXIFLOXACIN 
+Arsenic Trioxide	 AMITRIPTYLINE  
+Arsenic Trioxide	 CLOMIPRAMINE 
+Arsenic Trioxide	 AMPHOTERICIN 
+Arsenic Trioxide	 ARTENIMOL WITH PIPERAQUINE  
+Arsenic Trioxide	 CLOZAPINE  
+Arsenic Trioxide	 SOTALOL 
+Arsenic Trioxide	 VANDETANIB 
+Arsenic Trioxide	 ACETAZOLAMIDE 
+Arsenic Trioxide	 THIAZIDES AND RELATED DIURETICS 
+Arsenic Trioxide	 LITHIUM 
+Artemether with Lumefantrine	 FLECAINIDE  
+Artemether with Lumefantrine	 MACROLIDES  
+Artemether with Lumefantrine	 QUINOLONES 
+Artemether with Lumefantrine	 ANTIDEPRESSANTS 
+Artemether with Lumefantrine	 IMIDAZOLES  
+Artemether with Lumefantrine	 TRIAZOLES 
+Artemether with Lumefantrine	 QUININE 
+Artemether with Lumefantrine	 ANTIPSYCHOTICS 
+Artemether with Lumefantrine	 INDINAVIR 
+Artemether with Lumefantrine	 TIPRANAVIR 
+Artemether with Lumefantrine	 ETRAVIRINE 
+Artemether with Lumefantrine	 METOPROLOL  
+Artemether with Lumefantrine	 SOTALOL 
+Artemether with Lumefantrine	 VANDETANIB 
+Artemether with Lumefantrine	 CIMETIDINE 
+Artenimol with Piperaquine	 METHADONE  
+Artenimol with Piperaquine	 AMIODARONE  
+Artenimol with Piperaquine	 DISOPYRAMIDE  
+Artenimol with Piperaquine	 MACROLIDES  
+Artenimol with Piperaquine	 RIFAMPICIN 
+Artenimol with Piperaquine	 ANTIDEPRESSANTS 
+Artenimol with Piperaquine	 IMIDAZOLES  
+Artenimol with Piperaquine	 TRIAZOLES  
+Artenimol with Piperaquine	 MIZOLASTINE  
+Artenimol with Piperaquine	 ARTEMETHER WITH LUMEFANTRINE 
+Artenimol with Piperaquine	 DROPERIDOL 
+Artenimol with Piperaquine	 PIMOZIDE  
+Artenimol with Piperaquine	 SAQUINAVIR  
+Artenimol with Piperaquine	 SOTALOL  
+Artenimol with Piperaquine	 VINFLUNINE  
+Artenimol with Piperaquine	 VINORELBINE 
+Artenimol with Piperaquine	 DOMPERIDONE  
+Aspirin	 IBUPROFEN 
+Aspirin	 HEPARINS 
+Aspirin	 VENLAFAXINE 
+Aspirin	 PEMETREXED 
+Aspirin	 LOOP DIURETICS  
+Atazanavir	 LIDOCAINE 
+Atazanavir	 TELITHROMYCIN 
+Atazanavir	 VORICONAZOLE  
+Atazanavir	 QUININE  
+Atomoxetine	 TRAMADOL 
+Atomoxetine	 AMIODARONE  
+Atomoxetine	 DISOPYRAMIDE 
+Atomoxetine	 MOXIFLOXACIN 
+Atomoxetine	 TRICYCLICS 
+Atomoxetine	 MEFLOQUINE 
+Atomoxetine	 ANTIPSYCHOTICS  
+Atomoxetine	 SOTALOL 
+Atomoxetine	 DIURETICS 
+Atovaquone	 TETRACYCLINE 
+Atovaquone	 ZIDOVUDINE  
+Avanafil	 ALPHA-BLOCKERS 
+Avanafil	 TELITHROMYCIN 
+Avanafil	 RIFAMPICIN 
+Avanafil	 KETOCONAZOLE 
+Avanafil	 FLUCONAZOLE 
+Avanafil	 VORICONAZOLE 
+Avanafil	 EFAVIRENZ 
+Avanafil	 FOSAMPRENAVIR 
+Avanafil	 RITONAVIR 
+Avanafil	 APREPITANT 
+Avanafil	 VERAPAMIL 
+Avanafil	 NICORANDIL  
+Avanafil	 NITRATES  
+Avanafil	 RIOCIGUAT 
+Axitinib	 CLOZAPINE  
+Azathioprine	 ALLOPURINOL  
+Azathioprine	 TRIMETHOPRIM  
+Azathioprine	 COUMARINS 
+Azathioprine	 RIBAVIRIN 
+Azathioprine	 FEBUXOSTAT 
+Aztreonam	 COUMARINS 
+Basiliximab	 CLOZAPINE  
+Basiliximab	 VACCINES 
+Bedaquiline	 CLOFAZIMINE 
+Bedaquiline	 FOSPHENYTOIN  
+Bedaquiline	 PHENYTOIN 
+Bee Venom Extracts	 ACE INHIBITORS 
+Belimumab	 CLOZAPINE  
+Belimumab	 VACCINES 
+Bendamustine	 CLOZAPINE  
+Beta-blockers	 ALPHA-BLOCKERS 
+Beta-blockers	 BUPIVACAINE 
+Beta-blockers	 ANTI-ARRHYTHMICS 
+Beta-blockers	 DRONEDARONE 
+Beta-blockers	 PROPAFENONE 
+Beta-blockers	 DELAMANID 
+Beta-blockers	 ESCITALOPRAM 
+Beta-blockers	 TRICYCLICS 
+Beta-blockers	 MIZOLASTINE 
+Beta-blockers	 MEFLOQUINE 
+Beta-blockers	 TOLTERODINE 
+Beta-blockers	 PIMOZIDE  
+Beta-blockers	 PHENOTHIAZINES 
+Beta-blockers	 RISPERIDONE 
+Beta-blockers	 TIPRANAVIR 
+Beta-blockers	 ATOMOXETINE 
+Beta-blockers	 VERAPAMIL  
+Beta-blockers	 CICLOSPORIN 
+Beta-blockers	 CLONIDINE  
+Beta-blockers	 ARSENIC TRIOXIDE 
+Bevacizumab	 CLOZAPINE  
+Bevacizumab	 VACCINES 
+Bexarotene	 CLOZAPINE  
+Bile Acids	 CICLOSPORIN 
+Bisphosphonates	 ESTRAMUSTINE 
+Bivalirudin	 DICLOFENAC  
+Bivalirudin	 KETOROLAC  
+Bivalirudin	 RIVAROXABAN  
+Bleomycin	 CLOZAPINE  
+Bleomycin	 CISPLATIN 
+Boceprevir	 RIFAMPICIN  
+Boceprevir	 PRIMIDONE  
+Boceprevir	 KETOCONAZOLE 
+Boceprevir	 ARTEMETHER WITH LUMEFANTRINE 
+Bortezomib	 RIFAMPICIN 
+Bortezomib	 CLOZAPINE  
+Bosentan	 RIFAMPICIN 
+Bosutinib	 METHADONE 
+Bosutinib	 AMIODARONE  
+Bosutinib	 DRONEDARONE 
+Bosutinib	 CLARITHROMYCIN 
+Bosutinib	 RIFAMPICIN 
+Bosutinib	 FOSPHENYTOIN 
+Bosutinib	 PRIMIDONE 
+Bosutinib	 FLUCONAZOLE 
+Bosutinib	 VORICONAZOLE 
+Bosutinib	 HYDROXYCHLOROQUINE 
+Brentuximab vedotin	 KETOCONAZOLE 
+Brentuximab vedotin	 CLOZAPINE  
+Brentuximab vedotin	 BLEOMYCIN 
+Brentuximab vedotin	 VACCINES 
+Bupivacaine	 PROPRANOLOL 
+Bupropion	 TRICYCLICS  
+Bupropion	 TAMOXIFEN  
+Bupropion	 METHYLTHIONINIUM 
+Busulfan	 METRONIDAZOLE  
+Busulfan	 CLOZAPINE  
+Cabazitaxel	 RIFAMPICIN 
+Cabazitaxel	 PRIMIDONE 
+Cabazitaxel	 ITRACONAZOLE  
+Cabazitaxel	 VORICONAZOLE 
+Cabazitaxel	 CLOZAPINE  
+Cabozantinib	 RIFAMPICIN 
+Cabozantinib	 FOSPHENYTOIN 
+Cabozantinib	 PRIMIDONE 
+Cabozantinib	 CLOZAPINE  
+Calcium-channel Blockers	 ALPHA-BLOCKERS 
+Calcium-channel Blockers	 AMINOPHYLLINE 
+Calcium-channel Blockers	 AMINOPHYLLINE  
+Calcium-channel Blockers	 GENERAL ANAESTHETICS  
+Calcium-channel Blockers	 FLECAINIDE 
+Calcium-channel Blockers	 DRONEDARONE 
+Calcium-channel Blockers	 DRONEDARONE 
+Calcium-channel Blockers	 RIFAMPICIN  
+Calcium-channel Blockers	 FIDAXOMICIN 
+Calcium-channel Blockers	 DABIGATRAN  
+Calcium-channel Blockers	 IMIPRAMINE 
+Calcium-channel Blockers	 TRICYCLICS 
+Calcium-channel Blockers	 PHENYTOIN  
+Calcium-channel Blockers	 PHENYTOIN  
+Calcium-channel Blockers	 PRIMIDONE 
+Calcium-channel Blockers	 PRIMIDONE 
+Calcium-channel Blockers	 PHENYTOIN 
+Calcium-channel Blockers	 MICAFUNGIN 
+Calcium-channel Blockers	 LURASIDONE  
+Calcium-channel Blockers	 TELAPREVIR  
+Calcium-channel Blockers	 AVANAFIL 
+Calcium-channel Blockers	 BETA-BLOCKERS 
+Calcium-channel Blockers	 BETA-BLOCKERS 
+Calcium-channel Blockers	 DIGOXIN 
+Calcium-channel Blockers	 CICLOSPORIN  
+Calcium-channel Blockers	 COLCHICINE  
+Calcium-channel Blockers	 VINCRISTINE 
+Calcium-channel Blockers	 FINGOLIMOD 
+Calcium-channel Blockers	 IVABRADINE 
+Calcium-channel Blockers	 LENALIDOMIDE  
+Canakinumab	 CLOZAPINE  
+Canakinumab	 VACCINES 
+Cannabis Extract	 RIFAMPICIN 
+Cannabis Extract	 TRICYCLICS 
+Cannabis Extract	 PRIMIDONE 
+Capecitabine	 ALLOPURINOL 
+Capecitabine	 COUMARINS 
+Capecitabine	 CLOZAPINE  
+Capecitabine	 FOLIC ACID 
+Carbamazepine	 PARACETAMOL  
+Carbamazepine	 PRAZIQUANTEL 
+Carbamazepine	 CASPOFUNGIN 
+Carbamazepine	 MEFLOQUINE 
+Carbamazepine	 RISPERIDONE 
+Carbamazepine	 PALIPERIDONE 
+Carbamazepine	 RILPIVIRINE  
+Carbamazepine	 SAQUINAVIR  
+Carbamazepine	 ETRAVIRINE 
+Carbamazepine	 EFAVIRENZ 
+Carbamazepine	 RITONAVIR 
+Carbamazepine	 NIFEDIPINE 
+Carbamazepine	 VERAPAMIL 
+Carbamazepine	 CANNABIS EXTRACT 
+Carbamazepine	 CICLOSPORIN  
+Carbamazepine	 CLOPIDOGREL 
+Carbamazepine	 COBICISTAT 
+Carbamazepine	 CORTICOSTEROIDS  
+Carbamazepine	 PONATINIB 
+Carbamazepine	 PROCARBAZINE 
+Carbamazepine	 ACETAZOLAMIDE 
+Carbamazepine	 EPLERENONE 
+Carbamazepine	 TOREMIFENE  
+Carbamazepine	 IVACAFTOR 
+Carbamazepine	 SIMVASTATIN 
+Carbamazepine	 OESTROGENS  
+Carbamazepine	 ORLISTAT 
+Carbamazepine	 PROGESTOGENS  
+Cardiac Glycosides	 PROPAFENONE  
+Cardiac Glycosides	 ITRACONAZOLE 
+Cardiac Glycosides	 QUININE 
+Cardiac Glycosides	 TELAPREVIR 
+Cardiac Glycosides	 RITONAVIR 
+Cardiac Glycosides	 NICARDIPINE 
+Cardiac Glycosides	 NIFEDIPINE 
+Cardiac Glycosides	 VERAPAMIL 
+Cardiac Glycosides	 CICLOSPORIN  
+Cardiac Glycosides	 COLCHICINE 
+Carmustine	 CLOZAPINE  
+Caspofungin	 CICLOSPORIN  
+Caspofungin	 TACROLIMUS 
+Catumaxomab	 CLOZAPINE  
+Cephalosporins	 COUMARINS 
+Certolizumab pegol	 ABATACEPT 
+Certolizumab pegol	 ANAKINRA 
+Certolizumab pegol	 CLOZAPINE  
+Certolizumab pegol	 VACCINES 
+Cetuximab	 CLOZAPINE  
+Cetuximab	 VACCINES 
+Chloramphenicol	 COUMARINS 
+Chloramphenicol	 SULFONYLUREAS 
+Chloramphenicol	 PRIMIDONE  
+Chloramphenicol	 CLOZAPINE  
+Chloramphenicol	 CICLOSPORIN 
+Chloramphenicol	 CLOPIDOGREL 
+Chloramphenicol	 TACROLIMUS 
+Chloroprocaine	 SULFONAMIDES  
+Ciclosporin	 ACE INHIBITORS 
+Ciclosporin	 ALISKIREN 
+Ciclosporin	 AMBRISENTAN  
+Ciclosporin	 DICLOFENAC  
+Ciclosporin	 ANGIOTENSIN-II RECEPTOR ANTAGONISTS 
+Ciclosporin	 RIFAMPICIN  
+Ciclosporin	 VANCOMYCIN 
+Ciclosporin	 TRIMETHOPRIM 
+Ciclosporin	 DABIGATRAN 
+Ciclosporin	 PHENOBARBITAL 
+Ciclosporin	 OXCARBAZEPINE 
+Ciclosporin	 KETOCONAZOLE 
+Ciclosporin	 MICONAZOLE  
+Ciclosporin	 MICAFUNGIN 
+Ciclosporin	 HYDROXYCHLOROQUINE  
+Ciclosporin	 ATAZANAVIR  
+Ciclosporin	 RITONAVIR 
+Ciclosporin	 INDINAVIR 
+Ciclosporin	 SAQUINAVIR 
+Ciclosporin	 TELAPREVIR  
+Ciclosporin	 CARVEDILOL 
+Ciclosporin	 URSODEOXYCHOLIC ACID 
+Ciclosporin	 BOSENTAN  
+Ciclosporin	 NICARDIPINE  
+Ciclosporin	 NIFEDIPINE  
+Ciclosporin	 DIGOXIN  
+Ciclosporin	 COLCHICINE 
+Ciclosporin	 PREDNISOLONE 
+Cilostazol	 ANAGRELIDE 
+Cilostazol	 CLARITHROMYCIN  
+Cilostazol	 ERYTHROMYCIN  
+Cilostazol	 KETOCONAZOLE  
+Cilostazol	 ITRACONAZOLE  
+Cilostazol	 TELAPREVIR  
+Cilostazol	 OMEPRAZOLE  
+Cinacalcet	 TAMOXIFEN  
+Cladribine	 CLOZAPINE  
+Cladribine	 LAMIVUDINE 
+Clindamycin	 NON- 
+Clindamycin	 SUXAMETHONIUM 
+Clofazimine	 BEDAQUILINE 
+Clopidogrel	 CIPROFLOXACIN  
+Clopidogrel	 ERYTHROMYCIN 
+Clopidogrel	 HEPARINS 
+Clopidogrel	 MOCLOBEMIDE 
+Clopidogrel	 OXCARBAZEPINE 
+Clopidogrel	 KETOCONAZOLE  
+Clopidogrel	 VORICONAZOLE 
+Co-beneldopa	 VOLATILE LIQUID GENERAL ANAESTHETICS 
+Co-beneldopa	 MOCLOBEMIDE 
+Cobicistat	 ALFUZOSIN 
+Cobicistat	 AMIODARONE 
+Cobicistat	 RIFABUTIN  
+Cobicistat	 RIFAMPICIN 
+Cobicistat	 RIVAROXABAN 
+Cobicistat	 FOSPHENYTOIN 
+Cobicistat	 PRIMIDONE 
+Cobicistat	 LURASIDONE 
+Cobicistat	 PIMOZIDE 
+Cobicistat	 DACLATASVIR 
+Cobicistat	 TIPRANAVIR  
+Cobicistat	 MIDAZOLAM 
+Cobicistat	 IBRUTINIB 
+Cobicistat	 DOMPERIDONE 
+Cobicistat	 ERGOT ALKALOIDS 
+Cobicistat	 SIMVASTATIN 
+Cobicistat	 OESTROGENS 
+Cobicistat	 SILDENAFIL 
+Cobicistat	 TADALAFIL 
+Cobicistat	 VARDENAFIL 
+Co-careldopa	 VOLATILE LIQUID GENERAL ANAESTHETICS 
+Co-careldopa	 MOCLOBEMIDE 
+Colchicine	 AMIODARONE 
+Colesevelam	 CICLOSPORIN 
+Colestyramine	 PHENINDIONE 
+Corticosteroids	 ALDESLEUKIN 
+Corticosteroids	 CLARITHROMYCIN 
+Corticosteroids	 RIFAMYCINS  
+Corticosteroids	 PHENINDIONE 
+Corticosteroids	 PHENOBARBITAL 
+Corticosteroids	 PRIMIDONE  
+Corticosteroids	 KETOCONAZOLE 
+Corticosteroids	 KETOCONAZOLE 
+Corticosteroids	 CASPOFUNGIN 
+Corticosteroids	 TELAPREVIR 
+Corticosteroids	 RITONAVIR 
+Corticosteroids	 RITONAVIR 
+Corticosteroids	 TELAPREVIR 
+Corticosteroids	 CICLOSPORIN 
+Coumarins	 ALCOHOL 
+Coumarins	 ANABOLIC STEROIDS 
+Coumarins	 DICLOFENAC  
+Coumarins	 KETOROLAC  
+Coumarins	 PARACETAMOL 
+Coumarins	 LEVAMISOLE 
+Cranberry Juice	 COUMARINS 
+Crizotinib	 FENTANYL 
+Crizotinib	 RIFAMPICIN 
+Crizotinib	 KETOCONAZOLE 
+Crizotinib	 VORICONAZOLE 
+Crizotinib	 PIMOZIDE 
+Crizotinib	 SAQUINAVIR 
+Crizotinib	 MIDAZOLAM 
+Crizotinib	 CICLOSPORIN 
+Crizotinib	 IBRUTINIB 
+Crizotinib	 ERGOT ALKALOIDS 
+Cyclophosphamide	 CLOZAPINE  
+Cyclophosphamide	 PENTOSTATIN 
+Cycloserine	 ALCOHOL 
+Cytarabine	 CLOZAPINE  
+Dabigatran	 KETOROLAC  
+Dabigatran	 AMIODARONE  
+Dabigatran	 DRONEDARONE 
+Dabigatran	 RIFAMPICIN 
+Dabigatran	 RIVAROXABAN  
+Dabigatran	 SSRI-RELATED ANTIDEPRESSANTS  
+Dabigatran	 SSRIS 
+Dabigatran	 ITRACONAZOLE 
+Dabigatran	 VERAPAMIL  
+Dabigatran	 CICLOSPORIN 
+Dabigatran	 SULFINPYRAZONE 
+Dabigatran	 TACROLIMUS 
+Dabigatran	 TICAGRELOR 
+Dabrafenib	 CLOZAPINE  
+Dabrafenib	 OESTROGENS  
+Dabrafenib	 PROGESTOGENS  
+Dacarbazine	 ALDESLEUKIN 
+Dacarbazine	 CLOZAPINE  
+Daclatasvir	 AMIODARONE 
+Daclatasvir	 TELITHROMYCIN 
+Daclatasvir	 RIFAMPICIN 
+Daclatasvir	 FOSPHENYTOIN 
+Daclatasvir	 PHENYTOIN  
+Daclatasvir	 PRIMIDONE 
+Daclatasvir	 POSACONAZOLE  
+Daclatasvir	 VORICONAZOLE 
+Daclatasvir	 BOCEPREVIR 
+Daclatasvir	 LOPINAVIR  
+Daclatasvir	 NEVIRAPINE  
+Daclatasvir	 DIGOXIN 
+Daclatasvir	 COBICISTAT 
+Dactinomycin	 CLOZAPINE  
+Danaparoid	 DICLOFENAC  
+Danaparoid	 KETOROLAC  
+Danaparoid	 RIVAROXABAN  
+Danazol	 COUMARINS 
+Danazol	 CARBAMAZEPINE  
+Danazol	 CICLOSPORIN 
+Danazol	 SIMVASTATIN 
+Dapoxetine	 ALCOHOL 
+Dapoxetine	 TRAMADOL  
+Dapoxetine	 ERYTHROMYCIN  
+Dapoxetine	 TELITHROMYCIN  
+Dapoxetine	 MAOIS  
+Dapoxetine	 ITRACONAZOLE  
+Dapoxetine	 RITONAVIR  
+Dapoxetine	 FOSAMPRENAVIR  
+Dapoxetine	 5HT1 AGONISTS  
+Dapoxetine	 LITHIUM  
+Dapsone	 SAQUINAVIR 
+Daptomycin	 CICLOSPORIN  
+Daptomycin	 STATINS  
+Darunavir	 RIFAMPICIN 
+Darunavir	 ARTEMETHER WITH LUMEFANTRINE 
+Darunavir	 QUININE  
+Darunavir	 ARIPIPRAZOLE  
+Darunavir	 QUETIAPINE 
+Darunavir	 DIDANOSINE  
+Darunavir	 SIMEPREVIR 
+Darunavir	 BOSUTINIB 
+Darunavir	 IBRUTINIB 
+Darunavir	 ERGOT ALKALOIDS 
+Darunavir	 LOMITAPIDE  
+Darunavir	 ORLISTAT 
+Darunavir	 RANOLAZINE 
+Dasatinib	 ERYTHROMYCIN  
+Dasatinib	 TELITHROMYCIN  
+Dasatinib	 RIFAMPICIN  
+Dasatinib	 CLOZAPINE  
+Dasatinib	 RITONAVIR  
+Decitabine	 CLOZAPINE  
+Deferasirox	 AMINOPHYLLINE  
+Deferasirox	 THEOPHYLLINE  
+Delamanid	 METHADONE 
+Delamanid	 DISOPYRAMIDE 
+Delamanid	 ETHAMBUTOL 
+Delamanid	 TRICYCLICS  
+Delamanid	 HALOPERIDOL  
+Delamanid	 PHENOTHIAZINES  
+Dexrazoxane	 PHENYTOIN 
+Dexrazoxane	 VACCINES 
+Didanosine	 ALLOPURINOL  
+Didanosine	 TIPRANAVIR 
+Didanosine	 HYDROXYCARBAMIDE 
+Didanosine	 ORLISTAT 
+Dimethyl sulfoxide	 SULINDAC 
+Dipyridamole	 ADENOSINE  
+Dipyridamole	 HEPARINS 
+Disopyramide	 DRONEDARONE 
+Disopyramide	 CLARITHROMYCIN  
+Disopyramide	 ERYTHROMYCIN  
+Disopyramide	 MOXIFLOXACIN 
+Disopyramide	 DELAMANID 
+Disopyramide	 TELITHROMYCIN 
+Disopyramide	 TRICYCLICS 
+Disopyramide	 KETOCONAZOLE 
+Disopyramide	 ITRACONAZOLE 
+Disopyramide	 MIZOLASTINE 
+Disopyramide	 ARTENIMOL WITH PIPERAQUINE  
+Disopyramide	 TOLTERODINE 
+Disopyramide	 ANTIPSYCHOTICS  
+Disopyramide	 PIMOZIDE  
+Disopyramide	 SULPIRIDE 
+Disulfiram	 COUMARINS 
+Disulfiram	 PHENYTOIN  
+Disulfiram	 PARALDEHYDE 
+Diuretics	 TRICYCLICS 
+Diuretics	 PHENOBARBITAL 
+Diuretics	 PRIMIDONE 
+Diuretics	 ZONISAMIDE 
+Diuretics	 FLUCONAZOLE  
+Diuretics	 PIMOZIDE  
+Diuretics	 SAQUINAVIR  
+Diuretics	 ATOMOXETINE 
+Diuretics	 SOTALOL 
+Diuretics	 DIGOXIN 
+Diuretics	 CICLOSPORIN 
+Diuretics	 METHOTREXATE 
+Diuretics	 PLATINUM COMPOUNDS 
+Diuretics	 LITHIUM 
+Diuretics	 POTASSIUM SALTS 
+Diuretics	 TACROLIMUS 
+Docetaxel	 TELITHROMYCIN 
+Docetaxel	 VORICONAZOLE 
+Docetaxel	 CLOZAPINE  
+Docetaxel	 SAQUINAVIR 
+Dolutegravir	 RIFAMPICIN  
+Dolutegravir	 NEVIRAPINE  
+Domperidone	 DELAMANID 
+Domperidone	 VORICONAZOLE 
+Domperidone	 ARTENIMOL WITH PIPERAQUINE  
+Domperidone	 RITONAVIR 
+Domperidone	 TELAPREVIR 
+Domperidone	 COBICISTAT 
+Domperidone	 BOSUTINIB  
+Doxapram	 VOLATILE LIQUID GENERAL ANAESTHETICS  
+Doxorubicin	 CLOZAPINE  
+Doxorubicin	 CICLOSPORIN 
+Doxorubicin	 VACCINES 
+Dronedarone	 DISOPYRAMIDE 
+Dronedarone	 TELITHROMYCIN 
+Dronedarone	 RIVAROXABAN 
+Dronedarone	 TRICYCLICS  
+Duloxetine	 CIPROFLOXACIN 
+Duloxetine	 DABIGATRAN 
+Duloxetine	 MOCLOBEMIDE  
+Duloxetine	 MOCLOBEMIDE  
+Duloxetine	 ARTENIMOL WITH PIPERAQUINE 
+Efavirenz	 COUMARINS 
+Efavirenz	 POSACONAZOLE 
+Efavirenz	 CASPOFUNGIN 
+Efavirenz	 PROGUANIL 
+Efavirenz	 PIMOZIDE  
+Efavirenz	 ATAZANAVIR  
+Efavirenz	 DARUNAVIR  
+Efavirenz	 ELVITEGRAVIR 
+Efavirenz	 RITONAVIR 
+Efavirenz	 TELAPREVIR 
+Efavirenz	 MIDAZOLAM 
+Efavirenz	 ATOVAQUONE 
+Efavirenz	 CICLOSPORIN 
+Efavirenz	 BOSUTINIB 
+Efavirenz	 ERGOT ALKALOIDS 
+Efavirenz	 ORLISTAT 
+Efavirenz	 PROGESTOGENS 
+Efavirenz	 TACROLIMUS 
+Eltrombopag	 ROSUVASTATIN 
+Elvitegravir	 RIFABUTIN  
+Elvitegravir	 RIFAMPICIN 
+Elvitegravir	 PRIMIDONE 
+Elvitegravir	 NEVIRAPINE 
+Elvitegravir	 ORLISTAT 
+Emtricitabine	 ORLISTAT 
+Enfuvirtide	 ORLISTAT 
+Entacapone	 WARFARIN 
+Entacapone	 VENLAFAXINE 
+Entacapone	 MAOIS 
+Enteral Foods	 PHENINDIONE 
+Enzalutamide	 COUMARINS 
+Enzalutamide	 GEMFIBROZIL 
+Epirubicin	 CLOZAPINE  
+Epirubicin	 CICLOSPORIN 
+Epirubicin	 CIMETIDINE 
+Ergot Alkaloids	 TETRACYCLINES 
+Eribulin	 CLOZAPINE  
+Erlotinib	 NSAIDS 
+Erlotinib	 ANTACIDS 
+Erlotinib	 COUMARINS 
+Erlotinib	 CLOZAPINE  
+Erlotinib	 BOCEPREVIR 
+Ertapenem	 VALPROIC ACID 
+Eslicarbazepine	 TRICYCLICS  
+Eslicarbazepine	 MEFLOQUINE 
+Eslicarbazepine	 ANTIPSYCHOTICS  
+Eslicarbazepine	 OESTROGENS  
+Eslicarbazepine	 ORLISTAT 
+Eslicarbazepine	 PROGESTOGENS  
+Estramustine	 CLOZAPINE  
+Estramustine	 SODIUM CLODRONATE 
+Etanercept	 ABATACEPT 
+Ethosuximide	 ISONIAZID  
+Ethosuximide	 TRICYCLICS  
+Ethosuximide	 PRIMIDONE 
+Ethosuximide	 VALPROIC ACID 
+Ethosuximide	 MEFLOQUINE 
+Ethosuximide	 ANTIPSYCHOTICS  
+Ethosuximide	 ORLISTAT 
+Etoposide	 COUMARINS 
+Etoposide	 CLOZAPINE  
+Etravirine	 BEDAQUILINE 
+Etravirine	 NEVIRAPINE 
+Etravirine	 TIPRANAVIR 
+Etravirine	 CLOPIDOGREL 
+Etravirine	 BOSUTINIB 
+Etravirine	 ORLISTAT 
+Everolimus	 ACE INHIBITORS 
+Everolimus	 TELITHROMYCIN 
+Everolimus	 RIFAMPICIN  
+Everolimus	 POSACONAZOLE  
+Everolimus	 VORICONAZOLE 
+Everolimus	 CLOZAPINE  
+Everolimus	 INDINAVIR 
+Everolimus	 SAQUINAVIR 
+Everolimus	 VERAPAMIL  
+Everolimus	 CICLOSPORIN  
+Everolimus	 IMATINIB  
+Ezetimibe	 CICLOSPORIN 
+Ezetimibe	 ROSUVASTATIN 
+Ezetimibe	 Fampridine 
+Ezetimibe	 CIMETIDINE 
+Febuxostat	 AZATHIOPRINE 
+Febuxostat	 MERCAPTOPURINE 
+Fibrates	 DAPTOMYCIN  
+Fibrates	 PHENINDIONE 
+Fibrates	 REPAGLINIDE 
+Fibrates	 COLCHICINE 
+Fibrates	 BEXAROTENE 
+Fibrates	 ENZALUTAMIDE 
+Fibrates	 FLUVASTATIN  
+Fibrates	 STATINS 
+Fingolimod	 DISOPYRAMIDE  
+Fingolimod	 DRONEDARONE 
+Fingolimod	 KETOCONAZOLE 
+Fingolimod	 BETA-BLOCKERS 
+Fingolimod	 VERAPAMIL 
+Flecainide	 AMIODARONE  
+Flecainide	 TRICYCLICS 
+Flecainide	 MIZOLASTINE 
+Flecainide	 QUININE 
+Flecainide	 TOLTERODINE 
+Flecainide	 CLOZAPINE 
+Flecainide	 LOPINAVIR  
+Flecainide	 SAQUINAVIR 
+Flecainide	 TELAPREVIR  
+Flecainide	 BETA-BLOCKERS 
+Flecainide	 VERAPAMIL 
+Flecainide	 LOOP DIURETICS 
+Flecainide	 THIAZIDES AND RELATED DIURETICS 
+Fludarabine	 CLOZAPINE  
+Fludarabine	 CYTARABINE 
+Fludarabine	 PENTOSTATIN  
+Fluorouracil	 COUMARINS 
+Fluorouracil	 CLOZAPINE  
+Fluorouracil	 FOLIC ACID 
+Fluorouracil	 TEMOPORFIN 
+Flutamide	 COUMARINS 
+Folates	 TEGAFUR 
+Folates	 RALTITREXED 
+Fondaparinux	 DICLOFENAC  
+Fondaparinux	 KETOROLAC  
+Fondaparinux	 RIVAROXABAN  
+Fosamprenavir	 FLECAINIDE  
+Fosamprenavir	 PROPAFENONE  
+Fosamprenavir	 LIDOCAINE 
+Fosamprenavir	 TELITHROMYCIN 
+Fosamprenavir	 QUININE  
+Fosamprenavir	 QUETIAPINE 
+Fosamprenavir	 RALTEGRAVIR 
+Fosamprenavir	 LOPINAVIR 
+Fosamprenavir	 TIPRANAVIR 
+Fosamprenavir	 MIDAZOLAM  
+Fosamprenavir	 AVANAFIL 
+Fosamprenavir	 CICLOSPORIN 
+Fosamprenavir	 IBRUTINIB 
+Fosamprenavir	 ERGOTAMINE 
+Fosamprenavir	 SIMVASTATIN 
+Fosamprenavir	 LOMITAPIDE  
+Fosamprenavir	 ORLISTAT 
+Fosamprenavir	 RANOLAZINE 
+Fosamprenavir	 TACROLIMUS 
+Fosaprepitant	 PIMOZIDE 
+Fosaprepitant	 IBRUTINIB 
+Fosaprepitant	 OESTROGENS 
+Fosaprepitant	 PROGESTOGENS  
+Foscarnet	 PENTAMIDINE ISETIONATE 
+Fosphenytoin	 AMINOPHYLLINE 
+Fosphenytoin	 ACEMETACIN  
+Fosphenytoin	 PARACETAMOL  
+Fosphenytoin	 LEVAMISOLE 
+Fosphenytoin	 DISOPYRAMIDE 
+Fosphenytoin	 DRONEDARONE 
+Fosphenytoin	 BEDAQUILINE 
+Fosphenytoin	 ISONIAZID   
+Fosphenytoin	 TRIMETHOPRIM  
+Fosphenytoin	 RIVAROXABAN 
+Fosphenytoin	 TRICYCLICS 
+Fosphenytoin	 OXCARBAZEPINE 
+Fosphenytoin	 VIGABATRIN 
+Fosphenytoin	 CASPOFUNGIN 
+Fosphenytoin	 MEFLOQUINE 
+Fosphenytoin	 PYRIMETHAMINE 
+Fosphenytoin	 LURASIDONE 
+Fosphenytoin	 RILPIVIRINE  
+Fosphenytoin	 DOLUTEGRAVIR 
+Fosphenytoin	 TELAPREVIR 
+Fosphenytoin	 ZIDOVUDINE 
+Fusidic Acid	 SAQUINAVIR 
+Fusidic Acid	 STATINS 
+Gabapentin	 TRICYCLICS  
+Gabapentin	 MEFLOQUINE 
+Gabapentin	 ANTIPSYCHOTICS  
+Gabapentin	 ORLISTAT 
+Ganciclovir	 IMIPENEM WITH CILASTATIN 
+Ganciclovir	 ZIDOVUDINE  
+Gefitinib	 RIFAMPICIN 
+Gefitinib	 WARFARIN 
+Gefitinib	 CLOZAPINE  
+Gefitinib	 BOCEPREVIR 
+Gefitinib	 RANITIDINE 
+Gemcitabine	 CLOZAPINE  
+Glucosamine	 Golimumab 
+Glucosamine	 ABATACEPT 
+Grapefruit Juice	 ALISKIREN 
+Grapefruit Juice	 DRONEDARONE 
+Grapefruit Juice	 QUETIAPINE 
+Grapefruit Juice	 CICLOSPORIN  
+Grapefruit Juice	 COLCHICINE  
+Grapefruit Juice	 BUDESONIDE 
+Grapefruit Juice	 IBRUTINIB 
+Grapefruit Juice	 PAZOPANIB 
+Grapefruit Juice	 LOMITAPIDE 
+Griseofulvin	 COUMARINS 
+Heparins	 DICLOFENAC  
+Heparins	 ASPIRIN 
+Heparins	 RIVAROXABAN  
+Heparins	 GLYCERYL TRINITRATE 
+Histamine H2-antagonists	 TOLAZOLINE 
+Histamine H2-antagonists	 AMINOPHYLLINE  
+Histamine H2-antagonists	 LIDOCAINE  
+Histamine H2-antagonists	 COUMARINS 
+Histamine H2-antagonists	 SODIUM 
+Histamine H2-antagonists	 VALPROIC ACID  
+Histamine H2-antagonists	 TERBINAFINE 
+Histamine H2-antagonists	 QUININE  
+Histamine H2-antagonists	 ATAZANAVIR  
+Histamine H2-antagonists	 SAQUINAVIR 
+Histamine H2-antagonists	 CICLOSPORIN 
+Histamine H2-antagonists	 CLOPIDOGREL 
+Histamine H2-antagonists	 ERLOTINIB 
+Histamine H2-antagonists	 PAZOPANIB 
+Histamine H2-antagonists	 ERGOTAMINE 
+Histamine H2-antagonists	 FAMPRIDINE 
+Histamine H2-antagonists	 THEOPHYLLINE  
+5HT1-receptor Agonists	 ERYTHROMYCIN  
+5HT1-receptor Agonists	 QUINOLONES  
+5HT1-receptor Agonists	 CITALOPRAM 
+5HT1-receptor Agonists	 FLUVOXAMINE  
+5HT1-receptor Agonists	 MAOIS  
+5HT1-receptor Agonists	 MOCLOBEMIDE  
+5HT1-receptor Agonists	 KETOCONAZOLE  
+5HT1-receptor Agonists	 RITONAVIR  
+5HT1-receptor Agonists	 DAPOXETINE  
+5HT1-receptor Agonists	 ERGOTAMINE  
+5HT3-receptor Antagonists	 VANDETANIB 
+5HT3-receptor Antagonists	 APOMORPHINE 
+Hydroxycarbamide	 CLOZAPINE  
+Hydroxycarbamide	 STAVUDINE 
+Hydroxychloroquine	 AMIODARONE 
+Hydroxychloroquine	 MOXIFLOXACIN 
+Hydroxychloroquine	 ARTEMETHER WITH LUMEFANTRINE 
+Hydroxychloroquine	 MEFLOQUINE 
+Hydroxychloroquine	 DROPERIDOL 
+Hydroxychloroquine	 DIGOXIN 
+Hydroxychloroquine	 CICLOSPORIN  
+Hydroxychloroquine	 BOSUTINIB 
+Ibrutinib	 DRONEDARONE 
+Ibrutinib	 CLARITHROMYCIN 
+Ibrutinib	 RIFAMPICIN 
+Ibrutinib	 FOSPHENYTOIN  
+Ibrutinib	 PHENYTOIN 
+Ibrutinib	 ITRACONAZOLE  
+Ibrutinib	 VORICONAZOLE 
+Ibrutinib	 CLOZAPINE  
+Ibrutinib	 FOSAMPRENAVIR 
+Ibrutinib	 SAQUINAVIR 
+Ibrutinib	 APREPITANT 
+Ibrutinib	 VERAPAMIL 
+Ibrutinib	 COBICISTAT 
+Ibrutinib	 IMATINIB 
+Idarubicin	 CLOZAPINE  
+Idarubicin	 CICLOSPORIN 
+Idelalisib	 RIFAMPICIN 
+Idelalisib	 FOSPHENYTOIN  
+Idelalisib	 PHENYTOIN 
+Idelalisib	 QUETIAPINE 
+Ifosfamide	 COUMARINS 
+Imatinib	 RIFAMPICIN 
+Imatinib	 OXCARBAZEPINE  
+Imatinib	 PHENYTOIN 
+Imatinib	 CLOZAPINE  
+Imatinib	 BOCEPREVIR 
+Imatinib	 IBRUTINIB 
+Imipenem with Cilastatin	 VALPROIC ACID 
+Imipenem with Cilastatin	 VALGANCICLOVIR 
+Immunoglobulins	 BCG VACCINE 
+Immunoglobulins	 MMR VACCINE 
+Immunoglobulins	 YELLOW FEVER VACCINE 
+Indinavir	 AMIODARONE 
+Indinavir	 FLECAINIDE  
+Indinavir	 TELITHROMYCIN 
+Indinavir	 FOSPHENYTOIN  
+Indinavir	 PHENYTOIN 
+Indinavir	 PRIMIDONE 
+Indinavir	 KETOCONAZOLE  
+Indinavir	 QUININE  
+Indinavir	 ARIPIPRAZOLE  
+Indinavir	 PIMOZIDE  
+Indinavir	 QUETIAPINE 
+Indinavir	 SAQUINAVIR 
+Indinavir	 ALPRAZOLAM 
+Indinavir	 MIDAZOLAM  
+Indinavir	 AVANAFIL 
+Indinavir	 CICLOSPORIN 
+Indinavir	 COLCHICINE  
+Indinavir	 CABAZITAXEL 
+Indinavir	 IBRUTINIB 
+Indinavir	 PONATINIB 
+Indinavir	 DOCETAXEL 
+Indinavir	 ERGOTAMINE 
+Indinavir	 ELETRIPTAN  
+Indinavir	 ROSUVASTATIN 
+Indinavir	 LOMITAPIDE  
+Indinavir	 ORLISTAT 
+Indinavir	 RANOLAZINE 
+Indinavir	 SILDENAFIL 
+Infliximab	 ABATACEPT 
+Infliximab	 ANAKINRA 
+Infliximab	 CLOZAPINE  
+Infliximab	 VACCINES 
+Interferons	 AMINOPHYLLINE  
+Interferons	 TELBIVUDINE 
+Interferons	 THEOPHYLLINE  
+Ipilimumab	 CLOZAPINE  
+Ipilimumab	 VACCINES 
+Irinotecan	 ITRACONAZOLE 
+Irinotecan	 CLOZAPINE  
+Irinotecan	 ATAZANAVIR  
+Irinotecan	 SORAFENIB 
+Isoniazid	 CYCLOSERINE 
+Isoniazid	 CARBAMAZEPINE  
+Isoniazid	 PHENYTOIN  
+Ivabradine	 DISOPYRAMIDE 
+Ivabradine	 ERYTHROMYCIN 
+Ivabradine	 FLUCONAZOLE 
+Ivabradine	 ITRACONAZOLE 
+Ivabradine	 MEFLOQUINE 
+Ivabradine	 PIMOZIDE 
+Ivabradine	 RITONAVIR 
+Ivabradine	 SOTALOL 
+Ivabradine	 VERAPAMIL 
+Ivabradine	 PENTAMIDINE ISETIONATE 
+Ivacaftor	 ERYTHROMYCIN  
+Ivacaftor	 RIFAMPICIN 
+Ivacaftor	 FOSPHENYTOIN 
+Ivacaftor	 PRIMIDONE 
+Ivacaftor	 KETOCONAZOLE  
+Ivacaftor	 VORICONAZOLE  
+Lacosamide	 TRICYCLIC-RELATED ANTIDEPRESSANTS  
+Lacosamide	 SSRIS 
+Lacosamide	 TRICYCLICS  
+Lacosamide	 MEFLOQUINE 
+Lacosamide	 ANTIPSYCHOTICS  
+Lacosamide	 ORLISTAT 
+Lamivudine	 CLADRIBINE 
+Lamivudine	 ORLISTAT 
+Lamotrigine	 RIFAMPICIN 
+Lamotrigine	 TRICYCLICS  
+Lamotrigine	 PHENYTOIN  
+Lamotrigine	 VALPROIC ACID  
+Lamotrigine	 MEFLOQUINE 
+Lamotrigine	 ANTIPSYCHOTICS  
+Lamotrigine	 OESTROGENS 
+Lamotrigine	 ORLISTAT 
+Lapatinib	 RIFAMPICIN  
+Lapatinib	 TELITHROMYCIN 
+Leflunomide	 METHOTREXATE 
+Leflunomide	 VACCINES 
+Lenalidomide	 CLARITHROMYCIN  
+Lenalidomide	 KETOCONAZOLE  
+Lenalidomide	 VERAPAMIL  
+Lenalidomide	 CICLOSPORIN  
+Levamisole	 WARFARIN 
+Levetiracetam	 TRICYCLICS  
+Levetiracetam	 MEFLOQUINE 
+Levetiracetam	 ANTIPSYCHOTICS  
+Levetiracetam	 ORLISTAT 
+Levodopa	 VOLATILE LIQUID GENERAL ANAESTHETICS 
+Levodopa	 MOCLOBEMIDE 
+Lidocaine	 ANTI-ARRHYTHMICS 
+Lidocaine	 ANTIPSYCHOTICS  
+Lidocaine	 FOSAMPRENAVIR 
+Lidocaine	 SAQUINAVIR 
+Lidocaine	 TELAPREVIR 
+Lidocaine	 PROPRANOLOL 
+Lidocaine	 THIAZIDES AND RELATED DIURETICS 
+Lidocaine	 CIMETIDINE  
+Lithium	 ACE INHIBITORS  
+Lithium	 KETOROLAC  
+Lithium	 ANGIOTENSIN-II RECEPTOR ANTAGONISTS  
+Lithium	 AMIODARONE  
+Lithium	 TRICYCLICS 
+Lithium	 PHENOTHIAZINES 
+Lithium	 SULPIRIDE 
+Lithium	 ARSENIC TRIOXIDE 
+Lithium	 DAPOXETINE  
+Lithium	 LOOP DIURETICS  
+Lithium	 POTASSIUM- SPARING DIURETICS AND ALDOSTERONE ANTAGONISTS  
+Lithium	 METHYLDOPA  
+Lomitapide	 DRONEDARONE  
+Lomitapide	 TELITHROMYCIN 
+Lomitapide	 TRIAZOLES  
+Lomitapide	 SAQUINAVIR 
+Lomitapide	 TIPRANAVIR  
+Lomitapide	 VERAPAMIL  
+Lomitapide	 SIMVASTATIN  
+Lomitapide	 BILE ACID SEQUESTRANTS  
+Lomustine	 CLOZAPINE  
+Lopinavir	 LIDOCAINE 
+Lopinavir	 TELITHROMYCIN 
+Lopinavir	 PRIMIDONE 
+Lopinavir	 ARIPIPRAZOLE  
+Lopinavir	 QUETIAPINE 
+Lopinavir	 DARUNAVIR 
+Lopinavir	 EFAVIRENZ 
+Lopinavir	 TENOFOVIR 
+Lopinavir	 TIPRANAVIR 
+Lopinavir	 BOSENTAN  
+Lopinavir	 RUXOLITINIB 
+Macitentan	 RIFAMPICIN 
+Macrolides	 AMINOPHYLLINE  
+Macrolides	 DRONEDARONE  
+Macrolides	 RIFABUTIN  
+Macrolides	 BEDAQUILINE 
+Macrolides	 RIFAMYCINS 
+Macrolides	 DABIGATRAN 
+Macrolides	 TRAZODONE 
+Macrolides	 VALPROIC ACID  
+Macrolides	 ITRACONAZOLE 
+Macrolides	 LORATADINE 
+Macrolides	 MIZOLASTINE 
+Macrolides	 ARTENIMOL WITH PIPERAQUINE  
+Macrolides	 LURASIDONE  
+Macrolides	 PIMOZIDE 
+Macrolides	 QUETIAPINE 
+Macrolides	 SULPIRIDE 
+Macrolides	 ATAZANAVIR 
+Macrolides	 EFAVIRENZ 
+Macrolides	 RITONAVIR  
+Macrolides	 SIMEPREVIR 
+Macrolides	 SIMEPREVIR 
+Macrolides	 TELAPREVIR  
+Macrolides	 ZIDOVUDINE  
+Macrolides	 ZOPICLONE 
+Macrolides	 ATOMOXETINE 
+Macrolides	 AVANAFIL 
+Macrolides	 LERCANIDIPINE 
+Macrolides	 CICLOSPORIN  
+Macrolides	 CILOSTAZOL  
+Macrolides	 CLOPIDOGREL 
+Macrolides	 COLCHICINE  
+Macrolides	 AXITINIB  
+Macrolides	 CABOZANTINIB 
+Macrolides	 IBRUTINIB 
+Macrolides	  PONATINIB 
+Macrolides	 CABAZITAXEL 
+Macrolides	 VINORELBINE 
+Macrolides	 EPLERENONE  
+Macrolides	 DOMPERIDONE  
+Macrolides	 ERGOTAMINE 
+Macrolides	 ELETRIPTAN  
+Macrolides	 IVABRADINE 
+Macrolides	 IVACAFTOR  
+Macrolides	 LENALIDOMIDE  
+Macrolides	 PRAVASTATIN 
+Macrolides	 LOMITAPIDE  
+Macrolides	 PENTAMIDINE ISETIONATE 
+Macrolides	 RANOLAZINE 
+Macrolides	 SILDENAFIL 
+Macrolides	 SIROLIMUS 
+Macrolides	 SIROLIMUS 
+Macrolides	 TACROLIMUS 
+Macrolides	 THEOPHYLLINE  
+Macrolides	 TICAGRELOR 
+Magnesium (parenteral)	 NIFEDIPINE  
+MAOIs	 ALCOHOL  
+MAOIs	 ALPHA-BLOCKERS 
+MAOIs	 FENTANYL 
+MAOIs	 PETHIDINE 
+MAOIs	 OPIOID ANALGESICS 
+MAOIs	 SERTRALINE  
+MAOIs	 DULOXETINE  
+MAOIs	 MAOIS  
+MAOIs	 TRICYCLICS 
+MAOIs	 ANTIEPILEPTICS  
+MAOIs	 CARBAMAZEPINE 
+MAOIs	 ARTENIMOL WITH PIPERAQUINE 
+MAOIs	 CLOZAPINE 
+MAOIs	 BUSPIRONE  
+MAOIs	 ATOMOXETINE 
+MAOIs	 BUPROPION 
+MAOIs	 DAPOXETINE  
+MAOIs	 LEVODOPA 
+MAOIs	 TOLCAPONE 
+MAOIs	 ZOLMITRIPTAN  
+MAOIs	 METHYLDOPA 
+MAOIs	 DOBUTAMINE 
+MAOIs	 NORADRENALINE (NOREPINEPHRINE)  
+MAOIs	 ISOMETHEPTENE 
+MAOIs	 METHYLPHENIDATE 
+MAOIs	 PSEUDOEPHEDRINE 
+MAOIs	 OXYMETAZOLINE 
+MAOIs	 TETRABENAZINE  
+Maraviroc	 RIFAMPICIN 
+Maraviroc	 KETOCONAZOLE  
+Maraviroc	 INDINAVIR 
+Maraviroc	 RITONAVIR 
+Maraviroc	 COBICISTAT  
+Maraviroc	 ORLISTAT 
+Mefloquine	 AMIODARONE 
+Mefloquine	 MOXIFLOXACIN 
+Mefloquine	 RIFAMPICIN 
+Mefloquine	 ANTIEPILEPTICS 
+Mefloquine	 ARTEMETHER WITH LUMEFANTRINE 
+Mefloquine	 QUININE  
+Mefloquine	 RISPERIDONE 
+Melphalan	 CLOZAPINE  
+Melphalan	 CICLOSPORIN 
+Memantine	 KETAMINE  
+Memantine	 DEXTROMETHORPHAN  
+Memantine	 AMANTADINE  
+Mepacrine	 ALLOPURINOL  
+Mepacrine	 TRIMETHOPRIM  
+Mepacrine	 COUMARINS 
+Mepacrine	 CLOZAPINE  
+Mepacrine	 FEBUXOSTAT 
+Meropenem	 VALPROIC ACID 
+Methenamine	 SULFONAMIDES 
+Methenamine	 ACETAZOLAMIDE 
+Methotrexate	 NITROUS OXIDE 
+Methotrexate	 DICLOFENAC 
+Methotrexate	 MELOXICAM  
+Methotrexate	 NAPROXEN  
+Methotrexate	 CIPROFLOXACIN  
+Methotrexate	 TRIMETHOPRIM  
+Methotrexate	 PYRIMETHAMINE 
+Methotrexate	 CLOZAPINE  
+Methotrexate	 CICLOSPORIN 
+Methotrexate	 CISPLATIN 
+Methotrexate	 LEFLUNOMIDE 
+Methotrexate	 ACITRETIN  
+Methylthioninium	 SSRIS  
+Methylthioninium	 MIRTAZAPINE 
+Methylthioninium	 BUSPIRONE 
+Methylthioninium	 BUPROPION 
+Metoclopramide	 CICLOSPORIN 
+Metronidazole	 COUMARINS 
+Metronidazole	 TEGAFUR  
+Mirtazapine	 ALCOHOL 
+Mirtazapine	 MOCLOBEMIDE  
+Mirtazapine	 ARTENIMOL WITH PIPERAQUINE 
+Mirtazapine	 METHYLTHIONINIUM 
+Mitomycin	 CLOZAPINE  
+Mitotane	 COUMARINS 
+Mitotane	 CLOZAPINE  
+Mitoxantrone	 CLOZAPINE  
+Mitoxantrone	 OPIOID ANALGESICS 
+Mitoxantrone	 FLUVOXAMINE 
+Mitoxantrone	 TRICYCLIC- 
+Mitoxantrone	 DULOXETINE 
+Mitoxantrone	 ARTENIMOL WITH PIPERAQUINE 
+Mitoxantrone	 BUPROPION 
+Mitoxantrone	 CLOPIDOGREL 
+Mitoxantrone	 SELEGILINE 
+Mitoxantrone	 ZOLMITRIPTAN  
+Mitoxantrone	 SYMPATHOMIMETICS 
+Modafinil	 CICLOSPORIN 
+Modafinil	 BOSUTINIB 
+Modafinil	 OESTROGENS  
+Moxisylyte	 ALPHA-BLOCKERS 
+Moxisylyte	 BETA-BLOCKERS 
+Muscle Relaxants	 VOLATILE LIQUID GENERAL ANAESTHETICS 
+Muscle Relaxants	 CLINDAMYCIN 
+Muscle Relaxants	 POLYMYXINS 
+Muscle Relaxants	 VANCOMYCIN 
+Muscle Relaxants	 TRICYCLICS 
+Muscle Relaxants	 CARBAMAZEPINE  
+Muscle Relaxants	 PHENYTOIN  
+Mycophenolate	 RIFAMPICIN 
+Nalmefene	  Naproxen  
+Natalizumub	 CLOZAPINE  
+Natalizumub	 VACCINES 
+Nefopam	 TRICYCLICS 
+Nevirapine	 RIFAMPICIN 
+Nevirapine	 WARFARIN 
+Nevirapine	 FLUCONAZOLE 
+Nevirapine	 ITRACONAZOLE 
+Nevirapine	 ARIPIPRAZOLE  
+Nevirapine	 FOSAMPRENAVIR 
+Nevirapine	 ZIDOVUDINE 
+Nevirapine	 OESTROGENS  
+Nevirapine	 ORLISTAT 
+Nevirapine	 PROGESTOGENS  
+Nicorandil	 AVANAFIL  
+Nicorandil	 SILDENAFIL  
+Nicorandil	 TADALAFIL  
+Nicorandil	 VARDENAFIL 
+Nicotinic Acid	 STATINS  
+Nilotinib	 RIFAMPICIN 
+Nilotinib	 VORICONAZOLE 
+Nilotinib	 CLOZAPINE  
+Nilotinib	 RITONAVIR 
+Nilotinib	 GRAPEFRUIT JUICE 
+Nintedanib	 RIFAMPICIN 
+Nintedanib	 KETOCONAZOLE 
+Nitrates	 HEPARINS 
+Nitrates	 AVANAFIL  
+Nitrates	 RIOCIGUAT 
+Nitrates	 SILDENAFIL  
+Nitrates	 TADALAFIL  
+Nitrates	 VARDENAFIL 
+NSAIDs	 ASPIRIN 
+NSAIDs	 QUINOLONES 
+NSAIDs	 ANTICOAGULANTS  
+NSAIDs	 HEPARINS 
+NSAIDs	 VENLAFAXINE 
+NSAIDs	 SULFONYLUREAS 
+Obinutuzumab	 CLOZAPINE  
+Obinutuzumab	 VACCINES 
+Octreotide	 CICLOSPORIN 
+Oestrogens	 RIFAMYCINS  
+Oestrogens	 PHENINDIONE 
+Oestrogens	 TRICYCLICS  
+Oestrogens	 FOSPHENYTOIN 
+Oestrogens	 PRIMIDONE 
+Oestrogens	 VALPROIC ACID 
+Oestrogens	 ATAZANAVIR 
+Oestrogens	 TELAPREVIR 
+Ofatumumab	 CLOZAPINE  
+Ofatumumab	 VACCINES 
+Opioid Analgesics	 RIFAMPICIN 
+Opioid Analgesics	 TELITHROMYCIN 
+Opioid Analgesics	 TELITHROMYCIN 
+Opioid Analgesics	 COUMARINS 
+Opioid Analgesics	 PAROXETINE  
+Opioid Analgesics	 MAOIS 
+Opioid Analgesics	 MOCLOBEMIDE 
+Opioid Analgesics	 TRICYCLICS 
+Opioid Analgesics	 PRIMIDONE 
+Opioid Analgesics	 GABAPENTIN 
+Opioid Analgesics	 FLUCONAZOLE  
+Opioid Analgesics	 ITRACONAZOLE 
+Opioid Analgesics	 TRIAZOLES 
+Opioid Analgesics	 SEDATING ANTIHISTAMINES 
+Opioid Analgesics	 ARTENIMOL WITH PIPERAQUINE  
+Opioid Analgesics	 AMISULPRIDE 
+Opioid Analgesics	 RITONAVIR 
+Opioid Analgesics	 ZIDOVUDINE 
+Opioid Analgesics	 ATOMOXETINE 
+Opioid Analgesics	 BOSUTINIB 
+Opioid Analgesics	 VANDETANIB 
+Opioid Analgesics	 DAPOXETINE  
+Opioid Analgesics	 SELEGILINE  
+Orlistat	 ANTIEPILEPTICS 
+Orlistat	 ABACAVIR 
+Orlistat	 EFAVIRENZ 
+Orlistat	 ETRAVIRINE 
+Orlistat	 TENOFOVIR 
+Orlistat	 ZIDOVUDINE 
+Orlistat	 CICLOSPORIN 
+Oxcarbazepine	 TRICYCLICS  
+Oxcarbazepine	 PRIMIDONE 
+Oxcarbazepine	 PERAMPANEL  
+Oxcarbazepine	 VALPROIC ACID 
+Oxcarbazepine	 MEFLOQUINE 
+Oxcarbazepine	 ANTIPSYCHOTICS  
+Oxcarbazepine	 SIMEPREVIR 
+Oxcarbazepine	 RILPIVIRINE  
+Oxcarbazepine	 CLOPIDOGREL 
+Oxcarbazepine	 IMATINIB 
+Oxcarbazepine	 OESTROGENS  
+Oxcarbazepine	 ORLISTAT 
+Oxcarbazepine	 PROGESTOGENS  
+Paclitaxel	 CLOZAPINE  
+Paclitaxel	 LAPATINIB 
+Panitumumab	 CLOZAPINE  
+Panitumumab	 VACCINES 
+Paraldehyde	 ALCOHOL 
+Paraldehyde	 DISULFIRAM 
+Parasympathomimetics	 CLINDAMYCIN 
+Parasympathomimetics	 POLYMYXINS 
+Pasireotide	 CICLOSPORIN 
+Pazopanib	 RIFAMPICIN 
+Pazopanib	 KETOCONAZOLE  
+Pazopanib	 VORICONAZOLE  
+Pazopanib	 CLOZAPINE  
+Pazopanib	 BOCEPREVIR 
+Pazopanib	 SAQUINAVIR 
+Pemetrexed	 PYRIMETHAMINE 
+Pemetrexed	 CLOZAPINE  
+Penicillamine	 CLOZAPINE  
+Penicillins	 VALPROIC ACID 
+Pentamidine Isetionate	 AMIODARONE 
+Pentamidine Isetionate	 DISOPYRAMIDE 
+Pentamidine Isetionate	 MOXIFLOXACIN 
+Pentamidine Isetionate	 DELAMANID 
+Pentamidine Isetionate	 TELITHROMYCIN 
+Pentamidine Isetionate	 ESCITALOPRAM  
+Pentamidine Isetionate	 TRICYCLICS 
+Pentamidine Isetionate	 ARTENIMOL WITH PIPERAQUINE  
+Pentamidine Isetionate	 AMISULPRIDE  
+Pentamidine Isetionate	 PHENOTHIAZINES 
+Pentamidine Isetionate	 SAQUINAVIR 
+Pentamidine Isetionate	 VANDETANIB 
+Pentamidine Isetionate	 IVABRADINE 
+Pentostatin	 CLOZAPINE  
+Pentostatin	 FLUDARABINE  
+Pentoxifylline	 KETOROLAC  
+Perampanel	 TRICYCLICS  
+Perampanel	 OXCARBAZEPINE  
+Perampanel	 TOPIRAMATE 
+Perampanel	 MEFLOQUINE 
+Perampanel	 ANTIPSYCHOTICS  
+Perampanel	 ORLISTAT 
+Perampanel	 PROGESTOGENS  
+Pertuzumab	 CLOZAPINE  
+Pertuzumab	 VACCINES 
+Phenindione	 ALCOHOL 
+Phenindione	 ANABOLIC STEROIDS 
+Phenindione	 DICLOFENAC  
+Phenindione	 ASPIRIN  
+Phenindione	 DRONEDARONE 
+Phenindione	 TETRACYCLINES 
+Phenindione	 SULFONAMIDES 
+Phenindione	 RIVAROXABAN  
+Phenindione	 RITONAVIR 
+Phenindione	 CLOPIDOGREL 
+Phenindione	 DIPYRIDAMOLE 
+Phenindione	 ENTERAL FEEDS  
+Phenindione	 FIBRATES 
+Phenobarbital	 AMINOPHYLLINE  
+Phenobarbital	 PRAZIQUANTEL 
+Phenobarbital	 PROPAFENONE 
+Phenobarbital	 TELITHROMYCIN  
+Phenobarbital	 COUMARINS  
+Phenobarbital	 RIVAROXABAN 
+Phenobarbital	 TRICYCLIC-RELATED ANTIDEPRESSANTS 
+Phenobarbital	 TRICYCLICS  
+Phenobarbital	 STIRIPENTOL 
+Phenobarbital	 POSACONAZOLE 
+Phenobarbital	 GRISEOFULVIN  
+Phenobarbital	 MEFLOQUINE 
+Phenobarbital	 LURASIDONE 
+Phenobarbital	 SAQUINAVIR 
+Phenobarbital	 TELAPREVIR 
+Phenobarbital	 ISRADIPINE 
+Phenobarbital	 NIMODIPINE  
+Phenobarbital	 CANNABIS EXTRACT 
+Phenobarbital	 CICLOSPORIN  
+Phenobarbital	 COBICISTAT 
+Phenobarbital	 CORTICOSTEROIDS  
+Phenobarbital	 PONATINIB 
+Phenobarbital	 IRINOTECAN  
+Phenobarbital	 PROCARBAZINE 
+Phenobarbital	 CARBONIC ANHYDRASE INHIBITORS 
+Phenobarbital	 TOREMIFENE  
+Phenobarbital	 IVACAFTOR 
+Phenobarbital	 OESTROGENS  
+Phenobarbital	 ORLISTAT 
+Phenobarbital	 PROGESTOGENS  
+Phenobarbital	 TACROLIMUS 
+Phenobarbital	 THEOPHYLLINE  
+Phenobarbital	 ULIPRISTAL  
+Phenytoin	 AMINOPHYLLINE 
+Phenytoin	 ASPIRIN 
+Phenytoin	 PARACETAMOL  
+Phenytoin	 LEVAMISOLE 
+Phenytoin	 DRONEDARONE 
+Phenytoin	 BEDAQUILINE 
+Phenytoin	 ISONIAZID  
+Phenytoin	 TELITHROMYCIN  
+Phenytoin	 TRIMETHOPRIM  
+Phenytoin	 RIVAROXABAN 
+Phenytoin	 TRICYCLICS 
+Phenytoin	 ESLICARBAZEPINE 
+Phenytoin	 ZONISAMIDE 
+Phenytoin	 PERAMPANEL  
+Phenytoin	 RETIGABINE 
+Phenytoin	 VIGABATRIN 
+Phenytoin	 CASPOFUNGIN 
+Phenytoin	 MEFLOQUINE 
+Phenytoin	 PYRIMETHAMINE 
+Phenytoin	 LURASIDONE 
+Phenytoin	 SAQUINAVIR 
+Phenytoin	 ZIDOVUDINE 
+Phenytoin	 NIMODIPINE  
+Phenytoin	 DILTIAZEM  
+Phenytoin	 CANNABIS EXTRACT 
+Phenytoin	 CICLOSPORIN  
+Phenytoin	 COBICISTAT 
+Phenytoin	 CORTICOSTEROIDS  
+Phenytoin	 BORTEZOMIB 
+Phenytoin	 IDELALISIB  
+Phenytoin	 CABOZANTINIB 
+Phenytoin	 LAPATINIB  
+Phenytoin	 PROCARBAZINE 
+Phenytoin	 DEXRAZOXANE 
+Phenytoin	 DISULFIRAM  
+Phenytoin	 FUROSEMIDE 
+Phenytoin	 CARBONIC ANHYDRASE INHIBITORS 
+Phenytoin	 TOREMIFENE 
+Phenytoin	 IVACAFTOR 
+Phosphodiesterase Type-3 Inhibitors	 ANAGRELIDE 
+Pirfenidone	 CIPROFLOXACIN 
+Pirfenidone	 FLUVOXAMINE 
+Pixantrone	 CLOZAPINE  
+Pixantrone	 VACCINES 
+Platinum Compounds	 ALDESLEUKIN 
+Platinum Compounds	 VANCOMYCIN 
+Platinum Compounds	 CLOZAPINE  
+Platinum Compounds	 METHOTREXATE 
+Polymyxins	 CICLOSPORIN 
+Polymyxins	 PLATINUM COMPOUNDS 
+Polymyxins	 LOOP DIURETICS 
+Polymyxins	 NON- 
+Polymyxins	 SUXAMETHONIUM 
+Polymyxins	 PYRIDOSTIGMINE 
+Pomalidomide	 FLUVOXAMINE 
+Ponatinib	 TELITHROMYCIN 
+Ponatinib	 RIFAMPICIN 
+Potassium Salts	 ACE INHIBITORS 
+Potassium Salts	 ANGIOTENSIN-II RECEPTOR ANTAGONISTS 
+Potassium Salts	 CICLOSPORIN 
+Potassium Salts	 POTASSIUM-SPARING DIURETICS AND ALDOSTERONE ANTAGONISTS 
+Potassium Salts	 TACROLIMUS 
+Praziquantel	 RIFAMPICIN 
+Praziquantel	 PHENOBARBITAL 
+Praziquantel	 PRIMIDONE 
+Pregabalin	 TRICYCLICS  
+Pregabalin	 MEFLOQUINE 
+Pregabalin	 ANTIPSYCHOTICS  
+Pregabalin	 ORLISTAT 
+Primaquine	 ARTEMETHER WITH LUMEFANTRINE 
+Primidone	 AMINOPHYLLINE  
+Primidone	 PRAZIQUANTEL 
+Primidone	 PROPAFENONE 
+Primidone	 DOXYCYCLINE  
+Primidone	 TELITHROMYCIN  
+Primidone	 COUMARINS  
+Primidone	 RIVAROXABAN 
+Primidone	 MIANSERIN  
+Primidone	 TRICYCLIC-RELATED ANTIDEPRESSANTS 
+Primidone	 TRICYCLICS  
+Primidone	 STIRIPENTOL 
+Primidone	 GRISEOFULVIN  
+Primidone	 MEFLOQUINE 
+Primidone	 LURASIDONE 
+Primidone	 INDINAVIR 
+Primidone	 TELAPREVIR 
+Primidone	 NIMODIPINE  
+Primidone	 CANNABIS EXTRACT 
+Procarbazine	 CLOZAPINE  
+Progestogens	 RIFAMYCINS  
+Progestogens	 PHENINDIONE 
+Progestogens	 FOSPHENYTOIN 
+Progestogens	 PHENOBARBITAL 
+Progestogens	 TOPIRAMATE 
+Progestogens	 LAMOTRIGINE 
+Progestogens	 ATAZANAVIR 
+Progestogens	 BOCEPREVIR  
+Progestogens	 NEVIRAPINE  
+Progestogens	 APREPITANT  
+Progestogens	 BOSENTAN  
+Proguanil	 PYRIMETHAMINE 
+Propafenone	 ANTI-ARRHYTHMICS 
+Propafenone	 RIFAMPICIN  
+Propafenone	 COUMARINS 
+Propafenone	 TRICYCLICS 
+Propafenone	 ANTIPSYCHOTICS  
+Propafenone	 SAQUINAVIR 
+Propafenone	 TELAPREVIR  
+Propafenone	 PROPRANOLOL 
+Propafenone	 DIGOXIN  
+Propafenone	 CIMETIDINE 
+Proton Pump Inhibitors	 COUMARINS 
+Proton Pump Inhibitors	 PHENYTOIN 
+Proton Pump Inhibitors	 POSACONAZOLE 
+Proton Pump Inhibitors	 VORICONAZOLE  
+Proton Pump Inhibitors	 TIPRANAVIR 
+Proton Pump Inhibitors	 CILOSTAZOL  
+Proton Pump Inhibitors	 CLOPIDOGREL 
+Proton Pump Inhibitors	 LAPATINIB 
+Proton Pump Inhibitors	 PAZOPANIB 
+Pyrimethamine	 TRIMETHOPRIM 
+Pyrimethamine	 PHENYTOIN 
+Pyrimethamine	 PROGUANIL 
+Quinine	 FLECAINIDE 
+Quinine	 RIFAMPICIN 
+Quinine	 ESCITALOPRAM 
+Quinine	 ARTEMETHER WITH LUMEFANTRINE 
+Quinine	 MEFLOQUINE  
+Quinine	 RISPERIDONE 
+Quinine	 INDINAVIR 
+Quinine	 SAQUINAVIR 
+Quinine	 DIGOXIN 
+Quinolones	 AMINOPHYLLINE 
+Quinolones	 AMINOPHYLLINE 
+Quinolones	 NSAIDS 
+Quinolones	 AMIODARONE 
+Quinolones	 DISOPYRAMIDE 
+Quinolones	 ERYTHROMYCIN 
+Quinolones	 NITROFURANTOIN 
+Quinolones	 TELITHROMYCIN 
+Quinolones	 PHENINDIONE 
+Quinolones	 TRICYCLICS 
+Quinolones	 MIZOLASTINE 
+Quinolones	 HYDROXYCHLOROQUINE 
+Quinolones	 QUININE 
+Quinolones	 BENPERIDOL 
+Quinolones	 PIMOZIDE 
+Quinolones	 OLANZAPINE 
+Quinolones	 SAQUINAVIR 
+Quinolones	 ATOMOXETINE 
+Quinolones	 SOTALOL 
+Quinolones	 CICLOSPORIN 
+Quinolones	 CLOPIDOGREL 
+Quinolones	 METHOTREXATE  
+Quinolones	 IBRUTINIB 
+Quinolones	 ARSENIC TRIOXIDE 
+Raltegravir	 RIFAMPICIN 
+Raltegravir	 FOSAMPRENAVIR 
+Raltegravir	 ORLISTAT 
+Raltitrexed	 CLOZAPINE  
+Raltitrexed	 FOLATES 
+Ranolazine	 DISOPYRAMIDE 
+Rasagiline	 PETHIDINE  
+Rasagiline	 MAOIS 
+Rasagiline	 TRICYCLICS 
+Rasagiline	 SYMPATHOMIMETICS 
+Reboxetine	 MACROLIDES 
+Reboxetine	 MAOIS  
+Reboxetine	 TRIAZOLES 
+Regorafenib	 RIFAMPICIN 
+Regorafenib	 WARFARIN 
+Regorafenib	 KETOCONAZOLE 
+Regorafenib	 CLOZAPINE  
+Retigabine	 TRICYCLICS  
+Retigabine	 MEFLOQUINE 
+Retigabine	 ANTIPSYCHOTICS  
+Retigabine	 ORLISTAT 
+Retinoids	 ALCOHOL  
+Retinoids	 TETRACYCLINES  
+Retinoids	 COUMARINS 
+Retinoids	 KETOCONAZOLE  
+Retinoids	 VORICONAZOLE 
+Retinoids	 METHOTREXATE  
+Retinoids	 VITAMIN A 
+Ribavirin	 ABACAVIR 
+Ribavirin	 ZIDOVUDINE 
+Ribavirin	 AZATHIOPRINE 
+Rifamycins	 PRAZIQUANTEL 
+Rifamycins	 DRONEDARONE 
+Rifamycins	 PROPAFENONE  
+Rifamycins	 TELITHROMYCIN  
+Rifamycins	 RIVAROXABAN 
+Rifamycins	 SULFONYLUREAS  
+Rifamycins	 PHENYTOIN  
+Rifamycins	 PRIMIDONE 
+Rifamycins	 SAQUINAVIR  
+Rifamycins	 TIPRANAVIR 
+Rifamycins	 ATOVAQUONE  
+Rifamycins	 BOSENTAN 
+Rifamycins	 NIFEDIPINE 
+Rifamycins	 VERAPAMIL  
+Rifamycins	 CANNABIS EXTRACT 
+Rifamycins	 CICLOSPORIN  
+Rifamycins	 COBICISTAT  
+Rifamycins	 COBICISTAT 
+Rifamycins	 CORTICOSTEROIDS  
+Rifamycins	 TRABECTEDIN 
+Rifamycins	 CRIZOTINIB 
+Rifamycins	 VANDETANIB 
+Rifamycins	 IMATINIB  
+Rifamycins	 VEMURAFENIB 
+Rifamycins	 EVEROLIMUS  
+Rifamycins	 ERIBULIN  
+Rifamycins	 TEMSIROLIMUS 
+Rifamycins	 VISMODEGIB  
+Rifamycins	 EPLERENONE 
+Rifamycins	 TAMOXIFEN  
+Rifamycins	 IVACAFTOR 
+Rifamycins	 MACITENTAN 
+Rifamycins	 MYCOPHENOLATE 
+Rifamycins	 NINTEDANIB 
+Rifamycins	 OESTROGENS  
+Rifamycins	 PROGESTOGENS  
+Rifamycins	 RANOLAZINE 
+Rifamycins	 ROFLUMILAST 
+Rifamycins	 SIROLIMUS 
+Rilpivirine	 RIFABUTIN  
+Rilpivirine	 RIFAMPICIN 
+Rilpivirine	 PHENYTOIN  
+Rilpivirine	 PRIMIDONE  
+Rilpivirine	 DEXAMETHASONE  
+Rilpivirine	 ORLISTAT 
+Rilpivirine	 OMEPRAZOLE 
+Rilpivirine	 HISTAMINE H2- ANTAGONISTS  
+Ritonavir	 ALFUZOSIN 
+Ritonavir	 AMINOPHYLLINE  
+Ritonavir	 PETHIDINE 
+Ritonavir	 ALBENDAZOLE 
+Ritonavir	 FLECAINIDE  
+Ritonavir	 TELITHROMYCIN 
+Ritonavir	 RIVAROXABAN 
+Ritonavir	 PHENYTOIN 
+Ritonavir	 SODIUM VALPROATE  
+Ritonavir	 VALPROIC ACID 
+Ritonavir	 FLUCONAZOLE 
+Ritonavir	 VORICONAZOLE 
+Ritonavir	 QUININE  
+Ritonavir	 FESOTERODINE 
+Ritonavir	 SOLIFENACIN 
+Ritonavir	 QUETIAPINE 
+Ritonavir	 MARAVIROC  
+Ritonavir	 TELAPREVIR 
+Ritonavir	 ZOLPIDEM  
+Ritonavir	 BUSPIRONE  
+Ritonavir	 AVANAFIL 
+Ritonavir	 BOSENTAN  
+Ritonavir	 LERCANIDIPINE 
+Ritonavir	 CICLOSPORIN 
+Rituximab	 CLOZAPINE  
+Rituximab	 VACCINES 
+Rivaroxaban	 DICLOFENAC  
+Rivaroxaban	 KETOROLAC  
+Rivaroxaban	 RIFAMPICIN 
+Rivaroxaban	 DABIGATRAN  
+Rivaroxaban	 FOSPHENYTOIN 
+Rivaroxaban	 PRIMIDONE 
+Rivaroxaban	 VORICONAZOLE 
+Rivaroxaban	 TIPRANAVIR 
+Rivaroxaban	 RITONAVIR 
+Rivaroxaban	 COBICISTAT 
+Roflumilast	 RIFAMPICIN 
+Rufinamide	 TRICYCLICS  
+Rufinamide	 MEFLOQUINE 
+Rufinamide	 ANTIPSYCHOTICS  
+Rufinamide	 OESTROGENS  
+Rufinamide	 ORLISTAT 
+Rufinamide	 PROGESTOGENS  
+Ruxolitinib	 RIFAMPICIN 
+Ruxolitinib	 FLUCONAZOLE 
+Ruxolitinib	 POSACONAZOLE  
+Ruxolitinib	 VORICONAZOLE 
+Ruxolitinib	 CLOZAPINE  
+Ruxolitinib	 INDINAVIR 
+Ruxolitinib	 TELAPREVIR 
+Saquinavir	 FENTANYL  
+Saquinavir	 METHADONE 
+Saquinavir	 LIDOCAINE  
+Saquinavir	 PROPAFENONE 
+Saquinavir	 CLARITHROMYCIN  
+Saquinavir	 MOXIFLOXACIN 
+Saquinavir	 RIFAMPICIN 
+Saquinavir	 TELITHROMYCIN  
+Saquinavir	 PHENOBARBITAL 
+Saquinavir	 PRIMIDONE 
+Saquinavir	 TRIAZOLES 
+Saquinavir	 MIZOLASTINE 
+Saquinavir	 QUININE 
+Saquinavir	 HALOPERIDOL  
+Saquinavir	 LURASIDONE 
+Saquinavir	 QUETIAPINE 
+Saquinavir	 DARUNAVIR 
+Saquinavir	 TIPRANAVIR 
+Saquinavir	 MIDAZOLAM  
+Saquinavir	 AVANAFIL 
+Saquinavir	 SOTALOL 
+Saquinavir	 CICLOSPORIN 
+Saquinavir	 CABAZITAXEL 
+Saquinavir	 IBRUTINIB 
+Saquinavir	 DOCETAXEL 
+Saquinavir	 DAPOXETINE  
+Saquinavir	 DOMPERIDONE 
+Saquinavir	 ERGOTAMINE 
+Saquinavir	 ATORVASTATIN 
+Saquinavir	 SIMVASTATIN  
+Saquinavir	 LOMITAPIDE  
+Saquinavir	 ORLISTAT 
+Saquinavir	 PENTAMIDINE ISETIONATE 
+Saquinavir	 RANOLAZINE 
+Saquinavir	 SILDENAFIL 
+Saquinavir	 TACROLIMUS  
+Saquinavir	 TADALAFIL 
+Selegiline	 OPIOID ANALGESICS 
+Selegiline	 VENLAFAXINE 
+Selegiline	 TRICYCLICS 
+Selegiline	 OESTROGENS 
+Selegiline	 PROGESTOGENS 
+Selegiline	 DOPAMINE 
+Sildenafil	 ALPHA-BLOCKERS  
+Sildenafil	 TELITHROMYCIN 
+Sildenafil	 ITRACONAZOLE 
+Sildenafil	 RITONAVIR 
+Sildenafil	 TIPRANAVIR 
+Sildenafil	 COBICISTAT 
+Sildenafil	 NICORANDIL  
+Sildenafil	 NITRATES  
+Sildenafil	 RIOCIGUAT 
+Siltuximab	 CLOZAPINE  
+Siltuximab	 VACCINES 
+Simeprevir	 AMIODARONE 
+Simeprevir	 TELITHROMYCIN 
+Simeprevir	 RIFABUTIN 
+Simeprevir	 RIFAMPICIN 
+Simeprevir	 FOSPHENYTOIN 
+Simeprevir	 PHENYTOIN  
+Simeprevir	 PRIMIDONE 
+Simeprevir	 FLUCONAZOLE 
+Simeprevir	 VORICONAZOLE 
+Simeprevir	 RITONAVIR 
+Simeprevir	 COBICISTAT 
+Sirolimus	 RIFAMPICIN 
+Sirolimus	 VORICONAZOLE 
+Sirolimus	 POSACONAZOLE 
+Sirolimus	 TELAPREVIR  
+Sirolimus	 VERAPAMIL 
+Sodium Aurothiomalate	 ACE INHIBITORS 
+Sodium Oxybate	 OPIOID ANALGESICS  
+Sodium Oxybate	 VALPROIC ACID  
+Sodium Oxybate	 BENZODIAZEPINES  
+Sodium Stibogluconate	 AMPHOTERICIN 
+Sodium Valproate	 ERYTHROMYCIN  
+Sodium Valproate	 CARBAPENEMS 
+Sodium Valproate	 TRICYCLICS  
+Sodium Valproate	 ETHOSUXIMIDE 
+Sodium Valproate	 TOPIRAMATE 
+Sodium Valproate	 MEFLOQUINE 
+Sodium Valproate	 OLANZAPINE 
+Sodium Valproate	 ORLISTAT 
+Sodium Valproate	 SODIUM OXYBATE  
+Sodium Valproate	 CIMETIDINE  
+Sofosbuvir	 AMIODARONE 
+Sorafenib	 COUMARINS 
+Statins	 AMIODARONE  
+Statins	 DRONEDARONE 
+Statins	 CLARITHROMYCIN 
+Statins	 TELITHROMYCIN 
+Statins	 COUMARINS  
+Statins	 COUMARINS 
+Statins	 PHENYTOIN  
+Statins	 ITRACONAZOLE 
+Statins	 ITRACONAZOLE 
+Statins	 VORICONAZOLE 
+Statins	 VORICONAZOLE 
+Statins	 ATAZANAVIR 
+Statins	 ATAZANAVIR 
+Statins	 BOCEPREVIR  
+Statins	 RITONAVIR 
+Statins	 RITONAVIR  
+Statins	 TIPRANAVIR  
+Statins	 VERAPAMIL 
+Statins	 CICLOSPORIN 
+Statins	 CLOPIDOGREL 
+Statins	 COBICISTAT 
+Statins	 COLCHICINE 
+Statins	 ELTROMBOPAG 
+Statins	 GRAPEFRUIT JUICE 
+Statins	 DANAZOL 
+Statins	 BEZAFIBRATE  
+Statins	 FENOFIBRATE 
+Statins	  LOMITAPIDE 
+Statins	 NICOTINIC ACID  
+Statins	 RANOLAZINE  
+Statins	 TERIFLUNOMIDE  
+Statins	 TICAGRELOR  
+Stavudine	 ZIDOVUDINE  
+Stavudine	 HYDROXYCARBAMIDE 
+Stavudine	 ORLISTAT 
+Stiripentol	 TRICYCLICS  
+Stiripentol	 PHENOBARBITAL 
+Stiripentol	 PRIMIDONE 
+Stiripentol	 MEFLOQUINE 
+Stiripentol	 ANTIPSYCHOTICS  
+Stiripentol	 ORLISTAT 
+Sucralfate	 COUMARINS  
+Sucralfate	 FOSPHENYTOIN 
+Sucralfate	 PHENYTOIN 
+Sulfinpyrazone	 DABIGATRAN 
+Sulfinpyrazone	 SULFONYLUREAS 
+Sulfinpyrazone	 PHENYTOIN 
+Sulfinpyrazone	 CICLOSPORIN 
+Sulfonamides	 PRILOCAINE 
+Sulfonamides	 METHENAMINE 
+Sunitinib	 CLOZAPINE  
+Sunitinib	 BOCEPREVIR 
+Sympathomimetics	 GUANETHIDINE 
+Sympathomimetics	 TOLAZOLINE 
+Sympathomimetics	 VOLATILE LIQUID GENERAL ANAESTHETICS 
+Sympathomimetics	 COUMARINS 
+Sympathomimetics	 MAOIS 
+Sympathomimetics	 TRICYCLICS 
+Sympathomimetics	 BETA- BLOCKERS 
+Sympathomimetics	 CLONIDINE  
+Sympathomimetics	 SELEGILINE 
+Sympathomimetics	 SELEGILINE 
+Sympathomimetics	 NORADRENALINE (NOREPINEPHRINE) 
+Sympathomimetics, Beta2	 KETOCONAZOLE 
+Sympathomimetics, Beta2	 KETOCONAZOLE  
+Sympathomimetics, Beta2	 TIPRANAVIR 
+Sympathomimetics, Beta2	 TELAPREVIR  
+Sympathomimetics, Beta2	 METHYLDOPA 
+Tacrolimus	 IBUPROFEN 
+Tacrolimus	 CHLORAMPHENICOL  
+Tacrolimus	 VANCOMYCIN 
+Tacrolimus	 DABIGATRAN 
+Tacrolimus	 PRIMIDONE 
+Tacrolimus	 KETOCONAZOLE 
+Tacrolimus	 AMPHOTERICIN 
+Tacrolimus	 CASPOFUNGIN 
+Tacrolimus	 DROPERIDOL  
+Tacrolimus	 FOSAMPRENAVIR 
+Tacrolimus	 SAQUINAVIR  
+Tacrolimus	 TELAPREVIR  
+Tacrolimus	 DILTIAZEM 
+Tacrolimus	 NIFEDIPINE 
+Tacrolimus	 CICLOSPORIN  
+Tacrolimus	 AFATINIB 
+Tacrolimus	 IMATINIB 
+Tacrolimus	 POTASSIUM-SPARING DIURETICS AND ALDOSTERONE ANTAGONISTS 
+Tacrolimus	 GRAPEFRUIT JUICE 
+Tacrolimus	 POTASSIUM SALTS 
+Tacrolimus	 RANOLAZINE 
+Tadalafil	 ALPHA-BLOCKERS 
+Tadalafil	 RIFAMPICIN 
+Tadalafil	 ITRACONAZOLE 
+Tadalafil	 TELAPREVIR 
+Tadalafil	 COBICISTAT 
+Tamoxifen	 COUMARINS 
+Tamoxifen	 PAROXETINE  
+Tamoxifen	 DROPERIDOL  
+Tamoxifen	 BUPROPION  
+Tamoxifen	 CINACALCET  
+Tegafur	 COUMARINS 
+Tegafur	 CLOZAPINE  
+Tegafur	 FOLIC ACID 
+Telaprevir	 ALFUZOSIN 
+Telaprevir	 METHADONE  
+Telaprevir	 LIDOCAINE 
+Telaprevir	 CLARITHROMYCIN 
+Telaprevir	 RIFABUTIN 
+Telaprevir	 RIFAMPICIN 
+Telaprevir	 DABIGATRAN 
+Telbivudine	 INTERFERON ALFA  
+Telbivudine	 PEGINTERFERON ALFA 
+Telithromycin	 OXYCODONE 
+Telithromycin	 DRONEDARONE 
+Telithromycin	 MOXIFLOXACIN 
+Telithromycin	 RIFAMPICIN  
+Telithromycin	 PHENOBARBITAL 
+Telithromycin	 PRIMIDONE  
+Telithromycin	 KETOCONAZOLE 
+Telithromycin	 QUETIAPINE 
+Telithromycin	 FOSAMPRENAVIR 
+Telithromycin	 TIPRANAVIR  
+Telithromycin	 DACLATASVIR 
+Telithromycin	 MARAVIROC  
+Telithromycin	 SAQUINAVIR  
+Telithromycin	 SIMEPREVIR 
+Telithromycin	 TELAPREVIR  
+Telithromycin	 MIDAZOLAM  
+Telithromycin	 AVANAFIL 
+Telithromycin	 CALCIUM-CHANNEL BLOCKERS  
+Telithromycin	 CICLOSPORIN 
+Telithromycin	 COLCHICINE  
+Telithromycin	 CABAZITAXEL 
+Telithromycin	 IBRUTINIB 
+Telithromycin	 RUXOLITINIB 
+Telithromycin	 DOCETAXEL 
+Telithromycin	 DAPOXETINE  
+Telithromycin	 EPLERENONE 
+Telithromycin	 DOMPERIDONE 
+Telithromycin	 ERGOTAMINE 
+Telithromycin	 IVABRADINE 
+Telithromycin	 IVACAFTOR  
+Telithromycin	 LOMITAPIDE  
+Temoporfin	 FLUOROURACIL 
+Temozolomide	 CLOZAPINE  
+Temsirolimus	 RIFAMPICIN 
+Temsirolimus	 ITRACONAZOLE  
+Temsirolimus	 CLOZAPINE  
+Tenofovir	 TELAPREVIR 
+Tenofovir	 ORLISTAT 
+Terbinafine	 RIFAMPICIN 
+Teriflunomide	 COLESTYRAMINE  
+Teriflunomide	 ROSUVASTATIN  
+Teriflunomide	 VACCINES 
+Testolactone	 PHENINDIONE 
+Testosterone	 PHENINDIONE 
+Tetrabenazine	 MAOIS  
+Tetracyclines	 PHENINDIONE 
+Tetracyclines	 RETINOIDS  
+Theophylline	 QUINOLONES 
+Theophylline	 PRIMIDONE  
+Theophylline	 PHENYTOIN 
+Theophylline	 KETOCONAZOLE 
+Theophylline	 RITONAVIR  
+Theophylline	 VERAPAMIL  
+Theophylline	 DEFERASIROX  
+Theophylline	 PEGINTERFERON ALFA  
+Thiotepa	 CLOZAPINE  
+Thyroid Hormones	 PHENINDIONE 
+Tiagabine	 TRICYCLIC-RELATED 
+Tiagabine	 TRICYCLICS  
+Tiagabine	 MEFLOQUINE 
+Tiagabine	 ANTIPSYCHOTICS  
+Tiagabine	 ORLISTAT 
+Ticagrelor	 RIFAMPICIN 
+Ticagrelor	 DABIGATRAN 
+Ticagrelor	 KETOCONAZOLE 
+Ticagrelor	 RITONAVIR 
+Ticagrelor	 DIGOXIN 
+Ticagrelor	 ERGOT ALKALOIDS 
+Ticagrelor	 LOMITAPIDE 
+Tioguanine	 CLOZAPINE  
+Tipranavir	 RIFABUTIN  
+Tipranavir	 TELITHROMYCIN 
+Tipranavir	 QUININE  
+Tipranavir	 ARIPIPRAZOLE  
+Tipranavir	 QUETIAPINE 
+Tipranavir	 SAQUINAVIR  
+Tipranavir	 ETRAVIRINE 
+Tipranavir	 METOPROLOL  
+Tipranavir	 COBICISTAT  
+Tipranavir	 ATORVASTATIN  
+Tipranavir	 SIMVASTATIN 
+Tipranavir	 LOMITAPIDE  
+Tipranavir	 ORLISTAT 
+Tipranavir	 RANOLAZINE 
+Tipranavir	 OMEPRAZOLE 
+Tocilizumab	 CLOZAPINE  
+Tocilizumab	 VACCINES 
+Tolvaptan	 GRAPEFRUIT JUICE 
+Topiramate	 TRICYCLICS  
+Topiramate	 VALPROIC ACID 
+Topiramate	 MEFLOQUINE 
+Topiramate	 ANTIPSYCHOTICS  
+Topiramate	 OESTROGENS  
+Topiramate	 ORLISTAT 
+Topiramate	 PROGESTOGENS  
+Toremifene	 COUMARINS 
+Toremifene	 VANDETANIB 
+Trabectedin	 ALCOHOL 
+Trabectedin	 RIFAMPICIN 
+Trabectedin	 CLOZAPINE  
+Trabectedin	 VACCINES 
+Trastuzumab	 CLOZAPINE  
+Trastuzumab	 VACCINES 
+Trimethoprim	 PHENYTOIN  
+Trimethoprim	 PYRIMETHAMINE 
+Trimethoprim	 AZATHIOPRINE 
+Ulipristal	 RIFAMPICIN  
+Ulipristal	 PRIMIDONE 
+Ulipristal	 RITONAVIR  
+Ulipristal	 PROGESTOGENS 
+Ustekinumab	 CLOZAPINE  
+Ustekinumab	 VACCINES 
+Vaccines	 ABATACEPT 
+Valganciclovir	 IMIPENEM WITH CILASTATIN 
+Valganciclovir	 ZIDOVUDINE  
+Valproic Acid	 CARBAPENEMS 
+Valproic Acid	 TRICYCLICS  
+Valproic Acid	 TOPIRAMATE 
+Valproic Acid	 MEFLOQUINE 
+Valproic Acid	 OLANZAPINE 
+Valproic Acid	 ORLISTAT 
+Valproic Acid	 SODIUM OXYBATE  
+Valproic Acid	 Vancomycin 
+Vandetanib	 METHADONE 
+Vandetanib	 DISOPYRAMIDE 
+Vandetanib	 RIFAMPICIN 
+Vandetanib	 MIZOLASTINE 
+Vandetanib	 ARTEMETHER WITH LUMEFANTRINE 
+Vandetanib	 AMISULPRIDE 
+Vandetanib	 SULPIRIDE  
+Vandetanib	 CLOZAPINE  
+Vandetanib	 SOTALOL 
+Vandetanib	 ARSENIC TRIOXIDE 
+Vandetanib	 TOREMIFENE 
+Vandetanib	 ONDANSETRON 
+Vandetanib	 PENTAMIDINE ISETIONATE 
+Vardenafil	 ALPHA-BLOCKERS 
+Vardenafil	 KETOCONAZOLE 
+Vardenafil	 ITRACONAZOLE 
+Vardenafil	 SAQUINAVIR 
+Vardenafil	 TIPRANAVIR 
+Vardenafil	 COBICISTAT 
+Vardenafil	 GRAPEFRUIT JUICE 
+Vardenafil	 NICORANDIL 
+Vardenafil	 NITRATES 
+Vardenafil	 RIOCIGUAT 
+Vedolizumab	 CLOZAPINE  
+Vedolizumab	 VACCINES 
+Vemurafenib	 WARFARIN 
+Vemurafenib	 CLOZAPINE  
+Vemurafenib	 OESTROGENS  
+Vemurafenib	 PROGESTOGENS  
+Venlafaxine	 TRAMADOL 
+Venlafaxine	 DABIGATRAN 
+Vigabatrin	 TRICYCLICS  
+Vigabatrin	 MEFLOQUINE 
+Vigabatrin	 ANTIPSYCHOTICS  
+Vigabatrin	 ORLISTAT 
+Vinblastine	 ALDESLEUKIN 
+Vinblastine	 DELAMANID 
+Vinblastine	 POSACONAZOLE  
+Vinblastine	 ARTENIMOL WITH PIPERAQUINE 
+Vinblastine	 CLOZAPINE  
+Vincristine	 DELAMANID 
+Vincristine	 POSACONAZOLE  
+Vincristine	 ARTENIMOL WITH PIPERAQUINE 
+Vincristine	 CLOZAPINE  
+Vindesine	 DELAMANID 
+Vindesine	 ITRACONAZOLE 
+Vindesine	 CLOZAPINE  
+Vinflunine	 DELAMANID 
+Vinflunine	 ITRACONAZOLE 
+Vinflunine	 ARTENIMOL WITH PIPERAQUINE 
+Vinflunine	 CLOZAPINE  
+Vinflunine	 RITONAVIR 
+Vinorelbine	 DELAMANID 
+Vinorelbine	 ITRACONAZOLE 
+Vinorelbine	 ARTENIMOL WITH PIPERAQUINE 
+Vinorelbine	 CLOZAPINE  
+Vismodegib	 RIFAMPICIN  
+Vismodegib	 PHENYTOIN  
+Vismodegib	 CLOZAPINE  
+Wasp Venom Extracts	 ACE INHIBITORS 
+Zidovudine	 FLUCONAZOLE  
+Zonisamide	 TRICYCLICS  
+Zonisamide	 MEFLOQUINE 
+Zonisamide	 ANTIPSYCHOTICS  
+Zonisamide	 ORLISTAT 

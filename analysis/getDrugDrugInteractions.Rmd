@@ -1,0 +1,20 @@
+---
+title: "DrugDrug Interaction from BNF"
+author: Dennis Wollersheim
+output:
+  workflowr::wflow_html:
+    toc: false
+---
+
+```{r}
+library(tidyverse)
+
+read.table( 'data/drug_interactions.txt', sep='\t') %>%
+  as.tibble() %>%
+{ . } -> drug_drug
+
+
+```
+
+
+
