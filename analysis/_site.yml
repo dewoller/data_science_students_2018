@@ -1,7 +1,7 @@
 name: "workplans"
 output_dir: "../docs"
 navbar:
-  title: "workplans"
+  title: "Drugs Interaction Project"
   left:
     - text: "Home"
       href: index.html
