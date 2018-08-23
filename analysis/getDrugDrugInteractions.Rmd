@@ -2,8 +2,7 @@
 title: "DrugDrug Interaction from BNF"
 author: Dennis Wollersheim
 output:
-  workflowr::wflow_html:
-    toc: false
+  workflowr::wflow_html
 ---
 ```{r}
 
