@@ -376,7 +376,7 @@ my_db_get_query("Select pin,pbs_code,spply_dt,pbs_rgltn24_adjst_qty qty from pbs
 
 write_csv <- FALSE
 
-if (write_csv = TRUE) 
+if (write_csv == TRUE) 
 {
   write.csv(bigpbs_interval_00,file="data/BigChunks/pbs_interval_00.csv")
   
