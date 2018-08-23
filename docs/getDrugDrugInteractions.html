@@ -1,0 +1,980 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+
+<meta name="author" content="Dennis Wollersheim" />
+
+
+<title>DrugDrug Interaction from BNF</title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<link href="site_libs/font-awesome-5.0.13/css/fa-svg-with-js.css" rel="stylesheet" />
+<script src="site_libs/font-awesome-5.0.13/js/fontawesome-all.min.js"></script>
+<script src="site_libs/font-awesome-5.0.13/js/fa-v4-shims.min.js"></script>
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+
+</head>
+
+<body>
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 51px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+
+.section h2 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h3 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h4 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h5 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h6 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+
+<div class="container-fluid main-container">
+
+<!-- tabsets -->
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+</script>
+
+<!-- code folding -->
+
+
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">workplans</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Home</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+  <a href="https://github.com/jdblischak/workflowr">
+    <span class="fa fa-github"></span>
+     
+  </a>
+</li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<!-- Add a small amount of space between sections. -->
+<style type="text/css">
+div.section {
+  padding-top: 12px;
+}
+</style>
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">DrugDrug Interaction from BNF</h1>
+<h4 class="author"><em>Dennis Wollersheim</em></h4>
+
+</div>
+
+
+<p><strong>Last updated:</strong> 2018-08-21</p>
+<strong>workflowr checks:</strong> <small>(Click a bullet for more information)</small>
+<ul>
+<li>
+<p><details> <summary> <strong style="color:blue;">✔</strong> <strong>R Markdown file:</strong> up-to-date </summary></p>
+<p>Great! Since the R Markdown file has been committed to the Git repository, you know the exact version of the code that produced these results.</p>
+</details>
+</li>
+<li>
+<p><details> <summary> <strong style="color:blue;">✔</strong> <strong>Environment:</strong> empty </summary></p>
+<p>Great job! The global environment was empty. Objects defined in the global environment can affect the analysis in your R Markdown file in unknown ways. For reproduciblity it’s best to always run the code in an empty environment.</p>
+</details>
+</li>
+<li>
+<p><details> <summary> <strong style="color:blue;">✔</strong> <strong>Seed:</strong> <code>set.seed(20180723)</code> </summary></p>
+<p>The command <code>set.seed(20180723)</code> was run prior to running the code in the R Markdown file. Setting a seed ensures that any results that rely on randomness, e.g. subsampling or permutations, are reproducible.</p>
+</details>
+</li>
+<li>
+<p><details> <summary> <strong style="color:blue;">✔</strong> <strong>Session information:</strong> recorded </summary></p>
+<p>Great job! Recording the operating system, R version, and package versions is critical for reproducibility.</p>
+</details>
+</li>
+<li>
+<p><details> <summary> <strong style="color:blue;">✔</strong> <strong>Repository version:</strong> <a href="https://github.com/dewoller/data_science_students_2018/tree/436cfc7ead97f4dab879e3830f7757b9683fc47b" target="_blank">436cfc7</a> </summary></p>
+Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility. The version displayed above was the version of the Git repository at the time these results were generated. <br><br> Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
+<pre><code>
+Ignored files:
+    Ignored:    .RData
+    Ignored:    .Rhistory
+    Ignored:    .Rproj.user/
+    Ignored:    analysis/.Rhistory
+
+Untracked files:
+    Untracked:  analysis/whoDrugMatch.Rmd
+    Untracked:  data/ddd_who.csv
+    Untracked:  data/existing_pbs.csv
+    Untracked:  data/pbs_item.csv
+    Untracked:  data/unknown_routes.csv
+
+Unstaged changes:
+    Modified:   lib/function.R
+
+</code></pre>
+Note that any generated files, e.g. HTML, png, CSS, etc., are not included in this status report because it is ok for generated content to have uncommitted changes. </details>
+</li>
+</ul>
+<details> <summary> <small><strong>Expand here to see past versions:</strong></small> </summary>
+<ul>
+<table style="border-collapse:separate; border-spacing:5px;">
+<thead>
+<tr>
+<th style="text-align:left;">
+File
+</th>
+<th style="text-align:left;">
+Version
+</th>
+<th style="text-align:left;">
+Author
+</th>
+<th style="text-align:left;">
+Date
+</th>
+<th style="text-align:left;">
+Message
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+html
+</td>
+<td style="text-align:left;">
+<a href="https://cdn.rawgit.com/dewoller/data_science_students_2018/c10c2c66c9be26110157c7d1e553b06bba7e7f00/docs/getDrugDrugInteractions.html" target="_blank">c10c2c6</a>
+</td>
+<td style="text-align:left;">
+Dennis Wollersheim
+</td>
+<td style="text-align:left;">
+2018-07-25
+</td>
+<td style="text-align:left;">
+Build site.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Rmd
+</td>
+<td style="text-align:left;">
+<a href="https://github.com/dewoller/data_science_students_2018/blob/f3ff39529517b0293ae50eadd08d2a87904c8f67/analysis/getDrugDrugInteractions.Rmd" target="_blank">f3ff395</a>
+</td>
+<td style="text-align:left;">
+Dennis Wollersheim
+</td>
+<td style="text-align:left;">
+2018-07-25
+</td>
+<td style="text-align:left;">
+wflow_publish(“analysis/getDrugDrugInteractions.Rmd”)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+html
+</td>
+<td style="text-align:left;">
+<a href="https://cdn.rawgit.com/dewoller/data_science_students_2018/32b1c57b11f0f6c95124e322e4648c3871b36c89/docs/getDrugDrugInteractions.html" target="_blank">32b1c57</a>
+</td>
+<td style="text-align:left;">
+Dennis Wollersheim
+</td>
+<td style="text-align:left;">
+2018-07-25
+</td>
+<td style="text-align:left;">
+Build site.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Rmd
+</td>
+<td style="text-align:left;">
+<a href="https://github.com/dewoller/data_science_students_2018/blob/7f80abc5738b5cc4d85c1b13e421e83b19d93e2c/analysis/getDrugDrugInteractions.Rmd" target="_blank">7f80abc</a>
+</td>
+<td style="text-align:left;">
+Dennis Wollersheim
+</td>
+<td style="text-align:left;">
+2018-07-25
+</td>
+<td style="text-align:left;">
+wflow_publish(“analysis/getDrugDrugInteractions.Rmd”)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Rmd
+</td>
+<td style="text-align:left;">
+<a href="https://github.com/dewoller/data_science_students_2018/blob/4e57c0b09bfe4b3bd68222935a43eb22f1d563e8/analysis/getDrugDrugInteractions.Rmd" target="_blank">4e57c0b</a>
+</td>
+<td style="text-align:left;">
+rukaht
+</td>
+<td style="text-align:left;">
+2018-07-25
+</td>
+<td style="text-align:left;">
+changes
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Rmd
+</td>
+<td style="text-align:left;">
+<a href="https://github.com/dewoller/data_science_students_2018/blob/fb36285caf3c507841df78d5cfddcd5b0ced096a/analysis/getDrugDrugInteractions.Rmd" target="_blank">fb36285</a>
+</td>
+<td style="text-align:left;">
+Dennis Wollersheim
+</td>
+<td style="text-align:left;">
+2018-07-25
+</td>
+<td style="text-align:left;">
+parsed drug drug interaction table
+</td>
+</tr>
+</tbody>
+</table>
+</ul>
+<p></details></p>
+<hr />
+<div id="match-drugs-from-bnf-drug-drug-interaction-with-pbs" class="section level1">
+<h1>match drugs from BNF drug drug interaction with PBS</h1>
+<pre class="r"><code>source(&#39;lib/function.R&#39;)</code></pre>
+<pre><code>
+Attaching package: &#39;lubridate&#39;</code></pre>
+<pre><code>The following object is masked from &#39;package:base&#39;:
+
+    date</code></pre>
+<pre><code>── Attaching packages ──────────────────────────────────────────────────────────────── tidyverse 1.2.1 ──</code></pre>
+<pre><code>✔ ggplot2 3.0.0     ✔ readr   1.1.1
+✔ tibble  1.4.2     ✔ purrr   0.2.5
+✔ tidyr   0.8.1     ✔ dplyr   0.7.6
+✔ ggplot2 3.0.0     ✔ forcats 0.3.0</code></pre>
+<pre><code>── Conflicts ─────────────────────────────────────────────────────────────────── tidyverse_conflicts() ──
+✖ lubridate::as.difftime() masks base::as.difftime()
+✖ dplyr::coalesce()        masks wrapr::coalesce()
+✖ lubridate::date()        masks base::date()
+✖ tidyr::extract()         masks magrittr::extract()
+✖ dplyr::filter()          masks stats::filter()
+✖ lubridate::intersect()   masks base::intersect()
+✖ dplyr::lag()             masks stats::lag()
+✖ purrr::set_names()       masks magrittr::set_names()
+✖ lubridate::setdiff()     masks base::setdiff()
+✖ lubridate::union()       masks base::union()</code></pre>
+<pre><code>Loading required package: DBI</code></pre>
+<pre class="r"><code>read.table( &#39;data/drug_interactions.txt&#39;, sep=&#39;\t&#39;,header = FALSE) %&gt;%
+  as.tibble() %&gt;% 
+  rename(drug1=V1,drug2=V2) %&gt;%
+  mutate(drug1=str_trim(str_to_upper(drug1))) %&gt;%
+  mutate(drug2=str_trim(str_to_upper(drug2))) %&gt;%
+{ . } -&gt; drug_drug_concordance
+
+my_db_get_query(&#39;Select * from pbs_item JOIN pbs_atc USING (atc_code)&#39;)%&gt;%
+  as.tibble()%&gt;%
+  mutate(drug_name = str_trim(drug_name)) %&gt;%
+  { .} -&gt;main_table
+
+drug_drug_concordance %&gt;% 
+  select(drug1) %&gt;%
+  bind_rows(drug_drug_concordance %&gt;% select(drug2)) %&gt;%
+  distinct(drug2) %&gt;%
+  {.} -&gt; final_drugs
+
+cat(&quot;how many drugs do not have as direct match&quot;)</code></pre>
+<pre><code>how many drugs do not have as direct match</code></pre>
+<pre class="r"><code>final_drugs %&gt;% 
+  anti_join(main_table,by=c(&quot;drug2&quot;=&quot;drug_name&quot;)) %&gt;%
+  count()</code></pre>
+<pre><code># A tibble: 1 x 1
+      n
+  &lt;int&gt;
+1   259</code></pre>
+<pre class="r"><code>cat(&quot;how many drugs have a direct match&quot;)</code></pre>
+<pre><code>how many drugs have a direct match</code></pre>
+<pre class="r"><code>final_drugs %&gt;% 
+  inner_join(main_table,by=c(&quot;drug2&quot;=&quot;drug_name&quot;)) %&gt;%
+  distinct( drug2)%&gt;%
+  count()</code></pre>
+<pre><code># A tibble: 1 x 1
+      n
+  &lt;int&gt;
+1   318</code></pre>
+<pre class="r"><code>final_drugs %&gt;% 
+  anti_join(main_table,by=c(&quot;drug2&quot;=&quot;drug_name&quot;)) %&gt;%
+  rename( drug_name = drug2) %&gt;%
+  {.} -&gt; drugs_to_match</code></pre>
+</div>
+<div id="to-do" class="section level1">
+<h1>TO Do</h1>
+<p>You need to match up the drugs_to_match with final_drugs.</p>
+<ul>
+<li>Make a table for the many-many matching process</li>
+<li>use the ( fuzzy_join package )[<a href="https://github.com/dgrtwo/fuzzyjoin" class="uri">https://github.com/dgrtwo/fuzzyjoin</a>] to try and match as much as you can.<br />
+</li>
+<li>Please continue to do the work in this document</li>
+<li>As compelling as it seems, please do not edit the drugdrug input file. I want the work to be data driven as much as possible.</li>
+</ul>
+<div id="groups" class="section level2">
+<h2>groups</h2>
+<ul>
+<li>possibly ending with S</li>
+<li>you will need to do some research to find the groups</li>
+</ul>
+<pre class="r"><code>drugs_to_match %&gt;%
+  filter( endsWith(drug_name, &#39;S&#39;)) %&gt;%
+  kable()</code></pre>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+drug_name
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+VACCINES
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ANGIOTENSIN-II RECEPTOR ANTAGONISTS
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ANTI-ARRHYTHMICS
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ANTIPSYCHOTICS
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+BETA-BLOCKERS
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+GENERAL ANAESTHETICS
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+COUMARINS
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+MAOIS
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+SSRIS
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+TRICYCLIC-RELATED ANTIDEPRESSANTS
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+TRICYCLICS
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ACE INHIBITORS
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CALCIUM-CHANNEL BLOCKERS
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+POLYMYXINS
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CEPHALOSPORINS
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+PLATINUM COMPOUNDS
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+LOOP DIURETICS
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+DEPOLARISING MUSCLE RELAXANTS
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+QUINOLONES
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+PHENOTHIAZINES
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+BETA- BLOCKERS
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CARDIAC GLYCOSIDES
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ADRENERGIC NEURONE BLOCKERS
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ALPHA-BLOCKERS
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CALCIUM- CHANNEL BLOCKERS
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+NSAIDS
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ANTIEPILEPTICS
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+BENZODIAZEPINES
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+5HT1 AGONISTS
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+OPIOID ANALGESICS
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+RIFAMYCINS
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+SULFONAMIDES
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+TETRACYCLINES
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+BILE ACID SEQUESTRANTS
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+FIBRATES
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+SULFONYLUREAS
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ANTIMUSCARINICS
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+BLOCKERS
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+DIHYDROPYRIDINES
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CORTICOSTEROIDS
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+TEMSIROLIMUS
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+MACROLIDES
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+IMIDAZOLES
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+TRIAZOLES
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ANXIOLYTICS AND HYPNOTICS
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CYTOTOXICS
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+DIURETICS
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ANTICOAGULANTS
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+THIAZIDES AND RELATED DIURETICS
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ANTIDEPRESSANTS
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ANTIMALARIALS
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+HEPARINS
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+NITRATES
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+OESTROGENS
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+PROGESTOGENS
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+AMINOGLYCOSIDES
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+VOLATILE LIQUID GENERAL ANAESTHETICS
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ERGOT ALKALOIDS
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ANABOLIC STEROIDS
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+SSRI-RELATED ANTIDEPRESSANTS
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+STATINS
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+POTASSIUM SALTS
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ANTACIDS
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+TRICYCLIC- RELATED ANTIDEPRESSANTS
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+POTASSIUM- SPARING DIURETICS AND ALDOSTERONE ANTAGONISTS
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+DOPAMINERGICS
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+PENICILLINS
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+RELATED ANTIDEPRESSANTS
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+SYMPATHOMIMETICS
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+SEDATING ANTIHISTAMINES
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ENTERAL FEEDS
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CARBONIC ANHYDRASE INHIBITORS
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+POTASSIUM-SPARING DIURETICS AND ALDOSTERONE ANTAGONISTS
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+FOLATES
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+HISTAMINE H2- ANTAGONISTS
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CARBAPENEMS
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+RETINOIDS
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="session-information" class="section level2">
+<h2>Session information</h2>
+<pre class="r"><code>sessionInfo()</code></pre>
+<pre><code>R version 3.4.4 (2018-03-15)
+Platform: x86_64-pc-linux-gnu (64-bit)
+Running under: Ubuntu 18.04.1 LTS
+
+Matrix products: default
+BLAS: /usr/lib/x86_64-linux-gnu/blas/libblas.so.3.7.1
+LAPACK: /usr/lib/x86_64-linux-gnu/lapack/liblapack.so.3.7.1
+
+locale:
+ [1] LC_CTYPE=en_AU.UTF-8       LC_NUMERIC=C              
+ [3] LC_TIME=en_AU.UTF-8        LC_COLLATE=en_AU.UTF-8    
+ [5] LC_MONETARY=en_AU.UTF-8    LC_MESSAGES=en_AU.UTF-8   
+ [7] LC_PAPER=en_AU.UTF-8       LC_NAME=C                 
+ [9] LC_ADDRESS=C               LC_TELEPHONE=C            
+[11] LC_MEASUREMENT=en_AU.UTF-8 LC_IDENTIFICATION=C       
+
+attached base packages:
+[1] stats     graphics  grDevices utils     datasets  methods   base     
+
+other attached packages:
+ [1] bindrcpp_0.2.2    RPostgreSQL_0.6-2 DBI_1.0.0        
+ [4] forcats_0.3.0     dplyr_0.7.6       purrr_0.2.5      
+ [7] readr_1.1.1       tidyr_0.8.1       tibble_1.4.2     
+[10] ggplot2_3.0.0     tidyverse_1.2.1   pander_0.6.2     
+[13] kableExtra_0.9.0  knitr_1.20        lubridate_1.7.4  
+[16] stringr_1.3.1     magrittr_1.5      wrapr_1.6.0      
+[19] workflowr_1.1.1  
+
+loaded via a namespace (and not attached):
+ [1] tidyselect_0.2.4  haven_1.1.2       lattice_0.20-35  
+ [4] colorspace_1.3-2  htmltools_0.3.6   viridisLite_0.3.0
+ [7] yaml_2.2.0        utf8_1.1.4        rlang_0.2.1      
+[10] R.oo_1.22.0       pillar_1.3.0      withr_2.1.2      
+[13] glue_1.3.0        R.utils_2.6.0     readxl_1.1.0     
+[16] modelr_0.1.2      plyr_1.8.4        bindr_0.1.1      
+[19] cellranger_1.1.0  munsell_0.5.0     gtable_0.2.0     
+[22] rvest_0.3.2       R.methodsS3_1.7.1 evaluate_0.11    
+[25] fansi_0.2.3       highr_0.7         broom_0.5.0      
+[28] Rcpp_0.12.18      scales_0.5.0      backports_1.1.2  
+[31] jsonlite_1.5      hms_0.4.2         digest_0.6.15    
+[34] stringi_1.2.4     rprojroot_1.3-2   grid_3.4.4       
+[37] cli_1.0.0         tools_3.4.4       lazyeval_0.2.1   
+[40] crayon_1.3.4      whisker_0.3-2     pkgconfig_2.0.1  
+[43] xml2_1.2.0        assertthat_0.2.0  rmarkdown_1.10   
+[46] httr_1.3.1        rstudioapi_0.7    R6_2.2.2         
+[49] nlme_3.1-131      git2r_0.23.0      compiler_3.4.4   </code></pre>
+</div>
+</div>
+
+<!-- Adjust MathJax settings so that all math formulae are shown using
+TeX fonts only; see
+http://docs.mathjax.org/en/latest/configuration.html.  This will make
+the presentation more consistent at the cost of the webpage sometimes
+taking slightly longer to load. Note that this only works because the
+footer is added to webpages before the MathJax javascript. -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    "HTML-CSS": { availableFonts: ["TeX"] }
+  });
+</script>
+
+<hr>
+<p>
+  This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a>
+  analysis was created with
+  <a href="https://github.com/jdblischak/workflowr">workflowr</a> 1.1.1
+</p>
+<hr>
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

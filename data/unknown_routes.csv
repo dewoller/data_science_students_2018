@@ -1,0 +1,83 @@
+"","pbs_code","drug_name","form_strength","atc_code","inuse","form_type","unit_wt","adm_route","uadm_route"
+"1","01099W","SALBUTAMOL","Capsule containing powder for oral inhalation 200 mg (as sulfate) (for use in Ventolin Rotahaler)","R03AC02","Y","Capsule,Inhalation,Oral","200 mg",NA,NA
+"2","01243K","TERBUTALINE","Nebuliser solution 10 mg per mL, 50 mL","R03AC03","Y","UNKNOWN","10 mg","UNKNOWN","UNKNOWN"
+"3","01251W","TERBUTALINE","Nebuliser solution containing terbutaline sulfate 5 mg in 2 mL single dose units, 30","R03AC03","Y","UNKNOWN","5 mg","UNKNOWN","UNKNOWN"
+"4","01252X","TERBUTALINE","Powder for oral inhalation in breath actuated device containing terbutaline sulfate 500 mg per dose, 200 doses","R03AC03","Y","Inhalation,Oral","500 mg",NA,NA
+"5","01258F","BISACODYL","Suppositories 10 mg, 12","A06AB02","Y","Suppositories","10 mg",NA,NA
+"6","01260H","BISACODYL","Suppositories 10 mg, 10","A06AB02","Y","Suppositories","10 mg",NA,NA
+"7","01302M","DICLOFENAC","Suppository containing diclofenac sodium 100 mg","M01AB05","Y","UNKNOWN","100 mg","UNKNOWN","UNKNOWN"
+"8","01386Y","ERGOTAMINE + CAFFEINE","Suppositories 2 mg-100 mg, 5","N02CA52","Y","Suppositories","2 mg",NA,NA
+"9","01454M","GOSERELIN","Subcutaneous implant 3.6 mg (as acetate) in pre-filled injection syringe","L02AE03","Y","Injection,Implant","6 mg",NA,NA
+"10","01541D","IPRATROPIUM","Nebuliser solution containing ipratropium bromide 250 mg (anhydrous) per mL, 20 mL","R03BB01","Y","UNKNOWN","250 mg","UNKNOWN","UNKNOWN"
+"11","01542E","IPRATROPIUM","Nebuliser solution containing ipratropium bromide 250 mg (anhydrous) in 1 mL single dose units, 30","R03BB01","Y","UNKNOWN","250 mg","UNKNOWN","UNKNOWN"
+"12","01588N","KETOPROFEN","Suppository 100 mg","M01AE03","Y","UNKNOWN","100 mg","UNKNOWN","UNKNOWN"
+"13","01642K","METRONIDAZOLE","Suppositories 500 mg, 10","J01XD01","Y","Suppositories","500 mg",NA,NA
+"14","01742Q","OESTRADIOL","Vaginal tablets 25 mg, 15","G03CA03","Y","Tablet,Vaginal","25 mg",NA,NA
+"15","01771F","OESTRIOL","Pessaries 500 mg, 15","G03CA04","Y","UNKNOWN","500 mg","UNKNOWN","UNKNOWN"
+"16","01781R","OESTRIOL","Vaginal cream 1 mg per g, 15 g","G03CA04","Y","Cream,Vaginal","1 mg",NA,NA
+"17","02000G","SALBUTAMOL","Nebuliser solution 2.5 mg (as sulfate) in 2.5 mL single dose units, 30","R03AC02","Y","UNKNOWN","5 mg","UNKNOWN","UNKNOWN"
+"18","02001H","SALBUTAMOL","Nebuliser solution 5 mg (as sulfate) in 2.5 mL single dose units, 30","R03AC02","Y","UNKNOWN","5 mg","UNKNOWN","UNKNOWN"
+"19","02003K","SALBUTAMOL","Nebuliser solution 5 mg (as sulfate) per mL, 30 mL","R03AC02","Y","UNKNOWN","5 mg","UNKNOWN","UNKNOWN"
+"20","02015C","MANNITOL","Pack containing 280 capsules containing powder for inhalation 40 mg and 2 inhalers","R05CB16","Y","Capsule,Inhalation","40 mg",NA,NA
+"21","02065Q","BUDESONIDE","Nebuliser suspension 500 mg in 2 mL single dose units, 30","R03BA02","Y","UNKNOWN","500 mg","UNKNOWN","UNKNOWN"
+"22","02066R","BUDESONIDE","Nebuliser suspension 1 mg in 2 mL single dose units, 30","R03BA02","Y","UNKNOWN","1 mg","UNKNOWN","UNKNOWN"
+"23","02070Y","BUDESONIDE","Powder for oral inhalation in breath actuated device 100 mg per dose, 200 doses","R03BA02","Y","Inhalation,Oral","100 mg",NA,NA
+"24","02071B","BUDESONIDE","Powder for oral inhalation in breath actuated device 200 mg per dose, 200 doses","R03BA02","Y","Inhalation,Oral","200 mg",NA,NA
+"25","02072C","BUDESONIDE","Powder for oral inhalation in breath actuated device 400 mg per dose, 200 doses","R03BA02","Y","Inhalation,Oral","400 mg",NA,NA
+"26","02234N","MESALAZINE","Sachet containing prolonged release granules, 1 g per sachet","A07EC02","Y","UNKNOWN",NA,"UNKNOWN","UNKNOWN"
+"27","02287J","MESALAZINE","Sachet containing prolonged release granules, 2 g per sachet","A07EC02","Y","UNKNOWN",NA,"UNKNOWN","UNKNOWN"
+"28","02481N","OXYCODONE","Suppository 30 mg (as pectinate)","N02AA05","Y","UNKNOWN","30 mg","UNKNOWN","UNKNOWN"
+"29","02588F","ISOSORBIDE DINITRATE","Tablet 5 mg (sublingual)","C01DA08","Y","Tablet,Sublingual","5 mg",NA,NA
+"30","02757D","INDOMETHACIN","Suppository 100 mg","M01AB01","Y","UNKNOWN","100 mg","UNKNOWN","UNKNOWN"
+"31","02817G","TERBUTALINE","Powder for oral inhalation in breath actuated device containing terbutaline sulfate 500 mg per dose, 100 doses","R03AC03","Y","Inhalation,Oral","500 mg",NA,NA
+"32","02876J","LIGNOCAINE","Infusion containing lignocaine hydrochloride 500 mg in 5 mL","C01BB01","Y","UNKNOWN","500 mg","UNKNOWN","UNKNOWN"
+"33","02878L","CROMOGLYCATE","Capsule containing powder for oral inhalation containing sodium cromoglycate 20 mg (for use in Intal Spinhaler or Intal Halermatic)","R03BC01","Y","Capsule,Inhalation,Oral","20 mg",NA,NA
+"34","03064G","LACTULOSE","Solution BP 3.34 g per 5 mL, 500 mL","A06AD11","Y","UNKNOWN",NA,"UNKNOWN","UNKNOWN"
+"35","05079H","DICLOFENAC","Suppository containing diclofenac sodium 100 mg","M01AB05","Y","UNKNOWN","100 mg","UNKNOWN","UNKNOWN"
+"36","05128X","INDOMETHACIN","Suppository 100 mg","M01AB01","Y","UNKNOWN","100 mg","UNKNOWN","UNKNOWN"
+"37","05134F","INDACATEROL","Capsule containing powder for oral inhalation 150 mg (as maleate) (for use in Breezhaler)","R03AC18","Y","Capsule,Inhalation,Oral","150 mg",NA,NA
+"38","05137J","INDACATEROL","Capsule containing powder for oral inhalation 300 mg (as maleate) (for use in Breezhaler)","R03AC18","Y","Capsule,Inhalation,Oral","300 mg",NA,NA
+"39","05157K","METRONIDAZOLE","Suppositories 500 mg, 10","J01XD01","Y","Suppositories","500 mg",NA,NA
+"40","05303D","BISACODYL","Suppositories 10 mg, 10","A06AB02","Y","Suppositories","10 mg",NA,NA
+"41","05304E","BISACODYL","Suppositories 10 mg, 12","A06AB02","Y","Suppositories","10 mg",NA,NA
+"42","05307H","BISACODYL","Suppositories 10 mg, 10","A06AB02","Y","Suppositories","10 mg",NA,NA
+"43","05308J","BISACODYL","Suppositories 10 mg, 12","A06AB02","Y","Suppositories","10 mg",NA,NA
+"44","05319Y","PARACETAMOL","Suppositories 500 mg, 24","N02BE01","Y","Suppositories","500 mg",NA,NA
+"45","05320B","PARACETAMOL","Suppositories 500 mg, 24","N02BE01","Y","Suppositories","500 mg",NA,NA
+"46","05363G","DICLOFENAC","Suppository containing diclofenac sodium 100 mg","M01AB05","Y","UNKNOWN","100 mg","UNKNOWN","UNKNOWN"
+"47","05378C","INDOMETHACIN","Suppository 100 mg","M01AB01","Y","UNKNOWN","100 mg","UNKNOWN","UNKNOWN"
+"48","05380E","INDOMETHACIN","Suppository 100 mg","M01AB01","Y","UNKNOWN","100 mg","UNKNOWN","UNKNOWN"
+"49","05387M","LACTULOSE","Solution BP 3.34 g per 5 mL, 500 mL","A06AD11","Y","UNKNOWN",NA,"UNKNOWN","UNKNOWN"
+"50","05388N","LACTULOSE","Solution BP 3.34 g per 5 mL, 500 mL","A06AD11","Y","UNKNOWN",NA,"UNKNOWN","UNKNOWN"
+"51","05461K","MESALAZINE","Suppository (moulded) 1 g","A07EC02","Y","UNKNOWN",NA,"UNKNOWN","UNKNOWN"
+"52","07530H","CODEINE","Codeine linct  100mL","R05DA04","Y","UNKNOWN",NA,"UNKNOWN","UNKNOWN"
+"53","08093Y","GOSERELIN","Subcutaneous implant (long acting) 10.8 mg (as acetate) in pre-filled injection syringe","L02AE03","Y","Injection,Implant","8 mg",NA,NA
+"54","08136F","EFORMOTEROL","Capsule containing powder for oral inhalation containing eformoterol fumarate dihydrate 12 mg (for use in Foradile Aerolizer)","R03AC13","Y","Capsule,Inhalation,Oral","12 mg",NA,NA
+"55","08141L","SALMETEROL","Powder for oral inhalation in breath actuated device 50 mg (as xinafoate) per dose, 60 doses","R03AC12","Y","Inhalation,Oral","50 mg",NA,NA
+"56","08147T","FLUTICASONE","Powder for oral inhalation in breath actuated device containing fluticasone propionate 100 mg per dose, 60 doses","R03BA05","Y","Inhalation,Oral","100 mg",NA,NA
+"57","08148W","FLUTICASONE","Powder for oral inhalation in breath actuated device containing fluticasone propionate 250 mg per dose, 60 doses","R03BA05","Y","Inhalation,Oral","250 mg",NA,NA
+"58","08149X","FLUTICASONE","Powder for oral inhalation in breath actuated device containing fluticasone propionate 500 mg per dose, 60 doses","R03BA05","Y","Inhalation,Oral","500 mg",NA,NA
+"59","08238N","IPRATROPIUM","Nebuliser solution containing ipratropium bromide 500 mg (anhydrous) in 1 mL single dose units, 30","R03BB01","Y","UNKNOWN","500 mg","UNKNOWN","UNKNOWN"
+"60","08239P","EFORMOTEROL","Powder for oral inhalation in breath actuated device containing eformoterol fumarate dihydrate 6 mg per dose, 60 doses","R03AC13","Y","Inhalation,Oral","6 mg",NA,NA
+"61","08240Q","EFORMOTEROL","Powder for oral inhalation in breath actuated device containing eformoterol fumarate dihydrate 12 mg per dose, 60 doses","R03AC13","Y","Inhalation,Oral","12 mg",NA,NA
+"62","08598M","MESALAZINE","Sachet containing granules, 500 mg per sachet","A07EC02","Y","UNKNOWN","500 mg","UNKNOWN","UNKNOWN"
+"63","08599N","MESALAZINE","Sachet containing granules, 1 g per sachet","A07EC02","Y","UNKNOWN",NA,"UNKNOWN","UNKNOWN"
+"64","08616L","MESALAZINE","Enemas 2 g in 60 mL, 7","A07EC02","Y","UNKNOWN",NA,"UNKNOWN","UNKNOWN"
+"65","08617M","MESALAZINE","Enemas 4 g in 60 mL, 7","A07EC02","Y","UNKNOWN",NA,"UNKNOWN","UNKNOWN"
+"66","08626B","TIOTROPIUM","Capsule containing powder for oral inhalation 18 mg (as bromide monohydrate) (for use in HandiHaler)","R03BB04","Y","Capsule,Inhalation,Oral","18 mg",NA,NA
+"67","08668F","RAMIPRIL","Pack containing 7 tablets 2.5 mg, 21 tablets 5 mg and 10 capsules 10 mg","C09AA05","Y","Tablet,Capsule","5 mg",NA,NA
+"68","08752P","MESALAZINE","Suppository 1 g","A07EC02","Y","UNKNOWN",NA,"UNKNOWN","UNKNOWN"
+"69","08753Q","MESALAZINE","Enemas 1 g in 100 mL, 7","A07EC02","Y","UNKNOWN",NA,"UNKNOWN","UNKNOWN"
+"70","08948Y","RAMIPRIL","Pack containing 7 tablets 2.5 mg, 21 tablets 5 mg and 10 capsules 10 mg","C09AA05","Y","Tablet,Capsule","5 mg",NA,NA
+"71","08970D","LEVODOPA + CARBIDOPA ANHYDROUS","Intestinal gel 20 mg-5 mg per mL, 100 mL","N04BA02","Y","UNKNOWN","20 mg","UNKNOWN","UNKNOWN"
+"72","09206M","MESALAZINE","Sachet containing granules, 1.5 g per sachet","A07EC02","Y","UNKNOWN",NA,"UNKNOWN","UNKNOWN"
+"73","09423Y","PANTOPRAZOLE","Sachet containing granules 40 mg (as sodium sesquihydrate)","A02BC02","Y","UNKNOWN","40 mg","UNKNOWN","UNKNOWN"
+"74","09424B","PANTOPRAZOLE","Sachet containing granules 40 mg (as sodium sesquihydrate)","A02BC02","Y","UNKNOWN","40 mg","UNKNOWN","UNKNOWN"
+"75","09743T","LEVODOPA + CARBIDOPA ANHYDROUS","Intestinal gel 20 mg-5 mg per mL, 100 mL","N04BA02","Y","UNKNOWN","20 mg","UNKNOWN","UNKNOWN"
+"76","09744W","LEVODOPA + CARBIDOPA ANHYDROUS","Intestinal gel 20 mg-5 mg per mL, 100 mL","N04BA02","Y","UNKNOWN","20 mg","UNKNOWN","UNKNOWN"
+"77","10059K","GLYCOPYRRONIUM","Capsule containing powder for oral inhalation 50 mg (as bromide) (for use in Breezhaler)","R03BB06","Y","Capsule,Inhalation,Oral","50 mg",NA,NA
+"78","10066T","TOBRAMYCIN","Capsule containing powder for oral inhalation 28 mg (for use in podhaler)","J01GB01","Y","Capsule,Inhalation,Oral","28 mg",NA,NA
+"79","10074F","TOBRAMYCIN","Capsule containing powder for oral inhalation 28 mg (for use in podhaler)","J01GB01","Y","Capsule,Inhalation,Oral","28 mg",NA,NA
+"80","10124W","ACLIDINIUM","Powder for oral inhalation in breath actuated device 322 mg (as bromide) per dose, 60 doses","R03BB05","Y","Inhalation,Oral","322 mg",NA,NA
+"81","10143W","SALBUTAMOL","Capsule containing powder for oral inhalation 200 mg (as sulfate) (for use in Ventolin Rotahaler)","R03AC02","Y","Capsule,Inhalation,Oral","200 mg",NA,NA
+"82","10187E","UMECLIDINIUM","Powder for oral inhalation in breath actuated device 62.5 mg (as bromide) per dose, 30 doses","R03BB07","Y","Inhalation,Oral","5 mg",NA,NA

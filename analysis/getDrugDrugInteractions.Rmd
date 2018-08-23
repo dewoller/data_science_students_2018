@@ -242,8 +242,6 @@ groups_spelled_check%>%
 ## Remaining groups or drugs, which we couldnot match either with ATC or PBS_Drug by any means are the jobs for the PHD guys to figure it out.
 ```
 
-
-
 ```{r Mismatch drug for small dataset of patients i.e. pbs_rr done with 11 chunks}
 
 #my_db_get_query("Select * from VW_PBS_INTERVAL_RR  where pin='00329081500' ")%>%
@@ -262,6 +260,10 @@ groups_spelled_check%>%
 #  select(pin.x,row.x,pbs_code.x,start.x,end.x,row.y,pbs_code.y,start.y,end.y)%>%
 #  {.}-> joined_interval
 
+small_fetch = FALSE
+
+if(small_fetch==TRUE)
+{
 my_db_get_query("Select pin,pbs_code,spply_dt,pbs_rgltn24_adjst_qty qty from pbs_rr where pin like '00%' ")%>%
   as.tibble()%>%
   { . } -> rr_pbs_interval_00
@@ -306,7 +308,6 @@ my_db_get_query("Select pin,pbs_code,spply_dt,pbs_rgltn24_adjst_qty qty from pbs
   as.tibble()%>%
   { . } -> rr_pbs_interval_1
 
-
 rr_pin_var <- data.frame(ls(pattern = "rr_pbs_*"))
 
 colnames(rr_pin_var) <- "pin"
@@ -320,14 +321,14 @@ cluster <- create_cluster(4)
 for (pin in rr_pin_var[,]){
   nesting_function(pin,"rr")
 }
-
+}
 ```
 
 ```{r Mismatch drug for large dataset of patients i.e. pbs, done in 11 chunks}
 
-Fetching_data =FALSE
+Fetching_Big_data =FALSE
 
-if(Fetching_data==TRUE)
+if(Fetching_Big_data==TRUE)
 {
 my_db_get_query("Select pin,pbs_code,spply_dt,pbs_rgltn24_adjst_qty qty from pbs where pin like '00%' ")%>%
   as.tibble()%>%
@@ -373,9 +374,6 @@ my_db_get_query("Select pin,pbs_code,spply_dt,pbs_rgltn24_adjst_qty qty from pbs
   as.tibble()%>%
   { . } -> bigpbs_interval_1
 
-}
-
-
 write_csv <- FALSE
 
 if (write_csv = TRUE) 
@@ -402,6 +400,7 @@ if (write_csv = TRUE)
   
   write.csv(bigpbs_interval_1,file="data/BigChunks/pbs_interval_1.csv")
   
+}
 }
 
 ```

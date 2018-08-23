@@ -34,8 +34,6 @@ library(workflowr)
 #library("tmap", 'https://cloud.r-project.org')
 #library("tmaptools", 'https://cloud.r-project.org')
 
-
-
 #for interval_inner_join
 
 #source("https://bioconductor.org/biocLite.R")
@@ -47,10 +45,11 @@ library("tidyverse")
 
 
 # get data from database function
+#install.packages("RPostgreSQL",dependencies = TRUE)
+
 library("RPostgreSQL")
 #library("keyring")
 
-# -------------------------------------------------
 get_continuing_df <- function(
   base_table="continuing_rr",
   include_barb=FALSE
@@ -184,23 +183,18 @@ bothDiff <- function ( set1, set2 ) {
 }
 
 # -------------------------------------------------
-
 my_db_get_query <- function ( query ) {
   # loads the PostgreSQL driver
-  #psswd <- .rs.askForPassword("Database Password:")
   drv <- dbDriver("PostgreSQL")
   con <- dbConnect(drv, dbname = "him5ihc_pbs",
                    host = "thealfred.duckdns.org", port = 5432,
-                   user = "dewoller", password = Sys.getenv("PSSWD"))
-                   #user = "dewoller", password = psswd)
+                   user = "dewoller", password = Sys.getenv("PASSWORD"))
   on.exit(dbDisconnect(con))
   dbGetQuery( con, query )
 
 }
 
 #...............................................
-
-
 
 detach_all_packages <- function() {
   basic.packages.blank <-  c("stats",

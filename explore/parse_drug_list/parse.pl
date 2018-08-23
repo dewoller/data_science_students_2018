@@ -19,7 +19,7 @@ while (<>) {
 		$care = 1;
 		my $line = $_;
 		if ($line =~ m/####/) {
-			$line =~ s/.*####([^%]*)%%%%[^#]*/$header\t\1\n/g;
+			$line =~ s/[^#]*####([^%]*)%%%%[^#]*/$header\t\1\n/g;
 			print( $line );
 		}
 	}
