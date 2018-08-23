@@ -188,7 +188,7 @@ my_db_get_query <- function ( query ) {
   drv <- dbDriver("PostgreSQL")
   con <- dbConnect(drv, dbname = "him5ihc_pbs",
                    host = "thealfred.duckdns.org", port = 5432,
-                   user = "dewoller", password = Sys.getenv("PASSWORD"))
+                   user = "dewoller", password = Sys.getenv("PSSWD"))
   on.exit(dbDisconnect(con))
   dbGetQuery( con, query )
 
