@@ -6,21 +6,22 @@ output:
     toc: false
 ---
 ```{r}
-#opts_chunk$set(root.dir = "/home/rukaht/data_science_students_2018/")
-```
-
-#  match drugs from BNF drug drug interaction with PBS
-
-
-```{r prepare_data}
 
 source('lib/pre_function.R')
 
 source('lib/function.R')
 
+```
+
+#  Selection of interacting drugs from BNF file.
+
+To begin with, the BNF file which was in pdf format, in which the names of the Drugs where coated in green colour, we first filtered and replaced those drugs name (i.e, Panadole -> ####Panadole%%%%) and converted the pdf file into text file.
+After conversion, we wrote a regular expression script in Perl to only extract the drugs name. Each drugs were having interactions with some other multiple drugs. For example, Abacavir	-> RIBAVIRIN ; Abacavir	-> TIPRANAVIR; Abacavir -> ORLISTAT. Also Tipranavir -> CLARITHROMYCIN ; Tipranavir ->	RIFABUTIN ;Tipranavir	-> RIFAMPICIN.
+The detail structure of pdf file to text file and further in our analysis is shown below:
+```{r prepare_data}
+
 read.table( 'data/drug_interactions.txt', sep='\t',header = FALSE) %>%
   as.tibble() %>% 
-  #rename(drug1=V1,drug2=V2) %>%
   mutate(V1=str_trim(str_to_upper(V1))) %>%
   mutate(V2=str_trim(str_to_upper(V2))) %>%
 { . } -> drug_drug_concordance
@@ -28,38 +29,56 @@ read.table( 'data/drug_interactions.txt', sep='\t',header = FALSE) %>%
 drug_drug_concordance <- drug_drug_concordance %>%
                           rename(drug1=V1,drug2=V2)
 
+head(drug_drug_concordance)
+```
+# Binding drug-drug interactions.
+We need to bind these 2 rows, so that these interaction can be removed for further analysis. The code to do this is just below:
+
+```{r}
+drug_drug_concordance %>% 
+  select(drug1) %>%
+  bind_rows(drug_drug_concordance %>% select(drug2)) %>%
+  distinct(drug2) %>%
+  {.} -> final_drugs
+```
+
+# Matching the pbs items and atc code with the BNF drug drug interaction.
+
+# Matching BNF only with PBS
+
+```{r Selecting the pbs items and atc code to match with BNF data set}
+
 my_db_get_query('Select * from pbs_item JOIN pbs_atc USING (atc_code)')%>%
   as.tibble()%>%
   mutate(drug_name = str_trim(drug_name)) %>%
   mutate(atc_meaning = str_trim(str_to_upper(atc_meaning))) %>%
   { .} ->main_table
 
-drug_drug_concordance %>% 
-  select(drug1) %>%
-  bind_rows(drug_drug_concordance %>% select(drug2)) %>%
-  distinct(drug2) %>%
-  {.} -> final_drugs
-
-cat("how many drugs do not have as direct match")
-final_drugs %>% 
-  anti_join(main_table,by=c("drug2"="drug_name")) %>%
-  count()
-
-cat("how many drugs have a direct match")
+cat("how many drugs from BNF have a direct match with DRUGS listed in PBS_ITEMS ")
 final_drugs %>% 
   inner_join(main_table,by=c("drug2"="drug_name")) %>%
   distinct( drug2)%>%
   count()
+```
 
+```{r}
+cat("how many drugs do not have as direct match")
+final_drugs %>% 
+  anti_join(main_table,by=c("drug2"="drug_name")) %>%
+  count()
+```
+
+```{r}
 final_drugs %>% 
   anti_join(main_table,by=c("drug2"="drug_name")) %>%
   rename( drug_name = drug2) %>%
   {.} -> drugs_to_match
 
-
+head(drugs_to_match)
 ```
-# TO Do
+These are some drugs that we have to match either with ATC code or PBS_Items.
 
+# TO Do
 You need to match up the drugs_to_match with final_drugs.
 
   * Make a table for the many-many matching process
@@ -71,43 +90,63 @@ You need to match up the drugs_to_match with final_drugs.
   * possibly ending with S
   * you will need to do some research to find the groups
 
+Numbers of drugs that needs to match are
 ```{r possible drugs_to_match, filtered by groups and non matching drugs}
-
 drugs_to_match %>% count()   
 #259
-
+```
+The possible group of drug from BNF are as follows:
+```{r}
 drugs_to_match %>%
   filter( endsWith(drug_name, 'S')) %>%
   {.}->drug_groups
 
 # 77 group of drugs; assumption made as name ending with S
+head(drug_groups)
+```
+
+Out of 259 drugs which we need to match, 77 are groups, so remaining (181) are the one which we still need to look into for.
+```{r}
 
 drugs_to_match %>%
   filter( ! endsWith(drug_name, 'S')) %>%
   {.}->drug_not_matched
 
+head(drug_not_matched)
+
+```
 # out of 259 not mathched drug, we have 77 group and 181 not matched drug
+# Matching with ATC Code
 
-############ Matching and Spelling Checks for Drugs Not Matched ##################
-
+```{r}
 drug_not_matched %>%
   inner_join(main_table,by=c("drug_name"="atc_meaning")) %>%
   distinct(drug_name)%>%
   select(drug_name)%>%
   {.}->matched_non_group
 
-
-cat("how many drugs FROM drugs_to_match have a direct match to atc_meaning in main table")
+cat("how many drugs FROM drugs_to_match (BNF) have a direct match to atc_meaning in main table(PBS)")
 drug_not_matched %>%
   inner_join(main_table,by=c("drug_name"="atc_meaning")) %>%
   distinct(drug_name)%>%
   select(drug_name)%>%
   count()
+```
+Out of 181 not matched drug , we have 24 matching drug with atc_meaning, so now we need 181-24= 157 drug to match. Some of them are listed below:
+```{r}
+drug_not_matched %>%
+  anti_join(main_table,by=c("drug_name"="atc_meaning")) %>%
+  distinct(drug_name)%>%
+  select(drug_name)%>%
+  {.}->remaining_drug 
 
-# now out of 181 not matched drug , we have 24 matching drug with atc_meaning, so now we need 181-24= 157 drug to find from pbs
+head(remaining_drug)
+```
 
-#or
+# Different method to verify result
 
+##########
+```{r}
 drug_to_match_withoutNA <- na.omit(drugs_to_match)
 
 main_table_withNA_ATC <- main_table%>%select(atc_meaning)
@@ -126,60 +165,52 @@ cat("how many drugs FROM drugs_to_match have a direct match to atc_meaning in ma
 drug_not_matched %>%
   inner_join(pure_ATC,by=c("drug_name"="atc_meaning")) %>%
   count()
+  
+#########
+```
 
-#view(drugs_to_match)
+# Matching and Spelling Checks for Drugs Not Matched
+An assumption is made many drugs from not matched drugs list, there may be some spelling mistakes or naming error.
+For instance, DIGOXIN in PBS may be written as DIGOXYIN in BNF or DIGOXIN in BNF may be similar to OXIN in PBS.
+So to rectify these kinds of error we have done the following and listed some of those. And the detail can be found in output folder having Spelling_Check_Error folder.
 
-#view(drug_not_matched) #181
-
-#view(drug_groups) #77
-
-#view(matched_non_group)  # 24
-
-drug_not_matched %>%
-  anti_join(main_table,by=c("drug_name"="atc_meaning")) %>%
-  distinct(drug_name)%>%
-  select(drug_name)%>%
-  {.}->remaining_drug 
-
-# Remaining drug are those 157 whose spelling or name formation may be slightly different than they should be. 
-
-#view(remaining_drug)
-
+Here we have checked for spelling difference between the drugs listed in concordance (BNF) and the main table pbs drug (PBS), and some of found mistake are listed below:
+```{r}
 remaining_drug$drug_name[1] <- "ST JOHNS WORT"
-
-#remaining_drug %>% distinct(drug_name)%>% count()
 
 spelled_check <- remaining_drug %>% 
   stringdist_inner_join(pure_drug_pbs, by = c("drug_name" = "pbs_drug"),max_dist=3)
 
-# Here we have checked for spelling difference between the drugs listed in concordance and the main table pbs drug 
+write.csv(spelled_check,file="output/Spelling/SpelledDrug.csv")
 
 head(spelled_check)
+```
 
-write.csv(spelled_check,file="output/Spelling/SpelledDrug.csv")
+
+Similarly, we have checked for spelling difference between the drugs listed in concordance (BNF) and the main table pbs drug (PBS) with ATC_Code, and some of found mistake are listed below:
+```{r}
 
 spelled_check_atc<- remaining_drug %>% 
   stringdist_inner_join(pure_ATC, by = c("drug_name" = "atc_meaning"),max_dist=3)
 
-head(spelled_check_atc)
-
 write.csv(spelled_check_atc,file="output/Spelling/SpelledDrug_ATC.csv")
 
+head(spelled_check_atc)
+```
+```{r}
+#Number of errored name drug matched with ATC code are: 46 
 spelled_check_atc%>% 
   select(drug_name)%>% 
   distinct(drug_name)%>%count()
 
-#46
-
+#Number of errored name drug matched with PBS ITEM are: 46 
 spelled_check%>% 
   select(drug_name)%>% 
   distinct(drug_name)%>%count()
+```
 
-#46
-
-
-##################### Matching and Spelling Checks for Groups##################
-
+# Matching and Spelling Checks for Groups
+```{r}
 drug_groups %>%
   inner_join(main_table,by=c("drug_name"="atc_meaning")) %>%
   distinct(drug_name)%>%
@@ -192,9 +223,10 @@ drug_groups %>%
   distinct(drug_name)%>%
   select(drug_name)%>%
   count()
+```
 
-# now out of 77 Group , we have 2 matching drug with atc_meaning, so now we need 77-2= 75 drug to find from pbs 
-
+Out of 77 Group , we have 2 matching drug with atc_meaning, so now we need 77-2= 75 drug-groups to find. 
+```{r}
 drug_groups %>%
   anti_join(main_table,by=c("drug_name"="atc_meaning")) %>%
   distinct(drug_name)%>%
@@ -204,43 +236,46 @@ drug_groups %>%
 # Remaining groups are those 75 whose spelling or name formation may be slightly different than they should be. 
 
 head(remaining_groups)
+```
 
-#remaining_groups %>% distinct(drug_name)%>% count()
-
+Matching remaining drug-group with PBS_Items.
+```{r}
 groups_spelled_check <- remaining_groups %>% 
   stringdist_inner_join(pure_drug_pbs, by = c("drug_name" = "pbs_drug"),max_dist=3)
 
-# Here we have checked for spelling difference between the groups listed in concordance and the main table pbs drug 
-
 #count(groups_spelled_check) #13
-
-head(groups_spelled_check)
 
 write.csv(groups_spelled_check,file="output/Spelling/GroupSpelledDrug.csv")
 
+head(groups_spelled_check)
+```
+Matching remaining drug-group with ATC_Code.
+```{r}
 Group_Spelled_check_atc<- remaining_groups %>% 
   stringdist_inner_join(pure_ATC, by = c("drug_name" = "atc_meaning"),max_dist=3)
 
 #count(Group_Spelled_check_atc)
 
-head(Group_Spelled_check_atc)
-
 write.csv(Group_Spelled_check_atc,file="output/Spelling/Groups_SpelledDrug_ATC.csv")
 
+head(Group_Spelled_check_atc)
+```
+
+```{r}
+# Number of matching with ATC :10
 Group_Spelled_check_atc%>% 
   select(drug_name)%>% 
   distinct(drug_name)%>%count()
 
-#10
-
+# Number of matching with PBS : 9
 groups_spelled_check%>% 
   select(drug_name)%>% 
   distinct(drug_name)%>%count()
 
-#9
-
-## Remaining groups or drugs, which we couldnot match either with ATC or PBS_Drug by any means are the jobs for the PHD guys to figure it out.
 ```
+# To Do for PHD Students:
+
+* Remaining groups or drugs, which we couldnot match either with ATC or PBS_Drug by any means are the jobs for the PHD guys to figure it out.
 
 ```{r Mismatch drug for small dataset of patients i.e. pbs_rr done with 11 chunks}
 
