@@ -11,10 +11,6 @@ navbar:
         href: whoDrugMatch.html
       - text: "Prabin"
         href: getDrugDrugInteractions.html
-
-  right:
-    - icon: fa-github
-      href: https://github.com/jdblischak/workflowr
 output:
   workflowr::wflow_html:
     toc: true
