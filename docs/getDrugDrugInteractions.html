@@ -217,7 +217,7 @@ div.section {
 </div>
 
 
-<p><strong>Last updated:</strong> 2018-07-25</p>
+<p><strong>Last updated:</strong> 2018-08-21</p>
 <strong>workflowr checks:</strong> <small>(Click a bullet for more information)</small>
 <ul>
 <li>
@@ -241,11 +241,24 @@ div.section {
 </details>
 </li>
 <li>
-<p><details> <summary> <strong style="color:blue;">✔</strong> <strong>Repository version:</strong> <a href="https://github.com/dewoller/data_science_students_2018/tree/f3ff39529517b0293ae50eadd08d2a87904c8f67" target="_blank">f3ff395</a> </summary></p>
+<p><details> <summary> <strong style="color:blue;">✔</strong> <strong>Repository version:</strong> <a href="https://github.com/dewoller/data_science_students_2018/tree/436cfc7ead97f4dab879e3830f7757b9683fc47b" target="_blank">436cfc7</a> </summary></p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility. The version displayed above was the version of the Git repository at the time these results were generated. <br><br> Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
 <pre><code>
+Ignored files:
+    Ignored:    .RData
+    Ignored:    .Rhistory
+    Ignored:    .Rproj.user/
+    Ignored:    analysis/.Rhistory
+
 Untracked files:
-    Untracked:  docs/drug_drug/docs/outtest.txt
+    Untracked:  analysis/whoDrugMatch.Rmd
+    Untracked:  data/ddd_who.csv
+    Untracked:  data/existing_pbs.csv
+    Untracked:  data/pbs_item.csv
+    Untracked:  data/unknown_routes.csv
+
+Unstaged changes:
+    Modified:   lib/function.R
 
 </code></pre>
 Note that any generated files, e.g. HTML, png, CSS, etc., are not included in this status report because it is ok for generated content to have uncommitted changes. </details>
@@ -274,6 +287,23 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td style="text-align:left;">
+html
+</td>
+<td style="text-align:left;">
+<a href="https://cdn.rawgit.com/dewoller/data_science_students_2018/c10c2c66c9be26110157c7d1e553b06bba7e7f00/docs/getDrugDrugInteractions.html" target="_blank">c10c2c6</a>
+</td>
+<td style="text-align:left;">
+Dennis Wollersheim
+</td>
+<td style="text-align:left;">
+2018-07-25
+</td>
+<td style="text-align:left;">
+Build site.
+</td>
+</tr>
 <tr>
 <td style="text-align:left;">
 Rmd
@@ -372,14 +402,12 @@ Attaching package: &#39;lubridate&#39;</code></pre>
 <pre><code>The following object is masked from &#39;package:base&#39;:
 
     date</code></pre>
-<pre><code>This is workflowr version 1.1.1
-Run ?workflowr for help getting started</code></pre>
-<pre><code>── Attaching packages ────────────────────────────────── tidyverse 1.2.1 ──</code></pre>
+<pre><code>── Attaching packages ──────────────────────────────────────────────────────────────── tidyverse 1.2.1 ──</code></pre>
 <pre><code>✔ ggplot2 3.0.0     ✔ readr   1.1.1
 ✔ tibble  1.4.2     ✔ purrr   0.2.5
 ✔ tidyr   0.8.1     ✔ dplyr   0.7.6
 ✔ ggplot2 3.0.0     ✔ forcats 0.3.0</code></pre>
-<pre><code>── Conflicts ───────────────────────────────────── tidyverse_conflicts() ──
+<pre><code>── Conflicts ─────────────────────────────────────────────────────────────────── tidyverse_conflicts() ──
 ✖ lubridate::as.difftime() masks base::as.difftime()
 ✖ dplyr::coalesce()        masks wrapr::coalesce()
 ✖ lubridate::date()        masks base::date()
@@ -854,11 +882,11 @@ RETINOIDS
 <pre class="r"><code>sessionInfo()</code></pre>
 <pre><code>R version 3.4.4 (2018-03-15)
 Platform: x86_64-pc-linux-gnu (64-bit)
-Running under: Ubuntu 17.10
+Running under: Ubuntu 18.04.1 LTS
 
 Matrix products: default
-BLAS: /usr/lib/x86_64-linux-gnu/openblas/libblas.so.3
-LAPACK: /usr/lib/x86_64-linux-gnu/libopenblasp-r0.2.20.so
+BLAS: /usr/lib/x86_64-linux-gnu/blas/libblas.so.3.7.1
+LAPACK: /usr/lib/x86_64-linux-gnu/lapack/liblapack.so.3.7.1
 
 locale:
  [1] LC_CTYPE=en_AU.UTF-8       LC_NUMERIC=C              
@@ -875,29 +903,29 @@ other attached packages:
  [1] bindrcpp_0.2.2    RPostgreSQL_0.6-2 DBI_1.0.0        
  [4] forcats_0.3.0     dplyr_0.7.6       purrr_0.2.5      
  [7] readr_1.1.1       tidyr_0.8.1       tibble_1.4.2     
-[10] ggplot2_3.0.0     tidyverse_1.2.1   workflowr_1.1.1  
-[13] pander_0.6.2      kableExtra_0.9.0  knitr_1.20       
-[16] lubridate_1.7.4   stringr_1.3.1     magrittr_1.5     
-[19] wrapr_1.5.1       nvimcom_0.9-72   
+[10] ggplot2_3.0.0     tidyverse_1.2.1   pander_0.6.2     
+[13] kableExtra_0.9.0  knitr_1.20        lubridate_1.7.4  
+[16] stringr_1.3.1     magrittr_1.5      wrapr_1.6.0      
+[19] workflowr_1.1.1  
 
 loaded via a namespace (and not attached):
  [1] tidyselect_0.2.4  haven_1.1.2       lattice_0.20-35  
  [4] colorspace_1.3-2  htmltools_0.3.6   viridisLite_0.3.0
- [7] yaml_2.1.19       utf8_1.1.4        rlang_0.2.1      
+ [7] yaml_2.2.0        utf8_1.1.4        rlang_0.2.1      
 [10] R.oo_1.22.0       pillar_1.3.0      withr_2.1.2      
 [13] glue_1.3.0        R.utils_2.6.0     readxl_1.1.0     
 [16] modelr_0.1.2      plyr_1.8.4        bindr_0.1.1      
 [19] cellranger_1.1.0  munsell_0.5.0     gtable_0.2.0     
-[22] rvest_0.3.2       R.methodsS3_1.7.1 evaluate_0.10.1  
+[22] rvest_0.3.2       R.methodsS3_1.7.1 evaluate_0.11    
 [25] fansi_0.2.3       highr_0.7         broom_0.5.0      
-[28] Rcpp_0.12.17      scales_0.5.0      backports_1.1.2  
+[28] Rcpp_0.12.18      scales_0.5.0      backports_1.1.2  
 [31] jsonlite_1.5      hms_0.4.2         digest_0.6.15    
-[34] stringi_1.2.3     rprojroot_1.3-2   grid_3.4.4       
+[34] stringi_1.2.4     rprojroot_1.3-2   grid_3.4.4       
 [37] cli_1.0.0         tools_3.4.4       lazyeval_0.2.1   
 [40] crayon_1.3.4      whisker_0.3-2     pkgconfig_2.0.1  
 [43] xml2_1.2.0        assertthat_0.2.0  rmarkdown_1.10   
 [46] httr_1.3.1        rstudioapi_0.7    R6_2.2.2         
-[49] nlme_3.1-137      git2r_0.23.0      compiler_3.4.4   </code></pre>
+[49] nlme_3.1-131      git2r_0.23.0      compiler_3.4.4   </code></pre>
 </div>
 </div>
 

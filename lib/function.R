@@ -25,6 +25,8 @@ library("tidyverse")
 
 
 # get data from database function
+#install.packages("RPostgreSQL",dependencies = TRUE)
+
 library("RPostgreSQL")
 #library("keyring")
 
