@@ -5,6 +5,13 @@ navbar:
   left:
     - text: "Home"
       href: index.html
+    - text: "Project"
+    menu:
+      - text: "Nirmala"
+        href: whoDrugMatch.html
+      - text: "Prabin"
+        href: getDrugDrugInteractions.html
+
   right:
     - icon: fa-github
       href: https://github.com/jdblischak/workflowr
