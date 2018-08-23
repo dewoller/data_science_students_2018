@@ -1,13 +1,17 @@
-name: "workplans"
+name: "Drugs Interaction Project"
 output_dir: "../docs"
 navbar:
-  title: "workplans"
+  title: "Drugs Interaction Project"
   left:
     - text: "Home"
       href: index.html
-  right:
-    - icon: fa-github
-      href: https://github.com/jdblischak/workflowr
+    - text: "Project"
+      menu:
+        - text: "Nirmala"
+          href: whoDrugMatch.html
+        - text: "Prabin"
+          href: getDrugDrugInteractions.html
+
 output:
   workflowr::wflow_html:
     toc: true

@@ -5,24 +5,33 @@ output:
   workflowr::wflow_html:
     toc: false
 ---
-
+```{r}
+#opts_chunk$set(root.dir = "/home/rukaht/data_science_students_2018/")
+```
 
 #  match drugs from BNF drug drug interaction with PBS
 
 
 ```{r prepare_data}
+
+source('lib/pre_function.R')
+
 source('lib/function.R')
 
 read.table( 'data/drug_interactions.txt', sep='\t',header = FALSE) %>%
   as.tibble() %>% 
-  rename(drug1=V1,drug2=V2) %>%
-  mutate(drug1=str_trim(str_to_upper(drug1))) %>%
-  mutate(drug2=str_trim(str_to_upper(drug2))) %>%
+  #rename(drug1=V1,drug2=V2) %>%
+  mutate(V1=str_trim(str_to_upper(V1))) %>%
+  mutate(V2=str_trim(str_to_upper(V2))) %>%
 { . } -> drug_drug_concordance
+
+drug_drug_concordance <- drug_drug_concordance %>%
+                          rename(drug1=V1,drug2=V2)
 
 my_db_get_query('Select * from pbs_item JOIN pbs_atc USING (atc_code)')%>%
   as.tibble()%>%
   mutate(drug_name = str_trim(drug_name)) %>%
+  mutate(atc_meaning = str_trim(str_to_upper(atc_meaning))) %>%
   { .} ->main_table
 
 drug_drug_concordance %>% 
@@ -62,11 +71,337 @@ You need to match up the drugs_to_match with final_drugs.
   * possibly ending with S
   * you will need to do some research to find the groups
 
-```{r possible groups}
+```{r possible drugs_to_match, filtered by groups and non matching drugs}
+
+drugs_to_match %>% count()   
+#259
 
 drugs_to_match %>%
   filter( endsWith(drug_name, 'S')) %>%
-  kable()
+  {.}->drug_groups
+
+# 77 group of drugs; assumption made as name ending with S
+
+drugs_to_match %>%
+  filter( ! endsWith(drug_name, 'S')) %>%
+  {.}->drug_not_matched
+
+# out of 259 not mathched drug, we have 77 group and 181 not matched drug
+
+############ Matching and Spelling Checks for Drugs Not Matched ##################
+
+drug_not_matched %>%
+  inner_join(main_table,by=c("drug_name"="atc_meaning")) %>%
+  distinct(drug_name)%>%
+  select(drug_name)%>%
+  {.}->matched_non_group
+
+
+cat("how many drugs FROM drugs_to_match have a direct match to atc_meaning in main table")
+drug_not_matched %>%
+  inner_join(main_table,by=c("drug_name"="atc_meaning")) %>%
+  distinct(drug_name)%>%
+  select(drug_name)%>%
+  count()
+
+# now out of 181 not matched drug , we have 24 matching drug with atc_meaning, so now we need 181-24= 157 drug to find from pbs
+
+#or
+
+drug_to_match_withoutNA <- na.omit(drugs_to_match)
+
+main_table_withNA_ATC <- main_table%>%select(atc_meaning)
+
+main_table_withNA_ATC %>%
+  filter(atc_meaning!='NA') %>%
+  distinct(atc_meaning)%>%
+  {.} -> pure_ATC
+
+pure_drug_maintable <- main_table %>% select(drug_name) %>% distinct(drug_name) 
+
+pure_drug_pbs <- na.omit(pure_drug_maintable) %>% 
+  rename(pbs_drug = drug_name)
+
+cat("how many drugs FROM drugs_to_match have a direct match to atc_meaning in main table")
+drug_not_matched %>%
+  inner_join(pure_ATC,by=c("drug_name"="atc_meaning")) %>%
+  count()
+
+#view(drugs_to_match)
+
+#view(drug_not_matched) #181
+
+#view(drug_groups) #77
+
+#view(matched_non_group)  # 24
+
+drug_not_matched %>%
+  anti_join(main_table,by=c("drug_name"="atc_meaning")) %>%
+  distinct(drug_name)%>%
+  select(drug_name)%>%
+  {.}->remaining_drug 
+
+# Remaining drug are those 157 whose spelling or name formation may be slightly different than they should be. 
+
+#view(remaining_drug)
+
+remaining_drug$drug_name[1] <- "ST JOHNS WORT"
+
+#remaining_drug %>% distinct(drug_name)%>% count()
+
+spelled_check <- remaining_drug %>% 
+  stringdist_inner_join(pure_drug_pbs, by = c("drug_name" = "pbs_drug"),max_dist=3)
+
+# Here we have checked for spelling difference between the drugs listed in concordance and the main table pbs drug 
+
+head(spelled_check)
+
+write.csv(spelled_check,file="output/Spelling/SpelledDrug.csv")
+
+spelled_check_atc<- remaining_drug %>% 
+  stringdist_inner_join(pure_ATC, by = c("drug_name" = "atc_meaning"),max_dist=3)
+
+head(spelled_check_atc)
+
+write.csv(spelled_check_atc,file="output/Spelling/SpelledDrug_ATC.csv")
+
+spelled_check_atc%>% 
+  select(drug_name)%>% 
+  distinct(drug_name)%>%count()
+
+#46
+
+spelled_check%>% 
+  select(drug_name)%>% 
+  distinct(drug_name)%>%count()
+
+#46
+
+
+##################### Matching and Spelling Checks for Groups##################
+
+drug_groups %>%
+  inner_join(main_table,by=c("drug_name"="atc_meaning")) %>%
+  distinct(drug_name)%>%
+  select(drug_name)%>%
+  {.}->matched_group
+
+cat("how many Group have a direct match to atc_meaning in main table")
+drug_groups %>%
+  inner_join(main_table,by=c("drug_name"="atc_meaning")) %>%
+  distinct(drug_name)%>%
+  select(drug_name)%>%
+  count()
+
+# now out of 77 Group , we have 2 matching drug with atc_meaning, so now we need 77-2= 75 drug to find from pbs 
+
+drug_groups %>%
+  anti_join(main_table,by=c("drug_name"="atc_meaning")) %>%
+  distinct(drug_name)%>%
+  select(drug_name)%>%
+  {.}->remaining_groups
+
+# Remaining groups are those 75 whose spelling or name formation may be slightly different than they should be. 
+
+head(remaining_groups)
+
+#remaining_groups %>% distinct(drug_name)%>% count()
+
+groups_spelled_check <- remaining_groups %>% 
+  stringdist_inner_join(pure_drug_pbs, by = c("drug_name" = "pbs_drug"),max_dist=3)
+
+# Here we have checked for spelling difference between the groups listed in concordance and the main table pbs drug 
+
+#count(groups_spelled_check) #13
+
+head(groups_spelled_check)
+
+write.csv(groups_spelled_check,file="output/Spelling/GroupSpelledDrug.csv")
+
+Group_Spelled_check_atc<- remaining_groups %>% 
+  stringdist_inner_join(pure_ATC, by = c("drug_name" = "atc_meaning"),max_dist=3)
+
+#count(Group_Spelled_check_atc)
+
+head(Group_Spelled_check_atc)
+
+write.csv(Group_Spelled_check_atc,file="output/Spelling/Groups_SpelledDrug_ATC.csv")
+
+Group_Spelled_check_atc%>% 
+  select(drug_name)%>% 
+  distinct(drug_name)%>%count()
+
+#10
+
+groups_spelled_check%>% 
+  select(drug_name)%>% 
+  distinct(drug_name)%>%count()
+
+#9
+
+## Remaining groups or drugs, which we couldnot match either with ATC or PBS_Drug by any means are the jobs for the PHD guys to figure it out.
+```
+
+```{r Mismatch drug for small dataset of patients i.e. pbs_rr done with 11 chunks}
+
+#my_db_get_query("Select * from VW_PBS_INTERVAL_RR  where pin='00329081500' ")%>%
+#  as.tibble()%>%
+#  mutate(row=row_number()) %>%
+#  select(pin,row,pbs_code,spply_dt,end_date) %>% 
+#  rename( start=spply_dt ) %>%
+#  rename (end=end_date) %>%
+#{ .} ->pbs_interval_rr
+
+#view(pbs_interval_rr)
+
+####
+#pbs_interval_rr %>%
+#  interval_inner_join(pbs_interval_rr,by=c("start","end"),minoverlap = 7) %>%
+#  select(pin.x,row.x,pbs_code.x,start.x,end.x,row.y,pbs_code.y,start.y,end.y)%>%
+#  {.}-> joined_interval
+
+small_fetch = FALSE
+
+if(small_fetch==TRUE)
+{
+my_db_get_query("Select pin,pbs_code,spply_dt,pbs_rgltn24_adjst_qty qty from pbs_rr where pin like '00%' ")%>%
+  as.tibble()%>%
+  { . } -> rr_pbs_interval_00
+
+my_db_get_query("Select pin,pbs_code,spply_dt,pbs_rgltn24_adjst_qty qty from pbs_rr where pin like '01%' ")%>%
+  as.tibble()%>%
+  { . } -> rr_pbs_interval_01
+
+my_db_get_query("Select pin,pbs_code,spply_dt,pbs_rgltn24_adjst_qty qty from pbs_rr where pin like '02%' ")%>%
+  as.tibble()%>%
+  { . } -> rr_pbs_interval_02
+
+my_db_get_query("Select pin,pbs_code,spply_dt,pbs_rgltn24_adjst_qty qty from pbs_rr where pin like '03%' ")%>%
+  as.tibble()%>%
+  { . } -> rr_pbs_interval_03
+
+my_db_get_query("Select pin,pbs_code,spply_dt,pbs_rgltn24_adjst_qty qty from pbs_rr where pin like '04%' ")%>%
+  as.tibble()%>%
+  { . } -> rr_pbs_interval_04
+
+my_db_get_query("Select pin,pbs_code,spply_dt,pbs_rgltn24_adjst_qty qty from pbs_rr where pin like '05%' ")%>%
+  as.tibble()%>%
+  { . } -> rr_pbs_interval_05
+
+my_db_get_query("Select pin,pbs_code,spply_dt,pbs_rgltn24_adjst_qty qty from pbs_rr where pin like '06%' ")%>%
+  as.tibble()%>%
+  { . } -> rr_pbs_interval_06
+
+my_db_get_query("Select pin,pbs_code,spply_dt,pbs_rgltn24_adjst_qty qty from pbs_rr where pin like '07%' ")%>%
+  as.tibble()%>%
+  { . } -> rr_pbs_interval_07
+
+my_db_get_query("Select pin,pbs_code,spply_dt,pbs_rgltn24_adjst_qty qty from pbs_rr where pin like '08%' ")%>%
+  as.tibble()%>%
+  { . } -> rr_pbs_interval_08
+
+my_db_get_query("Select pin,pbs_code,spply_dt,pbs_rgltn24_adjst_qty qty from pbs_rr where pin like '09%' ")%>%
+  as.tibble()%>%
+  { . } -> rr_pbs_interval_09
+
+my_db_get_query("Select pin,pbs_code,spply_dt,pbs_rgltn24_adjst_qty qty from pbs_rr where pin like '1%' ")%>%
+  as.tibble()%>%
+  { . } -> rr_pbs_interval_1
+
+rr_pin_var <- data.frame(ls(pattern = "rr_pbs_*"))
+
+colnames(rr_pin_var) <- "pin"
+
+head(rr_pin_var)
+
+View(rr_pin_var)
+
+cluster <- create_cluster(4)
+
+for (pin in rr_pin_var[,]){
+  nesting_function(pin,"rr")
+}
+}
+```
+
+```{r Mismatch drug for large dataset of patients i.e. pbs, done in 11 chunks}
+
+Fetching_Big_data =FALSE
+
+if(Fetching_Big_data==TRUE)
+{
+my_db_get_query("Select pin,pbs_code,spply_dt,pbs_rgltn24_adjst_qty qty from pbs where pin like '00%' ")%>%
+  as.tibble()%>%
+  { . } -> bigpbs_interval_00
+
+my_db_get_query("Select pin,pbs_code,spply_dt,pbs_rgltn24_adjst_qty qty from pbs where pin like '01%' ")%>%
+  as.tibble()%>%
+  { . } -> bigpbs_interval_01
+
+my_db_get_query("Select pin,pbs_code,spply_dt,pbs_rgltn24_adjst_qty qty from pbs where pin like '02%' ")%>%
+  as.tibble()%>%
+  { . } -> bigpbs_interval_02
+
+my_db_get_query("Select pin,pbs_code,spply_dt,pbs_rgltn24_adjst_qty qty from pbs where pin like '03%' ")%>%
+  as.tibble()%>%
+  { . } -> bigpbs_interval_03
+
+my_db_get_query("Select pin,pbs_code,spply_dt,pbs_rgltn24_adjst_qty qty from pbs where pin like '04%' ")%>%
+  as.tibble()%>%
+  { . } -> bigpbs_interval_04
+
+my_db_get_query("Select pin,pbs_code,spply_dt,pbs_rgltn24_adjst_qty qty from pbs where pin like '05%' ")%>%
+  as.tibble()%>%
+  { . } -> bigpbs_interval_05
+
+my_db_get_query("Select pin,pbs_code,spply_dt,pbs_rgltn24_adjst_qty qty from pbs where pin like '06%' ")%>%
+  as.tibble()%>%
+  { . } -> bigpbs_interval_06
+
+my_db_get_query("Select pin,pbs_code,spply_dt,pbs_rgltn24_adjst_qty qty from pbs where pin like '07%' ")%>%
+  as.tibble()%>%
+  { . } -> bigpbs_interval_07
+
+my_db_get_query("Select pin,pbs_code,spply_dt,pbs_rgltn24_adjst_qty qty from pbs where pin like '08%' ")%>%
+  as.tibble()%>%
+  { . } -> bigpbs_interval_08
+
+my_db_get_query("Select pin,pbs_code,spply_dt,pbs_rgltn24_adjst_qty qty from pbs where pin like '09%' ")%>%
+  as.tibble()%>%
+  { . } -> bigpbs_interval_09
+
+my_db_get_query("Select pin,pbs_code,spply_dt,pbs_rgltn24_adjst_qty qty from pbs where pin like '1%' ")%>%
+  as.tibble()%>%
+  { . } -> bigpbs_interval_1
+
+write_csv <- FALSE
+
+if (write_csv == TRUE) 
+{
+  write.csv(bigpbs_interval_00,file="data/BigChunks/pbs_interval_00.csv")
+  
+  write.csv(bigpbs_interval_01,file="data/BigChunks/pbs_interval_01.csv")
+  
+  write.csv(bigpbs_interval_02,file="data/BigChunks/pbs_interval_02.csv")
+  
+  write.csv(bigpbs_interval_03,file="data/BigChunks/pbs_interval_03.csv")
+  
+  write.csv(bigpbs_interval_04,file="data/BigChunks/pbs_interval_04.csv")
+  
+  write.csv(bigpbs_interval_05,file="data/BigChunks/pbs_interval_05.csv")
+  
+  write.csv(bigpbs_interval_06,file="data/BigChunks/pbs_interval_06.csv")
+  
+  write.csv(bigpbs_interval_07,file="data/BigChunks/pbs_interval_07.csv")
+  
+  write.csv(bigpbs_interval_08,file="data/BigChunks/pbs_interval_08.csv")
+  
+  write.csv(bigpbs_interval_09,file="data/BigChunks/pbs_interval_09.csv")
+  
+  write.csv(bigpbs_interval_1,file="data/BigChunks/pbs_interval_1.csv")
+  
+}
+}
 
 ```
 

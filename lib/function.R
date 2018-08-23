@@ -1,11 +1,25 @@
 #!/usr/bin/env Rscript
 
+detach_all_packages()
+
 # utilities
 library("wrapr" )
 library("magrittr")
 
 # string utiliities
 library("stringr")
+
+library(stringi)
+
+#install.packages("devtools")
+library(devtools)
+
+devtools::install_github("hadley/multidplyr")
+
+library(multidplyr)
+
+#fuzzy join
+library(fuzzyjoin)
 
 # date utilities
 library("lubridate")
@@ -20,6 +34,12 @@ library(workflowr)
 #library("tmap", 'https://cloud.r-project.org')
 #library("tmaptools", 'https://cloud.r-project.org')
 
+#for interval_inner_join
+
+#source("https://bioconductor.org/biocLite.R")
+#biocLite("IRanges")
+
+library(IRanges)
 # the most important library!! omnibus
 library("tidyverse")
 
@@ -30,33 +50,32 @@ library("tidyverse")
 library("RPostgreSQL")
 #library("keyring")
 
-# -------------------------------------------------
 get_continuing_df <- function(
-                              base_table="continuing_rr",
-                              include_barb=FALSE
-                              ) {
+  base_table="continuing_rr",
+  include_barb=FALSE
+) {
 
   type_code_limit = ifelse( include_barb, 11, 10 )
   query  <-  paste0( "
-                    SELECT pin, gender, age, state, lga, scheme, item_code, type_code, type_name, supply_date, quantity, unit_wt, ddd_mg_factor, days_multiplier from continuing."
-                    , base_table
-                    , " r JOIN continuing.item i USING (item_code)
-                    JOIN public.generictype USING (type_code)
-                    where (type_code < ", type_code_limit, "
-                           AND EXTRACT( YEAR FROM supply_date ) != '2017'
-                           AND state in ('NSW', 'VIC')
-                           AND (lga like '1%' OR lga like '2%'))"
-                    )
+                     SELECT pin, gender, age, state, lga, scheme, item_code, type_code, type_name, supply_date, quantity, unit_wt, ddd_mg_factor, days_multiplier from continuing."
+                     , base_table
+                     , " r JOIN continuing.item i USING (item_code)
+                     JOIN public.generictype USING (type_code)
+                     where (type_code < ", type_code_limit, "
+                     AND EXTRACT( YEAR FROM supply_date ) != '2017'
+                     AND state in ('NSW', 'VIC')
+                     AND (lga like '1%' OR lga like '2%'))"
+  )
 
   my_db_get_query( query ) %>%
     as.tibble() %>%
     mutate( n_dose = (unit_wt * quantity / ddd_mg_factor ),
-           agen=ifelse( age=='100+', 101, as.numeric( age )),
-           age = cut( agen,
-                     c(0,19,44,64,9999),
-                     labels=qw("0-19 20-44 45-64 65+")
-                     )
-           ) %>%
+            agen=ifelse( age=='100+', 101, as.numeric( age )),
+            age = cut( agen,
+                       c(0,19,44,64,9999),
+                       labels=qw("0-19 20-44 45-64 65+")
+            )
+    ) %>%
     rename(sex=gender)
 }
 
@@ -90,8 +109,8 @@ generate_data_frames = function( ) {
   #
   df %<>%
     mutate( quarter = quarter(supply_date, with_year = TRUE),
-           supply_year = as.factor(year(supply_date))
-           )
+            supply_year = as.factor(year(supply_date))
+    )
 
 
   # doses by year, type and patient
@@ -100,10 +119,10 @@ generate_data_frames = function( ) {
   df%>%
     group_by(pin,  supply_year) %>%
     summarise(
-              n_dose = sum(n_dose),
-              quantity = sum(quantity),
-              n_script = n()
-              ) %>%
+      n_dose = sum(n_dose),
+      quantity = sum(quantity),
+      n_script = n()
+    ) %>%
     ungroup() %>%
     {.} -> df_patient_dose
 
@@ -111,23 +130,23 @@ generate_data_frames = function( ) {
   df%>%
     group_by(pin) %>%
     summarise(
-              n_quarter = n_distinct( quarter ),
-              usage_category= cut( n_quarter,
-                                  c(-1, 1,7,13, 999999),
-                                  labels = qw("one-off short-term long-term regular"),
-                                  ordered_result=TRUE
-                                  )
-              ) %>%
+      n_quarter = n_distinct( quarter ),
+      usage_category= cut( n_quarter,
+                           c(-1, 1,7,13, 999999),
+                           labels = qw("one-off short-term long-term regular"),
+                           ordered_result=TRUE
+      )
+    ) %>%
     {.} -> df_patient_usage
 
   list( "df_patient_usage" = df_patient_usage,
-       "df_patient" = df_patient,
-       "df_patient_scheme" = df_patient_scheme,
-       "df_patient_dose" = df_patient_dose,
-       "age_groups" = age_groups,
-       "multiplier" = multiplier,
-       "df"=df
-       )
+        "df_patient" = df_patient,
+        "df_patient_scheme" = df_patient_scheme,
+        "df_patient_dose" = df_patient_dose,
+        "age_groups" = age_groups,
+        "multiplier" = multiplier,
+        "df"=df
+  )
 }
 
 
@@ -144,14 +163,14 @@ destring <- function(x,keep="0-9.-") {
 # my.year.length  ------------------------------------------------------------------
 #
 my_year_length <- function( year ) {
-	sapply( year, function(year) { year.length(as.character(year )) })
+  sapply( year, function(year) { year.length(as.character(year )) })
 }
 
 
 # seqNext ------------------------------------------------------------------
 seqNext <- function(x1, y1) {
   dat <- data.frame( x= x1
-  			 , y=y1)
+                     , y=y1)
   unname(
     predict(lm(y ~ x, data=dat), newdata=list(x=c(2016)))
   )
@@ -159,20 +178,44 @@ seqNext <- function(x1, y1) {
 
 # bothDiff  ------------------------------------------------------------------
 bothDiff <- function ( set1, set2 ) {
-	print(setdiff( set1, set2 ))
-	print(setdiff(set2, set1))
+  print(setdiff( set1, set2 ))
+  print(setdiff(set2, set1))
 }
 
 # -------------------------------------------------
 my_db_get_query <- function ( query ) {
-
-
   # loads the PostgreSQL driver
   drv <- dbDriver("PostgreSQL")
   con <- dbConnect(drv, dbname = "him5ihc_pbs",
-          host = "thealfred.duckdns.org", port = 5432,
-          user = "dewoller", password = Sys.getenv("PASSWORD"))
+                   host = "thealfred.duckdns.org", port = 5432,
+                   user = "dewoller", password = Sys.getenv("PSSWD"))
   on.exit(dbDisconnect(con))
   dbGetQuery( con, query )
 
+}
+
+#...............................................
+
+detach_all_packages <- function() {
+  basic.packages.blank <-  c("stats",
+                             "graphics",
+                             "grDevices",
+                             "utils",
+                             "datasets",
+                             "methods",
+                             "base",
+                             "nvimcom",
+                             "colorout")
+  basic.packages <- paste("package:", basic.packages.blank, sep = "")
+
+  package.list <- search()[ifelse(unlist(gregexpr("package:", search())) == 1,
+                                  TRUE,
+                                  FALSE)]
+
+  package.list <- setdiff(package.list, basic.packages)
+
+  if (length(package.list) > 0)  for (package in package.list) {
+    detach(package, character.only = TRUE)
+    print(paste("package ", package, " detached", sep = ""))
+  }
 }
