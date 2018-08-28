@@ -4,34 +4,38 @@ author: Dennis Wollersheim
 output:
   workflowr::wflow_html
 ---
-```{r}
 
-source('lib/pre_function.R')
+```{r loadlibrary,message=FALSE}
 
 source('lib/function.R')
 
 ```
 
+# methods
+  1)  match BNF drugs to PBS drugs
+
 #  Selection of interacting drugs from BNF file.
 
 To begin with, the BNF file which was in pdf format, in which the names of the Drugs where coated in green colour, we first filtered and replaced those drugs name (i.e, Panadole -> ####Panadole%%%%) and converted the pdf file into text file.
-After conversion, we wrote a regular expression script in Perl to only extract the drugs name. Each drugs were having interactions with some other multiple drugs. For example, Abacavir	-> RIBAVIRIN ; Abacavir	-> TIPRANAVIR; Abacavir -> ORLISTAT. Also Tipranavir -> CLARITHROMYCIN ; Tipranavir ->	RIFABUTIN ;Tipranavir	-> RIFAMPICIN.
+After conversion, we wrote a regular expression script in Perl to only extract the drugs name. Each drugs were having interactions with some other multiple drugs. For example, 
+
+Abacavir	-> RIBAVIRIN ; Abacavir	-> TIPRANAVIR; Abacavir -> ORLISTAT. Also Tipranavir -> CLARITHROMYCIN ; Tipranavir ->	RIFABUTIN ;Tipranavir	-> RIFAMPICIN.
+
 The detail structure of pdf file to text file and further in our analysis is shown below:
+
 ```{r prepare_data}
 
 read.table( 'data/drug_interactions.txt', sep='\t',header = FALSE) %>%
   as.tibble() %>% 
   mutate(V1=str_trim(str_to_upper(V1))) %>%
   mutate(V2=str_trim(str_to_upper(V2))) %>%
+  rename(drug1=V1,drug2=V2) %>%
 { . } -> drug_drug_concordance
-
-drug_drug_concordance <- drug_drug_concordance %>%
-                          rename(drug1=V1,drug2=V2)
 
 head(drug_drug_concordance)
 ```
-# Binding drug-drug interactions.
-We need to bind these 2 rows, so that these interaction can be removed for further analysis. The code to do this is just below:
+# match BNF drugs to PBS drugs
+Find all distinct drugs on both sides of interactions list
 
 ```{r}
 drug_drug_concordance %>% 
@@ -51,11 +55,11 @@ my_db_get_query('Select * from pbs_item JOIN pbs_atc USING (atc_code)')%>%
   as.tibble()%>%
   mutate(drug_name = str_trim(drug_name)) %>%
   mutate(atc_meaning = str_trim(str_to_upper(atc_meaning))) %>%
-  { .} ->main_table
+  { .} ->pbs_drugs
 
 cat("how many drugs from BNF have a direct match with DRUGS listed in PBS_ITEMS ")
 final_drugs %>% 
-  inner_join(main_table,by=c("drug2"="drug_name")) %>%
+  inner_join(pbs_drugs,by=c("drug2"="drug_name")) %>%
   distinct( drug2)%>%
   count()
 ```
@@ -63,13 +67,13 @@ final_drugs %>%
 ```{r}
 cat("how many drugs do not have as direct match")
 final_drugs %>% 
-  anti_join(main_table,by=c("drug2"="drug_name")) %>%
+  anti_join(pbs_drugs,by=c("drug2"="drug_name")) %>%
   count()
 ```
 
 ```{r}
 final_drugs %>% 
-  anti_join(main_table,by=c("drug2"="drug_name")) %>%
+  anti_join(pbs_drugs,by=c("drug2"="drug_name")) %>%
   rename( drug_name = drug2) %>%
   {.} -> drugs_to_match
 
@@ -90,7 +94,7 @@ You need to match up the drugs_to_match with final_drugs.
   * you will need to do some research to find the groups
 
 Numbers of drugs that needs to match are
-```{r possible drugs_to_match, filtered by groups and non matching drugs}
+```{r possible_drugs_to_match}
 drugs_to_match %>% count()   
 #259
 ```
@@ -119,14 +123,14 @@ head(drug_not_matched)
 
 ```{r}
 drug_not_matched %>%
-  inner_join(main_table,by=c("drug_name"="atc_meaning")) %>%
+  inner_join(pbs_drugs,by=c("drug_name"="atc_meaning")) %>%
   distinct(drug_name)%>%
   select(drug_name)%>%
   {.}->matched_non_group
 
 cat("how many drugs FROM drugs_to_match (BNF) have a direct match to atc_meaning in main table(PBS)")
 drug_not_matched %>%
-  inner_join(main_table,by=c("drug_name"="atc_meaning")) %>%
+  inner_join(pbs_drugs,by=c("drug_name"="atc_meaning")) %>%
   distinct(drug_name)%>%
   select(drug_name)%>%
   count()
@@ -134,7 +138,7 @@ drug_not_matched %>%
 Out of 181 not matched drug , we have 24 matching drug with atc_meaning, so now we need 181-24= 157 drug to match. Some of them are listed below:
 ```{r}
 drug_not_matched %>%
-  anti_join(main_table,by=c("drug_name"="atc_meaning")) %>%
+  anti_join(pbs_drugs,by=c("drug_name"="atc_meaning")) %>%
   distinct(drug_name)%>%
   select(drug_name)%>%
   {.}->remaining_drug 
@@ -148,14 +152,14 @@ head(remaining_drug)
 ```{r}
 drug_to_match_withoutNA <- na.omit(drugs_to_match)
 
-main_table_withNA_ATC <- main_table%>%select(atc_meaning)
+main_table_withNA_ATC <- pbs_drugs%>%select(atc_meaning)
 
 main_table_withNA_ATC %>%
   filter(atc_meaning!='NA') %>%
   distinct(atc_meaning)%>%
   {.} -> pure_ATC
 
-pure_drug_maintable <- main_table %>% select(drug_name) %>% distinct(drug_name) 
+pure_drug_maintable <- pbs_drugs %>% select(drug_name) %>% distinct(drug_name) 
 
 pure_drug_pbs <- na.omit(pure_drug_maintable) %>% 
   rename(pbs_drug = drug_name)
@@ -211,14 +215,14 @@ spelled_check%>%
 # Matching and Spelling Checks for Groups
 ```{r}
 drug_groups %>%
-  inner_join(main_table,by=c("drug_name"="atc_meaning")) %>%
+  inner_join(pbs_drugs,by=c("drug_name"="atc_meaning")) %>%
   distinct(drug_name)%>%
   select(drug_name)%>%
   {.}->matched_group
 
 cat("how many Group have a direct match to atc_meaning in main table")
 drug_groups %>%
-  inner_join(main_table,by=c("drug_name"="atc_meaning")) %>%
+  inner_join(pbs_drugs,by=c("drug_name"="atc_meaning")) %>%
   distinct(drug_name)%>%
   select(drug_name)%>%
   count()
@@ -227,7 +231,7 @@ drug_groups %>%
 Out of 77 Group , we have 2 matching drug with atc_meaning, so now we need 77-2= 75 drug-groups to find. 
 ```{r}
 drug_groups %>%
-  anti_join(main_table,by=c("drug_name"="atc_meaning")) %>%
+  anti_join(pbs_drugs,by=c("drug_name"="atc_meaning")) %>%
   distinct(drug_name)%>%
   select(drug_name)%>%
   {.}->remaining_groups
