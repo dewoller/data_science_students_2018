@@ -276,9 +276,9 @@ groups_spelled_check%>%
   distinct(drug_name)%>%count()
 
 ```
-# To Do for PHD Students:
+# To Do for public health Students:
 
-* Remaining groups or drugs, which we couldnot match either with ATC or PBS_Drug by any means are the jobs for the PHD guys to figure it out.
+* Remaining groups or drugs, which we couldnot match either with ATC or PBS_Drug by any means are the jobs for the public health guys to figure it out.
 
 ```{r Mismatch drug for small dataset of patients i.e. pbs_rr done with 11 chunks}
 
