@@ -57,6 +57,8 @@ my_db_get_query('Select * from pbs_item JOIN pbs_atc USING (atc_code)')%>%
   mutate(atc_meaning = str_trim(str_to_upper(atc_meaning))) %>%
   { .} ->pbs_drugs
 
+write.csv(pbs_drugs,file="output/Spelling/MainList.csv")
+
 cat("how many drugs from BNF have a direct match with DRUGS listed in PBS_ITEMS ")
 final_drugs %>% 
   inner_join(pbs_drugs,by=c("drug2"="drug_name")) %>%
