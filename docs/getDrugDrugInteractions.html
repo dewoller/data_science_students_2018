@@ -322,7 +322,7 @@ div.section {
 </div>
 
 
-<p><strong>Last updated:</strong> 2018-08-23</p>
+<p><strong>Last updated:</strong> 2018-09-04</p>
 <strong>workflowr checks:</strong> <small>(Click a bullet for more information)</small>
 <ul>
 <li>
@@ -345,13 +345,21 @@ div.section {
 </details>
 </li>
 <li>
-<p><details> <summary> <strong style="color:blue;">✔</strong> <strong>Repository version:</strong> <a href="https://github.com/dewoller/data_science_students_2018/tree/de2144a112ac12798953add824308f2af6d9169f" target="_blank">de2144a</a> </summary></p>
+<p><details> <summary> <strong style="color:blue;">✔</strong> <strong>Repository version:</strong> <a href="https://github.com/dewoller/data_science_students_2018/tree/b7406c411522aff35002a276ea15e58020d1e5fd" target="_blank">b7406c4</a> </summary></p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility. The version displayed above was the version of the Git repository at the time these results were generated. <br><br> Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
 <pre><code>
 Ignored files:
     Ignored:    .DS_Store
     Ignored:    .RData
     Ignored:    .Rhistory
+    Ignored:    MAP/
+    Ignored:    output/.DS_Store
+
+Untracked files:
+    Untracked:  analysis/hypertension.Rmd
+    Untracked:  output/Spelling/TotalDrugsOtherThanGroupTOMatch.csv
+    Untracked:  output/Spelling/TotalGroupsToMatch.csv
+    Untracked:  output/pbs_items.csv
 
 Unstaged changes:
     Modified:   analysis/getDrugDrugInteractions.Rmd
@@ -383,6 +391,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td style="text-align:left;">
+Rmd
+</td>
+<td style="text-align:left;">
+<a href="https://github.com/dewoller/data_science_students_2018/blob/b7406c411522aff35002a276ea15e58020d1e5fd/analysis/getDrugDrugInteractions.Rmd" target="_blank">b7406c4</a>
+</td>
+<td style="text-align:left;">
+rukaht
+</td>
+<td style="text-align:left;">
+2018-08-23
+</td>
+<td style="text-align:left;">
+TOC
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+html
+</td>
+<td style="text-align:left;">
+<a href="https://cdn.rawgit.com/dewoller/data_science_students_2018/b7406c411522aff35002a276ea15e58020d1e5fd/docs/getDrugDrugInteractions.html" target="_blank">b7406c4</a>
+</td>
+<td style="text-align:left;">
+rukaht
+</td>
+<td style="text-align:left;">
+2018-08-23
+</td>
+<td style="text-align:left;">
+TOC
+</td>
+</tr>
 <tr>
 <td style="text-align:left;">
 Rmd
@@ -918,6 +960,8 @@ cat(&quot;how many drugs FROM drugs_to_match have a direct match to atc_meaning 
 <p>Here we have checked for spelling difference between the drugs listed in concordance (BNF) and the main table pbs drug (PBS), and some of found mistake are listed below:</p>
 <pre class="r"><code>remaining_drug$drug_name[1] &lt;- &quot;ST JOHNS WORT&quot;
 
+write.csv(remaining_drug,file=&quot;output/Spelling/TotalDrugsOtherThanGroupTOMatch.csv&quot;)
+
 spelled_check &lt;- remaining_drug %&gt;% 
   stringdist_inner_join(pure_drug_pbs, by = c(&quot;drug_name&quot; = &quot;pbs_drug&quot;),max_dist=3)
 
@@ -991,6 +1035,8 @@ cat(&quot;how many Group have a direct match to atc_meaning in main table&quot;)
   distinct(drug_name)%&gt;%
   select(drug_name)%&gt;%
   {.}-&gt;remaining_groups
+
+write.csv(remaining_groups,file=&quot;output/Spelling/TotalGroupsToMatch.csv&quot;)
 
 # Remaining groups are those 75 whose spelling or name formation may be slightly different than they should be. 
 

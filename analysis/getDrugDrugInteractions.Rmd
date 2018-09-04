@@ -177,6 +177,8 @@ Here we have checked for spelling difference between the drugs listed in concord
 ```{r}
 remaining_drug$drug_name[1] <- "ST JOHNS WORT"
 
+write.csv(remaining_drug,file="output/Spelling/TotalDrugsOtherThanGroupTOMatch.csv")
+
 spelled_check <- remaining_drug %>% 
   stringdist_inner_join(pure_drug_pbs, by = c("drug_name" = "pbs_drug"),max_dist=3)
 
@@ -231,6 +233,8 @@ drug_groups %>%
   distinct(drug_name)%>%
   select(drug_name)%>%
   {.}->remaining_groups
+
+write.csv(remaining_groups,file="output/Spelling/TotalGroupsToMatch.csv")
 
 # Remaining groups are those 75 whose spelling or name formation may be slightly different than they should be. 
 
