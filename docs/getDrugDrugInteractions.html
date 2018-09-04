@@ -326,7 +326,7 @@ div.section {
 <strong>workflowr checks:</strong> <small>(Click a bullet for more information)</small>
 <ul>
 <li>
-<p><details> <summary> <strong style="color:red;">✖</strong> <strong>R Markdown file:</strong> uncommitted changes </summary> The R Markdown file has unstaged changes. To know which version of the R Markdown file created these results, you’ll want to first commit it to the Git repo. If you’re still working on the analysis, you can ignore this warning. When you’re finished, you can run <code>wflow_publish</code> to commit the R Markdown file and build the HTML.</p>
+<p><details> <summary> <strong style="color:red;">✖</strong> <strong>R Markdown file:</strong> uncommitted changes </summary> The R Markdown file has staged changes. To know which version of the R Markdown file created these results, you’ll want to first commit it to the Git repo. If you’re still working on the analysis, you can ignore this warning. When you’re finished, you can run <code>wflow_publish</code> to commit the R Markdown file and build the HTML.</p>
 </details>
 </li>
 <li>
@@ -345,7 +345,7 @@ div.section {
 </details>
 </li>
 <li>
-<p><details> <summary> <strong style="color:blue;">✔</strong> <strong>Repository version:</strong> <a href="https://github.com/dewoller/data_science_students_2018/tree/b7406c411522aff35002a276ea15e58020d1e5fd" target="_blank">b7406c4</a> </summary></p>
+<p><details> <summary> <strong style="color:blue;">✔</strong> <strong>Repository version:</strong> <a href="https://github.com/dewoller/data_science_students_2018/tree/f323d49b3fe685e55d386bed8f4b920237de7fd1" target="_blank">f323d49</a> </summary></p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility. The version displayed above was the version of the Git repository at the time these results were generated. <br><br> Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
 <pre><code>
 Ignored files:
@@ -355,14 +355,10 @@ Ignored files:
     Ignored:    MAP/
     Ignored:    output/.DS_Store
 
-Untracked files:
-    Untracked:  analysis/hypertension.Rmd
-    Untracked:  output/Spelling/TotalDrugsOtherThanGroupTOMatch.csv
-    Untracked:  output/Spelling/TotalGroupsToMatch.csv
-    Untracked:  output/pbs_items.csv
-
-Unstaged changes:
+Staged changes:
     Modified:   analysis/getDrugDrugInteractions.Rmd
+    Modified:   analysis/whoDrugMatch.Rmd
+    Modified:   lib/function.R
 
 </code></pre>
 Note that any generated files, e.g. HTML, png, CSS, etc., are not included in this status report because it is ok for generated content to have uncommitted changes. </details>
@@ -391,6 +387,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td style="text-align:left;">
+Rmd
+</td>
+<td style="text-align:left;">
+<a href="https://github.com/dewoller/data_science_students_2018/blob/f323d49b3fe685e55d386bed8f4b920237de7fd1/analysis/getDrugDrugInteractions.Rmd" target="_blank">f323d49</a>
+</td>
+<td style="text-align:left;">
+rukaht
+</td>
+<td style="text-align:left;">
+2018-09-04
+</td>
+<td style="text-align:left;">
+New File
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+html
+</td>
+<td style="text-align:left;">
+<a href="https://cdn.rawgit.com/dewoller/data_science_students_2018/f323d49b3fe685e55d386bed8f4b920237de7fd1/docs/getDrugDrugInteractions.html" target="_blank">f323d49</a>
+</td>
+<td style="text-align:left;">
+rukaht
+</td>
+<td style="text-align:left;">
+2018-09-04
+</td>
+<td style="text-align:left;">
+New File
+</td>
+</tr>
 <tr>
 <td style="text-align:left;">
 Rmd
@@ -668,98 +698,24 @@ parsed drug drug interaction table
 </ul>
 <p></details></p>
 <hr />
-<pre class="r"><code>source(&#39;lib/pre_function.R&#39;)
-
-source(&#39;lib/function.R&#39;)</code></pre>
-<pre><code>Skipping install of &#39;multidplyr&#39; from a github remote, the SHA1 (0085ded4) has not changed since last install.
-  Use `force = TRUE` to force installation</code></pre>
-<pre><code>
-Attaching package: &#39;lubridate&#39;</code></pre>
-<pre><code>The following object is masked from &#39;package:base&#39;:
-
-    date</code></pre>
-<pre><code>This is workflowr version 1.1.1
-Run ?workflowr for help getting started</code></pre>
-<pre><code>Loading required package: BiocGenerics</code></pre>
-<pre><code>Loading required package: parallel</code></pre>
-<pre><code>
-Attaching package: &#39;BiocGenerics&#39;</code></pre>
-<pre><code>The following objects are masked from &#39;package:parallel&#39;:
-
-    clusterApply, clusterApplyLB, clusterCall, clusterEvalQ,
-    clusterExport, clusterMap, parApply, parCapply, parLapply,
-    parLapplyLB, parRapply, parSapply, parSapplyLB</code></pre>
-<pre><code>The following objects are masked from &#39;package:lubridate&#39;:
-
-    intersect, setdiff, union</code></pre>
-<pre><code>The following objects are masked from &#39;package:stats&#39;:
-
-    IQR, mad, sd, var, xtabs</code></pre>
-<pre><code>The following objects are masked from &#39;package:base&#39;:
-
-    anyDuplicated, append, as.data.frame, basename, cbind,
-    colMeans, colnames, colSums, dirname, do.call, duplicated,
-    eval, evalq, Filter, Find, get, grep, grepl, intersect,
-    is.unsorted, lapply, lengths, Map, mapply, match, mget, order,
-    paste, pmax, pmax.int, pmin, pmin.int, Position, rank, rbind,
-    Reduce, rowMeans, rownames, rowSums, sapply, setdiff, sort,
-    table, tapply, union, unique, unsplit, which, which.max,
-    which.min</code></pre>
-<pre><code>Loading required package: S4Vectors</code></pre>
-<pre><code>Loading required package: stats4</code></pre>
-<pre><code>
-Attaching package: &#39;S4Vectors&#39;</code></pre>
-<pre><code>The following objects are masked from &#39;package:lubridate&#39;:
-
-    second, second&lt;-</code></pre>
-<pre><code>The following object is masked from &#39;package:base&#39;:
-
-    expand.grid</code></pre>
-<pre><code>
-Attaching package: &#39;IRanges&#39;</code></pre>
-<pre><code>The following object is masked from &#39;package:lubridate&#39;:
-
-    %within%</code></pre>
-<pre><code>── Attaching packages ──────────────────────────────────────────────────────────────────────────── tidyverse 1.2.1 ──</code></pre>
-<pre><code>✔ ggplot2 3.0.0     ✔ readr   1.1.1
-✔ tibble  1.4.2     ✔ purrr   0.2.5
-✔ tidyr   0.8.1     ✔ dplyr   0.7.6
-✔ ggplot2 3.0.0     ✔ forcats 0.3.0</code></pre>
-<pre><code>── Conflicts ─────────────────────────────────────────────────────────────────────────────── tidyverse_conflicts() ──
-✖ IRanges::%within%()      masks lubridate::%within%()
-✖ lubridate::as.difftime() masks base::as.difftime()
-✖ dplyr::coalesce()        masks wrapr::coalesce()
-✖ dplyr::collapse()        masks IRanges::collapse()
-✖ dplyr::combine()         masks BiocGenerics::combine()
-✖ lubridate::date()        masks base::date()
-✖ dplyr::desc()            masks IRanges::desc()
-✖ tidyr::expand()          masks S4Vectors::expand()
-✖ tidyr::extract()         masks magrittr::extract()
-✖ dplyr::filter()          masks stats::filter()
-✖ dplyr::first()           masks S4Vectors::first()
-✖ IRanges::intersect()     masks S4Vectors::intersect(), BiocGenerics::intersect(), lubridate::intersect(), base::intersect()
-✖ dplyr::lag()             masks stats::lag()
-✖ ggplot2::Position()      masks BiocGenerics::Position(), base::Position()
-✖ purrr::reduce()          masks IRanges::reduce()
-✖ dplyr::rename()          masks S4Vectors::rename()
-✖ S4Vectors::second()      masks lubridate::second()
-✖ S4Vectors::second&lt;-()    masks lubridate::second&lt;-()
-✖ purrr::set_names()       masks magrittr::set_names()
-✖ IRanges::setdiff()       masks S4Vectors::setdiff(), BiocGenerics::setdiff(), lubridate::setdiff(), base::setdiff()
-✖ dplyr::slice()           masks IRanges::slice()
-✖ IRanges::union()         masks S4Vectors::union(), BiocGenerics::union(), lubridate::union(), base::union()</code></pre>
-<pre><code>Loading required package: DBI</code></pre>
+<pre class="r"><code>source(&#39;lib/function.R&#39;)</code></pre>
+<div id="methods" class="section level1">
+<h1>methods</h1>
+<ol style="list-style-type: decimal">
+<li>match BNF drugs to PBS drugs</li>
+</ol>
+</div>
 <div id="selection-of-interacting-drugs-from-bnf-file." class="section level1">
 <h1>Selection of interacting drugs from BNF file.</h1>
-<p>To begin with, the BNF file which was in pdf format, in which the names of the Drugs where coated in green colour, we first filtered and replaced those drugs name (i.e, Panadole -&gt; ####Panadole%%%%) and converted the pdf file into text file. After conversion, we wrote a regular expression script in Perl to only extract the drugs name. Each drugs were having interactions with some other multiple drugs. For example, Abacavir -&gt; RIBAVIRIN ; Abacavir -&gt; TIPRANAVIR; Abacavir -&gt; ORLISTAT. Also Tipranavir -&gt; CLARITHROMYCIN ; Tipranavir -&gt; RIFABUTIN ;Tipranavir -&gt; RIFAMPICIN. The detail structure of pdf file to text file and further in our analysis is shown below:</p>
+<p>To begin with, the BNF file which was in pdf format, in which the names of the Drugs where coated in green colour, we first filtered and replaced those drugs name (i.e, Panadole -&gt; ####Panadole%%%%) and converted the pdf file into text file. After conversion, we wrote a regular expression script in Perl to only extract the drugs name. Each drugs were having interactions with some other multiple drugs. For example,</p>
+<p>Abacavir -&gt; RIBAVIRIN ; Abacavir -&gt; TIPRANAVIR; Abacavir -&gt; ORLISTAT. Also Tipranavir -&gt; CLARITHROMYCIN ; Tipranavir -&gt; RIFABUTIN ;Tipranavir -&gt; RIFAMPICIN.</p>
+<p>The detail structure of pdf file to text file and further in our analysis is shown below:</p>
 <pre class="r"><code>read.table( &#39;data/drug_interactions.txt&#39;, sep=&#39;\t&#39;,header = FALSE) %&gt;%
   as.tibble() %&gt;% 
   mutate(V1=str_trim(str_to_upper(V1))) %&gt;%
   mutate(V2=str_trim(str_to_upper(V2))) %&gt;%
+  rename(drug1=V1,drug2=V2) %&gt;%
 { . } -&gt; drug_drug_concordance
-
-drug_drug_concordance &lt;- drug_drug_concordance %&gt;%
-                          rename(drug1=V1,drug2=V2)
 
 head(drug_drug_concordance)</code></pre>
 <pre><code># A tibble: 6 x 2
@@ -772,9 +728,9 @@ head(drug_drug_concordance)</code></pre>
 5 ABATACEPT CERTOLIZUMAB PEGOL
 6 ABATACEPT GOLIMUMAB         </code></pre>
 </div>
-<div id="binding-drug-drug-interactions." class="section level1">
-<h1>Binding drug-drug interactions.</h1>
-<p>We need to bind these 2 rows, so that these interaction can be removed for further analysis. The code to do this is just below:</p>
+<div id="match-bnf-drugs-to-pbs-drugs" class="section level1">
+<h1>match BNF drugs to PBS drugs</h1>
+<p>Find all distinct drugs on both sides of interactions list</p>
 <pre class="r"><code>drug_drug_concordance %&gt;% 
   select(drug1) %&gt;%
   bind_rows(drug_drug_concordance %&gt;% select(drug2)) %&gt;%
@@ -790,12 +746,12 @@ head(drug_drug_concordance)</code></pre>
   as.tibble()%&gt;%
   mutate(drug_name = str_trim(drug_name)) %&gt;%
   mutate(atc_meaning = str_trim(str_to_upper(atc_meaning))) %&gt;%
-  { .} -&gt;main_table
+  { .} -&gt;pbs_drugs
 
 cat(&quot;how many drugs from BNF have a direct match with DRUGS listed in PBS_ITEMS &quot;)</code></pre>
 <pre><code>how many drugs from BNF have a direct match with DRUGS listed in PBS_ITEMS </code></pre>
 <pre class="r"><code>final_drugs %&gt;% 
-  inner_join(main_table,by=c(&quot;drug2&quot;=&quot;drug_name&quot;)) %&gt;%
+  inner_join(pbs_drugs,by=c(&quot;drug2&quot;=&quot;drug_name&quot;)) %&gt;%
   distinct( drug2)%&gt;%
   count()</code></pre>
 <pre><code># A tibble: 1 x 1
@@ -805,14 +761,14 @@ cat(&quot;how many drugs from BNF have a direct match with DRUGS listed in PBS_I
 <pre class="r"><code>cat(&quot;how many drugs do not have as direct match&quot;)</code></pre>
 <pre><code>how many drugs do not have as direct match</code></pre>
 <pre class="r"><code>final_drugs %&gt;% 
-  anti_join(main_table,by=c(&quot;drug2&quot;=&quot;drug_name&quot;)) %&gt;%
+  anti_join(pbs_drugs,by=c(&quot;drug2&quot;=&quot;drug_name&quot;)) %&gt;%
   count()</code></pre>
 <pre><code># A tibble: 1 x 1
       n
   &lt;int&gt;
 1   259</code></pre>
 <pre class="r"><code>final_drugs %&gt;% 
-  anti_join(main_table,by=c(&quot;drug2&quot;=&quot;drug_name&quot;)) %&gt;%
+  anti_join(pbs_drugs,by=c(&quot;drug2&quot;=&quot;drug_name&quot;)) %&gt;%
   rename( drug_name = drug2) %&gt;%
   {.} -&gt; drugs_to_match
 
@@ -890,7 +846,7 @@ head(drug_not_matched)</code></pre>
 <div id="matching-with-atc-code" class="section level1">
 <h1>Matching with ATC Code</h1>
 <pre class="r"><code>drug_not_matched %&gt;%
-  inner_join(main_table,by=c(&quot;drug_name&quot;=&quot;atc_meaning&quot;)) %&gt;%
+  inner_join(pbs_drugs,by=c(&quot;drug_name&quot;=&quot;atc_meaning&quot;)) %&gt;%
   distinct(drug_name)%&gt;%
   select(drug_name)%&gt;%
   {.}-&gt;matched_non_group
@@ -898,7 +854,7 @@ head(drug_not_matched)</code></pre>
 cat(&quot;how many drugs FROM drugs_to_match (BNF) have a direct match to atc_meaning in main table(PBS)&quot;)</code></pre>
 <pre><code>how many drugs FROM drugs_to_match (BNF) have a direct match to atc_meaning in main table(PBS)</code></pre>
 <pre class="r"><code>drug_not_matched %&gt;%
-  inner_join(main_table,by=c(&quot;drug_name&quot;=&quot;atc_meaning&quot;)) %&gt;%
+  inner_join(pbs_drugs,by=c(&quot;drug_name&quot;=&quot;atc_meaning&quot;)) %&gt;%
   distinct(drug_name)%&gt;%
   select(drug_name)%&gt;%
   count()</code></pre>
@@ -908,7 +864,7 @@ cat(&quot;how many drugs FROM drugs_to_match (BNF) have a direct match to atc_me
 1    24</code></pre>
 <p>Out of 181 not matched drug , we have 24 matching drug with atc_meaning, so now we need 181-24= 157 drug to match. Some of them are listed below:</p>
 <pre class="r"><code>drug_not_matched %&gt;%
-  anti_join(main_table,by=c(&quot;drug_name&quot;=&quot;atc_meaning&quot;)) %&gt;%
+  anti_join(pbs_drugs,by=c(&quot;drug_name&quot;=&quot;atc_meaning&quot;)) %&gt;%
   distinct(drug_name)%&gt;%
   select(drug_name)%&gt;%
   {.}-&gt;remaining_drug 
@@ -930,14 +886,14 @@ head(remaining_drug)</code></pre>
 <p></p>
 <pre class="r"><code>drug_to_match_withoutNA &lt;- na.omit(drugs_to_match)
 
-main_table_withNA_ATC &lt;- main_table%&gt;%select(atc_meaning)
+main_table_withNA_ATC &lt;- pbs_drugs%&gt;%select(atc_meaning)
 
 main_table_withNA_ATC %&gt;%
   filter(atc_meaning!=&#39;NA&#39;) %&gt;%
   distinct(atc_meaning)%&gt;%
   {.} -&gt; pure_ATC
 
-pure_drug_maintable &lt;- main_table %&gt;% select(drug_name) %&gt;% distinct(drug_name) 
+pure_drug_maintable &lt;- pbs_drugs %&gt;% select(drug_name) %&gt;% distinct(drug_name) 
 
 pure_drug_pbs &lt;- na.omit(pure_drug_maintable) %&gt;% 
   rename(pbs_drug = drug_name)
@@ -1013,7 +969,7 @@ spelled_check%&gt;%
 <div id="matching-and-spelling-checks-for-groups" class="section level1">
 <h1>Matching and Spelling Checks for Groups</h1>
 <pre class="r"><code>drug_groups %&gt;%
-  inner_join(main_table,by=c(&quot;drug_name&quot;=&quot;atc_meaning&quot;)) %&gt;%
+  inner_join(pbs_drugs,by=c(&quot;drug_name&quot;=&quot;atc_meaning&quot;)) %&gt;%
   distinct(drug_name)%&gt;%
   select(drug_name)%&gt;%
   {.}-&gt;matched_group
@@ -1021,7 +977,7 @@ spelled_check%&gt;%
 cat(&quot;how many Group have a direct match to atc_meaning in main table&quot;)</code></pre>
 <pre><code>how many Group have a direct match to atc_meaning in main table</code></pre>
 <pre class="r"><code>drug_groups %&gt;%
-  inner_join(main_table,by=c(&quot;drug_name&quot;=&quot;atc_meaning&quot;)) %&gt;%
+  inner_join(pbs_drugs,by=c(&quot;drug_name&quot;=&quot;atc_meaning&quot;)) %&gt;%
   distinct(drug_name)%&gt;%
   select(drug_name)%&gt;%
   count()</code></pre>
@@ -1031,7 +987,7 @@ cat(&quot;how many Group have a direct match to atc_meaning in main table&quot;)
 1     2</code></pre>
 <p>Out of 77 Group , we have 2 matching drug with atc_meaning, so now we need 77-2= 75 drug-groups to find.</p>
 <pre class="r"><code>drug_groups %&gt;%
-  anti_join(main_table,by=c(&quot;drug_name&quot;=&quot;atc_meaning&quot;)) %&gt;%
+  anti_join(pbs_drugs,by=c(&quot;drug_name&quot;=&quot;atc_meaning&quot;)) %&gt;%
   distinct(drug_name)%&gt;%
   select(drug_name)%&gt;%
   {.}-&gt;remaining_groups
@@ -1103,10 +1059,10 @@ groups_spelled_check%&gt;%
   &lt;int&gt;
 1     9</code></pre>
 </div>
-<div id="to-do-for-phd-students" class="section level1">
-<h1>To Do for PHD Students:</h1>
+<div id="to-do-for-public-health-students" class="section level1">
+<h1>To Do for public health Students:</h1>
 <ul>
-<li>Remaining groups or drugs, which we couldnot match either with ATC or PBS_Drug by any means are the jobs for the PHD guys to figure it out.</li>
+<li>Remaining groups or drugs, which we couldnot match either with ATC or PBS_Drug by any means are the jobs for the public health guys to figure it out.</li>
 </ul>
 <pre class="r"><code>#my_db_get_query(&quot;Select * from VW_PBS_INTERVAL_RR  where pin=&#39;00329081500&#39; &quot;)%&gt;%
 #  as.tibble()%&gt;%

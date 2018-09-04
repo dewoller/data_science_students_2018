@@ -27,9 +27,6 @@
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
-<link href="site_libs/font-awesome-5.0.13/css/fa-svg-with-js.css" rel="stylesheet" />
-<script src="site_libs/font-awesome-5.0.13/js/fontawesome-all.min.js"></script>
-<script src="site_libs/font-awesome-5.0.13/js/fa-v4-shims.min.js"></script>
 
 <style type="text/css">code{white-space: pre;}</style>
 <style type="text/css">
@@ -279,21 +276,31 @@ div.tocify {
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="index.html">workplans</a>
+      <a class="navbar-brand" href="index.html">Drugs Interaction Project</a>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
   <a href="index.html">Home</a>
 </li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Project
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="whoDrugMatch.html">Nirmala</a>
+    </li>
+    <li>
+      <a href="getDrugDrugInteractions.html">Prabin</a>
+    </li>
+  </ul>
+</li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li>
-  <a href="https://github.com/jdblischak/workflowr">
-    <span class="fa fa-github"></span>
-     
-  </a>
-</li>
+        
       </ul>
     </div><!--/.nav-collapse -->
   </div><!--/.container -->
@@ -317,11 +324,12 @@ div.section {
 </div>
 
 
-<p><strong>Last updated:</strong> 2018-08-23</p>
+<p><strong>Last updated:</strong> 2018-08-28</p>
 <strong>workflowr checks:</strong> <small>(Click a bullet for more information)</small>
 <ul>
 <li>
-<p><details> <summary> <strong style="color:red;">✖</strong> <strong>R Markdown file:</strong> uncommitted changes </summary> The R Markdown file has unstaged changes. To know which version of the R Markdown file created these results, you’ll want to first commit it to the Git repo. If you’re still working on the analysis, you can ignore this warning. When you’re finished, you can run <code>wflow_publish</code> to commit the R Markdown file and build the HTML.</p>
+<p><details> <summary> <strong style="color:blue;">✔</strong> <strong>R Markdown file:</strong> up-to-date </summary></p>
+<p>Great! Since the R Markdown file has been committed to the Git repository, you know the exact version of the code that produced these results.</p>
 </details>
 </li>
 <li>
@@ -340,17 +348,11 @@ div.section {
 </details>
 </li>
 <li>
-<p><details> <summary> <strong style="color:blue;">✔</strong> <strong>Repository version:</strong> <a href="https://github.com/dewoller/data_science_students_2018/tree/88033d645953a3c8dcac1d221fe10db4fdcb1388" target="_blank">88033d6</a> </summary></p>
+<p><details> <summary> <strong style="color:blue;">✔</strong> <strong>Repository version:</strong> <a href="https://github.com/dewoller/data_science_students_2018/tree/be140bbf3df3f6b66f0137b3a0446b1d54e95fd0" target="_blank">be140bb</a> </summary></p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility. The version displayed above was the version of the Git repository at the time these results were generated. <br><br> Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
 <pre><code>
-Ignored files:
-    Ignored:    .RData
-    Ignored:    .Rhistory
-    Ignored:    .Rproj.user/
-    Ignored:    analysis/.Rhistory
-
 Unstaged changes:
-    Modified:   analysis/whoDrugMatch.Rmd
+    Modified:   lib/function.R
 
 </code></pre>
 Note that any generated files, e.g. HTML, png, CSS, etc., are not included in this status report because it is ok for generated content to have uncommitted changes. </details>
@@ -379,6 +381,57 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td style="text-align:left;">
+Rmd
+</td>
+<td style="text-align:left;">
+<a href="https://github.com/dewoller/data_science_students_2018/blob/be140bbf3df3f6b66f0137b3a0446b1d54e95fd0/analysis/whoDrugMatch.Rmd" target="_blank">be140bb</a>
+</td>
+<td style="text-align:left;">
+Dennis Wollersheim
+</td>
+<td style="text-align:left;">
+2018-08-28
+</td>
+<td style="text-align:left;">
+wflow_publish(“analysis/whoDrugMatch.Rmd”)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Rmd
+</td>
+<td style="text-align:left;">
+<a href="https://github.com/dewoller/data_science_students_2018/blob/7385029462d69d920eb61daa2ec61823509cf195/analysis/whoDrugMatch.Rmd" target="_blank">7385029</a>
+</td>
+<td style="text-align:left;">
+Nirmala100
+</td>
+<td style="text-align:left;">
+2018-08-23
+</td>
+<td style="text-align:left;">
+added new section in documentation
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+html
+</td>
+<td style="text-align:left;">
+<a href="https://cdn.rawgit.com/dewoller/data_science_students_2018/7385029462d69d920eb61daa2ec61823509cf195/docs/whoDrugMatch.html" target="_blank">7385029</a>
+</td>
+<td style="text-align:left;">
+Nirmala100
+</td>
+<td style="text-align:left;">
+2018-08-23
+</td>
+<td style="text-align:left;">
+added new section in documentation
+</td>
+</tr>
 <tr>
 <td style="text-align:left;">
 Rmd
@@ -418,12 +471,9 @@ creade whoMatchDrug.Rmd
 </ul>
 <p></details></p>
 <hr />
-<pre class="r"><code> library(&#39;tidyverse&#39;)
- library(&#39;workflowr&#39;)
- library(&#39;stringr&#39;)
- source(&#39;lib/function.R&#39;)  </code></pre>
-<div id="match-drug-from-who-table" class="section level1">
-<h1>Match drug from who table</h1>
+<pre class="r"><code> source(&#39;lib/function.R&#39;)  </code></pre>
+<div id="match-drugs-from-australian-pbs-to-drugs-from-the-who-ddd-drug-list" class="section level1">
+<h1>Match drugs from Australian PBS to drugs from the WHO ddd drug list</h1>
 <ul>
 <li>Tasks:</li>
 </ul>
@@ -431,12 +481,7 @@ creade whoMatchDrug.Rmd
 <li>read both ddd_who and pbs_item data</li>
 <li>create final pbs to store the final data that is cleaned</li>
 </ol>
-<ul>
-<li>The main task is to match the drug form pbs_item with ddd_who table</li>
-<li>ddd_who: contains data from ddd_who table</li>
-<li>pbs_item: contains data from pbs-item table</li>
-<li>final_pbs: copy of pbs_item along with form_type, unit_wt and adm_route whose initial values are NA</li>
-</ul>
+<p>The main task is to match the drug form pbs_item with ddd_who table * ddd_who: contains data from ddd_who table * pbs_item: contains data from pbs-item table * final_pbs: copy of pbs_item along with form_type, unit_wt and adm_route whose initial values are NA</p>
 <pre class="r"><code>ddd_who &lt;- read.csv(file=&quot;data/ddd_who.csv&quot;,header=TRUE,sep=&quot;;&quot;)
 pbs_item &lt;- read.csv(file=&quot;data/pbs_item.csv&quot;,header=TRUE, sep=&quot;;&quot;) 
 
@@ -447,15 +492,13 @@ final_pbs &lt;- cbind(pbs_item)
 final_pbs[&quot;form_type&quot;] &lt;- NA
 final_pbs[&quot;unit_wt&quot;] &lt;- NA
 final_pbs[&quot;adm_route&quot;] &lt;-NA </code></pre>
-</div>
-<div id="try-to-categorise-the-different-form_strengths" class="section level1">
-<h1>Try to categorise the different form_strengths</h1>
-<ul>
-<li>Tasks:</li>
-</ul>
+<div id="categorise-form_strengths" class="section level2">
+<h2>Categorise form_strengths</h2>
+<div id="tasks" class="section level3">
+<h3>Tasks:</h3>
 <ol style="list-style-type: decimal">
-<li>find out what types they are</li>
-<li>find out how many grams they are</li>
+<li>find out what types (form_type)</li>
+<li>find out how many grams (unit_wt)</li>
 </ol>
 <ul>
 <li>words: contains the collection of possible categories that is figured out from form_strength of pbs_item</li>
@@ -475,21 +518,25 @@ cat(&quot;What are the possible categories in form strength?&quot;)</code></pre>
 [21] &quot;Sublingual&quot;    &quot;Rectal&quot;        &quot;Implant&quot;       &quot;Vaginal&quot;      
 [25] &quot;Lamella&quot;       &quot;Syrup&quot;         &quot;Elixir&quot;        &quot;Lozenge&quot;      
 [29] &quot;Wafer&quot;        </code></pre>
-<pre class="r"><code>#sapply(words,grepl,final_pbs$form_strength)
-
-# extract the list of matching words
+<pre class="r"><code># extract the list of matching words
 x &lt;- sapply(words, function(x) grepl(tolower(x), tolower(final_pbs$form_strength)))
 
 # paste the matching words together
-final_pbs$form_type &lt;- apply(x, 1, function(i) paste0(names(i)[i], collapse = &quot;,&quot;))</code></pre>
-<pre class="r"><code>#return all the row that have no specific form_type and replace by unknown
+final_pbs$form_type &lt;- apply(x, 1, function(i) paste0(names(i)[i], collapse = &quot;,&quot;))
+
+#return all the row that have no specific form_type and replace by unknown
+
 final_pbs$form_type &lt;-final_pbs$form_type %&gt;% replace(.==&quot;&quot;,&quot;UNKNOWN&quot;)</code></pre>
 </div>
-<div id="dertermine-the-adm_route-according-to-the-form_type" class="section level1">
-<h1>Dertermine the adm_route according to the form_type</h1>
+</div>
+</div>
+<div id="extract-the-pbs-administration-route-from-the-drug-form_type-field" class="section level1">
+<h1>Extract the PBS administration route from the drug form_type field</h1>
+<div id="determine-adm_route-according-to-the-form_type" class="section level2">
+<h2>Determine adm_route according to the form_type</h2>
 <ul>
-<li>According to form_type determine the adm_route</li>
-<li>For eg: if form_type is Tablet then adm_route will be O i.e. Oral</li>
+<li>use form_type to determine adm_route</li>
+<li>E.g. if form_type is Tablet then adm_route will be O i.e. Oral</li>
 </ul>
 <pre class="r"><code>final_pbs$adm_route[final_pbs$form_type==&quot;Oral&quot;|final_pbs$form_type==&quot;Tablet&quot;|final_pbs$form_type==&quot;Capsule&quot;|final_pbs$form_type==&quot;Mouth&quot;|final_pbs$form_type == &quot;Lozenge&quot;|final_pbs$form_type == &quot;Elixir&quot;|final_pbs$form_type == &quot;Wafer&quot;|final_pbs$form_type == &quot;Syrup&quot;|final_pbs$form_type==&quot;Sublingual&quot;]=&quot;O&quot;
 final_pbs$adm_route[final_pbs$form_type==&quot;Nasal&quot;]=&quot;N&quot;
@@ -508,14 +555,14 @@ final_pbs$adm_route[final_pbs$form_type==&quot;Tablet,Oral&quot;]=&quot;O&quot;
 final_pbs$adm_route[final_pbs$form_type==&quot;Injection,I.V.&quot;]=&quot;P&quot;
 final_pbs$adm_route[final_pbs$form_type==&quot;Sublingual,Wafer&quot;]=&quot;P&quot;</code></pre>
 </div>
-<div id="find-how-many-mg" class="section level1">
-<h1>Find how many mg?</h1>
-<ul>
-<li>Tasks</li>
-</ul>
+</div>
+<div id="determine-mg-dosage-of-active-ingredient-of-each-pbs-drug" class="section level1">
+<h1>Determine mg dosage of active ingredient of each PBS drug</h1>
+<div id="tasks-1" class="section level2">
+<h2>Tasks</h2>
 <ol style="list-style-type: decimal">
 <li>change micrograms into mg</li>
-<li>get the amount</li>
+<li>get the amount ## Notes:</li>
 </ol>
 <ul>
 <li>Any micrograms in form_strength is converted to mg so that it is easy to get any number before mg</li>
@@ -525,76 +572,42 @@ final_pbs$adm_route[final_pbs$form_type==&quot;Sublingual,Wafer&quot;]=&quot;P&q
 #get unit_wt 
 final_pbs$unit_wt &lt;- str_extract(final_pbs$form_strength, &quot;\\d+\\s?mg&quot;) </code></pre>
 </div>
-<div id="clean-the-adm_route-of-ddd_who-to-match-with-pbs_item" class="section level1">
-<h1>Clean the adm_route of ddd_who to match with pbs_item</h1>
-<ul>
-<li>Change the adm_route and make it equivalent to form_type of final_pbs table so that it will be easy to match</li>
-<li>For eg. Inh.sol,Inl.aersol to Inhal</li>
-</ul>
+</div>
+<div id="clean-up-ddd-administration-route-for-better-matching" class="section level1">
+<h1>clean up DDD administration route for better matching</h1>
+<p>Clean adm_route of ddd_who to match with pbs_item</p>
+<p>Change the adm_route and make it equivalent to form_type of final_pbs table so that it will be easy to match E.g. Inh.sol,Inl.aersol to Inhal</p>
 <pre class="r"><code>ddd_who$adm_route &lt;- str_replace(ddd_who$adm_route, &quot;Inh.*_*&quot;, &quot;Inhal&quot;)
 ddd_who$adm_route &lt;- str_replace(ddd_who$adm_route, &quot;TD.*_*&quot;, &quot;TD&quot;)
 ddd_who$adm_route &lt;- str_replace(ddd_who$adm_route, &quot;oral.*_*&quot;, &quot;O&quot;)</code></pre>
 </div>
-<div id="join-both-tables-using-atc-code-and-admin-route" class="section level1">
-<h1>Join both tables using atc code and admin route;</h1>
-<ul>
-<li>Tasks</li>
-</ul>
+<div id="match-up-the-ddd-and-pbs-using-the-atc-codes-and-the-cleaned-administration-routes" class="section level1">
+<h1>match up the DDD and PBS, using the atc codes and the cleaned administration routes</h1>
+<p>Join both tables using atc code and admin route;</p>
+<div id="tasks-2" class="section level2">
+<h2>Tasks</h2>
 <ol style="list-style-type: decimal">
 <li>get distinct pbs_code from existing pbs table</li>
-<li>write in csv for further use</li>
+<li>write in to a disk file for further processing</li>
 </ol>
+<p>To narrow down the search, we filter out pbs_item drugs without corresponding DDD atc_code</p>
 <ul>
-<li>To narrow down the search we take those drugs from pbs_item that has atc_code in ddd_who table</li>
 <li>existing_pbs :list of distinct pbs_code from pbs</li>
 <li>existing_pbs_to match: those list of drug that is required to be match with ddd_who</li>
 <li>unknown_routes: those list of drug that needs the specific adm routes</li>
 </ul>
-<pre class="r"><code>#get distinct pbs_code for first time
-#my_db_get_query(&quot;select distinct pbs_code from pbs&quot;) -&gt; existing_pbs
-#write.csv(existing_pbs, file = &#39;data/existing_pbs.csv&#39;)
-
-#get existing pbs data from csv file
-existing_pbs &lt;- data.frame(read.csv(file=&quot;data/existing_pbs.csv&quot;,header=TRUE, sep=&quot;,&quot;)[,2]) 
-colnames(existing_pbs)&lt;- &#39;pbs_code&#39;
-
-
-
-#filter those drugs that only have atc code in ddd_who table to narrow down search
-final_pbs%&gt;%
-  inner_join(existing_pbs, by = c(&quot;pbs_code&quot;=&quot;pbs_code&quot;))%&gt;%
-  filter(atc_code %in% ddd_who$atc)%&gt;%
-  mutate(uadm_route = adm_route)%&gt;%
-  {.} -&gt;existing_pbs_to_match</code></pre>
-<pre><code>Warning: Column `pbs_code` joining factors with different levels, coercing
-to character vector</code></pre>
-<pre class="r"><code>cat(&quot;How many specific adm routes?&quot;)</code></pre>
-<pre><code>How many specific adm routes?</code></pre>
-<pre class="r"><code>existing_pbs_to_match %&gt;% count(adm_route,sort = TRUE)</code></pre>
-<pre><code># A tibble: 10 x 2
-   adm_route        n
-   &lt;chr&gt;        &lt;int&gt;
- 1 O             1695
- 2 P              797
- 3 TD              72
- 4 &lt;NA&gt;            42
- 5 UNKNOWN         40
- 6 Inhal           26
- 7 N                8
- 8 Intravesical     4
- 9 Implant          3
-10 R                2</code></pre>
-<pre class="r"><code>#total 82 unknown routes 
-existing_pbs_to_match%&gt;%
-  filter(is.na(existing_pbs_to_match$adm_route) | existing_pbs_to_match$adm_route ==&quot;UNKNOWN&quot;)%&gt;%
-  {.} -&gt;unknown_routes
-
-
-write.csv(unknown_routes, file = &#39;data/unknown_routes.csv&#39;)
-
-
-#update the adm_routes having NA values:
-#existing_pbs_to_match$uadm_route[existing_pbs_to_match$atc_code == &quot;R03AC02&quot;] &lt;- &quot;Inhal&quot;</code></pre>
+<p>```r #get distinct pbs_code for first time #my_db_get_query(“select distinct pbs_code from pbs”) -&gt; existing_pbs #write.csv(existing_pbs, file = ‘data/existing_pbs.csv’)</p>
+<p>#get existing pbs data from csv file existing_pbs &lt;- data.frame(read.csv(file=“data/existing_pbs.csv”,header=TRUE, sep=“,”)[,2]) colnames(existing_pbs)&lt;- ‘pbs_code’</p>
+<p>#filter those drugs that only have atc code in ddd_who table to narrow down search final_pbs%&gt;% inner_join(existing_pbs, by = c(“pbs_code”=“pbs_code”))%&gt;% filter(atc_code %in% ddd_who$atc)%&gt;% mutate(uadm_route = adm_route)%&gt;% {.} -&gt;existing_pbs_to_match ```</p>
+<p><code>Warning: Column `pbs_code` joining factors with different levels, coercing   to character vector</code></p>
+<p><code>r   cat(&quot;How many specific adm routes?&quot;)</code></p>
+<p><code>How many specific adm routes?</code></p>
+<p><code>r   existing_pbs_to_match %&gt;% count(adm_route,sort = TRUE)</code></p>
+<p><code># A tibble: 10 x 2      adm_route        n      &lt;chr&gt;        &lt;int&gt;    1 O             1695    2 P              797    3 TD              72    4 &lt;NA&gt;            42    5 UNKNOWN         40    6 Inhal           26    7 N                8    8 Intravesical     4    9 Implant          3   10 R                2</code></p>
+<p>```r #total 82 unknown routes existing_pbs_to_match%&gt;% filter(is.na(existing_pbs_to_match<span class="math inline">\(adm_route) | existing_pbs_to_match\)</span>adm_route ==“UNKNOWN”)%&gt;% {.} -&gt;unknown_routes</p>
+<p>write.csv(unknown_routes, file = ‘data/unknown_routes.csv’)</p>
+<p>#update the adm_routes having NA values: #existing_pbs_to_match<span class="math inline">\(uadm_route[existing_pbs_to_match\)</span>atc_code == “R03AC02”] &lt;- “Inhal” ```</p>
+</div>
 </div>
 <div id="to-do" class="section level1">
 <h1>TO Do</h1>
@@ -622,11 +635,11 @@ pbs_who %&gt;% count(adm_route,sort = TRUE)</code></pre>
 <pre class="r"><code>sessionInfo()</code></pre>
 <pre><code>R version 3.4.4 (2018-03-15)
 Platform: x86_64-pc-linux-gnu (64-bit)
-Running under: Ubuntu 18.04.1 LTS
+Running under: Ubuntu 17.10
 
 Matrix products: default
-BLAS: /usr/lib/x86_64-linux-gnu/blas/libblas.so.3.7.1
-LAPACK: /usr/lib/x86_64-linux-gnu/lapack/liblapack.so.3.7.1
+BLAS: /usr/lib/x86_64-linux-gnu/openblas/libblas.so.3
+LAPACK: /usr/lib/x86_64-linux-gnu/libopenblasp-r0.2.20.so
 
 locale:
  [1] LC_CTYPE=en_AU.UTF-8       LC_NUMERIC=C              
@@ -637,35 +650,38 @@ locale:
 [11] LC_MEASUREMENT=en_AU.UTF-8 LC_IDENTIFICATION=C       
 
 attached base packages:
-[1] stats     graphics  grDevices utils     datasets  methods   base     
+[1] stats4    parallel  stats     graphics  grDevices utils     datasets 
+[8] methods   base     
 
 other attached packages:
- [1] bindrcpp_0.2.2    RPostgreSQL_0.6-2 DBI_1.0.0        
- [4] pander_0.6.2      kableExtra_0.9.0  knitr_1.20       
- [7] lubridate_1.7.4   magrittr_1.5      wrapr_1.6.0      
-[10] forcats_0.3.0     stringr_1.3.1     dplyr_0.7.6      
-[13] purrr_0.2.5       readr_1.1.1       tidyr_0.8.1      
-[16] tibble_1.4.2      ggplot2_3.0.0     tidyverse_1.2.1  
-[19] workflowr_1.1.1  
+ [1] bindrcpp_0.2.2        RPostgreSQL_0.6-2     DBI_1.0.0            
+ [4] forcats_0.3.0         dplyr_0.7.6           purrr_0.2.5          
+ [7] readr_1.1.1           tidyr_0.8.1           tibble_1.4.2         
+[10] ggplot2_2.2.1         tidyverse_1.2.1       IRanges_2.12.0       
+[13] S4Vectors_0.16.0      BiocGenerics_0.24.0   workflowr_1.1.1      
+[16] pander_0.6.2          kableExtra_0.9.0      knitr_1.20           
+[19] lubridate_1.7.4       fuzzyjoin_0.1.4       multidplyr_0.0.0.9000
+[22] devtools_1.13.6       stringi_1.2.3         stringr_1.3.1        
+[25] magrittr_1.5          wrapr_1.5.1           nvimcom_0.9-75       
 
 loaded via a namespace (and not attached):
- [1] tidyselect_0.2.4  haven_1.1.2       lattice_0.20-35  
- [4] colorspace_1.3-2  viridisLite_0.3.0 htmltools_0.3.6  
- [7] yaml_2.2.0        utf8_1.1.4        rlang_0.2.1      
-[10] R.oo_1.22.0       pillar_1.3.0      glue_1.3.0       
-[13] withr_2.1.2       R.utils_2.6.0     modelr_0.1.2     
-[16] readxl_1.1.0      bindr_0.1.1       plyr_1.8.4       
-[19] munsell_0.5.0     gtable_0.2.0      cellranger_1.1.0 
-[22] rvest_0.3.2       R.methodsS3_1.7.1 evaluate_0.11    
-[25] fansi_0.2.3       broom_0.5.0       Rcpp_0.12.18     
-[28] scales_0.5.0      backports_1.1.2   jsonlite_1.5     
-[31] hms_0.4.2         digest_0.6.15     stringi_1.2.4    
-[34] grid_3.4.4        rprojroot_1.3-2   cli_1.0.0        
-[37] tools_3.4.4       lazyeval_0.2.1    crayon_1.3.4     
-[40] whisker_0.3-2     pkgconfig_2.0.1   xml2_1.2.0       
-[43] assertthat_0.2.0  rmarkdown_1.10    httr_1.3.1       
-[46] rstudioapi_0.7    R6_2.2.2          nlme_3.1-131     
-[49] git2r_0.23.0      compiler_3.4.4   </code></pre>
+ [1] Rcpp_0.12.17      lattice_0.20-35   utf8_1.1.4       
+ [4] assertthat_0.2.0  rprojroot_1.3-2   digest_0.6.15    
+ [7] cellranger_1.1.0  R6_2.2.2          plyr_1.8.4       
+[10] backports_1.1.2   evaluate_0.10.1   httr_1.3.1       
+[13] pillar_1.3.0      rlang_0.2.1       lazyeval_0.2.1   
+[16] curl_3.2          readxl_1.1.0      rstudioapi_0.7   
+[19] whisker_0.3-2     R.utils_2.6.0     R.oo_1.22.0      
+[22] rmarkdown_1.10    munsell_0.5.0     broom_0.5.0      
+[25] compiler_3.4.4    modelr_0.1.2      pkgconfig_2.0.1  
+[28] htmltools_0.3.6   tidyselect_0.2.4  fansi_0.2.3      
+[31] viridisLite_0.3.0 crayon_1.3.4      withr_2.1.2      
+[34] R.methodsS3_1.7.1 grid_3.4.4        nlme_3.1-137     
+[37] jsonlite_1.5      gtable_0.2.0      git2r_0.23.0     
+[40] scales_0.5.0      cli_1.0.0         xml2_1.2.0       
+[43] tools_3.4.4       glue_1.3.0        hms_0.4.2        
+[46] yaml_2.1.19       colorspace_1.3-2  rvest_0.3.2      
+[49] memoise_1.1.0     bindr_0.1.1       haven_1.1.2      </code></pre>
 </div>
 </div>
 
