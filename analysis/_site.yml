@@ -11,6 +11,8 @@ navbar:
           href: whoDrugMatch.html
         - text: "Prabin"
           href: getDrugDrugInteractions.html
+        - text: "Serdar Part 2 - Statin interaction"
+          href: statins_match.html
 
 output:
   workflowr::wflow_html:
