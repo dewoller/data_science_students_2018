@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+
+<meta name="author" content="Nirmala" />
+
+<meta name="date" content="2018-07-31" />
+
+<title>Who Drug Match</title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+
+</head>
+
+<body>
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 51px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+
+.section h2 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h3 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h4 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h5 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h6 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+
+<div class="container-fluid main-container">
+
+<!-- tabsets -->
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+</script>
+
+<!-- code folding -->
+
+
+
+
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+  padding-left: 25px;
+  text-indent: 0;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row-fluid">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">Drugs Interaction Project</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Home</a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Project
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="whoDrugMatch.html">Nirmala</a>
+    </li>
+    <li>
+      <a href="getDrugDrugInteractions.html">Prabin</a>
+    </li>
+    <li>
+      <a href="statins_match.html">Serdar Part 2 - Statin interaction</a>
+    </li>
+  </ul>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<!-- Add a small amount of space between sections. -->
+<style type="text/css">
+div.section {
+  padding-top: 12px;
+}
+</style>
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">Who Drug Match</h1>
+<h4 class="author"><em>Nirmala</em></h4>
+<h4 class="date"><em>July 31, 2018</em></h4>
+
+</div>
+
+
+<p><strong>Last updated:</strong> 2018-09-06</p>
+<strong>workflowr checks:</strong> <small>(Click a bullet for more information)</small>
+<ul>
+<li>
+<p><details> <summary> <strong style="color:blue;">✔</strong> <strong>R Markdown file:</strong> up-to-date </summary></p>
+<p>Great! Since the R Markdown file has been committed to the Git repository, you know the exact version of the code that produced these results.</p>
+</details>
+</li>
+<li>
+<p><details> <summary> <strong style="color:blue;">✔</strong> <strong>Environment:</strong> empty </summary></p>
+<p>Great job! The global environment was empty. Objects defined in the global environment can affect the analysis in your R Markdown file in unknown ways. For reproduciblity it’s best to always run the code in an empty environment.</p>
+</details>
+</li>
+<li>
+<p><details> <summary> <strong style="color:blue;">✔</strong> <strong>Seed:</strong> <code>set.seed(20180723)</code> </summary></p>
+<p>The command <code>set.seed(20180723)</code> was run prior to running the code in the R Markdown file. Setting a seed ensures that any results that rely on randomness, e.g. subsampling or permutations, are reproducible.</p>
+</details>
+</li>
+<li>
+<p><details> <summary> <strong style="color:blue;">✔</strong> <strong>Session information:</strong> recorded </summary></p>
+<p>Great job! Recording the operating system, R version, and package versions is critical for reproducibility.</p>
+</details>
+</li>
+<li>
+<p><details> <summary> <strong style="color:blue;">✔</strong> <strong>Repository version:</strong> <a href="https://github.com/dewoller/data_science_students_2018/tree/a6683fbee81d49f437dd465db21dd92a798c00d6" target="_blank">a6683fb</a> </summary></p>
+Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility. The version displayed above was the version of the Git repository at the time these results were generated. <br><br> Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
+<pre><code>
+Ignored files:
+    Ignored:    analysis/analysis/
+
+Untracked files:
+    Untracked:  data/hpy_current_matches.csv
+    Untracked:  data/hpy_drugs_to_find.csv
+    Untracked:  data/hpy_interfer.csv
+    Untracked:  data/hpy_pbs_item.csv
+    Untracked:  data/hpy_to_match.csv
+
+Unstaged changes:
+    Modified:   analysis/_site.yml
+
+</code></pre>
+Note that any generated files, e.g. HTML, png, CSS, etc., are not included in this status report because it is ok for generated content to have uncommitted changes. </details>
+</li>
+</ul>
+<details> <summary> <small><strong>Expand here to see past versions:</strong></small> </summary>
+<ul>
+<table style="border-collapse:separate; border-spacing:5px;">
+<thead>
+<tr>
+<th style="text-align:left;">
+File
+</th>
+<th style="text-align:left;">
+Version
+</th>
+<th style="text-align:left;">
+Author
+</th>
+<th style="text-align:left;">
+Date
+</th>
+<th style="text-align:left;">
+Message
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Rmd
+</td>
+<td style="text-align:left;">
+<a href="https://github.com/dewoller/data_science_students_2018/blob/a6683fbee81d49f437dd465db21dd92a798c00d6/analysis/statins_match.Rmd" target="_blank">a6683fb</a>
+</td>
+<td style="text-align:left;">
+Dennis Wollersheim
+</td>
+<td style="text-align:left;">
+2018-09-06
+</td>
+<td style="text-align:left;">
+wflow_publish(“analysis/statins_match.Rmd”)
+</td>
+</tr>
+</tbody>
+</table>
+</ul>
+<p></details></p>
+<hr />
+<pre class="r"><code> source(&#39;lib/function.R&#39;)  </code></pre>
+<div id="match-drugs-from-pbs-to-statins-interaction-paper" class="section level1">
+<h1>Match drugs from PBS to statins interaction paper</h1>
+<ul>
+<li>Tasks:</li>
+</ul>
+<ol style="list-style-type: decimal">
+<li>read both statins and pbs_item data</li>
+<li>create final statins_interactions.csv to store the final data that is cleaned</li>
+</ol>
+<pre class="r"><code> read.csv(file=&quot;data/hpy_interfer.csv&quot;,header=TRUE,sep=&quot;,&quot;) %&gt;% 
+  as.tibble() %&gt;%
+  rename( drug_name =Drugs, category=Category ) %&gt;%
+  mutate( drug_name  = str_to_upper( drug_name  ) ) %&gt;% 
+  { . } -&gt; final_drugs
+
+
+# Matching the pbs items and atc code with the BNF drug drug interaction.
+
+# Matching BNF only with PBS</code></pre>
+<pre class="r"><code>my_db_get_query(&#39;Select * from pbs_item JOIN pbs_atc USING (atc_code)&#39;)%&gt;%
+  as.tibble()%&gt;%
+  mutate(drug_name = str_trim(drug_name)) %&gt;%
+  mutate(atc_meaning = str_trim(str_to_upper(atc_meaning))) %&gt;%
+  { .} -&gt;pbs_drugs
+
+
+cat(&quot;how many drugs from BNF have a direct match with DRUGS listed in PBS_ITEMS &quot;)</code></pre>
+<pre><code>how many drugs from BNF have a direct match with DRUGS listed in PBS_ITEMS </code></pre>
+<pre class="r"><code>final_drugs %&gt;% 
+  inner_join(pbs_drugs,by=c(&quot;drug_name&quot;=&quot;drug_name&quot;)) %&gt;%
+  distinct( drug_name)%&gt;%
+  count()</code></pre>
+<pre><code># A tibble: 1 x 1
+      n
+  &lt;int&gt;
+1    25</code></pre>
+<pre class="r"><code>cat(&quot;how many drugs do not have as direct match&quot;)</code></pre>
+<pre><code>how many drugs do not have as direct match</code></pre>
+<pre class="r"><code>final_drugs %&gt;% 
+  anti_join(pbs_drugs) %&gt;%
+  count()</code></pre>
+<pre><code>Joining, by = &quot;drug_name&quot;</code></pre>
+<pre><code># A tibble: 1 x 1
+      n
+  &lt;int&gt;
+1    26</code></pre>
+</div>
+<div id="list-of-drugs-to-match" class="section level1">
+<h1>list of drugs to match</h1>
+<pre class="r"><code>final_drugs %&gt;%
+  inner_join( pbs_drugs ) %&gt;%
+  distinct( category, drug_name ) %&gt;% 
+  { . } -&gt; current_matches</code></pre>
+<pre><code>Joining, by = &quot;drug_name&quot;</code></pre>
+<pre class="r"><code>final_drugs %&gt;% 
+  anti_join(pbs_drugs) %&gt;%
+  {.} -&gt; drugs_to_match</code></pre>
+<pre><code>Joining, by = &quot;drug_name&quot;</code></pre>
+<pre class="r"><code>drugs_to_match</code></pre>
+<pre><code># A tibble: 26 x 2
+   category            drug_name                                          
+   &lt;fct&gt;               &lt;chr&gt;                                              
+ 1 Angiogenesis inhib… CABOZANTINIB MALATE                                
+ 2 Angiogenesis inhib… IMATINIB MESYLATE                                  
+ 3 Angiogenesis inhib… PAZOPANIB HYDROCHLORIDE                            
+ 4 Angiogenesis inhib… PONATINIB HYDROCHLORIDE                            
+ 5 Angiogenesis inhib… REGORAFENIB                                        
+ 6 Angiogenesis inhib… SORAFENIB TOSYLATE                                 
+ 7 Angiogenesis inhib… SUNITINIB MALATE                                   
+ 8 Antidepressants     SNRIS (I.E., DESVENLAFAXINE, DULOXETINE HYDROCHLOR…
+ 9 Antidepressants     TCAS (I.E., AMITRIPTYLINE HYDROCHLORIDE, IMIPRAMIN…
+10 Antidepressants     MAOIS (I.E., PHENELZINE SULFATE, RASAGILINE, SELEG…
+# ... with 16 more rows</code></pre>
+<p>These are some drugs that we have to match either with ATC code or PBS_Items.</p>
+<p>Numbers of drugs that needs to match are</p>
+<pre class="r"><code>drugs_to_match %&gt;% count()   </code></pre>
+<pre><code># A tibble: 1 x 1
+      n
+  &lt;int&gt;
+1    26</code></pre>
+<pre class="r"><code>drug_not_matched = drugs_to_match</code></pre>
+</div>
+<div id="matching-drug_name-with-atc-meaning" class="section level1">
+<h1>Matching drug_name with ATC meaning</h1>
+<pre class="r"><code>drug_not_matched %&gt;%
+  inner_join(pbs_drugs,by=c(&quot;drug_name&quot;=&quot;atc_meaning&quot;)) %&gt;%
+  distinct(category, drug_name)%&gt;%
+  {.}-&gt;matched_via_drug_2_atc
+
+
+matched_via_drug_2_atc %&gt;%
+  inner_join(pbs_drugs,by=c(&quot;drug_name&quot;=&quot;atc_meaning&quot;)) %&gt;%
+  distinct(category, drug_name.y)%&gt;%
+  rename( drug_name = drug_name.y) %&gt;%
+  rbind( current_matches ) %&gt;% 
+  { . } -&gt; current_matches
+
+drug_not_matched %&gt;%
+  anti_join( matched_via_drug_2_atc ) %&gt;%
+  {.}-&gt; drug_not_matched</code></pre>
+<pre><code>Joining, by = c(&quot;category&quot;, &quot;drug_name&quot;)</code></pre>
+<div id="break-up-multiple-drug_name" class="section level2">
+<h2>break up multiple drug_name</h2>
+<pre class="r"><code>drug_not_matched %&gt;%
+  filter( !is.na( str_match( drug_name, &#39;\\(I.E.,&#39;))) %&gt;%
+  mutate( mcat = str_replace( drug_name, &#39;.* \\(I.E., (.*)\\)&#39;,&#39;\\1&#39;)) %&gt;%
+  select(category, mcat) %&gt;%
+  separate( mcat, paste0(&#39;a&#39;,1:30), &#39;,|/&#39;, fill=&quot;right&quot;) %&gt;%
+  gather( var, drug_name, -category) %&gt;%
+  mutate( drug_name = str_trim(drug_name )) %&gt;%
+  select( -var ) %&gt;%
+  distinct( category, drug_name ) %&gt;% 
+  { . } -&gt; drugs_split
+
+
+drugs_split %&gt;%
+  inner_join(pbs_drugs) %&gt;%
+  distinct( category, drug_name ) %&gt;% 
+  { . } -&gt; matched_via_drug_split_2_drug_name </code></pre>
+<pre><code>Joining, by = &quot;drug_name&quot;</code></pre>
+<pre class="r"><code>drugs_split %&gt;%
+  inner_join(pbs_drugs,by=c(&quot;drug_name&quot;=&quot;atc_meaning&quot;)) %&gt;%
+  distinct( category, drug_name ) %&gt;% 
+  { . } -&gt; matched_via_drug_split_2_atc
+
+
+matched_via_drug_split_2_drug_name %&gt;%
+  rbind( matched_via_drug_split_2_atc ) %&gt;%
+  rbind( current_matches ) %&gt;% 
+  { . } -&gt; current_matches
+
+
+
+drug_not_matched %&gt;%
+  rbind( drugs_split ) %&gt;%
+  arrange( category, drug_name )  %&gt;%
+  anti_join( matched_via_drug_split_2_drug_name ) %&gt;%
+  anti_join( matched_via_drug_split_2_atc ) %&gt;% 
+  filter( !is.na(drug_name )) %&gt;%
+  { . } -&gt; drugs_to_find</code></pre>
+<pre><code>Joining, by = c(&quot;category&quot;, &quot;drug_name&quot;)</code></pre>
+<pre><code>Joining, by = c(&quot;category&quot;, &quot;drug_name&quot;)</code></pre>
+<pre class="r"><code>drugs_to_find %&gt;% write.csv( &#39;data/hpy_drugs_to_find.csv&#39;)
+current_matches %&gt;% write.csv( &#39;data/hpy_current_matches.csv&#39;)</code></pre>
+</div>
+</div>
+<div id="matching-and-spelling-checks-for-drugs-not-matched" class="section level1">
+<h1>Matching and Spelling Checks for Drugs Not Matched</h1>
+<p>An assumption is made many drugs from not matched drugs list, there may be some spelling mistakes or naming error. For instance, DIGOXIN in PBS may be written as DIGOXYIN in BNF or DIGOXIN in BNF may be similar to OXIN in PBS. So to rectify these kinds of error we have done the following and listed some of those. And the detail can be found in output folder having Spelling_Check_Error folder.</p>
+<p>Here we have checked for spelling difference between the drugs listed in concordance (BNF) and the main table pbs drug (PBS), and some of found mistake are listed below:</p>
+<pre class="r"><code>pbs_drugs %&gt;%
+  distinct (drug_name ) %&gt;%
+  filter( !is.na(drug_name )) %&gt;%
+  stringdist_inner_join(drugs_to_find, by = c(&quot;drug_name&quot; = &quot;drug_name&quot;),max_dist=3) %&gt;% 
+  rename( possible_misspelling = drug_name.x ) %&gt;%
+  rename( drug_name = drug_name.y ) %&gt;%
+  select( category, drug_name, possible_misspelling ) %&gt;%
+  right_join(drugs_to_find ) %&gt;%
+  mutate( possible_misspelling = ifelse( is.na(possible_misspelling ), &#39;&#39;, possible_misspelling)) %&gt;% 
+  write.csv(&#39;data/hpy_to_match.csv&#39;)</code></pre>
+<pre><code>Joining, by = c(&quot;category&quot;, &quot;drug_name&quot;)</code></pre>
+<pre class="r"><code>pbs_drugs %&gt;%
+  distinct( drug_name, form_strength, atc_code, atc_meaning ) %&gt;%
+  filter( !is.na( atc_meaning ) &amp; atc_meaning != &#39;NA&#39;) %&gt;%
+  group_by( drug_name, atc_code, atc_meaning ) %&gt;%
+  summarise( form_strength = paste( form_strength, collapse=&#39;, &#39;)) %&gt;%
+  write.csv(&#39;data/hpy_pbs_item.csv&#39;)</code></pre>
+<div id="session-information" class="section level2">
+<h2>Session information</h2>
+<pre class="r"><code>sessionInfo()</code></pre>
+<pre><code>R version 3.4.4 (2018-03-15)
+Platform: x86_64-pc-linux-gnu (64-bit)
+Running under: Ubuntu 17.10
+
+Matrix products: default
+BLAS: /usr/lib/x86_64-linux-gnu/openblas/libblas.so.3
+LAPACK: /usr/lib/x86_64-linux-gnu/libopenblasp-r0.2.20.so
+
+locale:
+ [1] LC_CTYPE=en_AU.UTF-8       LC_NUMERIC=C              
+ [3] LC_TIME=en_AU.UTF-8        LC_COLLATE=en_AU.UTF-8    
+ [5] LC_MONETARY=en_AU.UTF-8    LC_MESSAGES=en_AU.UTF-8   
+ [7] LC_PAPER=en_AU.UTF-8       LC_NAME=C                 
+ [9] LC_ADDRESS=C               LC_TELEPHONE=C            
+[11] LC_MEASUREMENT=en_AU.UTF-8 LC_IDENTIFICATION=C       
+
+attached base packages:
+[1] stats4    parallel  stats     graphics  grDevices utils     datasets 
+[8] methods   base     
+
+other attached packages:
+ [1] bindrcpp_0.2.2        RPostgreSQL_0.6-2     DBI_1.0.0            
+ [4] forcats_0.3.0         dplyr_0.7.6           purrr_0.2.5          
+ [7] readr_1.1.1           tidyr_0.8.1           tibble_1.4.2         
+[10] ggplot2_2.2.1         tidyverse_1.2.1       IRanges_2.12.0       
+[13] S4Vectors_0.16.0      BiocGenerics_0.24.0   workflowr_1.1.1      
+[16] pander_0.6.2          kableExtra_0.9.0      knitr_1.20           
+[19] lubridate_1.7.4       fuzzyjoin_0.1.4       multidplyr_0.0.0.9000
+[22] devtools_1.13.6       stringi_1.2.3         stringr_1.3.1        
+[25] magrittr_1.5          wrapr_1.5.1           nvimcom_0.9-75       
+
+loaded via a namespace (and not attached):
+ [1] stringdist_0.9.5.1 Rcpp_0.12.18       lattice_0.20-35   
+ [4] utf8_1.1.4         assertthat_0.2.0   rprojroot_1.3-2   
+ [7] digest_0.6.15      cellranger_1.1.0   R6_2.2.2          
+[10] plyr_1.8.4         backports_1.1.2    evaluate_0.10.1   
+[13] httr_1.3.1         pillar_1.3.0       rlang_0.2.1       
+[16] lazyeval_0.2.1     curl_3.2           readxl_1.1.0      
+[19] rstudioapi_0.7     whisker_0.3-2      R.utils_2.6.0     
+[22] R.oo_1.22.0        rmarkdown_1.10     munsell_0.5.0     
+[25] broom_0.5.0        compiler_3.4.4     modelr_0.1.2      
+[28] pkgconfig_2.0.1    htmltools_0.3.6    tidyselect_0.2.4  
+[31] fansi_0.2.3        viridisLite_0.3.0  crayon_1.3.4      
+[34] withr_2.1.2        R.methodsS3_1.7.1  grid_3.4.4        
+[37] nlme_3.1-137       jsonlite_1.5       gtable_0.2.0      
+[40] git2r_0.23.0       scales_0.5.0       cli_1.0.0         
+[43] xml2_1.2.0         tools_3.4.4        glue_1.3.0        
+[46] hms_0.4.2          yaml_2.1.19        colorspace_1.3-2  
+[49] rvest_0.3.2        memoise_1.1.0      bindr_0.1.1       
+[52] haven_1.1.2       </code></pre>
+</div>
+</div>
+
+<!-- Adjust MathJax settings so that all math formulae are shown using
+TeX fonts only; see
+http://docs.mathjax.org/en/latest/configuration.html.  This will make
+the presentation more consistent at the cost of the webpage sometimes
+taking slightly longer to load. Note that this only works because the
+footer is added to webpages before the MathJax javascript. -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    "HTML-CSS": { availableFonts: ["TeX"] }
+  });
+</script>
+
+<hr>
+<p>
+  This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a>
+  analysis was created with
+  <a href="https://github.com/jdblischak/workflowr">workflowr</a> 1.1.1
+</p>
+<hr>
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
