@@ -1,0 +1,192 @@
+---
+title: "Who Drug Match"
+author: "Nirmala"
+date: "July 31, 2018"
+output: html_document
+---
+```{r loadlibrary,message=FALSE}
+ source('lib/function.R')  
+```
+
+# Match drugs from PBS to statins interaction paper
+* Tasks:
+1) read both statins and pbs_item data
+2) create final statins_interactions.csv to store the final data that is cleaned
+
+
+```{r prepare data}
+
+ read.csv(file="data/hpy_interfer.csv",header=TRUE,sep=",") %>% 
+  as.tibble() %>%
+  rename( drug_name =Drugs, category=Category ) %>%
+  mutate( drug_name  = str_to_upper( drug_name  ) ) %>% 
+  { . } -> final_drugs
+
+
+# Matching the pbs items and atc code with the BNF drug drug interaction.
+
+# Matching BNF only with PBS
+
+```{r Selecting the pbs items and atc code to match with BNF data set}
+
+my_db_get_query('Select * from pbs_item JOIN pbs_atc USING (atc_code)')%>%
+  as.tibble()%>%
+  mutate(drug_name = str_trim(drug_name)) %>%
+  mutate(atc_meaning = str_trim(str_to_upper(atc_meaning))) %>%
+  { .} ->pbs_drugs
+
+
+cat("how many drugs from BNF have a direct match with DRUGS listed in PBS_ITEMS ")
+
+final_drugs %>% 
+  inner_join(pbs_drugs,by=c("drug_name"="drug_name")) %>%
+  distinct( drug_name)%>%
+  count()
+
+```
+
+```{r}
+
+cat("how many drugs do not have as direct match")
+final_drugs %>% 
+  anti_join(pbs_drugs) %>%
+  count()
+
+```
+
+# list of drugs to match
+
+```{r}
+
+final_drugs %>%
+  inner_join( pbs_drugs ) %>%
+  distinct( category, drug_name ) %>% 
+  { . } -> current_matches
+
+final_drugs %>% 
+  anti_join(pbs_drugs) %>%
+  {.} -> drugs_to_match
+
+drugs_to_match
+
+```
+These are some drugs that we have to match either with ATC code or PBS_Items.
+
+Numbers of drugs that needs to match are
+
+```{r possible_drugs_to_match}
+
+drugs_to_match %>% count()   
+
+drug_not_matched = drugs_to_match
+
+```
+
+# Matching drug_name with ATC meaning
+
+```{r}
+
+drug_not_matched %>%
+  inner_join(pbs_drugs,by=c("drug_name"="atc_meaning")) %>%
+  distinct(category, drug_name)%>%
+  {.}->matched_via_drug_2_atc
+
+
+matched_via_drug_2_atc %>%
+  inner_join(pbs_drugs,by=c("drug_name"="atc_meaning")) %>%
+  distinct(category, drug_name.y)%>%
+  rename( drug_name = drug_name.y) %>%
+  rbind( current_matches ) %>% 
+  { . } -> current_matches
+
+drug_not_matched %>%
+  anti_join( matched_via_drug_2_atc ) %>%
+  {.}-> drug_not_matched
+
+```
+## break up multiple drug_name 
+
+```{r}
+
+drug_not_matched %>%
+  filter( !is.na( str_match( drug_name, '\\(I.E.,'))) %>%
+  mutate( mcat = str_replace( drug_name, '.* \\(I.E., (.*)\\)','\\1')) %>%
+  select(category, mcat) %>%
+  separate( mcat, paste0('a',1:30), ',|/', fill="right") %>%
+  gather( var, drug_name, -category) %>%
+  mutate( drug_name = str_trim(drug_name )) %>%
+  select( -var ) %>%
+  distinct( category, drug_name ) %>% 
+  { . } -> drugs_split
+
+
+drugs_split %>%
+  inner_join(pbs_drugs) %>%
+  distinct( category, drug_name ) %>% 
+  { . } -> matched_via_drug_split_2_drug_name 
+
+drugs_split %>%
+  inner_join(pbs_drugs,by=c("drug_name"="atc_meaning")) %>%
+  distinct( category, drug_name ) %>% 
+  { . } -> matched_via_drug_split_2_atc
+
+
+matched_via_drug_split_2_drug_name %>%
+  rbind( matched_via_drug_split_2_atc ) %>%
+  rbind( current_matches ) %>% 
+  { . } -> current_matches
+
+
+
+drug_not_matched %>%
+  rbind( drugs_split ) %>%
+  arrange( category, drug_name )  %>%
+  anti_join( matched_via_drug_split_2_drug_name ) %>%
+  anti_join( matched_via_drug_split_2_atc ) %>% 
+  filter( !is.na(drug_name )) %>%
+  { . } -> drugs_to_find
+
+
+drugs_to_find %>% write.csv( 'data/hpy_drugs_to_find.csv')
+current_matches %>% write.csv( 'data/hpy_current_matches.csv')
+
+
+
+
+```
+
+# Matching and Spelling Checks for Drugs Not Matched
+An assumption is made many drugs from not matched drugs list, there may be some spelling mistakes or naming error.
+For instance, DIGOXIN in PBS may be written as DIGOXYIN in BNF or DIGOXIN in BNF may be similar to OXIN in PBS.
+So to rectify these kinds of error we have done the following and listed some of those. And the detail can be found in output folder having Spelling_Check_Error folder.
+
+Here we have checked for spelling difference between the drugs listed in concordance (BNF) and the main table pbs drug (PBS), and some of found mistake are listed below:
+
+```{r}
+
+pbs_drugs %>%
+  distinct (drug_name ) %>%
+  filter( !is.na(drug_name )) %>%
+  stringdist_inner_join(drugs_to_find, by = c("drug_name" = "drug_name"),max_dist=3) %>% 
+  rename( possible_misspelling = drug_name.x ) %>%
+  rename( drug_name = drug_name.y ) %>%
+  select( category, drug_name, possible_misspelling ) %>%
+  right_join(drugs_to_find ) %>%
+  mutate( possible_misspelling = ifelse( is.na(possible_misspelling ), '', possible_misspelling)) %>% 
+  write.csv('data/hpy_to_match.csv')
+
+
+
+pbs_drugs %>%
+  distinct( drug_name, form_strength, atc_code, atc_meaning ) %>%
+  filter( !is.na( atc_meaning ) & atc_meaning != 'NA') %>%
+  group_by( drug_name, atc_code, atc_meaning ) %>%
+  summarise( form_strength = paste( form_strength, collapse=', ')) %>%
+  write.csv('data/hpy_pbs_item.csv')
+
+
+
+
+```
+
+
