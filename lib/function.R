@@ -1,5 +1,6 @@
-#!/usr/bin/env Rscript
+#!/usr/bin/env Rscript 
 
+source('lib/pre_function.R')
 detach_all_packages()
 
 # utilities

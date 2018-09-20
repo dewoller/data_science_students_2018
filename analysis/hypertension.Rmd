@@ -1,0 +1,26 @@
+---
+title: "Hypertension"
+output:
+  workflowr::wflow_html
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r library call}
+source('lib/pre_function.R')
+
+source('lib/function.R')
+```
+
+## R Markdown
+
+
+```{r dataCollection}
+
+my_db_get_query("Select pin,pbs_code,spply_dt,pbs_rgltn24_adjst_qty qty from pbs_rr")%>%
+  as.tibble()%>%
+  { . } -> rr_pbs_interval_1
+
+```
