@@ -8,6 +8,7 @@ output: html_document
  library('tidyverse')
  library('workflowr')
  library('stringr')
+ library(dplyr)
  source('lib/function.R')  
 ```
 
@@ -29,9 +30,11 @@ pbs_item <- read.csv(file="data/pbs_item.csv",header=TRUE, sep=";")
 #create a copy of pbs_item dataframe and add three columns:form_type ,unit_wt,adm_route
 final_pbs <- cbind(pbs_item) 
 final_pbs["form_type"] <- NA
-final_pbs["unit_wt"] <- NA
-final_pbs["adm_route"] <-NA 
+final_pbs["adm_route"] <-NA
+final_pbs["final_unit"] <- NA
+final_pbs["form_strength"] <-tolower(final_pbs$form_strength)
 ```
+
 # Try to categorise the different form_strengths
 * Tasks:
 1) find out what types they are
@@ -42,7 +45,7 @@ final_pbs["adm_route"] <-NA
 
 ```{r possible categories}
 #list of types
-words <- c("Tablet","Injection","Eye Drops" , "Capsule","Cream","Ear Drops","Inhalation","Mixtures","other","Nasal","Ointment","Oral","Transdermal","Suppositories","Mouth","lotions","Intravesical","Lemella","Parenteral","I.V.","Sublingual","Rectal","Implant","Vaginal","Lamella","Syrup","Elixir","Lozenge","Wafer")
+words <- c("tablet","injection","eye drops" , "capsule","cream","ear drops","inhalation","mixtures","other","nasal","ointment","oral","transdermal","suppositories","mouth","lotions","intravesical","lemella","parenteral","i.v.","sublingual","rectal","implant","vaginal","lamella","syrup","elixir","lozenge","wafer", "pressurised inhalation", "powder for oral inhalation","solution for inhalation")
 
 cat("What are the possible categories in form strength?")
 words
@@ -56,32 +59,46 @@ x <- sapply(words, function(x) grepl(tolower(x), tolower(final_pbs$form_strength
 final_pbs$form_type <- apply(x, 1, function(i) paste0(names(i)[i], collapse = ","))
 ```
 
+
+
+Powder,aerosal,solution == inhalation
 ```{r} 
+
+#final_pbs%>% distinct(form_strength) %>% filter(!is.na(str_match(form_strength, ".*inh.*")))
 
 #return all the row that have no specific form_type and replace by unknown
 final_pbs$form_type <-final_pbs$form_type %>% replace(.=="","UNKNOWN")
+
+
+
 ```
+
+
 
 # Dertermine the adm_route according to the form_type
 * According to form_type determine the adm_route
 * For eg: if form_type is Tablet then adm_route will be O i.e. Oral
 ```{r find admin route} 
-final_pbs$adm_route[final_pbs$form_type=="Oral"|final_pbs$form_type=="Tablet"|final_pbs$form_type=="Capsule"|final_pbs$form_type=="Mouth"|final_pbs$form_type == "Lozenge"|final_pbs$form_type == "Elixir"|final_pbs$form_type == "Wafer"|final_pbs$form_type == "Syrup"|final_pbs$form_type=="Sublingual"]="O"
-final_pbs$adm_route[final_pbs$form_type=="Nasal"]="N"
-final_pbs$adm_route[final_pbs$form_type=="Ointment"]="Ointment"
-final_pbs$adm_route[final_pbs$form_type=="Instillation"]="Instill"
-final_pbs$adm_route[final_pbs$form_type=="Cream"|final_pbs$form_type=="lotions"|final_pbs$form_type=="Transdermal"]="TD"
+final_pbs$adm_route[final_pbs$form_type=="oral"|final_pbs$form_type=="tablet"|final_pbs$form_type=="capsule"|final_pbs$form_type=="mouth"|final_pbs$form_type == "lozenge"|final_pbs$form_type == "elixir"|final_pbs$form_type == "wafer"|final_pbs$form_type == "syrup"]="O"
+final_pbs$adm_route[final_pbs$form_type=="nasal"]="N"
+final_pbs$adm_route[final_pbs$form_type=="ointment"]="Ointment"
+final_pbs$adm_route[final_pbs$form_type=="instillation"]="Instill"
+final_pbs$adm_route[final_pbs$form_type=="cream"|final_pbs$form_type=="lotions"|final_pbs$form_type=="transdermal"]="TD"
 final_pbs$adm_route[final_pbs$form_type=="lamella"]="lamella"
-final_pbs$adm_route[final_pbs$form_type=="Rectal"]="R"
-final_pbs$adm_route[final_pbs$form_type=="Vaginal"]="V"
-final_pbs$adm_route[final_pbs$form_type=="Injection"|final_pbs$form_type=="Eye lotion"| final_pbs$form_type =="Eye Drops"|final_pbs$form_type=="Ear Drops"|final_pbs$form_type=="Parenteral"|final_pbs$form_type=="I.V."]="P"
-final_pbs$adm_route[final_pbs$form_type=="Inhalation"]="Inhal"
-final_pbs$adm_route[final_pbs$form_type=="Implant"]="Implant"
-final_pbs$adm_route[final_pbs$form_type=="Intravesical"] = "Intravesical"
+final_pbs$adm_route[final_pbs$form_type=="rectal"]="R"
+final_pbs$adm_route[final_pbs$form_type=="vaginal"]="V"
+final_pbs$adm_route[final_pbs$form_type=="injection"|final_pbs$form_type=="eye lotion"| final_pbs$form_type =="eye drops"|final_pbs$form_type=="ear drops"|final_pbs$form_type=="parenteral"|final_pbs$form_type=="i.v."]="P"
+final_pbs$adm_route[final_pbs$form_type=="inhalation"]="Inhal"
+final_pbs$adm_route[final_pbs$form_type=="implant"]="Implant"
+final_pbs$adm_route[final_pbs$form_type=="intravesical"] = "Intravesical"
 final_pbs$adm_route[final_pbs$form_type=="UNKNOWN"]="UNKNOWN"
-final_pbs$adm_route[final_pbs$form_type=="Tablet,Oral"]="O"
-final_pbs$adm_route[final_pbs$form_type=="Injection,I.V."]="P"
-final_pbs$adm_route[final_pbs$form_type=="Sublingual,Wafer"]="P"
+final_pbs$adm_route[final_pbs$form_type=="sublingual"]="SL"
+final_pbs$adm_route[final_pbs$form_strength == "powder for oral inhalation"] = "Inhal.powder"
+final_pbs$adm_route[final_pbs$form_strength == "solution for inhalation"] = "Inhal.sol"
+final_pbs$adm_route[final_pbs$form_strength == "pressurised inhalation"] = "Inhal.aerosol"
+
+
+
 ```
 
 
@@ -93,8 +110,46 @@ final_pbs$adm_route[final_pbs$form_type=="Sublingual,Wafer"]="P"
 * Using regular expression find the number of mg and enter it in unit_wt column of final_pbs table
 ```{r} 
 final_pbs$form_strength <- str_replace(final_pbs$form_strength, "micrograms", "mg")
+final_pbs$form_strength <- str_replace(final_pbs$form_strength, "microgram", "mg")
 #get unit_wt 
-final_pbs$unit_wt <- str_extract(final_pbs$form_strength, "\\d+\\s?mg") 
+
+#final_pbs$unit_wt_mg <- str_extract(final_pbs$form_strength, "\\d+\\.*\\d+\\s?mg") 
+final_pbs$unit_wt_mg <- str_extract(final_pbs$form_strength, "\\d*\\.*\\d+\\s?mg") 
+#final_pbs$unit_wt_g <- str_extract(final_pbs$form_strength, "\\d+\\s?g") 
+final_pbs$unit_wt_g <- str_extract(final_pbs$form_strength, "\\d*\\.*\\d+\\s?g")
+final_pbs$unit_wt_ml <-str_extract(final_pbs$form_strength,"per .*\\d*\\s?ml")
+
+
+#remove g/mg from each unit_wt_g and unit_wt_mg column
+final_pbs$unit_wt_mg  <- str_replace(final_pbs$unit_wt_mg , '\\mg', '')
+final_pbs$unit_wt_g  <- str_replace(final_pbs$unit_wt_g , '\\g', '')
+
+
+final_pbs$unit_wt_g<- as.numeric(final_pbs$unit_wt_g)
+final_pbs$unit_wt_mg<- as.numeric(final_pbs$unit_wt_mg)
+final_pbs$final_unit<- as.numeric(final_pbs$final_unit)
+
+#get the final unit
+
+for (i in 1:7614)
+if(!is.na(final_pbs$unit_wt_g[i]) & !is.na(final_pbs$unit_wt_mg[i])){
+  final_pbs$final_unit[i] =final_pbs$unit_wt_mg[i]+final_pbs$unit_wt_g[i]*1000
+}else{
+   if(is.na(final_pbs$unit_wt_g[i])){
+       final_pbs$final_unit[i] =final_pbs$unit_wt_mg[i]
+     }else if(is.na(final_pbs$unit_wt_mg[i])){
+         final_pbs$final_unit[i] = final_pbs$unit_wt_g[i]*1000
+}
+}
+
+
+
+
+
+
+
+
+final_pbs%>%distinct(final_pbs$unit_wt_ml)
 ```
 
 # Clean the adm_route of ddd_who to match with pbs_item
@@ -103,7 +158,7 @@ final_pbs$unit_wt <- str_extract(final_pbs$form_strength, "\\d+\\s?mg")
           
 
 ```{r} 
-ddd_who$adm_route <- str_replace(ddd_who$adm_route, "Inh.*_*", "Inhal")
+#ddd_who$adm_route <- str_replace(ddd_who$adm_route, "Inh.*_*", "Inhal")
 ddd_who$adm_route <- str_replace(ddd_who$adm_route, "TD.*_*", "TD")
 ddd_who$adm_route <- str_replace(ddd_who$adm_route, "oral.*_*", "O")
 
@@ -143,13 +198,50 @@ existing_pbs_to_match %>% count(adm_route,sort = TRUE)
 
 
 #total 82 unknown routes 
+#now 159 unknown
 existing_pbs_to_match%>%
-  filter(is.na(existing_pbs_to_match$adm_route) | existing_pbs_to_match$adm_route =="UNKNOWN")%>%
+  filter(is.na(existing_pbs_to_match$adm_route)|existing_pbs_to_match$adm_route=="UNKNOWN")%>%
   {.} ->unknown_routes
 
+write.csv(unknown_routes, file = 'data/total_unknown_routes.csv')
 
-write.csv(unknown_routes, file = 'data/unknown_routes.csv')
 
+
+
+
+unknown_routes_old <- read.csv(file="data/unknown_routes.csv",header=TRUE,sep=",")
+
+unknown_routes_old<-subset(unknown_routes_old,select = -c(X))
+
+
+#unknown_routes_old["final_unit"] <-NA
+#unknown_routes_old["unit_wt_mg"] <-NA 
+#unknown_routes_old["unit_wt_g"] <- NA
+#unknown_routes_old["unit_wt_ml"] <-NA
+
+#unknown_routes_old["final_unit"] <-as.numeric(unknown_routes_old["final_unit"])
+#unknown_routes_old["unit_wt_mg"] <- as.numeric(unknown_routes_old["unit_wt_mg"])
+#unknown_routes_old["unit_wt_g"] <- as.numeric(unknown_routes_old["unit_wt_g"])
+#unknown_routes_old["unit_wt_ml"] <- as.character(unknown_routes_old["unit_wt_ml"])
+
+
+#total 77 obs.
+new_unknown_routes<-unknown_routes[!unknown_routes$pbs_code%in%unknown_routes_old$pbs_code,]
+
+
+
+write.csv(unknown_routes, file = 'data/new_unknown_routes.csv')
+
+
+
+#find the unknown final_unit in existing_pbs_to_match
+existing_pbs_to_match%>% filter(!is.na(existing_pbs_to_match$unit_wt_ml)|is.na(existing_pbs_to_match$final_unit))%>%
+{.} ->unknown_quantity
+
+
+
+#336 unknown quantity
+write.csv(unknown_quantity, file = 'data/unknown_quantity.csv')
 
 #update the adm_routes having NA values:
 #existing_pbs_to_match$uadm_route[existing_pbs_to_match$atc_code == "R03AC02"] <- "Inhal"
