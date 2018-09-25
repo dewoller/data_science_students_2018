@@ -1,0 +1,160 @@
+"","pbs_code","drug_name","form_strength","atc_code","inuse","form_type","adm_route","final_unit","unit_wt_mg","unit_wt_g","unit_wt_ml","uadm_route"
+"1","01099W","SALBUTAMOL","capsule containing powder for oral inhalation 200 mg (as sulfate) (for use in ventolin rotahaler)","R03AC02","Y","capsule,inhalation,oral,powder for oral inhalation",NA,200,200,NA,NA,NA
+"2","01124E","CROMOGLYCATE","solution for inhalation 20 mg in 2 ml ampoule","R03BC01","Y","inhalation,solution for inhalation",NA,20,20,NA,NA,NA
+"3","01243K","TERBUTALINE","nebuliser solution 10 mg per ml, 50 ml","R03AC03","Y","UNKNOWN","UNKNOWN",10,10,NA,"per ml, 50 ml","UNKNOWN"
+"4","01251W","TERBUTALINE","nebuliser solution containing terbutaline sulfate 5 mg in 2 ml single dose units, 30","R03AC03","Y","UNKNOWN","UNKNOWN",NA,NA,NA,NA,"UNKNOWN"
+"5","01252X","TERBUTALINE","powder for oral inhalation in breath actuated device containing terbutaline sulfate 500 mg per dose, 200 doses","R03AC03","Y","inhalation,oral,powder for oral inhalation",NA,500,500,NA,NA,NA
+"6","01258F","BISACODYL","suppositories 10 mg, 12","A06AB02","Y","suppositories",NA,10,10,NA,NA,NA
+"7","01260H","BISACODYL","suppositories 10 mg, 10","A06AB02","Y","suppositories",NA,10,10,NA,NA,NA
+"8","01302M","DICLOFENAC","suppository containing diclofenac sodium 100 mg","M01AB05","Y","UNKNOWN","UNKNOWN",100,100,NA,NA,"UNKNOWN"
+"9","01386Y","ERGOTAMINE + CAFFEINE","suppositories 2 mg-100 mg, 5","N02CA52","Y","suppositories",NA,100,100,NA,NA,NA
+"10","01454M","GOSERELIN","subcutaneous implant 3.6 mg (as acetate) in pre-filled injection syringe","L02AE03","Y","injection,implant",NA,3.6,3.6,NA,NA,NA
+"11","01540C","IPRATROPIUM","pressurised inhalation 20 mg (anhydrous) per dose, 200 doses","R03BB01","Y","inhalation,pressurised inhalation",NA,20,20,NA,NA,NA
+"12","01541D","IPRATROPIUM","nebuliser solution containing ipratropium bromide 250 mg (anhydrous) per ml, 20 ml","R03BB01","Y","UNKNOWN","UNKNOWN",250,250,NA,"per ml, 20 ml","UNKNOWN"
+"13","01542E","IPRATROPIUM","nebuliser solution containing ipratropium bromide 250 mg (anhydrous) in 1 ml single dose units, 30","R03BB01","Y","UNKNOWN","UNKNOWN",250,250,NA,NA,"UNKNOWN"
+"14","01588N","KETOPROFEN","suppository 100 mg","M01AE03","Y","UNKNOWN","UNKNOWN",100,100,NA,NA,"UNKNOWN"
+"15","01596B","ONDANSETRON","i.v. injection 4 mg (as hydrochloride dihydrate) in 2 ml","A04AA01","Y","injection,i.v.",NA,NA,NA,NA,NA,NA
+"16","01597C","ONDANSETRON","i.v. injection 8 mg (as hydrochloride dihydrate) in 4 ml","A04AA01","Y","injection,i.v.",NA,NA,NA,NA,NA,NA
+"17","01642K","METRONIDAZOLE","suppositories 500 mg, 10","J01XD01","Y","suppositories",NA,500,500,NA,NA,NA
+"18","01742Q","OESTRADIOL","vaginal tablets 25 mg, 15","G03CA03","Y","tablet,vaginal",NA,25,25,NA,NA,NA
+"19","01771F","OESTRIOL","pessaries 500 mg, 15","G03CA04","Y","UNKNOWN","UNKNOWN",500,500,NA,NA,"UNKNOWN"
+"20","01781R","OESTRIOL","vaginal cream 1 mg per g, 15 g","G03CA04","Y","cream,vaginal",NA,15000,NA,15,NA,NA
+"21","02000G","SALBUTAMOL","nebuliser solution 2.5 mg (as sulfate) in 2.5 ml single dose units, 30","R03AC02","Y","UNKNOWN","UNKNOWN",2.5,2.5,NA,NA,"UNKNOWN"
+"22","02001H","SALBUTAMOL","nebuliser solution 5 mg (as sulfate) in 2.5 ml single dose units, 30","R03AC02","Y","UNKNOWN","UNKNOWN",NA,NA,NA,NA,"UNKNOWN"
+"23","02003K","SALBUTAMOL","nebuliser solution 5 mg (as sulfate) per ml, 30 ml","R03AC02","Y","UNKNOWN","UNKNOWN",NA,NA,NA,"per ml, 30 ml","UNKNOWN"
+"24","02015C","MANNITOL","pack containing 280 capsules containing powder for inhalation 40 mg and 2 inhalers","R05CB16","Y","capsule,inhalation",NA,40,40,NA,NA,NA
+"25","02065Q","BUDESONIDE","nebuliser suspension 500 mg in 2 ml single dose units, 30","R03BA02","Y","UNKNOWN","UNKNOWN",500,500,NA,NA,"UNKNOWN"
+"26","02066R","BUDESONIDE","nebuliser suspension 1 mg in 2 ml single dose units, 30","R03BA02","Y","UNKNOWN","UNKNOWN",NA,NA,NA,NA,"UNKNOWN"
+"27","02070Y","BUDESONIDE","powder for oral inhalation in breath actuated device 100 mg per dose, 200 doses","R03BA02","Y","inhalation,oral,powder for oral inhalation",NA,100,100,NA,NA,NA
+"28","02071B","BUDESONIDE","powder for oral inhalation in breath actuated device 200 mg per dose, 200 doses","R03BA02","Y","inhalation,oral,powder for oral inhalation",NA,200,200,NA,NA,NA
+"29","02072C","BUDESONIDE","powder for oral inhalation in breath actuated device 400 mg per dose, 200 doses","R03BA02","Y","inhalation,oral,powder for oral inhalation",NA,400,400,NA,NA,NA
+"30","02234N","MESALAZINE","sachet containing prolonged release granules, 1 g per sachet","A07EC02","Y","UNKNOWN","UNKNOWN",NA,NA,NA,NA,"UNKNOWN"
+"31","02287J","MESALAZINE","sachet containing prolonged release granules, 2 g per sachet","A07EC02","Y","UNKNOWN","UNKNOWN",NA,NA,NA,NA,"UNKNOWN"
+"32","02481N","OXYCODONE","suppository 30 mg (as pectinate)","N02AA05","Y","UNKNOWN","UNKNOWN",30,30,NA,NA,"UNKNOWN"
+"33","02588F","ISOSORBIDE DINITRATE","tablet 5 mg (sublingual)","C01DA08","Y","tablet,sublingual",NA,NA,NA,NA,NA,NA
+"34","02630K","ACETYLCYSTEINE","solution for inhalation equivalent to 200 mg acetylcysteine per ml, 10 ml","R05CB01","Y","inhalation,solution for inhalation",NA,200,200,NA,"per ml, 10 ml",NA
+"35","02746M","TROPISETRON","i.v. injection 5 mg (as hydrochloride) in 5 ml","A04AA03","Y","injection,i.v.",NA,NA,NA,NA,NA,NA
+"36","02757D","INDOMETHACIN","suppository 100 mg","M01AB01","Y","UNKNOWN","UNKNOWN",100,100,NA,NA,"UNKNOWN"
+"37","02817G","TERBUTALINE","powder for oral inhalation in breath actuated device containing terbutaline sulfate 500 mg per dose, 100 doses","R03AC03","Y","inhalation,oral,powder for oral inhalation",NA,500,500,NA,NA,NA
+"38","02872E","CROMOGLYCATE","pressurised inhalation containing sodium cromoglycate 1 mg per dose, 200 doses","R03BC01","Y","inhalation,pressurised inhalation",NA,NA,NA,NA,NA,NA
+"39","02876J","LIGNOCAINE","infusion containing lignocaine hydrochloride 500 mg in 5 ml","C01BB01","Y","UNKNOWN","UNKNOWN",500,500,NA,NA,"UNKNOWN"
+"40","02878L","CROMOGLYCATE","capsule containing powder for oral inhalation containing sodium cromoglycate 20 mg (for use in intal spinhaler or intal halermatic)","R03BC01","Y","capsule,inhalation,oral,powder for oral inhalation",NA,20,20,NA,NA,NA
+"41","03027H","SALMETEROL","pressurised inhalation 25 mg (as xinafoate) per dose, 120 doses","R03AC12","Y","inhalation,pressurised inhalation",NA,25,25,NA,NA,NA
+"42","03064G","LACTULOSE","solution bp 3.34 g per 5 ml, 500 ml","A06AD11","Y","UNKNOWN","UNKNOWN",3340,NA,3.34,"per 5 ml, 500 ml","UNKNOWN"
+"43","03381Y","OLANZAPINE","tablet 5 mg (orally disintegrating)","N05AH03","Y","tablet,oral",NA,NA,NA,NA,NA,NA
+"44","03382B","OLANZAPINE","tablet 10 mg (orally disintegrating)","N05AH03","Y","tablet,oral",NA,10,10,NA,NA,NA
+"45","03384D","OLANZAPINE","tablet 15 mg (orally disintegrating)","N05AH03","Y","tablet,oral",NA,15,15,NA,NA,NA
+"46","03385E","OLANZAPINE","tablet 20 mg (orally disintegrating)","N05AH03","Y","tablet,oral",NA,20,20,NA,NA,NA
+"47","05079H","DICLOFENAC","suppository containing diclofenac sodium 100 mg","M01AB05","Y","UNKNOWN","UNKNOWN",100,100,NA,NA,"UNKNOWN"
+"48","05128X","INDOMETHACIN","suppository 100 mg","M01AB01","Y","UNKNOWN","UNKNOWN",100,100,NA,NA,"UNKNOWN"
+"49","05134F","INDACATEROL","capsule containing powder for oral inhalation 150 mg (as maleate) (for use in breezhaler)","R03AC18","Y","capsule,inhalation,oral,powder for oral inhalation",NA,150,150,NA,NA,NA
+"50","05137J","INDACATEROL","capsule containing powder for oral inhalation 300 mg (as maleate) (for use in breezhaler)","R03AC18","Y","capsule,inhalation,oral,powder for oral inhalation",NA,300,300,NA,NA,NA
+"51","05140M","ASENAPINE","sublingual wafer 5 mg (as maleate)","N05AH05","Y","sublingual,wafer",NA,NA,NA,NA,NA,NA
+"52","05141N","ASENAPINE","sublingual wafer 10 mg (as maleate)","N05AH05","Y","sublingual,wafer",NA,10,10,NA,NA,NA
+"53","05157K","METRONIDAZOLE","suppositories 500 mg, 10","J01XD01","Y","suppositories",NA,500,500,NA,NA,NA
+"54","05259T","ROXITHROMYCIN","tablet for oral suspension 50 mg","J01FA06","Y","tablet,oral",NA,50,50,NA,NA,NA
+"55","05303D","BISACODYL","suppositories 10 mg, 10","A06AB02","Y","suppositories",NA,10,10,NA,NA,NA
+"56","05304E","BISACODYL","suppositories 10 mg, 12","A06AB02","Y","suppositories",NA,10,10,NA,NA,NA
+"57","05307H","BISACODYL","suppositories 10 mg, 10","A06AB02","Y","suppositories",NA,10,10,NA,NA,NA
+"58","05308J","BISACODYL","suppositories 10 mg, 12","A06AB02","Y","suppositories",NA,10,10,NA,NA,NA
+"59","05319Y","PARACETAMOL","suppositories 500 mg, 24","N02BE01","Y","suppositories",NA,500,500,NA,NA,NA
+"60","05320B","PARACETAMOL","suppositories 500 mg, 24","N02BE01","Y","suppositories",NA,500,500,NA,NA,NA
+"61","05363G","DICLOFENAC","suppository containing diclofenac sodium 100 mg","M01AB05","Y","UNKNOWN","UNKNOWN",100,100,NA,NA,"UNKNOWN"
+"62","05378C","INDOMETHACIN","suppository 100 mg","M01AB01","Y","UNKNOWN","UNKNOWN",100,100,NA,NA,"UNKNOWN"
+"63","05380E","INDOMETHACIN","suppository 100 mg","M01AB01","Y","UNKNOWN","UNKNOWN",100,100,NA,NA,"UNKNOWN"
+"64","05387M","LACTULOSE","solution bp 3.34 g per 5 ml, 500 ml","A06AD11","Y","UNKNOWN","UNKNOWN",3340,NA,3.34,"per 5 ml, 500 ml","UNKNOWN"
+"65","05388N","LACTULOSE","solution bp 3.34 g per 5 ml, 500 ml","A06AD11","Y","UNKNOWN","UNKNOWN",3340,NA,3.34,"per 5 ml, 500 ml","UNKNOWN"
+"66","05442K","TOBRAMYCIN","solution for inhalation 300 mg in 5 ml","J01GB01","Y","inhalation,solution for inhalation",NA,300,300,NA,NA,NA
+"67","05461K","MESALAZINE","suppository (moulded) 1 g","A07EC02","Y","UNKNOWN","UNKNOWN",NA,NA,NA,NA,"UNKNOWN"
+"68","05470X","ONDANSETRON","tablet (orally disintegrating) 4 mg","A04AA01","Y","tablet,oral",NA,NA,NA,NA,NA,NA
+"69","05471Y","ONDANSETRON","tablet (orally disintegrating) 8 mg","A04AA01","Y","tablet,oral",NA,NA,NA,NA,NA,NA
+"70","05472B","ONDANSETRON","tablet (orally disintegrating) 4 mg","A04AA01","Y","tablet,oral",NA,NA,NA,NA,NA,NA
+"71","05473C","ONDANSETRON","tablet (orally disintegrating) 8 mg","A04AA01","Y","tablet,oral",NA,NA,NA,NA,NA,NA
+"72","05702D","PAMIDRONATE DISODIUM","injection set containing 2 vials powder for i.v. infusion containing disodium pamidronate 30 mg and 2 ampoules solvent 10 ml","M05BA03","Y","injection,i.v.",NA,30,30,NA,NA,NA
+"73","05703E","PAMIDRONATE DISODIUM","injection set containing 1 vial powder for i.v. infusion containing disodium pamidronate 90 mg and 1 ampoule solvent 10 ml","M05BA03","Y","injection,i.v.",NA,90,90,NA,NA,NA
+"74","05704F","DORNASE ALFA","solution for inhalation 2.5 mg (2,500 units) in 2.5 ml","R05CB13","Y","inhalation,solution for inhalation",NA,2.5,2.5,NA,NA,NA
+"75","05750P","IBANDRONATE","concentrated injection for i.v. infusion 6 mg (as ibandronate sodium monohydrate) in 6 ml","M05BA06","Y","injection,i.v.",NA,NA,NA,NA,NA,NA
+"76","05857G","ONDANSETRON","tablet (orally disintegrating) 4 mg","A04AA01","Y","tablet,oral",NA,NA,NA,NA,NA,NA
+"77","05858H","ONDANSETRON","tablet (orally disintegrating) 8 mg","A04AA01","Y","tablet,oral",NA,NA,NA,NA,NA,NA
+"78","05924T","DOLASETRON","i.v. injection containing dolasetron mesylate 100 mg in 5 ml","A04AA04","Y","injection,i.v.",NA,100,100,NA,NA,NA
+"79","05971G","ONDANSETRON","i.v. injection 4 mg (as hydrochloride dihydrate) in 2 ml","A04AA01","Y","injection,i.v.",NA,NA,NA,NA,NA,NA
+"80","05972H","ONDANSETRON","i.v. injection 8 mg (as hydrochloride dihydrate) in 4 ml","A04AA01","Y","injection,i.v.",NA,NA,NA,NA,NA,NA
+"81","05987D","TROPISETRON","i.v. injection 5 mg (as hydrochloride) in 5 ml","A04AA03","Y","injection,i.v.",NA,NA,NA,NA,NA,NA
+"82","06120D","DORNASE ALFA","solution for inhalation 2.5 mg (2,500 units) in 2.5 ml","R05CB13","Y","inhalation,solution for inhalation",NA,2.5,2.5,NA,NA,NA
+"83","06223M","PAMIDRONATE DISODIUM","injection set containing 1 vial powder for i.v. infusion containing disodium pamidronate 90 mg and 1 ampoule solvent 10 ml","M05BA03","Y","injection,i.v.",NA,90,90,NA,NA,NA
+"84","06279L","PAMIDRONATE DISODIUM","injection set containing 2 vials powder for i.v. infusion containing disodium pamidronate 30 mg and 2 ampoules solvent 10 ml","M05BA03","Y","injection,i.v.",NA,30,30,NA,NA,NA
+"85","06290C","PAMIDRONATE DISODIUM","injection set containing 4 vials powder for i.v. infusion containing disodium pamidronate 15 mg and 4 ampoules solvent 5 ml","M05BA03","Y","injection,i.v.",NA,15,15,NA,NA,NA
+"86","06371H","ZOLEDRONIC ACID","injection concentrate for i.v. infusion 4 mg (as monohydrate) in 5 ml","M05BA08","Y","injection,i.v.",NA,NA,NA,NA,NA,NA
+"87","07530H","CODEINE","codeine linct  100ml","R05DA04","Y","UNKNOWN","UNKNOWN",NA,NA,NA,NA,"UNKNOWN"
+"88","08048N","ABCIXIMAB","i.v. injection 10 mg in 5 ml vial","B01AC13","Y","injection,i.v.",NA,10,10,NA,NA,NA
+"89","08093Y","GOSERELIN","subcutaneous implant (long acting) 10.8 mg (as acetate) in pre-filled injection syringe","L02AE03","Y","injection,implant",NA,10.8,10.8,NA,NA,NA
+"90","08129W","ROXITHROMYCIN","tablet for oral suspension 50 mg","J01FA06","Y","tablet,oral",NA,50,50,NA,NA,NA
+"91","08135E","IPRATROPIUM","pressurised inhalation 40 mg (anhydrous) per dose, 200 doses","R03BB01","Y","inhalation,pressurised inhalation",NA,40,40,NA,NA,NA
+"92","08136F","EFORMOTEROL","capsule containing powder for oral inhalation containing eformoterol fumarate dihydrate 12 mg (for use in foradile aerolizer)","R03AC13","Y","capsule,inhalation,oral,powder for oral inhalation",NA,12,12,NA,NA,NA
+"93","08141L","SALMETEROL","powder for oral inhalation in breath actuated device 50 mg (as xinafoate) per dose, 60 doses","R03AC12","Y","inhalation,oral,powder for oral inhalation",NA,50,50,NA,NA,NA
+"94","08147T","FLUTICASONE","powder for oral inhalation in breath actuated device containing fluticasone propionate 100 mg per dose, 60 doses","R03BA05","Y","inhalation,oral,powder for oral inhalation",NA,100,100,NA,NA,NA
+"95","08148W","FLUTICASONE","powder for oral inhalation in breath actuated device containing fluticasone propionate 250 mg per dose, 60 doses","R03BA05","Y","inhalation,oral,powder for oral inhalation",NA,250,250,NA,NA,NA
+"96","08149X","FLUTICASONE","powder for oral inhalation in breath actuated device containing fluticasone propionate 500 mg per dose, 60 doses","R03BA05","Y","inhalation,oral,powder for oral inhalation",NA,500,500,NA,NA,NA
+"97","08192E","DOLASETRON","i.v. injection containing dolasetron mesylate 100 mg in 5 ml","A04AA04","Y","injection,i.v.",NA,100,100,NA,NA,NA
+"98","08208B","PAMIDRONATE DISODIUM","injection set containing 4 vials powder for i.v. infusion containing disodium pamidronate 15 mg and 4 ampoules solvent 5 ml","M05BA03","Y","injection,i.v.",NA,15,15,NA,NA,NA
+"99","08209C","PAMIDRONATE DISODIUM","injection set containing 2 vials powder for i.v. infusion containing disodium pamidronate 30 mg and 2 ampoules solvent 10 ml","M05BA03","Y","injection,i.v.",NA,30,30,NA,NA,NA
+"100","08226Y","ONDANSETRON","i.v. injection 4 mg (as hydrochloride dihydrate) in 2 ml","A04AA01","Y","injection,i.v.",NA,NA,NA,NA,NA,NA
+"101","08227B","ONDANSETRON","i.v. injection 8 mg (as hydrochloride dihydrate) in 4 ml","A04AA01","Y","injection,i.v.",NA,NA,NA,NA,NA,NA
+"102","08238N","IPRATROPIUM","nebuliser solution containing ipratropium bromide 500 mg (anhydrous) in 1 ml single dose units, 30","R03BB01","Y","UNKNOWN","UNKNOWN",500,500,NA,NA,"UNKNOWN"
+"103","08239P","EFORMOTEROL","powder for oral inhalation in breath actuated device containing eformoterol fumarate dihydrate 6 mg per dose, 60 doses","R03AC13","Y","inhalation,oral,powder for oral inhalation",NA,NA,NA,NA,NA,NA
+"104","08240Q","EFORMOTEROL","powder for oral inhalation in breath actuated device containing eformoterol fumarate dihydrate 12 mg per dose, 60 doses","R03AC13","Y","inhalation,oral,powder for oral inhalation",NA,12,12,NA,NA,NA
+"105","08279R","IPRATROPIUM","pressurised inhalation in breath actuated device 20 mg (anhydrous) per dose, 200 doses","R03BB01","Y","inhalation,pressurised inhalation",NA,20,20,NA,NA,NA
+"106","08288F","SALBUTAMOL","pressurised inhalation 100 mg (as sulfate) per dose, 200 doses (cfc-free formulation)","R03AC02","Y","inhalation,pressurised inhalation",NA,100,100,NA,NA,NA
+"107","08334P","CROMOGLYCATE","pressurised inhalation containing sodium cromoglycate 5 mg per dose, 112 doses (cfc-free formulation)","R03BC01","Y","inhalation,pressurised inhalation",NA,NA,NA,NA,NA,NA
+"108","08345F","FLUTICASONE","pressurised inhalation containing fluticasone propionate 125 mg per dose, 120 doses (cfc-free formulation)","R03BA05","Y","inhalation,pressurised inhalation",NA,125,125,NA,NA,NA
+"109","08346G","FLUTICASONE","pressurised inhalation containing fluticasone propionate 250 mg per dose, 120 doses (cfc-free formulation)","R03BA05","Y","inhalation,pressurised inhalation",NA,250,250,NA,NA,NA
+"110","08354Q","SALBUTAMOL","pressurised inhalation in breath actuated device 100 mg (as sulfate) per dose, 200 doses (cfc-free formulation)","R03AC02","Y","inhalation,pressurised inhalation",NA,100,100,NA,NA,NA
+"111","08365G","NEDOCROMIL","pressurised inhalation containing nedocromil sodium 2 mg per dose, 112 doses (cfc-free formulation)","R03BC03","Y","inhalation,pressurised inhalation",NA,NA,NA,NA,NA,NA
+"112","08406K","BECLOMETHASONE","pressurised inhalation containing beclomethasone dipropionate 50 mg per dose, 200 doses (cfc-free formulation)","R03BA01","Y","inhalation,pressurised inhalation",NA,50,50,NA,NA,NA
+"113","08407L","BECLOMETHASONE","pressurised inhalation containing beclomethasone dipropionate 100 mg per dose, 200 doses (cfc-free formulation)","R03BA01","Y","inhalation,pressurised inhalation",NA,100,100,NA,NA,NA
+"114","08408M","BECLOMETHASONE","pressurised inhalation in breath actuated device containing beclomethasone dipropionate 50 mg per dose, 200 doses (cfc-free formulation)","R03BA01","Y","inhalation,pressurised inhalation",NA,50,50,NA,NA,NA
+"115","08409N","BECLOMETHASONE","pressurised inhalation in breath actuated device containing beclomethasone dipropionate 100 mg per dose, 200 doses (cfc-free formulation)","R03BA01","Y","inhalation,pressurised inhalation",NA,100,100,NA,NA,NA
+"116","08516F","FLUTICASONE","pressurised inhalation containing fluticasone propionate 50 mg per dose, 120 doses (cfc-free formulation)","R03BA05","Y","inhalation,pressurised inhalation",NA,50,50,NA,NA,NA
+"117","08598M","MESALAZINE","sachet containing granules, 500 mg per sachet","A07EC02","Y","UNKNOWN","UNKNOWN",500,500,NA,NA,"UNKNOWN"
+"118","08599N","MESALAZINE","sachet containing granules, 1 g per sachet","A07EC02","Y","UNKNOWN","UNKNOWN",NA,NA,NA,NA,"UNKNOWN"
+"119","08616L","MESALAZINE","enemas 2 g in 60 ml, 7","A07EC02","Y","UNKNOWN","UNKNOWN",NA,NA,NA,NA,"UNKNOWN"
+"120","08617M","MESALAZINE","enemas 4 g in 60 ml, 7","A07EC02","Y","UNKNOWN","UNKNOWN",NA,NA,NA,NA,"UNKNOWN"
+"121","08626B","TIOTROPIUM","capsule containing powder for oral inhalation 18 mg (as bromide monohydrate) (for use in handihaler)","R03BB04","Y","capsule,inhalation,oral,powder for oral inhalation",NA,18,18,NA,NA,NA
+"122","08668F","RAMIPRIL","pack containing 7 tablets 2.5 mg, 21 tablets 5 mg and 10 capsules 10 mg","C09AA05","Y","tablet,capsule",NA,2.5,2.5,NA,NA,NA
+"123","08671J","IPRATROPIUM","pressurised inhalation containing ipratropium bromide 21 mg per dose, 200 doses (cfc-free formulation)","R03BB01","Y","inhalation,pressurised inhalation",NA,21,21,NA,NA,NA
+"124","08683B","EPTIFIBATIDE","solution for i.v. injection 20 mg (as acetate) in 10 ml","B01AC16","Y","injection,i.v.",NA,20,20,NA,NA,NA
+"125","08752P","MESALAZINE","suppository 1 g","A07EC02","Y","UNKNOWN","UNKNOWN",NA,NA,NA,NA,"UNKNOWN"
+"126","08753Q","MESALAZINE","enemas 1 g in 100 ml, 7","A07EC02","Y","UNKNOWN","UNKNOWN",NA,NA,NA,NA,"UNKNOWN"
+"127","08767K","CROMOGLYCATE","pressurised inhalation containing sodium cromoglycate 1 mg per dose, 200 doses (cfc-free formulation)","R03BC01","Y","inhalation,pressurised inhalation",NA,NA,NA,NA,NA,NA
+"128","08788M","RISPERIDONE","tablet 0.5 mg (orally disintegrating)","N05AX08","Y","tablet,oral",NA,0.5,0.5,NA,NA,NA
+"129","08790P","RISPERIDONE","tablet 1 mg (orally disintegrating)","N05AX08","Y","tablet,oral",NA,NA,NA,NA,NA,NA
+"130","08792R","RISPERIDONE","tablet 1 mg (orally disintegrating)","N05AX08","Y","tablet,oral",NA,NA,NA,NA,NA,NA
+"131","08794W","RISPERIDONE","tablet 2 mg (orally disintegrating)","N05AX08","Y","tablet,oral",NA,NA,NA,NA,NA,NA
+"132","08844L","BIVALIRUDIN","powder for i.v. injection 250 mg (as trifluoroacetate)","B01AE06","Y","injection,i.v.",NA,250,250,NA,NA,NA
+"133","08853Y","CICLESONIDE","pressurised inhalation 80 mg per dose, 120 doses (cfc-free formulation)","R03BA08","Y","inhalation,pressurised inhalation",NA,80,80,NA,NA,NA
+"134","08854B","CICLESONIDE","pressurised inhalation 160 mg per dose, 120 doses (cfc-free formulation)","R03BA08","Y","inhalation,pressurised inhalation",NA,160,160,NA,NA,NA
+"135","08855C","MIRTAZAPINE","tablet 15 mg (orally disintegrating)","N06AX11","Y","tablet,oral",NA,15,15,NA,NA,NA
+"136","08856D","MIRTAZAPINE","tablet 30 mg (orally disintegrating)","N06AX11","Y","tablet,oral",NA,30,30,NA,NA,NA
+"137","08857E","MIRTAZAPINE","tablet 45 mg (orally disintegrating)","N06AX11","Y","tablet,oral",NA,45,45,NA,NA,NA
+"138","08870W","RISPERIDONE","tablet 0.5 mg (orally disintegrating)","N05AX08","Y","tablet,oral",NA,0.5,0.5,NA,NA,NA
+"139","08948Y","RAMIPRIL","pack containing 7 tablets 2.5 mg, 21 tablets 5 mg and 10 capsules 10 mg","C09AA05","Y","tablet,capsule",NA,2.5,2.5,NA,NA,NA
+"140","08970D","LEVODOPA + CARBIDOPA ANHYDROUS","intestinal gel 20 mg-5 mg per ml, 100 ml","N04BA02","Y","UNKNOWN","UNKNOWN",20,20,NA,"per ml, 100 ml","UNKNOWN"
+"141","09075P","RISPERIDONE","tablet 3 mg (orally disintegrating)","N05AX08","Y","tablet,oral",NA,NA,NA,NA,NA,NA
+"142","09076Q","RISPERIDONE","tablet 4 mg (orally disintegrating)","N05AX08","Y","tablet,oral",NA,NA,NA,NA,NA,NA
+"143","09080X","RISPERIDONE","tablet 2 mg (orally disintegrating)","N05AX08","Y","tablet,oral",NA,NA,NA,NA,NA,NA
+"144","09206M","MESALAZINE","sachet containing granules, 1.5 g per sachet","A07EC02","Y","UNKNOWN","UNKNOWN",1500,NA,1.5,NA,"UNKNOWN"
+"145","09331D","LANSOPRAZOLE","tablet 15 mg (orally disintegrating)","A02BC03","Y","tablet,oral",NA,15,15,NA,NA,NA
+"146","09423Y","PANTOPRAZOLE","sachet containing granules 40 mg (as sodium sesquihydrate)","A02BC02","Y","UNKNOWN","UNKNOWN",40,40,NA,NA,"UNKNOWN"
+"147","09424B","PANTOPRAZOLE","sachet containing granules 40 mg (as sodium sesquihydrate)","A02BC02","Y","UNKNOWN","UNKNOWN",40,40,NA,NA,"UNKNOWN"
+"148","09477T","LANSOPRAZOLE","tablet 30 mg (orally disintegrating)","A02BC03","Y","tablet,oral",NA,30,30,NA,NA,NA
+"149","09478W","LANSOPRAZOLE","tablet 30 mg (orally disintegrating)","A02BC03","Y","tablet,oral",NA,30,30,NA,NA,NA
+"150","09619G","IBANDRONATE","concentrated injection for i.v. infusion 6 mg (as ibandronate sodium monohydrate) in 6 ml","M05BA06","Y","injection,i.v.",NA,NA,NA,NA,NA,NA
+"151","09653C","ZOLEDRONIC ACID","injection concentrate for i.v. infusion 4 mg (as monohydrate) in 5 ml","M05BA08","Y","injection,i.v.",NA,NA,NA,NA,NA,NA
+"152","09743T","LEVODOPA + CARBIDOPA ANHYDROUS","intestinal gel 20 mg-5 mg per ml, 100 ml","N04BA02","Y","UNKNOWN","UNKNOWN",20,20,NA,"per ml, 100 ml","UNKNOWN"
+"153","09744W","LEVODOPA + CARBIDOPA ANHYDROUS","intestinal gel 20 mg-5 mg per ml, 100 ml","N04BA02","Y","UNKNOWN","UNKNOWN",20,20,NA,"per ml, 100 ml","UNKNOWN"
+"154","10059K","GLYCOPYRRONIUM","capsule containing powder for oral inhalation 50 mg (as bromide) (for use in breezhaler)","R03BB06","Y","capsule,inhalation,oral,powder for oral inhalation",NA,50,50,NA,NA,NA
+"155","10066T","TOBRAMYCIN","capsule containing powder for oral inhalation 28 mg (for use in podhaler)","J01GB01","Y","capsule,inhalation,oral,powder for oral inhalation",NA,28,28,NA,NA,NA
+"156","10074F","TOBRAMYCIN","capsule containing powder for oral inhalation 28 mg (for use in podhaler)","J01GB01","Y","capsule,inhalation,oral,powder for oral inhalation",NA,28,28,NA,NA,NA
+"157","10124W","ACLIDINIUM","powder for oral inhalation in breath actuated device 322 mg (as bromide) per dose, 60 doses","R03BB05","Y","inhalation,oral,powder for oral inhalation",NA,322,322,NA,NA,NA
+"158","10143W","SALBUTAMOL","capsule containing powder for oral inhalation 200 mg (as sulfate) (for use in ventolin rotahaler)","R03AC02","Y","capsule,inhalation,oral,powder for oral inhalation",NA,200,200,NA,NA,NA
+"159","10187E","UMECLIDINIUM","powder for oral inhalation in breath actuated device 62.5 mg (as bromide) per dose, 30 doses","R03BB07","Y","inhalation,oral,powder for oral inhalation",NA,62.5,62.5,NA,NA,NA

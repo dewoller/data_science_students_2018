@@ -1,0 +1,16 @@
+---
+title: "incidentHyperTension"
+author: "Nirmala"
+date: "4 September 2018"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library('tidyverse')
+
+```
+
+```{r prepare data}
+patient <- read.csv(file="data/antiHyperPatient.csv",header=TRUE,sep=";")
+```
