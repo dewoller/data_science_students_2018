@@ -1,0 +1,16 @@
+---
+title: "Extract CSV file for Amel"
+author: Dennis Wollersheim
+output:
+  workflowr::wflow_html
+---
+
+```{r loadlibrary,message=FALSE}
+
+source('lib/function.R')
+
+my_db_get_query(" select * from pbs_item JOIN pbs_atc ON pbs_atc.atc_code = pbs_item.atc_code") %>% write.csv( '/tmp/a.csv')
+
+```
+
+
