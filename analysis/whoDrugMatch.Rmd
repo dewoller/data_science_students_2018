@@ -24,13 +24,13 @@ The main task is to match the drug form pbs_item with ddd_who table
 * final_pbs: copy of pbs_item along with form_type, unit_wt and adm_route whose initial values are NA
 
 ```{r prepare data}
-ddd_who <- read.csv(file="data/ddd_who.csv",header=TRUE,sep=";")
-pbs_item <- read.csv(file="data/pbs_item.csv",header=TRUE, sep=";") 
+ddd_who <- read.csv(file="data/ddd_who.csv",header=TRUE,sep=";") %>% as.tibble()
+pbs_item <- read.csv(file="data/pbs_item.csv",header=TRUE, sep=";")  %>% as.tibble()
 
 
 
 #create a copy of pbs_item dataframe and add three columns:form_type ,unit_wt,adm_route
-final_pbs <- cbind(pbs_item) 
+final_pbs <- pbs_item
 final_pbs["form_type"] <- NA
 final_pbs["adm_route"] <-NA
 final_pbs["final_unit"] <- NA
@@ -154,15 +154,15 @@ final_pbs$final_unit<- as.numeric(final_pbs$final_unit)
 #get the final unit
 
 for (i in 1:7614)
-if(!is.na(final_pbs$unit_wt_g[i]) & !is.na(final_pbs$unit_wt_mg[i])){
-  final_pbs$final_unit[i] =final_pbs$unit_wt_mg[i]+final_pbs$unit_wt_g[i]*1000
-}else{
-   if(is.na(final_pbs$unit_wt_g[i])){
-       final_pbs$final_unit[i] =final_pbs$unit_wt_mg[i]
-     }else if(is.na(final_pbs$unit_wt_mg[i])){
-         final_pbs$final_unit[i] = final_pbs$unit_wt_g[i]*1000
+  if(!is.na(final_pbs$unit_wt_g[i]) & !is.na(final_pbs$unit_wt_mg[i])){
+      final_pbs$final_unit[i] =final_pbs$unit_wt_mg[i]+final_pbs$unit_wt_g[i]*1000
+    }else{
+      if(is.na(final_pbs$unit_wt_g[i])){
+          final_pbs$final_unit[i] =final_pbs$unit_wt_mg[i]
+        }else if(is.na(final_pbs$unit_wt_mg[i])){
+            final_pbs$final_unit[i] = final_pbs$unit_wt_g[i]*1000
+    }
 }
-}
 
 
 
@@ -171,7 +171,7 @@ if(!is.na(final_pbs$unit_wt_g[i]) & !is.na(final_pbs$unit_wt_mg[i])){
 
 
 
-final_pbs%>%distinct(final_pbs$unit_wt_ml)
+final_pbs %>% distinct(final_pbs$unit_wt_ml)
 ```
 # clean up DDD administration route for better matching
 Clean adm_route of ddd_who to match with pbs_item
@@ -204,9 +204,13 @@ To narrow down the search, we filter out pbs_item drugs without corresponding DD
 #get distinct pbs_code for first time
 #my_db_get_query("select distinct pbs_code from pbs") -> existing_pbs
 #write.csv(existing_pbs, file = 'data/existing_pbs.csv')
+
  ```{r  }
+
 #get existing pbs data from csv file
-existing_pbs <- data.frame(read.csv(file="data/existing_pbs.csv",header=TRUE, sep=",")[,2]) 
+existing_pbs <- read.csv(file="data/existing_pbs.csv",header=TRUE, sep=",")[,2] %>%
+  as.tibble()
+
 colnames(existing_pbs)<- 'pbs_code'
 
 
@@ -230,9 +234,6 @@ existing_pbs_to_match%>%
   {.} ->unknown_routes
 
 write.csv(unknown_routes, file = 'data/total_unknown_routes.csv')
-
-
-
 
 
 unknown_routes_old <- read.csv(file="data/unknown_routes.csv",header=TRUE,sep=",")
@@ -261,8 +262,9 @@ write.csv(unknown_routes, file = 'data/new_unknown_routes.csv')
 
 
 #find the unknown final_unit in existing_pbs_to_match
-existing_pbs_to_match%>% filter(!is.na(existing_pbs_to_match$unit_wt_ml)|is.na(existing_pbs_to_match$final_unit))%>%
-{.} ->unknown_quantity
+existing_pbs_to_match %>% 
+  filter(!is.na(existing_pbs_to_match$unit_wt_ml) | is.na(existing_pbs_to_match$final_unit)) %>%
+  {.} ->unknown_quantity
 
 
 
@@ -285,6 +287,8 @@ existing_pbs_to_match%>%
 
 
 pbs_who %>% count(adm_route,sort = TRUE)
+
+pbs_who %>% write.csv( 'data/pbs_who.csv', row.names=FALSE )
 
 
 
