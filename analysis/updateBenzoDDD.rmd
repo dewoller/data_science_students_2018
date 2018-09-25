@@ -1,0 +1,63 @@
+
+---
+title: "Updata Benzos"
+author: "Dennis"
+date: "September 26, 2018"
+output: html_document
+---
+```{r loadlibrary,message=FALSE}
+
+ library('tidyverse')
+ library('workflowr')
+ library('stringr')
+ library(dplyr)
+ source('lib/function.R')  
+```
+
+# Match Nirmala's current drug list
+
+```{r prepare data}
+pbs_who <- read.csv(file="data/pbs_who.csv",header=TRUE,sep=",") %>% 
+  as.tibble() %>%
+  rename( item_code = pbs_code,
+         unit_wt = unit_wt_mg) %>%
+  select( item_code, ddd_mg_factor, unit_wt, units )
+
+benzo =read.csv(file="data/benzodiazepines.csv",header=TRUE,sep=",") %>% 
+  as.tibble() %>%
+  select (-ddd_mg_factor, -unit_wt, -units )
+
+
+tibble( item_code = c("04522B", "04150K", "04151L", "04216X", "97997R"), 
+       ddd_mg_factor = c( 7.5, 10, 10, 1, 10 ),
+       unit_wt = c(7.5,3,6,1,10),
+       units=replicate(5, 'mg' )
+       )  %>% 
+       { . } -> extras
+
+
+benzo %>% 
+  left_join( rbind( pbs_who, extras) , by='item_code' ) %>% 
+  { . } -> final
+
+
+library(RPostgreSQL)
+drv <- dbDriver("PostgreSQL")
+con <- dbConnect(drv, user='dewoller', dbname='mofi', host='localhost', password = Sys.getenv("PSSWD"))
+
+table_name = "newDDD"
+# Drop table if it already exists
+if (dbExistsTable(con, table_name))
+    dbRemoveTable(con, table_name)
+
+# Write the data frame to the database
+dbWriteTable(con, name = table_name, value = final, row.names = FALSE)
+
+
+sql = '
+UPDATE continuing.item b
+SET ddd_mg_factor = a.ddd_mg_factor,
+unit_wt = a.unit_wt,
+units = a.units
+FROM "newDDD" a
+WHERE a.item_code = b.item_code;'

@@ -1,0 +1,50 @@
+atc,generic_name,item_code,item_form,pbs_route,standard_pack_size,ddd_mg_factor,unit_wt,units,item_form_real,days_multiplier,type_code,new_days_multiplier
+N05BA04,Oxazepam (Plc)(5374w),05374W,30mg Tab*do Not Approve From 1/6/16* ,TABLET,1,,,,"Tablet 30 mg, 50",1,10,0
+N05BA04,Oxazepam (Auth),03135B,"30mg Tablet, 25 -Q50,r5 ",TABLET,25,,,,,1,10,0
+N05BA04,Oxazepam (Plc),05371Q,"15mg Tablet, 25 (No R Incr) -Q50,r3 ",TABLET,25,,,,,1,10,0
+N05BA04,Oxazepam (Plc),05372R,"30mg Tablet, 25 (No R Incr) -Q50,r3 ",TABLET,25,,,,,1,10,0
+N05BA04,Oxazepam (Unrest),03132W,"15mg Tablet, 25 (No Incr) -Doct ",TABLET,25,,,,,1,10,0
+N05BA04,Oxazepam (Unrest),03133X,"30mg Tablet, 25 (No Incr) -Doct ",TABLET,25,,,,,1,10,0
+N05CD02,Nitrazepam (Auth),02732T,"5mg Tablet, 25 -Q50,r5 ",TABLET,25,,,,,1,10,0
+N05CD07,Temazepam -Dent,05221T,"10mg Tablet, 25 ",TABLET,25,,,,,1,10,0
+N03AE01,Clonazepam,01807D,"1mg/Ml Inj [5]& Dilu[5 Amps],1 Pk-Q5 ",INJECTION,5,,,,,1,10,1
+N05BA01,Diazepam,02558P,"10mg/2ml Inj, 5 X 2ml Ampoules -Doct ",INJECTION,5,,,,,1,10,1
+N05BA01,Diazepam,02669L,"1mg/Ml Oral Liquid, 100ml -Q1 ",ORAL LIQUID or SACH,1,,,,,20,10,20
+N03AE01,Clonazepam (Pbs),01808E,"2.5mg/Ml Oral Liquid, 10ml -Q2 ",ORAL LIQUID or SACH,1,,,,,20,10,20
+N03AE01,Clonazepam (Plc)(No R Incr),05339B,"2.5mg/Ml Oral Liquid, 10ml -Q2 ",ORAL LIQUID or SACH,1,,,,,20,10,20
+N05BA01,Diazepam,03162K,"5mg Tablet, 50 -Doct ",TABLET,50,,,,,1,10,0
+N03AE01,Clonazepam (Pbs),01805B,"500mcg Tablet, 100 -Q200 ",TABLET,100,,,,,1,10,0
+N03AE01,Clonazepam (Pbs),01806C,"2mg Tablet, 100 -Q200 ",TABLET,100,,,,,1,10,0
+N03AE01,Clonazepam (Plc),05337X,"500mcg Tablet, 100 (No R Incr) ",TABLET,100,,,,,1,10,0
+N03AE01,Clonazepam (Plc),05338Y,"2mg Tablet, 100 (No R Incr) ",TABLET,100,,,,,1,10,0
+N03AE01,Clonazepam (Plc)(5341d),05341D,2mg Tab *do No Approve From 1/6/16* ,TABLET,1,,,,,1,10,0
+N05BA01,Diazepam,05071X,"2mg Tablet, 50 -Dent ",TABLET,50,,,,,1,10,0
+N05BA01,Diazepam,05072Y,"5mg Tablet, 50 -Dent ",TABLET,50,,,,,1,10,0
+N05CF01,Zopiclone,04522B,"7.5mg Tablet, 30 ",TABLET,30,,,,,1,11,0
+N05BA12,Alprazolam,02130D,"250mcg Tablet, 50 (No R Incr) -Q10 ",TABLET,50,,,,,1,10,0
+N05BA12,Alprazolam,02131E,"500mcg Tablet, 50 (No R Incr) -Q10 ",TABLET,50,,,,,1,10,0
+N05BA12,Alprazolam,02132F,"1mg Tablet, 50 (No R Incr) -Q10 ",TABLET,50,,,,,1,10,0
+N05BA12,Alprazolam,08118G,"2mg Tablet, 50 ",TABLET,50,,,,,1,10,0
+N05BA01,Diazepam,03161J,"2mg Tablet, 50 -Doct ",TABLET,50,,,,,1,10,0
+N05BA01,Diazepam (Plc),05355W,"2mg Tablet, 50 (No R Incr) ",TABLET,50,,,,,1,10,0
+N05BA01,Diazepam (Plc),05356X,"5mg Tablet, 50 (No R Incr) ",TABLET,50,,,,,1,10,0
+N05BA08,Bromazepam,04150K,"3mg Tablet, 30 -Q60 ",TABLET,30,,,,,1,10,0
+N05BA08,Bromazepam,04151L,"6mg Tablet, 30 -Q60 ",TABLET,30,,,,,1,10,0
+N05CD03,Flunitrazepam,04216X,"1mg Tablet, 30 ",TABLET,30,,,,,1,10,0
+N05BA01,Diazepam (Plc)(5357y),05357Y,2mg Tab *do Not Approve From 1/6/16* ,TABLET,1,,,,,1,10,0
+N05BA01,Diazepam (Plc)(5358b),05358B,5mg Tab *do Not Approve From 1/6/16* ,TABLET,1,,,,,1,10,0
+N05CF02,"Stilnox 10mg Tablet, 14",97997R,Zolpidem Ip $29 ,TABLET,14,,,,"Tablet 10mg, 14",1,11,0
+N05BA04,Oxazepam,05193H,"30mg Tablet, 25 -Dent ",TABLET,25,,,,,1,10,0
+N05CD02,Nitrazepam,05189D,"5mg Tablet, 25 -Dent ",TABLET,25,,,,,1,10,0
+N05BA04,Oxazepam (Auth),03134Y,"15mg Tablet, 25 -Q50,r5 ",TABLET,25,,,,,1,10,0
+N03AE01,Clonazepam (Plc)(5342e),05342E,2.5mg/Ml*do Not Approve From 1/6/16* ,ORAL LIQUID or SACH,1,,,,"Oral liquid 2.5 mg per mL, 10 mL, 2",25,10,25
+N05CD02,Nitrazepam (Plc)(5360d),05360D,5mg Tab *do Not Approve From 1/6/16* ,TABLET,1,,,,,1,10,0
+N03AE01,Clonazepam (Plc)(5340c),05340C,500mcg *do Not Approve From 1/6/16* ,TABLET,1,,,,"Tablet 500 micrograms, 100",1,10,0
+N05CD07,Temazepam (Plc)(5376y),05376Y,10mg Tab*do Not Approve From 1/6/16* ,TABLET,1,,,,"Tablet 10 mg, 50",1,10,0
+N05BA04,Oxazepam (Plc)(5373t),05373T,15mg Tab*do Not Approve From 1/6/16* ,TABLET,1,,,,"Tablet 15 mg, 50",1,10,0
+N05CD02,Nitrazepam (Plc),05359C,"5mg Tablet, 25 (No R Incr) -Q50 ",TABLET,25,,,,,1,10,0
+N05CD02,Nitrazepam (Unrest),02723H,"5mg Tablet, 25 (No Incr) -Doct ",TABLET,25,,,,,1,10,0
+N05CD07,Temazepam (Auth),02088X,"10mg Tablet, 25 -Q50,r5 ",TABLET,25,,,,,1,10,0
+N05CD07,Temazepam (Plc),05375X,"10mg Tablet, 25 (No R Incr) -Q50,r3 ",TABLET,25,,,,,1,10,0
+N05CD07,Temazepam (Unrest) -Doct,02089Y,"10mg Tablet, 25 (No Incr) ",TABLET,25,,,,,1,10,0
+N05BA04,Oxazepam,05192G,"15mg Tablet, 25 -Dent ",TABLET,25,,,,,1,10,0
