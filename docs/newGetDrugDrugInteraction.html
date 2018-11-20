@@ -293,7 +293,13 @@ div.tocify {
       <a href="whoDrugMatch.html">Nirmala</a>
     </li>
     <li>
-      <a href="getDrugDrugInteractions.html">Prabin</a>
+      <a href="getDrugDrugInteractions.html">Prabin OLd</a>
+    </li>
+    <li>
+      <a href="newGetDrugDrugInteraction.html">Prabin New</a>
+    </li>
+    <li>
+      <a href="statins_match.html">Serdar Part 2 - Statin interaction</a>
     </li>
   </ul>
 </li>
@@ -322,11 +328,11 @@ div.section {
 </div>
 
 
-<p><strong>Last updated:</strong> 2018-11-15</p>
+<p><strong>Last updated:</strong> 2018-11-20</p>
 <strong>workflowr checks:</strong> <small>(Click a bullet for more information)</small>
 <ul>
 <li>
-<p><details> <summary> <strong style="color:red;">✖</strong> <strong>R Markdown file:</strong> uncommitted changes </summary> The R Markdown is untracked by Git. To know which version of the R Markdown file created these results, you’ll want to first commit it to the Git repo. If you’re still working on the analysis, you can ignore this warning. When you’re finished, you can run <code>wflow_publish</code> to commit the R Markdown file and build the HTML.</p>
+<p><details> <summary> <strong style="color:red;">✖</strong> <strong>R Markdown file:</strong> uncommitted changes </summary> The R Markdown file has unstaged changes. To know which version of the R Markdown file created these results, you’ll want to first commit it to the Git repo. If you’re still working on the analysis, you can ignore this warning. When you’re finished, you can run <code>wflow_publish</code> to commit the R Markdown file and build the HTML.</p>
 </details>
 </li>
 <li>
@@ -345,7 +351,7 @@ div.section {
 </details>
 </li>
 <li>
-<p><details> <summary> <strong style="color:blue;">✔</strong> <strong>Repository version:</strong> <a href="https://github.com/dewoller/data_science_students_2018/tree/7578882b81106cf5f7875373eaf8db85d10438a7" target="_blank">7578882</a> </summary></p>
+<p><details> <summary> <strong style="color:blue;">✔</strong> <strong>Repository version:</strong> <a href="https://github.com/dewoller/data_science_students_2018/tree/38c4fd27dfcc3e58484de56ae56789a0c75d6227" target="_blank">38c4fd2</a> </summary></p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility. The version displayed above was the version of the Git repository at the time these results were generated. <br><br> Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
 <pre><code>
 Ignored files:
@@ -353,29 +359,87 @@ Ignored files:
     Ignored:    .RData
     Ignored:    .Rhistory
     Ignored:    .Rproj.user/
+    Ignored:    Helped/.DS_Store
     Ignored:    MAP/
     Ignored:    docs/.DS_Store
     Ignored:    docs/drug_drug/.DS_Store
     Ignored:    output/.DS_Store
 
 Untracked files:
-    Untracked:  Helped/
-    Untracked:  analysis/newGetDrugDrugInteraction.Rmd
-    Untracked:  output/TotalGroupsToMatch.csv
-    Untracked:  output/remainingdrug.csv
+    Untracked:  output/FinalMatchingList.csv
 
 Unstaged changes:
-    Modified:   analysis/getDrugDrugInteractions.Rmd
-    Modified:   analysis/hypertension.Rmd
-    Modified:   output/Spelling/TotalGroupsToMatch.csv
+    Modified:   Helped/Matched_Groups.csv
+    Modified:   Helped/matched_remainingdrug.csv
+    Modified:   analysis/newGetDrugDrugInteraction.Rmd
 
 </code></pre>
 Note that any generated files, e.g. HTML, png, CSS, etc., are not included in this status report because it is ok for generated content to have uncommitted changes. </details>
 </li>
 </ul>
+<details> <summary> <small><strong>Expand here to see past versions:</strong></small> </summary>
+<ul>
+<table style="border-collapse:separate; border-spacing:5px;">
+<thead>
+<tr>
+<th style="text-align:left;">
+File
+</th>
+<th style="text-align:left;">
+Version
+</th>
+<th style="text-align:left;">
+Author
+</th>
+<th style="text-align:left;">
+Date
+</th>
+<th style="text-align:left;">
+Message
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Rmd
+</td>
+<td style="text-align:left;">
+<a href="https://github.com/dewoller/data_science_students_2018/blob/9f8eb0fde149c0706e4f17cba0fa5a9bdf7a3266/analysis/newGetDrugDrugInteraction.Rmd" target="_blank">9f8eb0f</a>
+</td>
+<td style="text-align:left;">
+rukaht
+</td>
+<td style="text-align:left;">
+2018-11-20
+</td>
+<td style="text-align:left;">
+Almost There
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+html
+</td>
+<td style="text-align:left;">
+<a href="https://cdn.rawgit.com/dewoller/data_science_students_2018/9f8eb0fde149c0706e4f17cba0fa5a9bdf7a3266/docs/newGetDrugDrugInteraction.html" target="_blank">9f8eb0f</a>
+</td>
+<td style="text-align:left;">
+rukaht
+</td>
+<td style="text-align:left;">
+2018-11-20
+</td>
+<td style="text-align:left;">
+Almost There
+</td>
+</tr>
+</tbody>
+</table>
+</ul>
+<p></details></p>
 <hr />
 <pre class="r"><code>source(&#39;lib/function.R&#39;)</code></pre>
-<pre><code>[1] &quot;package package:workflowr detached&quot;</code></pre>
 <div id="introduction" class="section level1">
 <h1>Introduction</h1>
 <p>The BNF (British National Formularies) is an independent professional publication that is kept up-to-date and addresses the day-to-day prescribing information needs of healthcare professionals. Use of this resource throughout the health service helps to ensure that medicines are used safely, effectively, and appropriately.</p>
@@ -479,7 +543,18 @@ head(pbs_drugs)</code></pre>
 </div>
 <div id="matching-bnf-drug_names-with-drugs-names-in-pbs_drugs" class="section level1">
 <h1>Matching BNF drug_names with “drugs names” in PBS_DRUGS</h1>
-<pre class="r"><code>final_drugs %&gt;% 
+<pre class="r"><code>pbs_drugs %&gt;% 
+  inner_join(final_drugs,by=c(&quot;drug_name&quot;=&quot;drug2&quot;)) %&gt;%
+  select(pbs_code,drug_name,atc_meaning,atc_code)%&gt;%
+  distinct(pbs_code,drug_name,atc_meaning,atc_code)%&gt;%
+  mutate(bnf_drug_name=drug_name) %&gt;%
+  mutate(match_type=&quot;dm_I&quot;) %&gt;%
+  rename(pbs_drug_name = drug_name)%&gt;%
+  {.} -&gt; direct_match_item
+
+direct_match_item = subset(direct_match_item,select=c(1,5,2,3,4,6))
+
+final_drugs %&gt;% 
   inner_join(pbs_drugs,by=c(&quot;drug2&quot;=&quot;drug_name&quot;)) %&gt;%
   distinct( drug2)%&gt;%
   count()</code></pre>
@@ -540,7 +615,18 @@ head(drug_groups)</code></pre>
 <div id="matching-bnf-drug_names-with-atc_meaning-in-pbs_drugs" class="section level1">
 <h1>Matching BNF drug_names with “atc_meaning” in PBS_DRUGS</h1>
 <p>Out of 258 not mathched drug, we have 77 group and 181 not matched drug.</p>
-<pre class="r"><code>drug_not_matched %&gt;%
+<pre class="r"><code>pbs_drugs %&gt;%
+  inner_join(drug_not_matched,by=c(&quot;atc_meaning&quot;=&quot;drug_name&quot;)) %&gt;%
+  select(pbs_code,drug_name,atc_meaning,atc_code) %&gt;%
+  distinct(pbs_code,drug_name,atc_meaning,atc_code)%&gt;%
+  mutate(bnf_drug_name = atc_meaning)%&gt;%
+  mutate(match_type=&quot;dm_A&quot;)%&gt;%
+  rename(pbs_drug_name = drug_name)%&gt;%
+  {.}-&gt;direct_match_atc
+
+direct_match_atc &lt;- subset(direct_match_atc, select=c(1,5,2,3,4,6))
+
+drug_not_matched %&gt;%
   inner_join(pbs_drugs,by=c(&quot;drug_name&quot;=&quot;atc_meaning&quot;)) %&gt;%
   distinct(drug_name)%&gt;%
   select(drug_name)%&gt;%
@@ -612,7 +698,18 @@ cat(&quot;how many drugs FROM BNF have a direct match to atc_meaning in main tab
 <h1>Matching Groups With PBS_Drugs</h1>
 <div id="matching-with-atc_meaning-in-pbs_drug" class="section level2">
 <h2>Matching with “atc_meaning” in PBS_Drug</h2>
-<pre class="r"><code>drug_groups %&gt;%
+<pre class="r"><code>pbs_drugs %&gt;%
+  inner_join(drug_groups,by=c(&quot;atc_meaning&quot;=&quot;drug_name&quot;)) %&gt;%
+  select(pbs_code,drug_name,atc_meaning,atc_code) %&gt;%
+  distinct(pbs_code,drug_name,atc_meaning,atc_code) %&gt;%
+  mutate(bnf_drug_name=atc_meaning) %&gt;%
+  mutate(match_type=&quot;g_dm_A&quot;)%&gt;%
+  rename(pbs_drug_name=drug_name) %&gt;%
+  {.}-&gt;group_direct_match_atc
+
+group_direct_match_atc &lt;- subset(group_direct_match_atc, select=c(1,5,2,3,4,6))
+
+drug_groups %&gt;%
   inner_join(pbs_drugs,by=c(&quot;drug_name&quot;=&quot;atc_meaning&quot;)) %&gt;%
   distinct(drug_name)%&gt;%
   select(drug_name)%&gt;%
@@ -667,37 +764,94 @@ head(remaining_groups)</code></pre>
 <p>They found almost all the atc_code of remaining drugs, which is listed below:</p>
 <pre class="r"><code>read.csv( &#39;Helped/matched_remainingdrug.csv&#39;) %&gt;%
   as.tibble() %&gt;% 
-  select(drug_name,X.1,X.2,X.3,X.4)%&gt;%
-  rename(atc_code=X.1,atc_code2=X.2,atc_code3=X.3,atc_code4=X.4)%&gt;%
+  select(drug_name,h_atc_code)%&gt;%
 { . } -&gt; matched_remaining_drugs
 
 head(matched_remaining_drugs)</code></pre>
-<pre><code># A tibble: 6 x 5
-  drug_name                    atc_code atc_code2 atc_code3 atc_code4
-  &lt;fct&gt;                        &lt;fct&gt;    &lt;fct&gt;     &lt;fct&gt;     &lt;fct&gt;    
-1 ADEFOVIR                     J05AF08  &quot;&quot;        &quot;&quot;        &quot;&quot;       
-2 ADRENALINE (EPINEPHRINE)     C01CA24  S01EA01   &quot;&quot;        &quot;&quot;       
-3 ALCOHOL                      &quot;&quot;       &quot;&quot;        &quot;&quot;        &quot;&quot;       
-4 ARTEMETHER WITH LUMEFANTRINE P01BF01  &quot;&quot;        &quot;&quot;        &quot;&quot;       
-5 ARTENIMOL WITH PIPERAQUINE   P01BF05  &quot;&quot;        &quot;&quot;        &quot;&quot;       
-6 CALCIUM-CHANNEL              C04AE    &quot;&quot;        &quot;&quot;        &quot;&quot;       </code></pre>
+<pre><code># A tibble: 6 x 2
+  drug_name                    h_atc_code
+  &lt;fct&gt;                        &lt;fct&gt;     
+1 ADEFOVIR                     J05AF08   
+2 ADRENALINE (EPINEPHRINE)     C01CA24   
+3 ADRENALINE (EPINEPHRINE)     S01EA01   
+4 ALCOHOL                      &quot;&quot;        
+5 ARTEMETHER WITH LUMEFANTRINE P01BF01   
+6 ARTENIMOL WITH PIPERAQUINE   P01BF05   </code></pre>
 <p>But, unfortunately only few atc_code were found for groups, which are listed below:</p>
 <pre class="r"><code>read.csv( &#39;Helped/Matched_Groups.csv&#39;) %&gt;%
   as.tibble() %&gt;% 
-  select(drug_name,atc.code,X.1,X.2)%&gt;%
-  rename(atc_code=atc.code,atc_code2=X.1,atc_code3=X.2)%&gt;%
+  select(drug_name,h_atc_code)%&gt;%
+  mutate(h_atc_code = as.character(h_atc_code), drug_name = as.character(drug_name))%&gt;%
+  rename(bnf_drug_name = drug_name) %&gt;%
 { . } -&gt; matched_remaining_group
 
 head(matched_remaining_group)</code></pre>
-<pre><code># A tibble: 6 x 4
-  drug_name                           atc_code atc_code2 atc_code3
-  &lt;fct&gt;                               &lt;fct&gt;    &lt;fct&gt;     &lt;fct&gt;    
-1 ANGIOTENSIN-II RECEPTOR ANTAGONISTS &quot;&quot;       &quot;&quot;        &quot;&quot;       
-2 ANTI-ARRHYTHMICS                    &quot;&quot;       &quot;&quot;        &quot;&quot;       
-3 BETA-BLOCKERS                       &quot;&quot;       &quot;&quot;        &quot;&quot;       
-4 GENERAL ANAESTHETICS                &quot;&quot;       &quot;&quot;        &quot;&quot;       
-5 COUMARINS                           &quot;&quot;       &quot;&quot;        &quot;&quot;       
-6 MAOIS                               &quot;&quot;       &quot;&quot;        &quot;&quot;       </code></pre>
+<pre><code># A tibble: 6 x 2
+  bnf_drug_name                       h_atc_code
+  &lt;chr&gt;                               &lt;chr&gt;     
+1 ANGIOTENSIN-II RECEPTOR ANTAGONISTS &quot;&quot;        
+2 ANTI-ARRHYTHMICS                    &quot;&quot;        
+3 BETA-BLOCKERS                       &quot;&quot;        
+4 GENERAL ANAESTHETICS                &quot;&quot;        
+5 COUMARINS                           &quot;&quot;        
+6 MAOIS                               &quot;&quot;        </code></pre>
+</div>
+<div id="checking-intern-work-to-help-us" class="section level1">
+<h1>Checking intern work to help us</h1>
+<pre class="r"><code>#matched_remaining_drugs
+#matched_remaining_group
+
+matched_remaining_drugs %&gt;%
+  mutate(h_atc_code = as.character(h_atc_code),drug_name = as.character(drug_name))%&gt;%
+  rename(bnf_drug_name= drug_name) %&gt;%
+  {.} -&gt; helped_atc_code
+
+helped_atc_code %&gt;%
+  inner_join(pbs_drugs, by = c(&quot;h_atc_code&quot;=&quot;atc_code&quot;)) %&gt;%
+  select(pbs_code,bnf_drug_name,drug_name,atc_meaning,h_atc_code) %&gt;%
+  distinct(pbs_code,bnf_drug_name,drug_name,atc_meaning,h_atc_code) %&gt;%
+  rename(atc_code = h_atc_code,pbs_drug_name=drug_name) %&gt;%
+  mutate(match_type=&quot;Ah_D_dm&quot;)%&gt;%
+  {.} -&gt; anydrug_findings_atc
+
+######################################
+
+matched_remaining_group %&gt;%
+  {.} -&gt; helpeg_atc_code
+
+helpeg_atc_code %&gt;%
+  inner_join(pbs_drugs, by = c(&quot;h_atc_code&quot;=&quot;atc_code&quot;)) %&gt;%
+  select(pbs_code,bnf_drug_name,drug_name,atc_meaning,h_atc_code) %&gt;%
+  distinct(pbs_code,bnf_drug_name,drug_name,atc_meaning,h_atc_code) %&gt;%
+  rename(atc_code = h_atc_code,pbs_drug_name=drug_name) %&gt;%
+  mutate(match_type=&quot;Ah_G_dm&quot;)%&gt;%
+  {.} -&gt; anygroup_findings_atc</code></pre>
+</div>
+<div id="keeping-all-together" class="section level1">
+<h1>Keeping all together</h1>
+<pre class="r"><code>dim(direct_match_item)</code></pre>
+<pre><code>[1] 7960    6</code></pre>
+<pre class="r"><code>dim(direct_match_atc)</code></pre>
+<pre><code>[1] 321   6</code></pre>
+<pre class="r"><code>dim(group_direct_match_atc)</code></pre>
+<pre><code>[1] 42  6</code></pre>
+<pre class="r"><code>dim(anydrug_findings_atc)</code></pre>
+<pre><code>[1] 104   6</code></pre>
+<pre class="r"><code>dim(anygroup_findings_atc)</code></pre>
+<pre><code>[1] 12  6</code></pre>
+<pre class="r"><code>final_list &lt;- rbind(direct_match_item,direct_match_atc,group_direct_match_atc,anydrug_findings_atc,anygroup_findings_atc)
+
+head(final_list)</code></pre>
+<pre><code># A tibble: 6 x 6
+  pbs_code bnf_drug_name pbs_drug_name atc_meaning     atc_code match_type
+  &lt;chr&gt;    &lt;chr&gt;         &lt;chr&gt;         &lt;chr&gt;           &lt;chr&gt;    &lt;chr&gt;     
+1 01002R   ACICLOVIR     ACICLOVIR     ACICLOVIR       S01AD03  dm_I      
+2 01003T   ACICLOVIR     ACICLOVIR     ACICLOVIR       J05AB01  dm_I      
+3 01004W   ACETAZOLAMIDE ACETAZOLAMIDE ACETAZOLAMIDE   S01EC01  dm_I      
+4 01005X   ACETAZOLAMIDE ACETAZOLAMIDE ACETAZOLAMIDE   S01EC01  dm_I      
+5 01007B   ACICLOVIR     ACICLOVIR     ACICLOVIR       J05AB01  dm_I      
+6 01008C   ASPIRIN       ASPIRIN       ACETYLSALICYLI… B01AC06  dm_I      </code></pre>
+<pre class="r"><code>write.csv(final_list,file = &quot;output/FinalMatchingList.csv&quot;)</code></pre>
 <div id="session-information" class="section level2">
 <h2>Session information</h2>
 <pre class="r"><code>sessionInfo()</code></pre>

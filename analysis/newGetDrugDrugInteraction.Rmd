@@ -97,6 +97,17 @@ This matching can be done by two different ways. They are:
 
 ```{r Selecting the pbs_items drug_name to match with BNF drug_name}
 
+pbs_drugs %>% 
+  inner_join(final_drugs,by=c("drug_name"="drug2")) %>%
+  select(pbs_code,drug_name,atc_meaning,atc_code)%>%
+  distinct(pbs_code,drug_name,atc_meaning,atc_code)%>%
+  mutate(bnf_drug_name=drug_name) %>%
+  mutate(match_type="dm_I") %>%
+  rename(pbs_drug_name = drug_name)%>%
+  {.} -> direct_match_item
+
+direct_match_item = subset(direct_match_item,select=c(1,5,2,3,4,6))
+
 final_drugs %>% 
   inner_join(pbs_drugs,by=c("drug2"="drug_name")) %>%
   distinct( drug2)%>%
@@ -141,6 +152,17 @@ drugs_to_match %>%
 Out of 258 not mathched drug, we have 77 group and 181 not matched drug.
 
 ```{r}
+pbs_drugs %>%
+  inner_join(drug_not_matched,by=c("atc_meaning"="drug_name")) %>%
+  select(pbs_code,drug_name,atc_meaning,atc_code) %>%
+  distinct(pbs_code,drug_name,atc_meaning,atc_code)%>%
+  mutate(bnf_drug_name = atc_meaning)%>%
+  mutate(match_type="dm_A")%>%
+  rename(pbs_drug_name = drug_name)%>%
+  {.}->direct_match_atc
+
+direct_match_atc <- subset(direct_match_atc, select=c(1,5,2,3,4,6))
+
 drug_not_matched %>%
   inner_join(pbs_drugs,by=c("drug_name"="atc_meaning")) %>%
   distinct(drug_name)%>%
@@ -200,6 +222,18 @@ drug_not_matched %>%
 
 ##Matching with "atc_meaning" in PBS_Drug
 ```{r}
+
+pbs_drugs %>%
+  inner_join(drug_groups,by=c("atc_meaning"="drug_name")) %>%
+  select(pbs_code,drug_name,atc_meaning,atc_code) %>%
+  distinct(pbs_code,drug_name,atc_meaning,atc_code) %>%
+  mutate(bnf_drug_name=atc_meaning) %>%
+  mutate(match_type="g_dm_A")%>%
+  rename(pbs_drug_name=drug_name) %>%
+  {.}->group_direct_match_atc
+
+group_direct_match_atc <- subset(group_direct_match_atc, select=c(1,5,2,3,4,6))
+
 drug_groups %>%
   inner_join(pbs_drugs,by=c("drug_name"="atc_meaning")) %>%
   distinct(drug_name)%>%
@@ -247,8 +281,7 @@ They found almost all the atc_code of remaining drugs, which is listed below:
 ```{r}
 read.csv( 'Helped/matched_remainingdrug.csv') %>%
   as.tibble() %>% 
-  select(drug_name,X.1,X.2,X.3,X.4)%>%
-  rename(atc_code=X.1,atc_code2=X.2,atc_code3=X.3,atc_code4=X.4)%>%
+  select(drug_name,h_atc_code)%>%
 { . } -> matched_remaining_drugs
 
 head(matched_remaining_drugs)
@@ -258,12 +291,66 @@ But, unfortunately only few atc_code were found for groups, which are listed bel
 ```{r}
 read.csv( 'Helped/Matched_Groups.csv') %>%
   as.tibble() %>% 
-  select(drug_name,atc.code,X.1,X.2)%>%
-  rename(atc_code=atc.code,atc_code2=X.1,atc_code3=X.2)%>%
+  select(drug_name,h_atc_code)%>%
+  mutate(h_atc_code = as.character(h_atc_code), drug_name = as.character(drug_name))%>%
+  rename(bnf_drug_name = drug_name) %>%
 { . } -> matched_remaining_group
 
 head(matched_remaining_group)
 
+
+```
+# Checking intern work to help us
+```{r Check Ahmel work}
+#matched_remaining_drugs
+#matched_remaining_group
+
+matched_remaining_drugs %>%
+  mutate(h_atc_code = as.character(h_atc_code),drug_name = as.character(drug_name))%>%
+  rename(bnf_drug_name= drug_name) %>%
+  {.} -> helped_atc_code
+
+helped_atc_code %>%
+  inner_join(pbs_drugs, by = c("h_atc_code"="atc_code")) %>%
+  select(pbs_code,bnf_drug_name,drug_name,atc_meaning,h_atc_code) %>%
+  distinct(pbs_code,bnf_drug_name,drug_name,atc_meaning,h_atc_code) %>%
+  rename(atc_code = h_atc_code,pbs_drug_name=drug_name) %>%
+  mutate(match_type="Ah_D_dm")%>%
+  {.} -> anydrug_findings_atc
+
+######################################
+
+matched_remaining_group %>%
+  {.} -> helpeg_atc_code
+
+helpeg_atc_code %>%
+  inner_join(pbs_drugs, by = c("h_atc_code"="atc_code")) %>%
+  select(pbs_code,bnf_drug_name,drug_name,atc_meaning,h_atc_code) %>%
+  distinct(pbs_code,bnf_drug_name,drug_name,atc_meaning,h_atc_code) %>%
+  rename(atc_code = h_atc_code,pbs_drug_name=drug_name) %>%
+  mutate(match_type="Ah_G_dm")%>%
+  {.} -> anygroup_findings_atc
+
+
+```
+
+# Keeping all together
+```{r}
+dim(direct_match_item)
+
+dim(direct_match_atc)
+
+dim(group_direct_match_atc)
+
+dim(anydrug_findings_atc)
+
+dim(anygroup_findings_atc)
+
+final_list <- rbind(direct_match_item,direct_match_atc,group_direct_match_atc,anydrug_findings_atc,anygroup_findings_atc)
+
+head(final_list)
+
+write.csv(final_list,file = "output/FinalMatchingList.csv")
 
 ```
 
