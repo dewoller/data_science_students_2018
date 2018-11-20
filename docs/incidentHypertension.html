@@ -9,9 +9,10 @@
 <meta name="generator" content="pandoc" />
 
 
+<meta name="author" content="Nirmala" />
 
 
-<title>Home</title>
+<title>incidentHyperTension</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -19,6 +20,9 @@
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
@@ -166,6 +170,101 @@ $(document).ready(function () {
 
 
 
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+  padding-left: 25px;
+  text-indent: 0;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row-fluid">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
 
 
 <div class="navbar navbar-default  navbar-fixed-top" role="navigation">
@@ -232,7 +331,9 @@ div.section {
 
 
 
-<h1 class="title toc-ignore">Home</h1>
+<h1 class="title toc-ignore">incidentHyperTension</h1>
+<h4 class="author"><em>Nirmala</em></h4>
+<h4 class="date"><em>4 September 2018</em></h4>
 
 </div>
 
@@ -243,6 +344,21 @@ div.section {
 <li>
 <p><details> <summary> <strong style="color:blue;">✔</strong> <strong>R Markdown file:</strong> up-to-date </summary></p>
 <p>Great! Since the R Markdown file has been committed to the Git repository, you know the exact version of the code that produced these results.</p>
+</details>
+</li>
+<li>
+<p><details> <summary> <strong style="color:blue;">✔</strong> <strong>Environment:</strong> empty </summary></p>
+<p>Great job! The global environment was empty. Objects defined in the global environment can affect the analysis in your R Markdown file in unknown ways. For reproduciblity it’s best to always run the code in an empty environment.</p>
+</details>
+</li>
+<li>
+<p><details> <summary> <strong style="color:blue;">✔</strong> <strong>Seed:</strong> <code>set.seed(20180723)</code> </summary></p>
+<p>The command <code>set.seed(20180723)</code> was run prior to running the code in the R Markdown file. Setting a seed ensures that any results that rely on randomness, e.g. subsampling or permutations, are reproducible.</p>
+</details>
+</li>
+<li>
+<p><details> <summary> <strong style="color:blue;">✔</strong> <strong>Session information:</strong> recorded </summary></p>
+<p>Great job! Recording the operating system, R version, and package versions is critical for reproducibility.</p>
 </details>
 </li>
 <li>
@@ -292,152 +408,16 @@ Message
 Rmd
 </td>
 <td style="text-align:left;">
-<a href="https://github.com/dewoller/data_science_students_2018/blob/2ceef0157894bdc1a4a8e4d2f974bf3a1321646f/analysis/index.Rmd" target="_blank">2ceef01</a>
+<a href="https://github.com/dewoller/data_science_students_2018/blob/ac373139166eb4c97f3bfbc301f7408e4d87a17e/analysis/incidentHypertension.Rmd" target="_blank">ac37313</a>
 </td>
 <td style="text-align:left;">
-rukaht
+Nirmala100
 </td>
 <td style="text-align:left;">
-2018-11-20
+2018-09-20
 </td>
 <td style="text-align:left;">
-Almost There
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Rmd
-</td>
-<td style="text-align:left;">
-<a href="https://github.com/dewoller/data_science_students_2018/blob/e15563046b63bc28056791be13001e5a45bf8651/analysis/index.Rmd" target="_blank">e155630</a>
-</td>
-<td style="text-align:left;">
-rukaht
-</td>
-<td style="text-align:left;">
-2018-11-20
-</td>
-<td style="text-align:left;">
-Almost There
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-html
-</td>
-<td style="text-align:left;">
-<a href="https://cdn.rawgit.com/dewoller/data_science_students_2018/96067a200b7a55196ed1464157bd6cdd74b85b29/docs/index.html" target="_blank">96067a2</a>
-</td>
-<td style="text-align:left;">
-rukaht
-</td>
-<td style="text-align:left;">
-2018-08-23
-</td>
-<td style="text-align:left;">
-NewChanges
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-html
-</td>
-<td style="text-align:left;">
-<a href="https://cdn.rawgit.com/dewoller/data_science_students_2018/a2d59f4e805d462d35ed96895c142581949284cb/docs/index.html" target="_blank">a2d59f4</a>
-</td>
-<td style="text-align:left;">
-Dennis Wollersheim
-</td>
-<td style="text-align:left;">
-2018-07-25
-</td>
-<td style="text-align:left;">
-Build site.
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Rmd
-</td>
-<td style="text-align:left;">
-<a href="https://github.com/dewoller/data_science_students_2018/blob/cde7bf56d89afd7207a8f9d4c3988c2050fde5e3/analysis/index.Rmd" target="_blank">cde7bf5</a>
-</td>
-<td style="text-align:left;">
-Dennis Wollersheim
-</td>
-<td style="text-align:left;">
-2018-07-25
-</td>
-<td style="text-align:left;">
-wflow_publish(“analysis/index.Rmd”)
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Rmd
-</td>
-<td style="text-align:left;">
-<a href="https://github.com/dewoller/data_science_students_2018/blob/9202dd8ffe4d2b83554a9761d0f427e2853e337c/analysis/index.Rmd" target="_blank">9202dd8</a>
-</td>
-<td style="text-align:left;">
-Dennis Wollersheim
-</td>
-<td style="text-align:left;">
-2018-07-23
-</td>
-<td style="text-align:left;">
-pointers to week plans
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-html
-</td>
-<td style="text-align:left;">
-<a href="https://cdn.rawgit.com/dewoller/data_science_students_2018/9202dd8ffe4d2b83554a9761d0f427e2853e337c/docs/index.html" target="_blank">9202dd8</a>
-</td>
-<td style="text-align:left;">
-Dennis Wollersheim
-</td>
-<td style="text-align:left;">
-2018-07-23
-</td>
-<td style="text-align:left;">
-pointers to week plans
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-html
-</td>
-<td style="text-align:left;">
-<a href="https://cdn.rawgit.com/dewoller/data_science_students_2018/cced5bcb7ecef6ce0c68704a08b36762cf9cbdce/docs/index.html" target="_blank">cced5bc</a>
-</td>
-<td style="text-align:left;">
-Dennis Wollersheim
-</td>
-<td style="text-align:left;">
-2018-07-23
-</td>
-<td style="text-align:left;">
-Week 1 plan
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Rmd
-</td>
-<td style="text-align:left;">
-<a href="https://github.com/dewoller/data_science_students_2018/blob/cdec1950e544b9e5b1a2b349cafb2fbca66b25ed/analysis/index.Rmd" target="_blank">cdec195</a>
-</td>
-<td style="text-align:left;">
-Dennis Wollersheim
-</td>
-<td style="text-align:left;">
-2018-07-23
-</td>
-<td style="text-align:left;">
-Start workflowr project.
+added unknown quantity csv
 </td>
 </tr>
 </tbody>
@@ -445,12 +425,49 @@ Start workflowr project.
 </ul>
 <p></details></p>
 <hr />
-<p>Welcome to Data Science Student Placement 2018</p>
-<ul>
-<li><p><a href="week1.html">Week 1 plan</a></p></li>
-<li><p><a href="getDrugDrugInteractions.html">Parse Drug Drug interactions</a></p></li>
-<li><p><a href="newGetDrugDrugInteraction.html">Drugs Interaction</a></p></li>
-</ul>
+<pre class="r"><code>patient &lt;- read.csv(file=&quot;data/antiHyperPatient.csv&quot;,header=TRUE,sep=&quot;;&quot;)</code></pre>
+<div id="session-information" class="section level2">
+<h2>Session information</h2>
+<pre class="r"><code>sessionInfo()</code></pre>
+<pre><code>R version 3.5.1 (2018-07-02)
+Platform: x86_64-apple-darwin15.6.0 (64-bit)
+Running under: macOS  10.14
+
+Matrix products: default
+BLAS: /Library/Frameworks/R.framework/Versions/3.5/Resources/lib/libRblas.0.dylib
+LAPACK: /Library/Frameworks/R.framework/Versions/3.5/Resources/lib/libRlapack.dylib
+
+locale:
+[1] en_AU.UTF-8/en_AU.UTF-8/en_AU.UTF-8/C/en_AU.UTF-8/en_AU.UTF-8
+
+attached base packages:
+[1] stats     graphics  grDevices utils     datasets  methods   base     
+
+other attached packages:
+[1] forcats_0.3.0   stringr_1.3.1   dplyr_0.7.6     purrr_0.2.5    
+[5] readr_1.1.1     tidyr_0.8.1     tibble_1.4.2    ggplot2_3.0.0  
+[9] tidyverse_1.2.1
+
+loaded via a namespace (and not attached):
+ [1] Rcpp_0.12.18      cellranger_1.1.0  plyr_1.8.4       
+ [4] compiler_3.5.1    pillar_1.3.0      git2r_0.23.0     
+ [7] workflowr_1.1.1   bindr_0.1.1       R.methodsS3_1.7.1
+[10] R.utils_2.6.0     tools_3.5.1       digest_0.6.16    
+[13] lubridate_1.7.4   jsonlite_1.5      evaluate_0.11    
+[16] nlme_3.1-137      gtable_0.2.0      lattice_0.20-35  
+[19] pkgconfig_2.0.2   rlang_0.2.2       cli_1.0.0        
+[22] rstudioapi_0.7    yaml_2.2.0        haven_1.1.2      
+[25] bindrcpp_0.2.2    withr_2.1.2       xml2_1.2.0       
+[28] httr_1.3.1        knitr_1.20        hms_0.4.2        
+[31] rprojroot_1.3-2   grid_3.5.1        tidyselect_0.2.4 
+[34] glue_1.3.0        R6_2.2.2          readxl_1.1.0     
+[37] rmarkdown_1.10    modelr_0.1.2      magrittr_1.5     
+[40] whisker_0.3-2     backports_1.1.2   scales_1.0.0     
+[43] htmltools_0.3.6   rvest_0.3.2       assertthat_0.2.0 
+[46] colorspace_1.3-2  stringi_1.2.4     lazyeval_0.2.1   
+[49] munsell_0.5.0     broom_0.5.0       crayon_1.3.4     
+[52] R.oo_1.22.0      </code></pre>
+</div>
 
 <!-- Adjust MathJax settings so that all math formulae are shown using
 TeX fonts only; see
@@ -473,6 +490,8 @@ footer is added to webpages before the MathJax javascript. -->
 <hr>
 
 
+</div>
+</div>
 
 </div>
 
