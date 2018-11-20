@@ -9,12 +9,10 @@ navbar:
       menu:
         - text: "Nirmala"
           href: whoDrugMatch.html
-        - text: "Prabin"
-          menu:
-            - text: "Old"
-              href: getDrugDrugInteractions.html
-            - text: "Final"
-              href: newGetDrugDrugInteraction.html
+        - text: "Prabin OLd"
+          href: getDrugDrugInteractions.html
+        - text: "Prabin New"
+          href: newGetDrugDrugInteraction.html
         - text: "Serdar Part 2 - Statin interaction"
           href: statins_match.html
 
