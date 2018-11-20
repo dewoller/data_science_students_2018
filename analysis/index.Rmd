@@ -12,6 +12,6 @@ Welcome to Data Science Student Placement 2018
 
   * [Parse Drug Drug interactions](getDrugDrugInteractions.html)
   
-  * [Parse Drug Drug Interaction](newGetDrugDrugInteraction.html)
+  * [Drugs Interaction](newGetDrugDrugInteraction.html)
 
 
