@@ -19,8 +19,11 @@ source('lib/function.R')
 
 ```{r dataCollection}
 
-my_db_get_query("Select pin,pbs_code,spply_dt,pbs_rgltn24_adjst_qty qty from pbs_rr")%>%
+my_db_get_query("Select ABC.*,(Select atc_code from pbs_item where pbs_code=ABC.pbs_code) Atc_Code,(Select yob from patient_rr where pin=ABC.pin)YOB From (Select pin,pbs_code,spply_dt,pbs_rgltn24_adjst_qty qty from pbs_rr where pbs_code in (Select distinct pbs_code from (Select atc_code,pbs_code,drug_name from pbs_item JOIN pbs_atc USING (atc_code) where atc_meaning <> 'NA' AND (atc_code like 'C02%' OR atc_code like 'C03%' OR atc_code like 'C07%' OR atc_code like 'C08%' OR atc_code like 'C09%')) PBSCODE))ABC")%>%
   as.tibble()%>%
-  { . } -> rr_pbs_interval_1
+  { . } ->rr_pbsDrugs
+
+view(rr_pbsDrugs)
+  
 
 ```

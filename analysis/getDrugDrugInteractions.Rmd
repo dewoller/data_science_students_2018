@@ -143,7 +143,10 @@ drug_not_matched %>%
   anti_join(pbs_drugs,by=c("drug_name"="atc_meaning")) %>%
   distinct(drug_name)%>%
   select(drug_name)%>%
+  arrange(drug_name)%>%
   {.}->remaining_drug 
+
+remaining_drug$drug_name[130] <- "ST JOHNS WORT"
 
 head(remaining_drug)
 ```
@@ -154,11 +157,22 @@ head(remaining_drug)
 ```{r}
 drug_to_match_withoutNA <- na.omit(drugs_to_match)
 
+drv <- dbDriver("PostgreSQL")
+
+con <- dbConnect(drv, dbname = "him5ihc_pbs",
+                   host = "thealfred.duckdns.org", port = 5432,
+                   user = "dewoller", password = Sys.getenv("PSSWD"))
+
+dbWriteTable(con, "drug_to_match", 
+             value = remaining_drug,row.names = FALSE)
+ 
+
 main_table_withNA_ATC <- pbs_drugs%>%select(atc_meaning)
 
 main_table_withNA_ATC %>%
   filter(atc_meaning!='NA') %>%
   distinct(atc_meaning)%>%
+  arrange(atc_meaning)%>%
   {.} -> pure_ATC
 
 pure_drug_maintable <- pbs_drugs %>% select(drug_name) %>% distinct(drug_name) 
@@ -182,6 +196,8 @@ So to rectify these kinds of error we have done the following and listed some of
 Here we have checked for spelling difference between the drugs listed in concordance (BNF) and the main table pbs drug (PBS), and some of found mistake are listed below:
 ```{r}
 remaining_drug$drug_name[1] <- "ST JOHNS WORT"
+
+drugs_to_match$drug_name[3] <- "ST JOHNS WORT"
 
 write.csv(remaining_drug,file="output/Spelling/TotalDrugsOtherThanGroupTOMatch.csv")
 

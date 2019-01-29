@@ -11,6 +11,7 @@ output: html_document
  library('stringr')
  library('dplyr')
 library('readxl')
+ #source('lib/function.R')  
 ```
 
 # Match drugs from Australian PBS to drugs from the WHO ddd drug list
@@ -26,22 +27,6 @@ The main task is to match the drug form pbs_item with ddd_who table
 ```{r prepare data}
 ddd_who <- read.csv(file="data/ddd_who.csv",header=TRUE,sep=";")
 pbs_item <- read.csv(file="data/pbs_item.csv",header=TRUE, sep=";") 
-
-pbs_item %>% 
-  mutate( a=str_extract(drug_name,"mcg")) %>%
-  filter( !is.na(a))
-
-
-read.csv('/tmp/aitem.csv' ) %>% as.tibble() -> item
-
-read.csv('/tmp/continuing_item.csv' ) %>% as.tibble() -> citem
-
-item %>%
-  anti_join( citem, by=c('pbs_code'='item_code'))
-
-citem %>%
-  anti_join( item, by=c('item_code'='pbs_code')) %>% View
-
 
 ```
 
@@ -84,8 +69,14 @@ final_pbs$form_type <- apply(x, 1, function(i) paste0(names(i)[i], collapse = ",
 ```
 
 
-#return all the row that have no specific form_type and replace by unknown
+
+
 ```{r} 
+
+
+#final_pbs%>% distinct(form_strength) %>% filter(!is.na(str_match(form_strength, ".*inh.*")))
+
+#return all the row that have no specific form_type and replace by unknown
 
 final_pbs$form_type <-final_pbs$form_type %>% replace(.=="","UNKNOWN")
 
@@ -120,6 +111,9 @@ final_pbs$adm_route[final_pbs$form_type=="sublingual"]="SL"
 final_pbs$adm_route[final_pbs$form_strength == "powder for oral inhalation"] = "Inhal.powder"
 final_pbs$adm_route[final_pbs$form_strength == "solution for inhalation"] = "Inhal.sol"
 final_pbs$adm_route[final_pbs$form_strength == "pressurised inhalation"] = "Inhal.aerosol"
+
+
+
 ```
 
 
@@ -160,6 +154,8 @@ if(!is.na(final_pbs$unit_wt_g[i]) & !is.na(final_pbs$unit_wt_mg[i])){
          final_pbs$final_unit[i] = final_pbs$unit_wt_g[i]*1000
 }
 }
+
+#final_pbs%>%distinct(final_pbs$unit_wt_ml)
 ```
 # clean up DDD administration route for better matching
 Clean adm_route of ddd_who to match with pbs_item
@@ -195,6 +191,9 @@ To narrow down the search, we filter out pbs_item drugs without corresponding DD
 #get existing pbs data from csv file
 existing_pbs <- data.frame(read.csv(file="data/existing_pbs.csv",header=TRUE, sep=",")[,2]) 
 colnames(existing_pbs)<- 'pbs_code'
+
+
+
 #filter those drugs that only have atc code in ddd_who table to narrow down search
 final_pbs%>%
   inner_join(existing_pbs, by = c("pbs_code"="pbs_code"))%>%
@@ -205,7 +204,7 @@ final_pbs%>%
 cat("How many specific adm routes?")
 existing_pbs_to_match %>% count(adm_route,sort = TRUE)
 ```
-#find the unknown routes
+
 ```{r}
 #now 159 unknown
 existing_pbs_to_match%>%
@@ -244,6 +243,8 @@ existing_pbs_to_match %>%
 existing_pbs_to_match%>% filter(!is.na(existing_pbs_to_match$unit_wt_ml)|is.na(existing_pbs_to_match$final_unit))%>%
 {.} ->unknown_quantity
 
+
+
 #336 unknown quantity
 write.csv(unknown_quantity, file = 'data/unknown_quantity.csv')
 ```
@@ -270,20 +271,26 @@ final_existing_pbs_to_match$units = "mg"
 final_existing_pbs_to_match %>% 
   anti_join(unknown_quantity, by=c('pbs_code'))%>%
   bind_rows(figured_out_quantity)%>%
-  {.} ->all_existing_pbs_to_match
-all_existing_pbs_to_match%>%filter(is.na(quantity))
-all_existing_pbs_to_match%>%filter(is.na(adm_route))
-all_existing_pbs_to_match%>%filter(adm_route=="UNKNOWN")
+  {.} ->finall_existing_pbs_to_match
+finall_existing_pbs_to_match%>%filter(is.na(quantity))
+finall_existing_pbs_to_match%>%filter(is.na(adm_route))
+finall_existing_pbs_to_match%>%filter(adm_route=="UNKNOWN")
 
 ```
 
 
 # TO Do
 * find all the routes for unknown routes in unknown_routes.csv
-* finally join all_existing_pbs_to _match with ddd_who
+* finally join existing_pbs_to _match with ddd_who
 ```{r match with ddd_who table, warning=FALSE}
 
-all_existing_pbs_to_match%>%
+finall_existing_pbs_to_match%>%
   inner_join(ddd_who, c("atc_code" = "atc","adm_route" = "adm_route")) %>%
   { .} ->pbs_who
+
+
+pbs_who %>% count(adm_route,sort = TRUE)
+
+
+
 ```

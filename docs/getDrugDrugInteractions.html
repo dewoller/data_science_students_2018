@@ -322,7 +322,7 @@ div.section {
 </div>
 
 
-<p><strong>Last updated:</strong> 2018-09-04</p>
+<p><strong>Last updated:</strong> 2018-11-15</p>
 <strong>workflowr checks:</strong> <small>(Click a bullet for more information)</small>
 <ul>
 <li>
@@ -345,18 +345,29 @@ div.section {
 </details>
 </li>
 <li>
-<p><details> <summary> <strong style="color:blue;">✔</strong> <strong>Repository version:</strong> <a href="https://github.com/dewoller/data_science_students_2018/tree/873efd3eb29d768103d5c6c990b579727446b8c7" target="_blank">873efd3</a> </summary></p>
+<p><details> <summary> <strong style="color:blue;">✔</strong> <strong>Repository version:</strong> <a href="https://github.com/dewoller/data_science_students_2018/tree/7578882b81106cf5f7875373eaf8db85d10438a7" target="_blank">7578882</a> </summary></p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility. The version displayed above was the version of the Git repository at the time these results were generated. <br><br> Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
 <pre><code>
 Ignored files:
     Ignored:    .DS_Store
     Ignored:    .RData
     Ignored:    .Rhistory
+    Ignored:    .Rproj.user/
     Ignored:    MAP/
+    Ignored:    docs/.DS_Store
+    Ignored:    docs/drug_drug/.DS_Store
     Ignored:    output/.DS_Store
+
+Untracked files:
+    Untracked:  Helped/
+    Untracked:  analysis/newGetDrugDrugInteraction.Rmd
+    Untracked:  output/TotalGroupsToMatch.csv
+    Untracked:  output/remainingdrug.csv
 
 Unstaged changes:
     Modified:   analysis/getDrugDrugInteractions.Rmd
+    Modified:   analysis/hypertension.Rmd
+    Modified:   output/Spelling/TotalGroupsToMatch.csv
 
 </code></pre>
 Note that any generated files, e.g. HTML, png, CSS, etc., are not included in this status report because it is ok for generated content to have uncommitted changes. </details>
@@ -385,6 +396,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td style="text-align:left;">
+Rmd
+</td>
+<td style="text-align:left;">
+<a href="https://github.com/dewoller/data_science_students_2018/blob/7578882b81106cf5f7875373eaf8db85d10438a7/analysis/getDrugDrugInteractions.Rmd" target="_blank">7578882</a>
+</td>
+<td style="text-align:left;">
+rukaht
+</td>
+<td style="text-align:left;">
+2018-09-04
+</td>
+<td style="text-align:left;">
+Mainfile
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+html
+</td>
+<td style="text-align:left;">
+<a href="https://cdn.rawgit.com/dewoller/data_science_students_2018/7578882b81106cf5f7875373eaf8db85d10438a7/docs/getDrugDrugInteractions.html" target="_blank">7578882</a>
+</td>
+<td style="text-align:left;">
+rukaht
+</td>
+<td style="text-align:left;">
+2018-09-04
+</td>
+<td style="text-align:left;">
+Mainfile
+</td>
+</tr>
 <tr>
 <td style="text-align:left;">
 Rmd
@@ -969,18 +1014,21 @@ cat(&quot;how many drugs FROM drugs_to_match (BNF) have a direct match to atc_me
   anti_join(pbs_drugs,by=c(&quot;drug_name&quot;=&quot;atc_meaning&quot;)) %&gt;%
   distinct(drug_name)%&gt;%
   select(drug_name)%&gt;%
+  arrange(drug_name)%&gt;%
   {.}-&gt;remaining_drug 
+
+remaining_drug$drug_name[130] &lt;- &quot;ST JOHNS WORT&quot;
 
 head(remaining_drug)</code></pre>
 <pre><code># A tibble: 6 x 1
   drug_name               
   &lt;chr&gt;                   
-1 &quot;ST JOHN\x92S WORT&quot;     
-2 FOSPHENYTOIN            
-3 ALISKIREN               
+1 ACEMETACIN              
+2 ADEFOVIR                
+3 ADENOSINE               
 4 ADRENALINE (EPINEPHRINE)
-5 ISOMETHEPTENE           
-6 METARAMINOL             </code></pre>
+5 AFATINIB                
+6 AGOMELATINE             </code></pre>
 </div>
 <div id="different-method-to-verify-result" class="section level1">
 <h1>Different method to verify result</h1>
@@ -988,11 +1036,23 @@ head(remaining_drug)</code></pre>
 <p></p>
 <pre class="r"><code>drug_to_match_withoutNA &lt;- na.omit(drugs_to_match)
 
-main_table_withNA_ATC &lt;- pbs_drugs%&gt;%select(atc_meaning)
+drv &lt;- dbDriver(&quot;PostgreSQL&quot;)
+
+con &lt;- dbConnect(drv, dbname = &quot;him5ihc_pbs&quot;,
+                   host = &quot;thealfred.duckdns.org&quot;, port = 5432,
+                   user = &quot;dewoller&quot;, password = Sys.getenv(&quot;PSSWD&quot;))
+
+dbWriteTable(con, &quot;drug_to_match&quot;, 
+             value = remaining_drug,row.names = FALSE)</code></pre>
+<pre><code>Warning in postgresqlWriteTable(conn, name, value, ...): table
+drug_to_match exists in database: aborting assignTable</code></pre>
+<pre><code>[1] FALSE</code></pre>
+<pre class="r"><code>main_table_withNA_ATC &lt;- pbs_drugs%&gt;%select(atc_meaning)
 
 main_table_withNA_ATC %&gt;%
   filter(atc_meaning!=&#39;NA&#39;) %&gt;%
   distinct(atc_meaning)%&gt;%
+  arrange(atc_meaning)%&gt;%
   {.} -&gt; pure_ATC
 
 pure_drug_maintable &lt;- pbs_drugs %&gt;% select(drug_name) %&gt;% distinct(drug_name) 
@@ -1018,6 +1078,8 @@ cat(&quot;how many drugs FROM drugs_to_match have a direct match to atc_meaning 
 <p>Here we have checked for spelling difference between the drugs listed in concordance (BNF) and the main table pbs drug (PBS), and some of found mistake are listed below:</p>
 <pre class="r"><code>remaining_drug$drug_name[1] &lt;- &quot;ST JOHNS WORT&quot;
 
+drugs_to_match$drug_name[3] &lt;- &quot;ST JOHNS WORT&quot;
+
 write.csv(remaining_drug,file=&quot;output/Spelling/TotalDrugsOtherThanGroupTOMatch.csv&quot;)
 
 spelled_check &lt;- remaining_drug %&gt;% 
@@ -1027,14 +1089,14 @@ write.csv(spelled_check,file=&quot;output/Spelling/SpelledDrug.csv&quot;)
 
 head(spelled_check)</code></pre>
 <pre><code># A tibble: 6 x 2
-  drug_name      pbs_drug     
-  &lt;chr&gt;          &lt;chr&gt;        
-1 FOSPHENYTOIN   PHENYTOIN    
-2 XYLOMETAZOLINE OXYMETAZOLINE
-3 CYCLOSERINE    CYCLOSPORIN  
-4 AVANAFIL       TADALAFIL    
-5 NON-           IRON         
-6 NON-           NA           </code></pre>
+  drug_name pbs_drug  
+  &lt;chr&gt;     &lt;chr&gt;     
+1 ADEFOVIR  CIDOFOVIR 
+2 ADENOSINE ADRENALINE
+3 ADENOSINE ASENAPINE 
+4 ADENOSINE DIDANOSINE
+5 AFATINIB  DASATINIB 
+6 AFATINIB  IMATINIB  </code></pre>
 <p>Similarly, we have checked for spelling difference between the drugs listed in concordance (BNF) and the main table pbs drug (PBS) with ATC_Code, and some of found mistake are listed below:</p>
 <pre class="r"><code>spelled_check_atc&lt;- remaining_drug %&gt;% 
   stringdist_inner_join(pure_ATC, by = c(&quot;drug_name&quot; = &quot;atc_meaning&quot;),max_dist=3)
@@ -1043,14 +1105,14 @@ write.csv(spelled_check_atc,file=&quot;output/Spelling/SpelledDrug_ATC.csv&quot;
 
 head(spelled_check_atc)</code></pre>
 <pre><code># A tibble: 6 x 2
-  drug_name        atc_meaning   
-  &lt;chr&gt;            &lt;chr&gt;         
-1 FOSPHENYTOIN     PHENYTOIN     
-2 XYLOMETAZOLINE   OXYMETAZOLINE 
-3 AVANAFIL         TADALAFIL     
-4 LEVOFLOXACIN     OFLOXACIN     
-5 SULFAMETHOXAZOLE SULFAMETHIZOLE
-6 TELITHROMYCIN    ERYTHROMYCIN  </code></pre>
+  drug_name atc_meaning
+  &lt;chr&gt;     &lt;chr&gt;      
+1 ADEFOVIR  CIDOFOVIR  
+2 ADENOSINE ASENAPINE  
+3 ADENOSINE DIDANOSINE 
+4 AFATINIB  AXITINIB   
+5 AFATINIB  DASATINIB  
+6 AFATINIB  GEFITINIB  </code></pre>
 <pre class="r"><code>#Number of errored name drug matched with ATC code are: 46 
 spelled_check_atc%&gt;% 
   select(drug_name)%&gt;% 
@@ -1142,8 +1204,8 @@ head(Group_Spelled_check_atc)</code></pre>
 2 MAOIS         TARS        
 3 SSRIS         TARS        
 4 QUINOLONES    QUINOLINES  
-5 TETRACYCLINES TETRACYCLINE
-6 TETRACYCLINES METACYCLINE </code></pre>
+5 TETRACYCLINES METACYCLINE 
+6 TETRACYCLINES TETRACYCLINE</code></pre>
 <pre class="r"><code># Number of matching with ATC :10
 Group_Spelled_check_atc%&gt;% 
   select(drug_name)%&gt;% 
@@ -1325,7 +1387,7 @@ if (write_csv == TRUE)
 <pre class="r"><code>sessionInfo()</code></pre>
 <pre><code>R version 3.5.1 (2018-07-02)
 Platform: x86_64-apple-darwin15.6.0 (64-bit)
-Running under: macOS High Sierra 10.13.6
+Running under: macOS  10.14
 
 Matrix products: default
 BLAS: /Library/Frameworks/R.framework/Versions/3.5/Resources/lib/libRblas.0.dylib

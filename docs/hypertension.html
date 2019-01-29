@@ -320,12 +320,11 @@ div.section {
 </div>
 
 
-<p><strong>Last updated:</strong> 2018-09-04</p>
+<p><strong>Last updated:</strong> 2018-11-15</p>
 <strong>workflowr checks:</strong> <small>(Click a bullet for more information)</small>
 <ul>
 <li>
-<p><details> <summary> <strong style="color:blue;">✔</strong> <strong>R Markdown file:</strong> up-to-date </summary></p>
-<p>Great! Since the R Markdown file has been committed to the Git repository, you know the exact version of the code that produced these results.</p>
+<p><details> <summary> <strong style="color:red;">✖</strong> <strong>R Markdown file:</strong> uncommitted changes </summary> The R Markdown file has unstaged changes. To know which version of the R Markdown file created these results, you’ll want to first commit it to the Git repo. If you’re still working on the analysis, you can ignore this warning. When you’re finished, you can run <code>wflow_publish</code> to commit the R Markdown file and build the HTML.</p>
 </details>
 </li>
 <li>
@@ -344,20 +343,32 @@ div.section {
 </details>
 </li>
 <li>
-<p><details> <summary> <strong style="color:blue;">✔</strong> <strong>Repository version:</strong> <a href="https://github.com/dewoller/data_science_students_2018/tree/f323d49b3fe685e55d386bed8f4b920237de7fd1" target="_blank">f323d49</a> </summary></p>
+<p><details> <summary> <strong style="color:blue;">✔</strong> <strong>Repository version:</strong> <a href="https://github.com/dewoller/data_science_students_2018/tree/7578882b81106cf5f7875373eaf8db85d10438a7" target="_blank">7578882</a> </summary></p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility. The version displayed above was the version of the Git repository at the time these results were generated. <br><br> Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
 <pre><code>
 Ignored files:
     Ignored:    .DS_Store
     Ignored:    .RData
     Ignored:    .Rhistory
+    Ignored:    .Rproj.user/
     Ignored:    MAP/
+    Ignored:    docs/.DS_Store
+    Ignored:    docs/drug_drug/.DS_Store
     Ignored:    output/.DS_Store
 
-Staged changes:
+Untracked files:
+    Untracked:  Helped/
+    Untracked:  analysis/newGetDrugDrugInteraction.Rmd
+    Untracked:  output/TotalGroupsToMatch.csv
+    Untracked:  output/remainingdrug.csv
+
+Unstaged changes:
     Modified:   analysis/getDrugDrugInteractions.Rmd
-    Modified:   analysis/whoDrugMatch.Rmd
-    Modified:   lib/function.R
+    Modified:   analysis/hypertension.Rmd
+    Modified:   output/Spelling/Groups_SpelledDrug_ATC.csv
+    Modified:   output/Spelling/SpelledDrug.csv
+    Modified:   output/Spelling/SpelledDrug_ATC.csv
+    Modified:   output/Spelling/TotalDrugsOtherThanGroupTOMatch.csv
 
 </code></pre>
 Note that any generated files, e.g. HTML, png, CSS, etc., are not included in this status report because it is ok for generated content to have uncommitted changes. </details>
@@ -386,6 +397,23 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td style="text-align:left;">
+html
+</td>
+<td style="text-align:left;">
+<a href="https://cdn.rawgit.com/dewoller/data_science_students_2018/23c0530e446aa2e0a16c0be66c7e281c380fafb2/docs/hypertension.html" target="_blank">23c0530</a>
+</td>
+<td style="text-align:left;">
+rukaht
+</td>
+<td style="text-align:left;">
+2018-09-04
+</td>
+<td style="text-align:left;">
+New
+</td>
+</tr>
 <tr>
 <td style="text-align:left;">
 Rmd
@@ -508,16 +536,4047 @@ Attaching package: &#39;IRanges&#39;</code></pre>
 <pre><code>Loading required package: DBI</code></pre>
 <div id="r-markdown" class="section level2">
 <h2>R Markdown</h2>
-<pre class="r"><code>my_db_get_query(&quot;Select pin,pbs_code,spply_dt,pbs_rgltn24_adjst_qty qty from pbs_rr&quot;)%&gt;%
+<pre class="r"><code>my_db_get_query(&quot;Select ABC.*,(Select atc_code from pbs_item where pbs_code=ABC.pbs_code) Atc_Code,(Select yob from patient_rr where pin=ABC.pin)YOB From (Select pin,pbs_code,spply_dt,pbs_rgltn24_adjst_qty qty from pbs_rr where pbs_code in (Select distinct pbs_code from (Select atc_code,pbs_code,drug_name from pbs_item JOIN pbs_atc USING (atc_code) where atc_meaning &lt;&gt; &#39;NA&#39; AND (atc_code like &#39;C02%&#39; OR atc_code like &#39;C03%&#39; OR atc_code like &#39;C07%&#39; OR atc_code like &#39;C08%&#39; OR atc_code like &#39;C09%&#39;)) PBSCODE))ABC&quot;)%&gt;%
   as.tibble()%&gt;%
-  { . } -&gt; rr_pbs_interval_1</code></pre>
+  { . } -&gt;rr_pbsDrugs
+
+view(rr_pbsDrugs)</code></pre>
+<table>
+<caption>
+rr_pbsDrugs
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+pin
+</th>
+<th style="text-align:left;">
+pbs_code
+</th>
+<th style="text-align:left;">
+spply_dt
+</th>
+<th style="text-align:right;">
+qty
+</th>
+<th style="text-align:left;">
+atc_code
+</th>
+<th style="text-align:right;">
+yob
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+02560075027
+</td>
+<td style="text-align:left;">
+01968N
+</td>
+<td style="text-align:left;">
+2003-11-02
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:left;">
+C09AA06
+</td>
+<td style="text-align:right;">
+1934
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+02560075027
+</td>
+<td style="text-align:left;">
+01968N
+</td>
+<td style="text-align:left;">
+2003-08-31
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:left;">
+C09AA06
+</td>
+<td style="text-align:right;">
+1934
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+02560075027
+</td>
+<td style="text-align:left;">
+01968N
+</td>
+<td style="text-align:left;">
+2003-05-21
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:left;">
+C09AA06
+</td>
+<td style="text-align:right;">
+1934
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+02560075027
+</td>
+<td style="text-align:left;">
+01968N
+</td>
+<td style="text-align:left;">
+2003-11-14
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:left;">
+C09AA06
+</td>
+<td style="text-align:right;">
+1934
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+02560075027
+</td>
+<td style="text-align:left;">
+01968N
+</td>
+<td style="text-align:left;">
+2003-10-09
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:left;">
+C09AA06
+</td>
+<td style="text-align:right;">
+1934
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+02560075027
+</td>
+<td style="text-align:left;">
+01968N
+</td>
+<td style="text-align:left;">
+2003-07-12
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:left;">
+C09AA06
+</td>
+<td style="text-align:right;">
+1934
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+02560075027
+</td>
+<td style="text-align:left;">
+01968N
+</td>
+<td style="text-align:left;">
+2003-04-12
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:left;">
+C09AA06
+</td>
+<td style="text-align:right;">
+1934
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+02560075027
+</td>
+<td style="text-align:left;">
+01968N
+</td>
+<td style="text-align:left;">
+2003-03-21
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:left;">
+C09AA06
+</td>
+<td style="text-align:right;">
+1934
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+02560075027
+</td>
+<td style="text-align:left;">
+01968N
+</td>
+<td style="text-align:left;">
+2003-01-02
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:left;">
+C09AA06
+</td>
+<td style="text-align:right;">
+1934
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+02560075027
+</td>
+<td style="text-align:left;">
+01968N
+</td>
+<td style="text-align:left;">
+2003-03-07
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:left;">
+C09AA06
+</td>
+<td style="text-align:right;">
+1934
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+02560075027
+</td>
+<td style="text-align:left;">
+01968N
+</td>
+<td style="text-align:left;">
+2003-08-09
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:left;">
+C09AA06
+</td>
+<td style="text-align:right;">
+1934
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+02560075027
+</td>
+<td style="text-align:left;">
+01968N
+</td>
+<td style="text-align:left;">
+2003-12-20
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:left;">
+C09AA06
+</td>
+<td style="text-align:right;">
+1934
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+02560075027
+</td>
+<td style="text-align:left;">
+01968N
+</td>
+<td style="text-align:left;">
+2004-07-14
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:left;">
+C09AA06
+</td>
+<td style="text-align:right;">
+1934
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+02560075027
+</td>
+<td style="text-align:left;">
+01968N
+</td>
+<td style="text-align:left;">
+2004-01-07
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:left;">
+C09AA06
+</td>
+<td style="text-align:right;">
+1934
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+02560075027
+</td>
+<td style="text-align:left;">
+01968N
+</td>
+<td style="text-align:left;">
+2004-10-10
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:left;">
+C09AA06
+</td>
+<td style="text-align:right;">
+1934
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+02560075027
+</td>
+<td style="text-align:left;">
+01968N
+</td>
+<td style="text-align:left;">
+2004-08-28
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:left;">
+C09AA06
+</td>
+<td style="text-align:right;">
+1934
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+02560075027
+</td>
+<td style="text-align:left;">
+01968N
+</td>
+<td style="text-align:left;">
+2004-12-27
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:left;">
+C09AA06
+</td>
+<td style="text-align:right;">
+1934
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+02560075027
+</td>
+<td style="text-align:left;">
+01968N
+</td>
+<td style="text-align:left;">
+2004-06-20
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:left;">
+C09AA06
+</td>
+<td style="text-align:right;">
+1934
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+02560075027
+</td>
+<td style="text-align:left;">
+01968N
+</td>
+<td style="text-align:left;">
+2004-03-22
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:left;">
+C09AA06
+</td>
+<td style="text-align:right;">
+1934
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+02560075027
+</td>
+<td style="text-align:left;">
+01968N
+</td>
+<td style="text-align:left;">
+2004-11-07
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:left;">
+C09AA06
+</td>
+<td style="text-align:right;">
+1934
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+02560075027
+</td>
+<td style="text-align:left;">
+01968N
+</td>
+<td style="text-align:left;">
+2004-05-14
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:left;">
+C09AA06
+</td>
+<td style="text-align:right;">
+1934
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+02560075027
+</td>
+<td style="text-align:left;">
+01968N
+</td>
+<td style="text-align:left;">
+2004-04-10
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:left;">
+C09AA06
+</td>
+<td style="text-align:right;">
+1934
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+02560075027
+</td>
+<td style="text-align:left;">
+01968N
+</td>
+<td style="text-align:left;">
+2004-02-13
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:left;">
+C09AA06
+</td>
+<td style="text-align:right;">
+1934
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+02560075027
+</td>
+<td style="text-align:left;">
+01968N
+</td>
+<td style="text-align:left;">
+2004-09-23
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:left;">
+C09AA06
+</td>
+<td style="text-align:right;">
+1934
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+02560075027
+</td>
+<td style="text-align:left;">
+01968N
+</td>
+<td style="text-align:left;">
+2005-09-07
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:left;">
+C09AA06
+</td>
+<td style="text-align:right;">
+1934
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+02560075027
+</td>
+<td style="text-align:left;">
+01968N
+</td>
+<td style="text-align:left;">
+2005-05-19
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:left;">
+C09AA06
+</td>
+<td style="text-align:right;">
+1934
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+02560075027
+</td>
+<td style="text-align:left;">
+01968N
+</td>
+<td style="text-align:left;">
+2005-04-02
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:left;">
+C09AA06
+</td>
+<td style="text-align:right;">
+1934
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+02560075027
+</td>
+<td style="text-align:left;">
+01968N
+</td>
+<td style="text-align:left;">
+2005-04-27
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:left;">
+C09AA06
+</td>
+<td style="text-align:right;">
+1934
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+02560075027
+</td>
+<td style="text-align:left;">
+01968N
+</td>
+<td style="text-align:left;">
+2005-11-23
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:left;">
+C09AA06
+</td>
+<td style="text-align:right;">
+1934
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+02560075027
+</td>
+<td style="text-align:left;">
+01968N
+</td>
+<td style="text-align:left;">
+2005-09-29
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:left;">
+C09AA06
+</td>
+<td style="text-align:right;">
+1934
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+02560075027
+</td>
+<td style="text-align:left;">
+01968N
+</td>
+<td style="text-align:left;">
+2005-07-18
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:left;">
+C09AA06
+</td>
+<td style="text-align:right;">
+1934
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+02560075027
+</td>
+<td style="text-align:left;">
+01968N
+</td>
+<td style="text-align:left;">
+2005-12-21
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:left;">
+C09AA06
+</td>
+<td style="text-align:right;">
+1934
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+02560075027
+</td>
+<td style="text-align:left;">
+01968N
+</td>
+<td style="text-align:left;">
+2005-10-28
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:left;">
+C09AA06
+</td>
+<td style="text-align:right;">
+1934
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+02560075027
+</td>
+<td style="text-align:left;">
+01968N
+</td>
+<td style="text-align:left;">
+2005-01-24
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:left;">
+C09AA06
+</td>
+<td style="text-align:right;">
+1934
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+02560075027
+</td>
+<td style="text-align:left;">
+01968N
+</td>
+<td style="text-align:left;">
+2005-03-17
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:left;">
+C09AA06
+</td>
+<td style="text-align:right;">
+1934
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+02560075027
+</td>
+<td style="text-align:left;">
+01968N
+</td>
+<td style="text-align:left;">
+2005-06-24
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:left;">
+C09AA06
+</td>
+<td style="text-align:right;">
+1934
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+02560075027
+</td>
+<td style="text-align:left;">
+01968N
+</td>
+<td style="text-align:left;">
+2006-10-22
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:left;">
+C09AA06
+</td>
+<td style="text-align:right;">
+1934
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+02560075027
+</td>
+<td style="text-align:left;">
+01968N
+</td>
+<td style="text-align:left;">
+2006-11-12
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:left;">
+C09AA06
+</td>
+<td style="text-align:right;">
+1934
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+02560075027
+</td>
+<td style="text-align:left;">
+01968N
+</td>
+<td style="text-align:left;">
+2006-05-06
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:left;">
+C09AA06
+</td>
+<td style="text-align:right;">
+1934
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+02560075027
+</td>
+<td style="text-align:left;">
+01968N
+</td>
+<td style="text-align:left;">
+2006-12-14
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:left;">
+C09AA06
+</td>
+<td style="text-align:right;">
+1934
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+02560075027
+</td>
+<td style="text-align:left;">
+01968N
+</td>
+<td style="text-align:left;">
+2006-04-12
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:left;">
+C09AA06
+</td>
+<td style="text-align:right;">
+1934
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+02560075027
+</td>
+<td style="text-align:left;">
+01968N
+</td>
+<td style="text-align:left;">
+2006-07-21
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:left;">
+C09AA06
+</td>
+<td style="text-align:right;">
+1934
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+02560075027
+</td>
+<td style="text-align:left;">
+01968N
+</td>
+<td style="text-align:left;">
+2006-06-18
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:left;">
+C09AA06
+</td>
+<td style="text-align:right;">
+1934
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+02560075027
+</td>
+<td style="text-align:left;">
+01968N
+</td>
+<td style="text-align:left;">
+2006-03-20
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:left;">
+C09AA06
+</td>
+<td style="text-align:right;">
+1934
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+02560075027
+</td>
+<td style="text-align:left;">
+01968N
+</td>
+<td style="text-align:left;">
+2006-09-27
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:left;">
+C09AA06
+</td>
+<td style="text-align:right;">
+1934
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+02560075027
+</td>
+<td style="text-align:left;">
+01968N
+</td>
+<td style="text-align:left;">
+2006-02-26
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:left;">
+C09AA06
+</td>
+<td style="text-align:right;">
+1934
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+02560075027
+</td>
+<td style="text-align:left;">
+01968N
+</td>
+<td style="text-align:left;">
+2006-01-09
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:left;">
+C09AA06
+</td>
+<td style="text-align:right;">
+1934
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+02560075027
+</td>
+<td style="text-align:left;">
+01968N
+</td>
+<td style="text-align:left;">
+2006-08-31
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:left;">
+C09AA06
+</td>
+<td style="text-align:right;">
+1934
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+02560075027
+</td>
+<td style="text-align:left;">
+01968N
+</td>
+<td style="text-align:left;">
+2007-01-05
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:left;">
+C09AA06
+</td>
+<td style="text-align:right;">
+1934
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+02560075027
+</td>
+<td style="text-align:left;">
+01968N
+</td>
+<td style="text-align:left;">
+2007-05-31
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:left;">
+C09AA06
+</td>
+<td style="text-align:right;">
+1934
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+02560075027
+</td>
+<td style="text-align:left;">
+01968N
+</td>
+<td style="text-align:left;">
+2007-07-25
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:left;">
+C09AA06
+</td>
+<td style="text-align:right;">
+1934
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+02560075027
+</td>
+<td style="text-align:left;">
+01969P
+</td>
+<td style="text-align:left;">
+2007-09-02
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:left;">
+C09AA06
+</td>
+<td style="text-align:right;">
+1934
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+02560075027
+</td>
+<td style="text-align:left;">
+01968N
+</td>
+<td style="text-align:left;">
+2007-11-23
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:left;">
+C09AA06
+</td>
+<td style="text-align:right;">
+1934
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+02560075027
+</td>
+<td style="text-align:left;">
+01969P
+</td>
+<td style="text-align:left;">
+2007-10-14
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:left;">
+C09AA06
+</td>
+<td style="text-align:right;">
+1934
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+02560075027
+</td>
+<td style="text-align:left;">
+01968N
+</td>
+<td style="text-align:left;">
+2007-03-31
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:left;">
+C09AA06
+</td>
+<td style="text-align:right;">
+1934
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+02560075027
+</td>
+<td style="text-align:left;">
+01968N
+</td>
+<td style="text-align:left;">
+2007-04-22
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:left;">
+C09AA06
+</td>
+<td style="text-align:right;">
+1934
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+02560075027
+</td>
+<td style="text-align:left;">
+01968N
+</td>
+<td style="text-align:left;">
+2007-12-20
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:left;">
+C09AA06
+</td>
+<td style="text-align:right;">
+1934
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+02560075027
+</td>
+<td style="text-align:left;">
+01968N
+</td>
+<td style="text-align:left;">
+2007-03-01
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:left;">
+C09AA06
+</td>
+<td style="text-align:right;">
+1934
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+02560075027
+</td>
+<td style="text-align:left;">
+01968N
+</td>
+<td style="text-align:left;">
+2008-05-31
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:left;">
+C09AA06
+</td>
+<td style="text-align:right;">
+1934
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+02560075027
+</td>
+<td style="text-align:left;">
+01968N
+</td>
+<td style="text-align:left;">
+2008-09-15
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:left;">
+C09AA06
+</td>
+<td style="text-align:right;">
+1934
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+02560075027
+</td>
+<td style="text-align:left;">
+01968N
+</td>
+<td style="text-align:left;">
+2008-10-16
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:left;">
+C09AA06
+</td>
+<td style="text-align:right;">
+1934
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+02560075027
+</td>
+<td style="text-align:left;">
+01968N
+</td>
+<td style="text-align:left;">
+2008-03-06
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:left;">
+C09AA06
+</td>
+<td style="text-align:right;">
+1934
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+02560075027
+</td>
+<td style="text-align:left;">
+01968N
+</td>
+<td style="text-align:left;">
+2008-02-15
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:left;">
+C09AA06
+</td>
+<td style="text-align:right;">
+1934
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+02560075027
+</td>
+<td style="text-align:left;">
+01968N
+</td>
+<td style="text-align:left;">
+2008-01-24
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:left;">
+C09AA06
+</td>
+<td style="text-align:right;">
+1934
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+02560075027
+</td>
+<td style="text-align:left;">
+01968N
+</td>
+<td style="text-align:left;">
+2008-11-16
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:left;">
+C09AA06
+</td>
+<td style="text-align:right;">
+1934
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+02560075027
+</td>
+<td style="text-align:left;">
+01968N
+</td>
+<td style="text-align:left;">
+2008-07-12
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:left;">
+C09AA06
+</td>
+<td style="text-align:right;">
+1934
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+02560075027
+</td>
+<td style="text-align:left;">
+01968N
+</td>
+<td style="text-align:left;">
+2008-04-02
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:left;">
+C09AA06
+</td>
+<td style="text-align:right;">
+1934
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+02560075027
+</td>
+<td style="text-align:left;">
+01968N
+</td>
+<td style="text-align:left;">
+2009-10-30
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:left;">
+C09AA06
+</td>
+<td style="text-align:right;">
+1934
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+02560075027
+</td>
+<td style="text-align:left;">
+01968N
+</td>
+<td style="text-align:left;">
+2009-03-19
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:left;">
+C09AA06
+</td>
+<td style="text-align:right;">
+1934
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+02560075027
+</td>
+<td style="text-align:left;">
+01968N
+</td>
+<td style="text-align:left;">
+2009-05-24
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:left;">
+C09AA06
+</td>
+<td style="text-align:right;">
+1934
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+02560075027
+</td>
+<td style="text-align:left;">
+01968N
+</td>
+<td style="text-align:left;">
+2009-09-09
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:left;">
+C09AA06
+</td>
+<td style="text-align:right;">
+1934
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+02560075027
+</td>
+<td style="text-align:left;">
+01968N
+</td>
+<td style="text-align:left;">
+2009-01-21
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:left;">
+C09AA06
+</td>
+<td style="text-align:right;">
+1934
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+02560075027
+</td>
+<td style="text-align:left;">
+01968N
+</td>
+<td style="text-align:left;">
+2009-07-24
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:left;">
+C09AA06
+</td>
+<td style="text-align:right;">
+1934
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+02560075027
+</td>
+<td style="text-align:left;">
+01968N
+</td>
+<td style="text-align:left;">
+2010-12-13
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:left;">
+C09AA06
+</td>
+<td style="text-align:right;">
+1934
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+02560075027
+</td>
+<td style="text-align:left;">
+01968N
+</td>
+<td style="text-align:left;">
+2010-05-02
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:left;">
+C09AA06
+</td>
+<td style="text-align:right;">
+1934
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+02560075027
+</td>
+<td style="text-align:left;">
+01968N
+</td>
+<td style="text-align:left;">
+2010-11-07
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:left;">
+C09AA06
+</td>
+<td style="text-align:right;">
+1934
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+02560075027
+</td>
+<td style="text-align:left;">
+01968N
+</td>
+<td style="text-align:left;">
+2010-01-14
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:left;">
+C09AA06
+</td>
+<td style="text-align:right;">
+1934
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+02560075027
+</td>
+<td style="text-align:left;">
+01968N
+</td>
+<td style="text-align:left;">
+2010-03-05
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:left;">
+C09AA06
+</td>
+<td style="text-align:right;">
+1934
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+02560075027
+</td>
+<td style="text-align:left;">
+01968N
+</td>
+<td style="text-align:left;">
+2010-07-17
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:left;">
+C09AA06
+</td>
+<td style="text-align:right;">
+1934
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+02560075027
+</td>
+<td style="text-align:left;">
+01968N
+</td>
+<td style="text-align:left;">
+2010-09-10
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:left;">
+C09AA06
+</td>
+<td style="text-align:right;">
+1934
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+02560075027
+</td>
+<td style="text-align:left;">
+01968N
+</td>
+<td style="text-align:left;">
+2010-12-31
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:left;">
+C09AA06
+</td>
+<td style="text-align:right;">
+1934
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+02560075027
+</td>
+<td style="text-align:left;">
+01968N
+</td>
+<td style="text-align:left;">
+2010-06-09
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:left;">
+C09AA06
+</td>
+<td style="text-align:right;">
+1934
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+02560075027
+</td>
+<td style="text-align:left;">
+01968N
+</td>
+<td style="text-align:left;">
+2010-10-08
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:left;">
+C09AA06
+</td>
+<td style="text-align:right;">
+1934
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+02560075027
+</td>
+<td style="text-align:left;">
+01968N
+</td>
+<td style="text-align:left;">
+2010-08-14
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:left;">
+C09AA06
+</td>
+<td style="text-align:right;">
+1934
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+02560075027
+</td>
+<td style="text-align:left;">
+01968N
+</td>
+<td style="text-align:left;">
+2011-05-15
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:left;">
+C09AA06
+</td>
+<td style="text-align:right;">
+1934
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+02560075027
+</td>
+<td style="text-align:left;">
+01968N
+</td>
+<td style="text-align:left;">
+2011-06-16
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:left;">
+C09AA06
+</td>
+<td style="text-align:right;">
+1934
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+02560075027
+</td>
+<td style="text-align:left;">
+01968N
+</td>
+<td style="text-align:left;">
+2011-10-15
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:left;">
+C09AA06
+</td>
+<td style="text-align:right;">
+1934
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+02560075027
+</td>
+<td style="text-align:left;">
+01968N
+</td>
+<td style="text-align:left;">
+2011-08-18
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:left;">
+C09AA06
+</td>
+<td style="text-align:right;">
+1934
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+02560075027
+</td>
+<td style="text-align:left;">
+01968N
+</td>
+<td style="text-align:left;">
+2011-03-02
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:left;">
+C09AA06
+</td>
+<td style="text-align:right;">
+1934
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+02560075027
+</td>
+<td style="text-align:left;">
+01968N
+</td>
+<td style="text-align:left;">
+2011-04-15
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:left;">
+C09AA06
+</td>
+<td style="text-align:right;">
+1934
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+02560075027
+</td>
+<td style="text-align:left;">
+01968N
+</td>
+<td style="text-align:left;">
+2011-01-30
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:left;">
+C09AA06
+</td>
+<td style="text-align:right;">
+1934
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+04811939023
+</td>
+<td style="text-align:left;">
+03145M
+</td>
+<td style="text-align:left;">
+2003-06-21
+</td>
+<td style="text-align:right;">
+100
+</td>
+<td style="text-align:left;">
+C02AC01
+</td>
+<td style="text-align:right;">
+1997
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+04811939023
+</td>
+<td style="text-align:left;">
+02565B
+</td>
+<td style="text-align:left;">
+2009-10-12
+</td>
+<td style="text-align:right;">
+100
+</td>
+<td style="text-align:left;">
+C07AA05
+</td>
+<td style="text-align:right;">
+1997
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+09203546415
+</td>
+<td style="text-align:left;">
+02751T
+</td>
+<td style="text-align:left;">
+2009-11-14
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:left;">
+C08CA01
+</td>
+<td style="text-align:right;">
+1938
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+09203546415
+</td>
+<td style="text-align:left;">
+01324Q
+</td>
+<td style="text-align:left;">
+2009-12-12
+</td>
+<td style="text-align:right;">
+100
+</td>
+<td style="text-align:left;">
+C07AB02
+</td>
+<td style="text-align:right;">
+1938
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+09203546415
+</td>
+<td style="text-align:left;">
+09008D
+</td>
+<td style="text-align:left;">
+2009-12-12
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:left;">
+C09AA04
+</td>
+<td style="text-align:right;">
+1938
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+09203546415
+</td>
+<td style="text-align:left;">
+09008D
+</td>
+<td style="text-align:left;">
+2009-11-14
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:left;">
+C09AA04
+</td>
+<td style="text-align:right;">
+1938
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+09203546415
+</td>
+<td style="text-align:left;">
+02751T
+</td>
+<td style="text-align:left;">
+2009-12-12
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:left;">
+C08CA01
+</td>
+<td style="text-align:right;">
+1938
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+09203546415
+</td>
+<td style="text-align:left;">
+01324Q
+</td>
+<td style="text-align:left;">
+2010-07-13
+</td>
+<td style="text-align:right;">
+100
+</td>
+<td style="text-align:left;">
+C07AB02
+</td>
+<td style="text-align:right;">
+1938
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+09203546415
+</td>
+<td style="text-align:left;">
+02751T
+</td>
+<td style="text-align:left;">
+2010-04-18
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:left;">
+C08CA01
+</td>
+<td style="text-align:right;">
+1938
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+09203546415
+</td>
+<td style="text-align:left;">
+03050M
+</td>
+<td style="text-align:left;">
+2010-01-24
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:left;">
+C09AA04
+</td>
+<td style="text-align:right;">
+1938
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+09203546415
+</td>
+<td style="text-align:left;">
+09008D
+</td>
+<td style="text-align:left;">
+2010-06-01
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:left;">
+C09AA04
+</td>
+<td style="text-align:right;">
+1938
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+09203546415
+</td>
+<td style="text-align:left;">
+01324Q
+</td>
+<td style="text-align:left;">
+2010-02-09
+</td>
+<td style="text-align:right;">
+100
+</td>
+<td style="text-align:left;">
+C07AB02
+</td>
+<td style="text-align:right;">
+1938
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+09203546415
+</td>
+<td style="text-align:left;">
+09008D
+</td>
+<td style="text-align:left;">
+2010-04-01
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:left;">
+C09AA04
+</td>
+<td style="text-align:right;">
+1938
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+09203546415
+</td>
+<td style="text-align:left;">
+09008D
+</td>
+<td style="text-align:left;">
+2010-01-13
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:left;">
+C09AA04
+</td>
+<td style="text-align:right;">
+1938
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+09203546415
+</td>
+<td style="text-align:left;">
+02751T
+</td>
+<td style="text-align:left;">
+2010-02-18
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:left;">
+C08CA01
+</td>
+<td style="text-align:right;">
+1938
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+09203546415
+</td>
+<td style="text-align:left;">
+09008D
+</td>
+<td style="text-align:left;">
+2010-07-30
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:left;">
+C09AA04
+</td>
+<td style="text-align:right;">
+1938
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+09203546415
+</td>
+<td style="text-align:left;">
+01324Q
+</td>
+<td style="text-align:left;">
+2010-12-12
+</td>
+<td style="text-align:right;">
+100
+</td>
+<td style="text-align:left;">
+C07AB02
+</td>
+<td style="text-align:right;">
+1938
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+09203546415
+</td>
+<td style="text-align:left;">
+01324Q
+</td>
+<td style="text-align:left;">
+2010-09-02
+</td>
+<td style="text-align:right;">
+100
+</td>
+<td style="text-align:left;">
+C07AB02
+</td>
+<td style="text-align:right;">
+1938
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+09203546415
+</td>
+<td style="text-align:left;">
+01324Q
+</td>
+<td style="text-align:left;">
+2010-10-21
+</td>
+<td style="text-align:right;">
+100
+</td>
+<td style="text-align:left;">
+C07AB02
+</td>
+<td style="text-align:right;">
+1938
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+09203546415
+</td>
+<td style="text-align:left;">
+09008D
+</td>
+<td style="text-align:left;">
+2010-12-23
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:left;">
+C09AA04
+</td>
+<td style="text-align:right;">
+1938
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+09203546415
+</td>
+<td style="text-align:left;">
+02751T
+</td>
+<td style="text-align:left;">
+2010-01-13
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:left;">
+C08CA01
+</td>
+<td style="text-align:right;">
+1938
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+09203546415
+</td>
+<td style="text-align:left;">
+01324Q
+</td>
+<td style="text-align:left;">
+2010-04-01
+</td>
+<td style="text-align:right;">
+100
+</td>
+<td style="text-align:left;">
+C07AB02
+</td>
+<td style="text-align:right;">
+1938
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+09203546415
+</td>
+<td style="text-align:left;">
+09008D
+</td>
+<td style="text-align:left;">
+2010-11-19
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:left;">
+C09AA04
+</td>
+<td style="text-align:right;">
+1938
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+09203546415
+</td>
+<td style="text-align:left;">
+09008D
+</td>
+<td style="text-align:left;">
+2010-10-21
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:left;">
+C09AA04
+</td>
+<td style="text-align:right;">
+1938
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+09203546415
+</td>
+<td style="text-align:left;">
+01324Q
+</td>
+<td style="text-align:left;">
+2010-05-20
+</td>
+<td style="text-align:right;">
+100
+</td>
+<td style="text-align:left;">
+C07AB02
+</td>
+<td style="text-align:right;">
+1938
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+09203546415
+</td>
+<td style="text-align:left;">
+09008D
+</td>
+<td style="text-align:left;">
+2010-09-19
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:left;">
+C09AA04
+</td>
+<td style="text-align:right;">
+1938
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+09203546415
+</td>
+<td style="text-align:left;">
+02751T
+</td>
+<td style="text-align:left;">
+2010-03-21
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:left;">
+C08CA01
+</td>
+<td style="text-align:right;">
+1938
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+09203546415
+</td>
+<td style="text-align:left;">
+01324Q
+</td>
+<td style="text-align:left;">
+2011-08-21
+</td>
+<td style="text-align:right;">
+100
+</td>
+<td style="text-align:left;">
+C07AB02
+</td>
+<td style="text-align:right;">
+1938
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+09203546415
+</td>
+<td style="text-align:left;">
+09008D
+</td>
+<td style="text-align:left;">
+2011-01-21
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:left;">
+C09AA04
+</td>
+<td style="text-align:right;">
+1938
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+09203546415
+</td>
+<td style="text-align:left;">
+09008D
+</td>
+<td style="text-align:left;">
+2011-12-14
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:left;">
+C09AA04
+</td>
+<td style="text-align:right;">
+1938
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+09203546415
+</td>
+<td style="text-align:left;">
+01324Q
+</td>
+<td style="text-align:left;">
+2011-02-01
+</td>
+<td style="text-align:right;">
+100
+</td>
+<td style="text-align:left;">
+C07AB02
+</td>
+<td style="text-align:right;">
+1938
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+09203546415
+</td>
+<td style="text-align:left;">
+09008D
+</td>
+<td style="text-align:left;">
+2011-11-16
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:left;">
+C09AA04
+</td>
+<td style="text-align:right;">
+1938
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+09203546415
+</td>
+<td style="text-align:left;">
+09008D
+</td>
+<td style="text-align:left;">
+2011-10-18
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:left;">
+C09AA04
+</td>
+<td style="text-align:right;">
+1938
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+09203546415
+</td>
+<td style="text-align:left;">
+01324Q
+</td>
+<td style="text-align:left;">
+2011-10-11
+</td>
+<td style="text-align:right;">
+100
+</td>
+<td style="text-align:left;">
+C07AB02
+</td>
+<td style="text-align:right;">
+1938
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+09203546415
+</td>
+<td style="text-align:left;">
+09008D
+</td>
+<td style="text-align:left;">
+2011-09-18
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:left;">
+C09AA04
+</td>
+<td style="text-align:right;">
+1938
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+09203546415
+</td>
+<td style="text-align:left;">
+09008D
+</td>
+<td style="text-align:left;">
+2011-08-18
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:left;">
+C09AA04
+</td>
+<td style="text-align:right;">
+1938
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+09203546415
+</td>
+<td style="text-align:left;">
+09008D
+</td>
+<td style="text-align:left;">
+2011-05-24
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:left;">
+C09AA04
+</td>
+<td style="text-align:right;">
+1938
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+09203546415
+</td>
+<td style="text-align:left;">
+09008D
+</td>
+<td style="text-align:left;">
+2011-04-22
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:left;">
+C09AA04
+</td>
+<td style="text-align:right;">
+1938
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+09203546415
+</td>
+<td style="text-align:left;">
+09008D
+</td>
+<td style="text-align:left;">
+2011-03-24
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:left;">
+C09AA04
+</td>
+<td style="text-align:right;">
+1938
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+09203546415
+</td>
+<td style="text-align:left;">
+01324Q
+</td>
+<td style="text-align:left;">
+2011-03-22
+</td>
+<td style="text-align:right;">
+100
+</td>
+<td style="text-align:left;">
+C07AB02
+</td>
+<td style="text-align:right;">
+1938
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+09203546415
+</td>
+<td style="text-align:left;">
+09008D
+</td>
+<td style="text-align:left;">
+2011-02-18
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:left;">
+C09AA04
+</td>
+<td style="text-align:right;">
+1938
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+09203546415
+</td>
+<td style="text-align:left;">
+01324Q
+</td>
+<td style="text-align:left;">
+2011-11-29
+</td>
+<td style="text-align:right;">
+100
+</td>
+<td style="text-align:left;">
+C07AB02
+</td>
+<td style="text-align:right;">
+1938
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+09203546415
+</td>
+<td style="text-align:left;">
+01324Q
+</td>
+<td style="text-align:left;">
+2011-05-12
+</td>
+<td style="text-align:right;">
+100
+</td>
+<td style="text-align:left;">
+C07AB02
+</td>
+<td style="text-align:right;">
+1938
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+09203546415
+</td>
+<td style="text-align:left;">
+09008D
+</td>
+<td style="text-align:left;">
+2011-06-23
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:left;">
+C09AA04
+</td>
+<td style="text-align:right;">
+1938
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+09203546415
+</td>
+<td style="text-align:left;">
+09008D
+</td>
+<td style="text-align:left;">
+2011-07-21
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:left;">
+C09AA04
+</td>
+<td style="text-align:right;">
+1938
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+09203546415
+</td>
+<td style="text-align:left;">
+09008D
+</td>
+<td style="text-align:left;">
+2012-03-11
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:left;">
+C09AA04
+</td>
+<td style="text-align:right;">
+1938
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+09203546415
+</td>
+<td style="text-align:left;">
+09008D
+</td>
+<td style="text-align:left;">
+2012-01-13
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:left;">
+C09AA04
+</td>
+<td style="text-align:right;">
+1938
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+09203546415
+</td>
+<td style="text-align:left;">
+01324Q
+</td>
+<td style="text-align:left;">
+2012-03-09
+</td>
+<td style="text-align:right;">
+100
+</td>
+<td style="text-align:left;">
+C07AB02
+</td>
+<td style="text-align:right;">
+1938
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+09203546415
+</td>
+<td style="text-align:left;">
+08704D
+</td>
+<td style="text-align:left;">
+2012-11-08
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:left;">
+C09AA04
+</td>
+<td style="text-align:right;">
+1938
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+09203546415
+</td>
+<td style="text-align:left;">
+08704D
+</td>
+<td style="text-align:left;">
+2012-09-09
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:left;">
+C09AA04
+</td>
+<td style="text-align:right;">
+1938
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+09203546415
+</td>
+<td style="text-align:left;">
+08704D
+</td>
+<td style="text-align:left;">
+2012-02-12
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:left;">
+C09AA04
+</td>
+<td style="text-align:right;">
+1938
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+09203546415
+</td>
+<td style="text-align:left;">
+01324Q
+</td>
+<td style="text-align:left;">
+2012-08-09
+</td>
+<td style="text-align:right;">
+100
+</td>
+<td style="text-align:left;">
+C07AB02
+</td>
+<td style="text-align:right;">
+1938
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+09203546415
+</td>
+<td style="text-align:left;">
+09008D
+</td>
+<td style="text-align:left;">
+2012-06-12
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:left;">
+C09AA04
+</td>
+<td style="text-align:right;">
+1938
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+09203546415
+</td>
+<td style="text-align:left;">
+01324Q
+</td>
+<td style="text-align:left;">
+2012-06-21
+</td>
+<td style="text-align:right;">
+100
+</td>
+<td style="text-align:left;">
+C07AB02
+</td>
+<td style="text-align:right;">
+1938
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+09203546415
+</td>
+<td style="text-align:left;">
+09008D
+</td>
+<td style="text-align:left;">
+2012-05-12
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:left;">
+C09AA04
+</td>
+<td style="text-align:right;">
+1938
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+09203546415
+</td>
+<td style="text-align:left;">
+09008D
+</td>
+<td style="text-align:left;">
+2012-04-12
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:left;">
+C09AA04
+</td>
+<td style="text-align:right;">
+1938
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+09203546415
+</td>
+<td style="text-align:left;">
+08704D
+</td>
+<td style="text-align:left;">
+2012-12-09
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:left;">
+C09AA04
+</td>
+<td style="text-align:right;">
+1938
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+09203546415
+</td>
+<td style="text-align:left;">
+01324Q
+</td>
+<td style="text-align:left;">
+2012-11-18
+</td>
+<td style="text-align:right;">
+100
+</td>
+<td style="text-align:left;">
+C07AB02
+</td>
+<td style="text-align:right;">
+1938
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+09203546415
+</td>
+<td style="text-align:left;">
+01324Q
+</td>
+<td style="text-align:left;">
+2012-01-20
+</td>
+<td style="text-align:right;">
+100
+</td>
+<td style="text-align:left;">
+C07AB02
+</td>
+<td style="text-align:right;">
+1938
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+09203546415
+</td>
+<td style="text-align:left;">
+08704D
+</td>
+<td style="text-align:left;">
+2012-10-11
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:left;">
+C09AA04
+</td>
+<td style="text-align:right;">
+1938
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+09203546415
+</td>
+<td style="text-align:left;">
+01324Q
+</td>
+<td style="text-align:left;">
+2012-09-30
+</td>
+<td style="text-align:right;">
+100
+</td>
+<td style="text-align:left;">
+C07AB02
+</td>
+<td style="text-align:right;">
+1938
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+09203546415
+</td>
+<td style="text-align:left;">
+08704D
+</td>
+<td style="text-align:left;">
+2012-08-13
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:left;">
+C09AA04
+</td>
+<td style="text-align:right;">
+1938
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+09203546415
+</td>
+<td style="text-align:left;">
+09008D
+</td>
+<td style="text-align:left;">
+2012-07-13
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:left;">
+C09AA04
+</td>
+<td style="text-align:right;">
+1938
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+09203546415
+</td>
+<td style="text-align:left;">
+01324Q
+</td>
+<td style="text-align:left;">
+2012-04-29
+</td>
+<td style="text-align:right;">
+100
+</td>
+<td style="text-align:left;">
+C07AB02
+</td>
+<td style="text-align:right;">
+1938
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+09203546415
+</td>
+<td style="text-align:left;">
+08704D
+</td>
+<td style="text-align:left;">
+2013-05-05
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:left;">
+C09AA04
+</td>
+<td style="text-align:right;">
+1938
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+09203546415
+</td>
+<td style="text-align:left;">
+08704D
+</td>
+<td style="text-align:left;">
+2013-03-07
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:left;">
+C09AA04
+</td>
+<td style="text-align:right;">
+1938
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+09203546415
+</td>
+<td style="text-align:left;">
+09008D
+</td>
+<td style="text-align:left;">
+2013-10-31
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:left;">
+C09AA04
+</td>
+<td style="text-align:right;">
+1938
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+09203546415
+</td>
+<td style="text-align:left;">
+01324Q
+</td>
+<td style="text-align:left;">
+2013-06-07
+</td>
+<td style="text-align:right;">
+100
+</td>
+<td style="text-align:left;">
+C07AB02
+</td>
+<td style="text-align:right;">
+1938
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+09203546415
+</td>
+<td style="text-align:left;">
+01324Q
+</td>
+<td style="text-align:left;">
+2013-12-24
+</td>
+<td style="text-align:right;">
+100
+</td>
+<td style="text-align:left;">
+C07AB02
+</td>
+<td style="text-align:right;">
+1938
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+09203546415
+</td>
+<td style="text-align:left;">
+01324Q
+</td>
+<td style="text-align:left;">
+2013-02-26
+</td>
+<td style="text-align:right;">
+100
+</td>
+<td style="text-align:left;">
+C07AB02
+</td>
+<td style="text-align:right;">
+1938
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+09203546415
+</td>
+<td style="text-align:left;">
+09008D
+</td>
+<td style="text-align:left;">
+2013-08-29
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:left;">
+C09AA04
+</td>
+<td style="text-align:right;">
+1938
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+09203546415
+</td>
+<td style="text-align:left;">
+08704D
+</td>
+<td style="text-align:left;">
+2013-01-06
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:left;">
+C09AA04
+</td>
+<td style="text-align:right;">
+1938
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+09203546415
+</td>
+<td style="text-align:left;">
+01324Q
+</td>
+<td style="text-align:left;">
+2013-12-29
+</td>
+<td style="text-align:right;">
+100
+</td>
+<td style="text-align:left;">
+C07AB02
+</td>
+<td style="text-align:right;">
+1938
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+09203546415
+</td>
+<td style="text-align:left;">
+01324Q
+</td>
+<td style="text-align:left;">
+2013-01-06
+</td>
+<td style="text-align:right;">
+100
+</td>
+<td style="text-align:left;">
+C07AB02
+</td>
+<td style="text-align:right;">
+1938
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+09203546415
+</td>
+<td style="text-align:left;">
+08704D
+</td>
+<td style="text-align:left;">
+2013-06-04
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:left;">
+C09AA04
+</td>
+<td style="text-align:right;">
+1938
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+09203546415
+</td>
+<td style="text-align:left;">
+09008D
+</td>
+<td style="text-align:left;">
+2013-10-01
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:left;">
+C09AA04
+</td>
+<td style="text-align:right;">
+1938
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+09203546415
+</td>
+<td style="text-align:left;">
+09008D
+</td>
+<td style="text-align:left;">
+2013-08-01
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:left;">
+C09AA04
+</td>
+<td style="text-align:right;">
+1938
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+09203546415
+</td>
+<td style="text-align:left;">
+09008D
+</td>
+<td style="text-align:left;">
+2013-11-28
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:left;">
+C09AA04
+</td>
+<td style="text-align:right;">
+1938
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+09203546415
+</td>
+<td style="text-align:left;">
+08704D
+</td>
+<td style="text-align:left;">
+2013-04-04
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:left;">
+C09AA04
+</td>
+<td style="text-align:right;">
+1938
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+09203546415
+</td>
+<td style="text-align:left;">
+01324Q
+</td>
+<td style="text-align:left;">
+2013-04-18
+</td>
+<td style="text-align:right;">
+100
+</td>
+<td style="text-align:left;">
+C07AB02
+</td>
+<td style="text-align:right;">
+1938
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+09203546415
+</td>
+<td style="text-align:left;">
+08704D
+</td>
+<td style="text-align:left;">
+2013-02-07
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:left;">
+C09AA04
+</td>
+<td style="text-align:right;">
+1938
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+09203546415
+</td>
+<td style="text-align:left;">
+01324Q
+</td>
+<td style="text-align:left;">
+2013-07-25
+</td>
+<td style="text-align:right;">
+100
+</td>
+<td style="text-align:left;">
+C07AB02
+</td>
+<td style="text-align:right;">
+1938
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+09203546415
+</td>
+<td style="text-align:left;">
+08704D
+</td>
+<td style="text-align:left;">
+2013-12-29
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:left;">
+C09AA04
+</td>
+<td style="text-align:right;">
+1938
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+09203546415
+</td>
+<td style="text-align:left;">
+01324Q
+</td>
+<td style="text-align:left;">
+2013-09-15
+</td>
+<td style="text-align:right;">
+100
+</td>
+<td style="text-align:left;">
+C07AB02
+</td>
+<td style="text-align:right;">
+1938
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+09203546415
+</td>
+<td style="text-align:left;">
+08704D
+</td>
+<td style="text-align:left;">
+2014-02-09
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:left;">
+C09AA04
+</td>
+<td style="text-align:right;">
+1938
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+09203546415
+</td>
+<td style="text-align:left;">
+08704D
+</td>
+<td style="text-align:left;">
+2014-04-27
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:left;">
+C09AA04
+</td>
+<td style="text-align:right;">
+1938
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+09203546415
+</td>
+<td style="text-align:left;">
+01324Q
+</td>
+<td style="text-align:left;">
+2014-04-03
+</td>
+<td style="text-align:right;">
+100
+</td>
+<td style="text-align:left;">
+C07AB02
+</td>
+<td style="text-align:right;">
+1938
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+09203546415
+</td>
+<td style="text-align:left;">
+08704D
+</td>
+<td style="text-align:left;">
+2014-06-22
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:left;">
+C09AA04
+</td>
+<td style="text-align:right;">
+1938
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+09203546415
+</td>
+<td style="text-align:left;">
+08704D
+</td>
+<td style="text-align:left;">
+2014-09-26
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:left;">
+C09AA04
+</td>
+<td style="text-align:right;">
+1938
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+09203546415
+</td>
+<td style="text-align:left;">
+08704D
+</td>
+<td style="text-align:left;">
+2014-07-25
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:left;">
+C09AA04
+</td>
+<td style="text-align:right;">
+1938
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+09203546415
+</td>
+<td style="text-align:left;">
+08704D
+</td>
+<td style="text-align:left;">
+2014-11-14
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:left;">
+C09AA04
+</td>
+<td style="text-align:right;">
+1938
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+09203546415
+</td>
+<td style="text-align:left;">
+08704D
+</td>
+<td style="text-align:left;">
+2014-12-23
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:left;">
+C09AA04
+</td>
+<td style="text-align:right;">
+1938
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+09203546415
+</td>
+<td style="text-align:left;">
+08704D
+</td>
+<td style="text-align:left;">
+2014-05-25
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:left;">
+C09AA04
+</td>
+<td style="text-align:right;">
+1938
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+09203546415
+</td>
+<td style="text-align:left;">
+08604W
+</td>
+<td style="text-align:left;">
+2014-05-11
+</td>
+<td style="text-align:right;">
+28
+</td>
+<td style="text-align:left;">
+C07AB07
+</td>
+<td style="text-align:right;">
+1938
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+09203546415
+</td>
+<td style="text-align:left;">
+08704D
+</td>
+<td style="text-align:left;">
+2014-03-27
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:left;">
+C09AA04
+</td>
+<td style="text-align:right;">
+1938
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+09203546415
+</td>
+<td style="text-align:left;">
+01324Q
+</td>
+<td style="text-align:left;">
+2014-02-11
+</td>
+<td style="text-align:right;">
+100
+</td>
+<td style="text-align:left;">
+C07AB02
+</td>
+<td style="text-align:right;">
+1938
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+09203546415
+</td>
+<td style="text-align:left;">
+08704D
+</td>
+<td style="text-align:left;">
+2014-10-24
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:left;">
+C09AA04
+</td>
+<td style="text-align:right;">
+1938
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+09203546415
+</td>
+<td style="text-align:left;">
+08704D
+</td>
+<td style="text-align:left;">
+2014-01-28
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:left;">
+C09AA04
+</td>
+<td style="text-align:right;">
+1938
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+09203546415
+</td>
+<td style="text-align:left;">
+08704D
+</td>
+<td style="text-align:left;">
+2014-08-24
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:left;">
+C09AA04
+</td>
+<td style="text-align:right;">
+1938
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+04267135292
+</td>
+<td style="text-align:left;">
+09007C
+</td>
+<td style="text-align:left;">
+2012-12-19
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:left;">
+C09AA04
+</td>
+<td style="text-align:right;">
+1966
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+04267135292
+</td>
+<td style="text-align:left;">
+09007C
+</td>
+<td style="text-align:left;">
+2012-11-22
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:left;">
+C09AA04
+</td>
+<td style="text-align:right;">
+1966
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+04267135292
+</td>
+<td style="text-align:left;">
+09007C
+</td>
+<td style="text-align:left;">
+2012-07-21
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:left;">
+C09AA04
+</td>
+<td style="text-align:right;">
+1966
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+04267135292
+</td>
+<td style="text-align:left;">
+09007C
+</td>
+<td style="text-align:left;">
+2012-08-15
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:left;">
+C09AA04
+</td>
+<td style="text-align:right;">
+1966
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+04267135292
+</td>
+<td style="text-align:left;">
+09007C
+</td>
+<td style="text-align:left;">
+2012-10-23
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:left;">
+C09AA04
+</td>
+<td style="text-align:right;">
+1966
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+04267135292
+</td>
+<td style="text-align:left;">
+09007C
+</td>
+<td style="text-align:left;">
+2012-09-20
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:left;">
+C09AA04
+</td>
+<td style="text-align:right;">
+1966
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+04267135292
+</td>
+<td style="text-align:left;">
+09007C
+</td>
+<td style="text-align:left;">
+2013-02-14
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:left;">
+C09AA04
+</td>
+<td style="text-align:right;">
+1966
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+04267135292
+</td>
+<td style="text-align:left;">
+09007C
+</td>
+<td style="text-align:left;">
+2013-08-14
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:left;">
+C09AA04
+</td>
+<td style="text-align:right;">
+1966
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+04267135292
+</td>
+<td style="text-align:left;">
+09007C
+</td>
+<td style="text-align:left;">
+2013-01-02
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:left;">
+C09AA04
+</td>
+<td style="text-align:right;">
+1966
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+04267135292
+</td>
+<td style="text-align:left;">
+09007C
+</td>
+<td style="text-align:left;">
+2013-12-30
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:left;">
+C09AA04
+</td>
+<td style="text-align:right;">
+1966
+</td>
+</tr>
+</tbody>
+</table>
 </div>
 <div id="session-information" class="section level2">
 <h2>Session information</h2>
 <pre class="r"><code>sessionInfo()</code></pre>
 <pre><code>R version 3.5.1 (2018-07-02)
 Platform: x86_64-apple-darwin15.6.0 (64-bit)
-Running under: macOS High Sierra 10.13.6
+Running under: macOS  10.14
 
 Matrix products: default
 BLAS: /Library/Frameworks/R.framework/Versions/3.5/Resources/lib/libRblas.0.dylib
@@ -545,20 +4604,20 @@ loaded via a namespace (and not attached):
  [1] Rcpp_0.12.18      lattice_0.20-35   assertthat_0.2.0 
  [4] rprojroot_1.3-2   digest_0.6.16     cellranger_1.1.0 
  [7] R6_2.2.2          plyr_1.8.4        backports_1.1.2  
-[10] evaluate_0.11     httr_1.3.1        pillar_1.3.0     
-[13] rlang_0.2.2       lazyeval_0.2.1    curl_3.2         
-[16] readxl_1.1.0      rstudioapi_0.7    whisker_0.3-2    
-[19] R.utils_2.6.0     R.oo_1.22.0       rmarkdown_1.10   
-[22] munsell_0.5.0     broom_0.5.0       compiler_3.5.1   
-[25] modelr_0.1.2      pkgconfig_2.0.2   htmltools_0.3.6  
-[28] tidyselect_0.2.4  viridisLite_0.3.0 crayon_1.3.4     
-[31] withr_2.1.2       R.methodsS3_1.7.1 grid_3.5.1       
-[34] nlme_3.1-137      jsonlite_1.5      gtable_0.2.0     
-[37] git2r_0.23.0      scales_1.0.0      cli_1.0.0        
-[40] bindrcpp_0.2.2    xml2_1.2.0        tools_3.5.1      
-[43] glue_1.3.0        hms_0.4.2         yaml_2.2.0       
-[46] colorspace_1.3-2  rvest_0.3.2       memoise_1.1.0    
-[49] bindr_0.1.1       haven_1.1.2      </code></pre>
+[10] evaluate_0.11     highr_0.7         httr_1.3.1       
+[13] pillar_1.3.0      rlang_0.2.2       lazyeval_0.2.1   
+[16] curl_3.2          readxl_1.1.0      rstudioapi_0.7   
+[19] whisker_0.3-2     R.utils_2.6.0     R.oo_1.22.0      
+[22] rmarkdown_1.10    munsell_0.5.0     broom_0.5.0      
+[25] compiler_3.5.1    modelr_0.1.2      pkgconfig_2.0.2  
+[28] htmltools_0.3.6   tidyselect_0.2.4  viridisLite_0.3.0
+[31] crayon_1.3.4      withr_2.1.2       R.methodsS3_1.7.1
+[34] grid_3.5.1        nlme_3.1-137      jsonlite_1.5     
+[37] gtable_0.2.0      git2r_0.23.0      scales_1.0.0     
+[40] cli_1.0.0         bindrcpp_0.2.2    xml2_1.2.0       
+[43] tools_3.5.1       glue_1.3.0        hms_0.4.2        
+[46] yaml_2.2.0        colorspace_1.3-2  rvest_0.3.2      
+[49] memoise_1.1.0     bindr_0.1.1       haven_1.1.2      </code></pre>
 </div>
 
 <!-- Adjust MathJax settings so that all math formulae are shown using

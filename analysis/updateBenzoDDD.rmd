@@ -41,17 +41,17 @@ benzo %>%
   { . } -> final
 
 
-library(RPostgreSQL)
-drv <- dbDriver("PostgreSQL")
-con <- dbConnect(drv, user='dewoller', dbname='mofi', host='localhost', password = Sys.getenv("PSSWD"))
+#library(RPostgreSQL)
+#drv <- dbDriver("PostgreSQL")
+#con <- dbConnect(drv, user='dewoller', dbname='mofi', host='localhost', password = Sys.getenv("PSSWD"))
 
 table_name = "newDDD"
 # Drop table if it already exists
-if (dbExistsTable(con, table_name))
-    dbRemoveTable(con, table_name)
+#if (dbExistsTable(con, table_name))
+#    dbRemoveTable(con, table_name)
 
 # Write the data frame to the database
-dbWriteTable(con, name = table_name, value = final, row.names = FALSE)
+#dbWriteTable(con, name = table_name, value = final, row.names = FALSE)
 
 
 sql = '

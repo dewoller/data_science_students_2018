@@ -1,0 +1,358 @@
+---
+title: "DrugDrug Interaction from BNF"
+author: Dennis Wollersheim / Prabin Thakur
+output:
+  workflowr::wflow_html
+---
+
+```{r loadlibrary,message=FALSE}
+
+source('lib/function.R')
+
+```
+#Introduction
+
+The BNF (British National Formularies) is an independent professional publication that is kept up-to-date and addresses the day-to-day prescribing information needs of healthcare professionals. Use of this resource throughout the health service helps to ensure that medicines are used safely, effectively, and appropriately. 
+
+The BNF publication contain the Drug-Drug Interactions, which implies that two or more drugs given at same time may exert their effects either independently or may interact. Drug interaction may be pharmacodynamic or pharmacokinetic.
+
+Pharmacodynamic Interactions between drugs have similar or antagonistic pharmacological effects or side-effects. They may be due to competition at receptor sites or occur between drugs acting on the same physiological system.
+
+Pharmacokinetic Interactions occurs when one drug alters the absorption, distribution, metabolism, or excretion of another, thus increasing or reducing the amount of the drug available to produce its pharmacological effects. Pharmacokinetic interactions occurring with one drug cannot be assumed to occur with related drugs unless their pharmacokinetic properties are known to be similar.
+
+In our project, we have Australian Health data (PBS: PHARMACEUTICAL BENEFITS SYSTEM) over 10 years, where patients have been prescribed with number of medicines over their treatment phase. Our goal is to find the interaction of drugs which have adverse effect with each other.
+
+#Project Scope
+The aim of the following project is to conduct an analysis on drug-drug interactions which patients are taking or prescribed by the doctor for their treatment. During the analysis, if we encounter any details of adverse interaction, then we report those to Medicines and Healthcare products Regulatory Agency. 
+
+#METHODOLOGY
+  1) Dataset
+  
+Data for our project is obtained from PBS which is over a period of 10 years from 2004 to 2014. The dataset contains all demographic details like age, gender, marital status etc. It also includes all the details of prescribed medicines for a patient which includes, start_date of medicine, dose quantity, pbs_code, atc_code of the drugs name or the name of the group of which a particular drug belongs to. All of these details are stored in a PostGreSql database server.
+
+
+  2) Defining potentially serious drug-drug interactions (DDIs)
+  
+We examined the frequency of DDIs, defined as co-prescription within the 7-day period of pairs of drugs that were listed as having ‘potentially serious’ DDIs.
+
+  3) Defining BNF drugs
+  
+Drug classes were defined in terms of subsections of the British National Formulary (BNF), which contains the effects of drugs with each other. In the paper version of the BNF, these interactions are emphasised to prescribers by flagging them with a ‘black solid dot’, and by colour coding them in green. We extracted only those drugs which have a bad interaction with each other and stored them into our database server.
+
+The BNF file which was in pdf format, we first filtered and replaced those drugs name 
+(i.e, Panadole -> ####Panadole%%%%) and converted the pdf file into text file.
+After conversion, we wrote a regular expression script in Perl to only extract the drugs name. Each drugs were having adverse interactions with some other multiple drugs. For example, 
+
+Abacavir	-> RIBAVIRIN ; Abacavir	-> TIPRANAVIR; Abacavir -> ORLISTAT. Also Tipranavir -> CLARITHROMYCIN ; Tipranavir ->	RIFABUTIN ;Tipranavir	-> RIFAMPICIN.
+
+The detail structure of pdf file to text file and further in our analysis is shown below:
+
+```{r prepare_data}
+
+read.table( 'data/drug_interactions.txt', sep='\t',header = FALSE) %>%
+  as.tibble() %>% 
+  mutate(V1=str_trim(str_to_upper(V1))) %>%
+  mutate(V2=str_trim(str_to_upper(V2))) %>%
+  rename(drug1=V1,drug2=V2) %>%
+{ . } -> drug_drug_concordance
+
+head(drug_drug_concordance)
+```
+
+
+# Methods
+# Get the final list of BNF drugs
+  
+Find all distinct drugs on both sides of interactions list
+
+```{r}
+drug_drug_concordance %>% 
+  select(drug1) %>%
+  bind_rows(drug_drug_concordance %>% select(drug2)) %>%
+  distinct(drug2) %>%
+  {.} -> final_drugs
+head(final_drugs)
+```
+# Get the final list of PBS drugs
+We need to get the list of PBS drugs. With our data set, we have 2 main tables "pbs_item" and "pbs_atc". 
+
+"pbs_item" table contains the pbs code,atc_code & drug name whereas "pbs_atc" contains the atc_code and atc_meaning of the drugs. so, first we find the list of PBS drugs by joining these 2 tables. 
+
+```{r Getting main table of pbs drugs}
+my_db_get_query('Select * from pbs_item RIGHT JOIN pbs_atc USING (atc_code)')%>%
+  as.tibble()%>%
+  mutate(drug_name = str_trim(drug_name)) %>%
+  mutate(atc_meaning = str_trim(str_to_upper(atc_meaning))) %>%
+  { .} ->pbs_drugs
+
+head(pbs_drugs)
+```
+# Match BNF drugs to PBS drugs
+This matching can be done by two different ways. They are:
+
+  a) Matching BNF drug names with "drugs names" used in PBS_ITEM \n
+  B) Matching BNF drug names with "atc_meaning" of drugs used in PBS_ATC
+
+# Matching BNF drug_names with "drugs names" in PBS_DRUGS
+
+```{r Selecting the pbs_items drug_name to match with BNF drug_name}
+
+pbs_drugs %>% 
+  inner_join(final_drugs,by=c("drug_name"="drug2")) %>%
+  select(pbs_code,drug_name,atc_meaning,atc_code)%>%
+  distinct(pbs_code,drug_name,atc_meaning,atc_code)%>%
+  mutate(bnf_drug_name=drug_name) %>%
+  mutate(match_type="dm_I") %>%
+  rename(pbs_drug_name = drug_name)%>%
+  {.} -> direct_match_item
+
+direct_match_item = subset(direct_match_item,select=c(1,5,2,3,4,6))
+
+final_drugs %>% 
+  inner_join(pbs_drugs,by=c("drug2"="drug_name")) %>%
+  distinct( drug2)%>%
+  count()
+```
+Number of drugs in BNF which have direct match with "drug_name" in PBS_DRUGS is 319
+
+```{r drugs in BNF not having a direct match with DRUG_NAME in pbs_drugs}
+final_drugs %>% 
+  anti_join(pbs_drugs,by=c("drug2"="drug_name")) %>%
+  rename( drug_name = drug2) %>%
+  {.} -> drugs_to_match
+
+drugs_to_match$drug_name[2] <- "ST JOHNS WORT"
+
+cat("list of drugs to match using ATC_MEANING")
+head(drugs_to_match)
+```
+## Groups 
+  * possibly ending with "S"
+  
+Before matching the remaining drugs in BNF with atc_meaning in PBS, first we will try to get the list of Groups. 
+```{r}
+drugs_to_match %>%
+  filter( endsWith(drug_name, 'S')) %>%
+  {.}->drug_groups
+
+#The possible group of drugs from BNF are as follows:
+  
+head(drug_groups)
+```
+## Remaining Drugs
+```{r}
+drugs_to_match %>%
+  filter( ! endsWith(drug_name, 'S')) %>%
+  {.}->drug_not_matched
+
+```
+
+# Matching BNF drug_names with "atc_meaning" in PBS_DRUGS
+
+Out of 258 not mathched drug, we have 77 group and 181 not matched drug.
+
+```{r}
+pbs_drugs %>%
+  inner_join(drug_not_matched,by=c("atc_meaning"="drug_name")) %>%
+  select(pbs_code,drug_name,atc_meaning,atc_code) %>%
+  distinct(pbs_code,drug_name,atc_meaning,atc_code)%>%
+  mutate(bnf_drug_name = atc_meaning)%>%
+  mutate(match_type="dm_A")%>%
+  rename(pbs_drug_name = drug_name)%>%
+  {.}->direct_match_atc
+
+direct_match_atc <- subset(direct_match_atc, select=c(1,5,2,3,4,6))
+
+drug_not_matched %>%
+  inner_join(pbs_drugs,by=c("drug_name"="atc_meaning")) %>%
+  distinct(drug_name)%>%
+  select(drug_name)%>%
+  {.}->matched_non_group
+
+#how many drugs FROM (BNF) have a direct match to atc_meaning in main table(PBS_DRUGS)
+drug_not_matched %>%
+  inner_join(pbs_drugs,by=c("drug_name"="atc_meaning")) %>%
+  distinct(drug_name)%>%
+  select(drug_name)%>%
+  count()
+```
+Out of 181 not matched drug , we have 145 matching drug with "atc_meaning". Now we need only 36 drug to match. Some of them are listed below:
+```{r}
+drug_not_matched %>%
+  anti_join(pbs_drugs,by=c("drug_name"="atc_meaning")) %>%
+  distinct(drug_name)%>%
+  select(drug_name)%>%
+  arrange(drug_name)%>%
+  {.}->remaining_drug 
+
+write.csv(remaining_drug,file="output/remainingdrug.csv")
+
+head(remaining_drug)
+```
+
+## Different method to verify result
+
+##########
+```{r}
+drug_to_match_withoutNA <- na.omit(drugs_to_match)
+
+main_table_withNA_ATC <- pbs_drugs%>%select(atc_meaning)
+
+main_table_withNA_ATC %>%
+  filter(atc_meaning!='NA') %>%
+  distinct(atc_meaning)%>%
+  arrange(atc_meaning)%>%
+  {.} -> pure_ATC
+
+pure_drug_maintable <- pbs_drugs %>% select(drug_name) %>% distinct(drug_name) 
+
+pure_drug_pbs <- na.omit(pure_drug_maintable) %>% 
+  rename(pbs_drug = drug_name)
+
+cat("how many drugs FROM BNF have a direct match to atc_meaning in main table")
+drug_not_matched %>%
+  inner_join(pure_ATC,by=c("drug_name"="atc_meaning")) %>%
+  count()
+  
+#########
+```
+
+
+# Matching Groups With PBS_Drugs
+
+##Matching with "atc_meaning" in PBS_Drug
+```{r}
+
+pbs_drugs %>%
+  inner_join(drug_groups,by=c("atc_meaning"="drug_name")) %>%
+  select(pbs_code,drug_name,atc_meaning,atc_code) %>%
+  distinct(pbs_code,drug_name,atc_meaning,atc_code) %>%
+  mutate(bnf_drug_name=atc_meaning) %>%
+  mutate(match_type="g_dm_A")%>%
+  rename(pbs_drug_name=drug_name) %>%
+  {.}->group_direct_match_atc
+
+group_direct_match_atc <- subset(group_direct_match_atc, select=c(1,5,2,3,4,6))
+
+drug_groups %>%
+  inner_join(pbs_drugs,by=c("drug_name"="atc_meaning")) %>%
+  distinct(drug_name)%>%
+  select(drug_name)%>%
+  {.}->matched_group
+
+cat("how many Group have a direct match to atc_meaning in main table")
+drug_groups %>%
+  inner_join(pbs_drugs,by=c("drug_name"="atc_meaning")) %>%
+  distinct(drug_name)%>%
+  select(drug_name)%>%
+  count()
+
+drug_groups %>%
+  anti_join(pbs_drugs,by=c("drug_name"="atc_meaning")) %>%
+  distinct(drug_name)%>%
+  select(drug_name)%>%
+  {.}->groups_to_match
+```
+
+##Matching remaining group with "drug_name" in PBS_Drug
+```{r}
+groups_to_match %>%
+  inner_join(pbs_drugs,by=c("drug_name"="drug_name")) %>%
+  distinct(drug_name)%>%
+  select(drug_name)%>%
+  {.}->matched_group
+
+# No groups were matched with drug_name
+```
+
+Out of 77 Group , we have 24 matching drug with atc_meaning, so now we need 53 drug-groups to find. 
+```{r}
+remaining_groups <- groups_to_match
+
+write.csv(remaining_groups,file="output/TotalGroupsToMatch.csv")
+
+head(remaining_groups)
+```
+
+# Getting help
+We asked some interns from School of Health Science to help us to find the pbs_code or atc_code for remaining drugs and remaining groups. There help was so important to move forward with this project.
+
+They found almost all the atc_code of remaining drugs, which is listed below:
+```{r}
+read.csv( 'Helped/matched_remainingdrug.csv') %>%
+  as.tibble() %>% 
+  select(drug_name,h_atc_code)%>%
+{ . } -> matched_remaining_drugs
+
+head(matched_remaining_drugs)
+```
+
+But, unfortunately only few atc_code were found for groups, which are listed below:
+```{r}
+read.csv( 'Helped/Matched_Groups.csv') %>%
+  as.tibble() %>% 
+  select(drug_name,h_atc_code)%>%
+  mutate(h_atc_code = as.character(h_atc_code), drug_name = as.character(drug_name))%>%
+  rename(bnf_drug_name = drug_name) %>%
+{ . } -> matched_remaining_group
+
+head(matched_remaining_group)
+
+
+```
+# Checking intern work to help us
+```{r Check Ahmel work}
+#matched_remaining_drugs
+#matched_remaining_group
+
+matched_remaining_drugs %>%
+  mutate(h_atc_code = as.character(h_atc_code),drug_name = as.character(drug_name))%>%
+  rename(bnf_drug_name= drug_name) %>%
+  {.} -> helped_atc_code
+
+helped_atc_code %>%
+  inner_join(pbs_drugs, by = c("h_atc_code"="atc_code")) %>%
+  select(pbs_code,bnf_drug_name,drug_name,atc_meaning,h_atc_code) %>%
+  distinct(pbs_code,bnf_drug_name,drug_name,atc_meaning,h_atc_code) %>%
+  rename(atc_code = h_atc_code,pbs_drug_name=drug_name) %>%
+  mutate(match_type="Ah_D_dm")%>%
+  {.} -> anydrug_findings_atc
+
+######################################
+
+matched_remaining_group %>%
+  {.} -> helpeg_atc_code
+
+helpeg_atc_code %>%
+  inner_join(pbs_drugs, by = c("h_atc_code"="atc_code")) %>%
+  select(pbs_code,bnf_drug_name,drug_name,atc_meaning,h_atc_code) %>%
+  distinct(pbs_code,bnf_drug_name,drug_name,atc_meaning,h_atc_code) %>%
+  rename(atc_code = h_atc_code,pbs_drug_name=drug_name) %>%
+  mutate(match_type="Ah_G_dm")%>%
+  {.} -> anygroup_findings_atc
+
+
+```
+
+# Keeping all together
+```{r}
+dim(direct_match_item)
+
+dim(direct_match_atc)
+
+dim(group_direct_match_atc)
+
+dim(anydrug_findings_atc)
+
+dim(anygroup_findings_atc)
+
+final_list <- rbind(direct_match_item,direct_match_atc,group_direct_match_atc,anydrug_findings_atc,anygroup_findings_atc)
+
+head(final_list)
+
+write.csv(final_list,file = "output/FinalMatchingList.csv")
+
+```
+
+
+
