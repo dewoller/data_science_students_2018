@@ -28,6 +28,22 @@ ddd_who <- read.csv(file="data/ddd_who.csv",header=TRUE,sep=";") %>% as.tibble()
 pbs_item <- read.csv(file="data/pbs_item.csv",header=TRUE, sep=";")  %>% as.tibble()
 
 
+pbs_item %>% 
+  mutate( a=str_extract(drug_name,"mcg")) %>%
+  filter( !is.na(a))
+
+
+read.csv('/tmp/aitem.csv' ) %>% as.tibble() -> item
+
+read.csv('/tmp/continuing_item.csv' ) %>% as.tibble() -> citem
+
+item %>%
+  anti_join( citem, by=c('pbs_code'='item_code'))
+
+citem %>%
+  anti_join( item, by=c('item_code'='pbs_code')) %>% View
+
+
 
 #create a copy of pbs_item dataframe and add three columns:form_type ,unit_wt,adm_route
 final_pbs <- pbs_item
