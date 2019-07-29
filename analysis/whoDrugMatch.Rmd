@@ -6,10 +6,10 @@ output: html_document
 ---
 ```{r loadlibrary,message=FALSE}
 
- library('tidyverse')
- library('workflowr')
- library('stringr')
- library('dplyr')
+library('tidyverse')
+library('workflowr')
+library('stringr')
+library('dplyr')
 library('readxl')
 ```
 
@@ -24,42 +24,41 @@ The main task is to match the drug form pbs_item with ddd_who table
 * final_pbs: copy of pbs_item along with form_type, unit_wt and adm_route whose initial values are NA
 
 ```{r prepare data}
-ddd_who <- read.csv(file="data/ddd_who.csv",header=TRUE,sep=";")
-pbs_item <- read.csv(file="data/pbs_item.csv",header=TRUE, sep=";") 
+ddd_who <- read.csv(file="data/ddd_who.csv",header=TRUE,sep=";") %>%
+  as.tibble()
+pbs_item <- read.csv(file="data/pbs_item.csv",header=TRUE, sep=";")  %>%
+  as.tibble()
 
-pbs_item %>% 
-  mutate( a=str_extract(drug_name,"mcg")) %>%
-  filter( !is.na(a))
+#pbs_item %>% 
+#  mutate( a=str_extract(drug_name,"mcg")) %>%
+#  filter( !is.na(a))
 
-
-read.csv('/tmp/aitem.csv' ) %>% as.tibble() -> item
-
-read.csv('/tmp/continuing_item.csv' ) %>% as.tibble() -> citem
-
-item %>%
-  anti_join( citem, by=c('pbs_code'='item_code'))
-
-citem %>%
-  anti_join( item, by=c('item_code'='pbs_code')) %>% View
+#
+#read.csv('/tmp/aitem.csv' ) %>% as.tibble() -> item
+#
+#read.csv('/tmp/continuing_item.csv' ) %>% as.tibble() -> citem
+#
+#item %>%
+#  anti_join( citem, by=c('pbs_code'='item_code'))
+#
+#citem %>%
+#  anti_join( item, by=c('item_code'='pbs_code')) %>% View
 
 
 ```
 
 #create a copy of pbs_item dataframe and add three columns:form_type ,unit_wt,adm_route
 ```{r}
-final_pbs <- cbind(pbs_item) 
-final_pbs["form_type"] <- NA
-final_pbs["adm_route"] <-NA
-final_pbs["final_unit"] <- NA
-final_pbs["form_strength"] <-tolower(final_pbs$form_strength)
+
+pbs_item %>% 
+  mutate( form_type=NA,
+            adm_route=NA,
+            final_unit=NA,
+            form_strength = tolower(final_pbs$form_strength)
+            )  %>% 
+  { . } -> final_pbs
+
 ```
-
-
-# Try to categorise the different form_strengths
-* Tasks:
-1) find out what types they are
-2) find out how many grams they are
-
 ## Categorise form_strengths
 ### Tasks:
 1) find out what types (form_type)
@@ -81,8 +80,10 @@ x <- sapply(words, function(x) grepl(tolower(x), tolower(final_pbs$form_strength
 # paste the matching words together
 final_pbs$form_type <- apply(x, 1, function(i) paste0(names(i)[i], collapse = ","))
 
-```
+#final_pbs %>%
+#  filter( str_detect(form_type, ',' )) 
 
+```
 
 #return all the row that have no specific form_type and replace by unknown
 ```{r} 
@@ -120,6 +121,7 @@ final_pbs$adm_route[final_pbs$form_type=="sublingual"]="SL"
 final_pbs$adm_route[final_pbs$form_strength == "powder for oral inhalation"] = "Inhal.powder"
 final_pbs$adm_route[final_pbs$form_strength == "solution for inhalation"] = "Inhal.sol"
 final_pbs$adm_route[final_pbs$form_strength == "pressurised inhalation"] = "Inhal.aerosol"
+
 ```
 
 
@@ -150,16 +152,20 @@ final_pbs$final_unit<- as.numeric(final_pbs$final_unit)
 
 #get the final unit
 
-for (i in 1:7614)
-if(!is.na(final_pbs$unit_wt_g[i]) & !is.na(final_pbs$unit_wt_mg[i])){
-  final_pbs$final_unit[i] =final_pbs$unit_wt_mg[i]+final_pbs$unit_wt_g[i]*1000
-}else{
-   if(is.na(final_pbs$unit_wt_g[i])){
-       final_pbs$final_unit[i] =final_pbs$unit_wt_mg[i]
-     }else if(is.na(final_pbs$unit_wt_mg[i])){
-         final_pbs$final_unit[i] = final_pbs$unit_wt_g[i]*1000
-}
-}
+final_pbs %>%
+  mutate( final_unit = 
+         ifelse( !is.na(unit_wt_g) & !is.na(unit_wt_mg),
+                unit_wt_mg+unit_wt_g*1000, 
+                ifelse( is.na(unit_wt_g), 
+                    unit_wt_mg,
+                    ifelse( is.na(unit_wt_mg),
+                      unit_wt_g*1000,
+                      final_unit )))) %>% 
+                      { . } -> final_pbs 
+
+#filter( !is.na( final_unit )) %>%   
+#filter( pbs_code == '08449Q')  %>%
+
 ```
 # clean up DDD administration route for better matching
 Clean adm_route of ddd_who to match with pbs_item
@@ -202,8 +208,11 @@ final_pbs%>%
   mutate(uadm_route = adm_route)%>%
   {.} ->existing_pbs_to_match
 
+
 cat("How many specific adm routes?")
 existing_pbs_to_match %>% count(adm_route,sort = TRUE)
+
+
 ```
 #find the unknown routes
 ```{r}
@@ -218,8 +227,9 @@ write.csv(unknown_routes, file = 'data/total_unknown_routes.csv')
 #existing pbs to match with combing total unknown routes  2689
 #read data from Sedar
 ```{r}
+
 read_excel('output/total_unknown_routes.xlsx')%>%
-  select(-X__1)%>%
+  select(-1)%>%
   mutate(final_unit=as.numeric(final_unit),
          unit_wt_mg = as.numeric(unit_wt_mg),
          unit_wt_g = as.numeric(unit_wt_g))%>%
@@ -230,6 +240,7 @@ read_excel('output/total_unknown_routes.xlsx')%>%
 #first remove and data with na and unknown from existing_pbs_to_match then
 #bind the data
 ```{r}
+
 existing_pbs_to_match %>% 
   anti_join(unknown_routes, by=c('pbs_code'))%>%
   bind_rows(figured_out_routes)%>%
@@ -240,18 +251,22 @@ existing_pbs_to_match %>%
 
 
 ```{r}
+
 #find the unknown final_unit in existing_pbs_to_match
 existing_pbs_to_match%>% filter(!is.na(existing_pbs_to_match$unit_wt_ml)|is.na(existing_pbs_to_match$final_unit))%>%
 {.} ->unknown_quantity
 
 #336 unknown quantity
 write.csv(unknown_quantity, file = 'data/unknown_quantity.csv')
+
 ```
 
 #find the unkown units and combine to final_pbs_to_match
+
 ```{r}
+
 read_excel('output/unknown_quantity.xlsx')%>%
-  select(-X__1)%>%
+  select(-1)%>%
   mutate(final_unit=as.numeric(final_unit),
          unit_wt_mg = as.numeric(unit_wt_mg),
          unit_wt_g = as.numeric(unit_wt_g))%>%
@@ -262,11 +277,14 @@ read_excel('output/unknown_quantity.xlsx')%>%
 
 #Add a coulmn units in final_existing_pbs_to_match and rename final_unit to quantity
 ```{r}
+
 colnames(final_existing_pbs_to_match)[which(names(final_existing_pbs_to_match) == "final_unit")] <- "quantity"
 final_existing_pbs_to_match$units = "mg"
+
 ```
 #bind the data
 ```{r}
+
 final_existing_pbs_to_match %>% 
   anti_join(unknown_quantity, by=c('pbs_code'))%>%
   bind_rows(figured_out_quantity)%>%
@@ -281,9 +299,11 @@ all_existing_pbs_to_match%>%filter(adm_route=="UNKNOWN")
 # TO Do
 * find all the routes for unknown routes in unknown_routes.csv
 * finally join all_existing_pbs_to _match with ddd_who
+
 ```{r match with ddd_who table, warning=FALSE}
 
 all_existing_pbs_to_match%>%
   inner_join(ddd_who, c("atc_code" = "atc","adm_route" = "adm_route")) %>%
   { .} ->pbs_who
+
 ```
