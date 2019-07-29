@@ -1,0 +1,25 @@
+```{r test  }
+
+pbs_item %>% 
+  as_tibble() %>%
+  filter( pbs_code == '08449Q')  %>%
+
+  all_existing_pbs_to_match %>%
+filter( pbs_code == '08449Q')  %>%
+
+existing_pbs_to_match %>%
+filter( pbs_code == '08449Q')  %>%
+
+existing_pbs %>%
+filter( pbs_code == '08449Q')  %>%
+
+
+tibble( atc = c("C09BA04","C09DA04","C09DA07","C09DA06","C09BA09","C09BB04","C01BD","C03EA01","C09DA02")) %>%
+  anti_join( ddd_who ) %>%
+
+
+
+ddd_who %>%
+filter( startsWith( as.character( atc) , 'C09') ) %>%
+
+
